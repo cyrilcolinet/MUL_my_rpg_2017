@@ -25,13 +25,13 @@ AR 					= 	ar rcs
 
 CP 					= 	cp
 
-RM 					= 	rm -f
+RM 					= 	rm -rf
 
 INCLUDE 			= 	./include
 
 REMOTE_INCLUDE 		= 	../../include/lizz
 
-INCLUDE_FILE		= 	my.h
+INCLUDE_FILE		= 	*.h
 
 LIB_OBJ 			= 	$(SRC:.c=.o)
 

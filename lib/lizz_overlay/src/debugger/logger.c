@@ -11,7 +11,7 @@
 
 void lizz_info(char *msg)
 {
-	if (_debug) {
+	if (lizz->debug) {
 		lizz_print(2, msg);
 	}
 }
