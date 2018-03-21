@@ -41,7 +41,7 @@ clean:
 	rm -f $(OBJ_TEST)
 
 fclean:	clean
-	make -C lib/my fclean
+	make -C lib fclean
 	rm -f $(NAME)
 	rm -f $(TEST)
 	find -name '*.gc*' -delete
@@ -59,7 +59,7 @@ $(NAME):	lib obj
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 lib:
-	make -C lib/my
+	make -C lib
 
 obj:
 	$(foreach src, $(SRC), $(CC) $(CFLAGS) -c $(src) $(INCLUDE) -o $(src:.c=.o);)
