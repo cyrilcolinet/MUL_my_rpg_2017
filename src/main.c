@@ -5,15 +5,17 @@
 ** main function
 */
 
-# include "rpg.h"
+#include "rpg.h"
 
 int main(int ac, char **av, char **env)
 {
 	int res = 0;
 
-	if (*env == NULL)
+	sfRenderTexture *topkek;
+	Py_Initialize();
+	if (env == NULL)
 		return (84);
 
-	res = main_rpg(ac, av);
+//	res = main_rpg(ac, av);
 	return (res);
 }

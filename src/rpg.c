@@ -5,7 +5,7 @@
 ** RPG functions
 */
 
-# include "rpg.h"
+#include "rpg.h"
 
 int main_rpg(int ac, char **av)
 {

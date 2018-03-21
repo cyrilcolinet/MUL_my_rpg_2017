@@ -17,6 +17,7 @@
 
 # include "my.h"
 # include "struct.h"
+#include <python3.6m/Python.h>
 
 // rpg.c
 int 		main_rpg(int ac, char **av);
