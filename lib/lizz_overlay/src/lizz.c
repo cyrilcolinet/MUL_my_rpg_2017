@@ -8,16 +8,15 @@
 # include "debug.h"
 # include "lizz.h"
 
-lizz_t *lizz_configure(bool debug)
+lizz_t *lizz_configure(void)
 {
 	lizz_t *conf = malloc(sizeof(lizz_t));
 
-	if (!conf) {
+	if (conf == NULL) {
 		lizz_error("Unable to alloc: Out of memory.\n");
 		return (NULL);
 	}
 
-	conf->debug = debug;
 	conf->btn = malloc(sizeof(button_t));
 
 	if (!conf->btn) {
@@ -30,7 +29,8 @@ lizz_t *lizz_configure(bool debug)
 
 int lizz_start(bool debug)
 {
-	lizz = lizz_configure(debug);
+	_debug = debug;
+	lizz = lizz_configure();
 
 	if (!lizz)
 		return (-1);

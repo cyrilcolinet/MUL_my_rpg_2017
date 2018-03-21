@@ -11,7 +11,7 @@
 
 void lizz_info(char *msg)
 {
-	if (lizz->debug) {
+	if (_debug) {
 		lizz_print(1, " INF -> ");
 		lizz_print(1, msg);
 	}
@@ -19,8 +19,8 @@ void lizz_info(char *msg)
 
 void lizz_error(char *msg)
 {
-	if (lizz->debug) {
-		lizz_print(1, " ERR -> ");
-		lizz_print(1, msg);
+	if (_debug) {
+		lizz_print(2, " ERR -> ");
+		lizz_print(2, msg);
 	}
 }

@@ -13,9 +13,11 @@ int main(void)
 	sfRenderWindow *win = NULL;
 	sfEvent event;
 
+	if (lizz_start(true) < 0) // Start lizz overlay
+		return (84);
+
 	win = sfRenderWindow_create(video, "Lizz Overlay", sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(win, 60);
-	lizz_start(true); // Start lizz overlay
 
 	while (sfRenderWindow_isOpen(win)) {
 		while (sfRenderWindow_pollEvent(win, &event))

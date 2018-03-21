@@ -28,7 +28,6 @@ typedef struct button_t {
 } 	button_t;
 
 typedef struct lizz_t {
-	bool 			debug;
 	button_t 		*btn;
 }	lizz_t;
 

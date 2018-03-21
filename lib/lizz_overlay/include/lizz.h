@@ -12,7 +12,7 @@
 
 lizz_t 		*lizz;
 
-lizz_t 		*lizz_configure(bool debug);
+lizz_t 		*lizz_configure(void);
 int 		lizz_start(bool debug);
 void 		lizz_stop(void);
 
