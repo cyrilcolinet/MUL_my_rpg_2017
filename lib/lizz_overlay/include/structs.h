@@ -15,10 +15,13 @@
 # include <SFML/OpenGL.h>
 # include <SFML/System.h>
 # include <SFML/Window.h>
+
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
+
+# include "config.h"
 
 typedef struct button_t {
 	struct button_t *next;
