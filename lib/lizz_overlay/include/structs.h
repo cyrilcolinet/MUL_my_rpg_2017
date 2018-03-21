@@ -15,18 +15,26 @@
 # include <SFML/OpenGL.h>
 # include <SFML/System.h>
 # include <SFML/Window.h>
+
 # include <stdlib.h>
 # include <stdio.h>
 # include <unistd.h>
 # include <stdbool.h>
+# include <string.h>
 
-typedef struct button_t {
-	struct button_t *next;
-} 	button_t;
+# include "config.h"
+
+typedef struct btn_t {
+	char 			*name;
+	menu_e 			belongsTo;
+	sfSprite 		*sprite;
+	sfTexture 		*texture;
+	void 			(*setTexture)(struct btn_t *, char *, sfIntRect *);
+	struct btn_t *next;
+} 	btn_t;
 
 typedef struct lizz_t {
-	bool 			debug;
-	button_t 		*btn;
+	btn_t	 		*btn;
 }	lizz_t;
 
 # endif

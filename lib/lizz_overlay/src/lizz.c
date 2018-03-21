@@ -8,22 +8,18 @@
 # include "debug.h"
 # include "lizz.h"
 
-lizz_t *lizz_configure(bool debug)
+lizz_t *lizz_configure(void)
 {
 	lizz_t *conf = malloc(sizeof(lizz_t));
 
-	if (!conf) {
-		lizz_error("Unable to start lizz overlay. ");
-		lizz_error("Reason: Out of memory.\n");
+	if (conf == NULL) {
+		lizz_error("Unable to alloc lizz_t: Out of memory.\n");
 		return (NULL);
 	}
 
-	conf->debug = debug;
-	conf->btn = malloc(sizeof(button_t));
-
+	conf->btn = malloc(sizeof(btn_t));
 	if (!conf->btn) {
-		lizz_error("Unable to start lizz overlay. ");
-		lizz_error("Reason: Out of memory.\n");
+		lizz_error("Unable to alloc button_t: Out of memory.\n");
 		return (NULL);
 	}
 
@@ -32,15 +28,17 @@ lizz_t *lizz_configure(bool debug)
 
 int lizz_start(bool debug)
 {
-	lizz = lizz_configure(debug);
+	_debug = debug;
+	lizz = lizz_configure();
 
 	if (!lizz)
 		return (-1);
 
+	lizz_info("Debug mode enabled.\n");
 	return (0);
 }
 
-void lizz_quit(void)
+void lizz_stop(void)
 {
 	free(lizz->btn);
 	free(lizz);

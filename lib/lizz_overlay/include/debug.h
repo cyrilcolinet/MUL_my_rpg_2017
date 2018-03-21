@@ -10,6 +10,8 @@
 
 # include "structs.h"
 
+bool 		_debug;
+
 void 		lizz_info(char *msg);
 void 		lizz_error(char *msg);
 
