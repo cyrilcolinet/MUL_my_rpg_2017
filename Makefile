@@ -11,7 +11,7 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-l c_graph_prog -l python3.6m -L lib/ -lmy
+LDFLAGS		=	-l c_graph_prog -l python3.6m -L lib/ -lmy -llizz
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
