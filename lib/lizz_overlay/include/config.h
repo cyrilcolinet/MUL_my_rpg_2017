@@ -22,7 +22,8 @@ typedef enum menu_e {
 	stMain,
 	stPause,
 	stSettings,
-	stSave
+	stSave,
+	stCustom
 } 	menu_e;
 
 # endif

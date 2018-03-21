@@ -14,6 +14,6 @@ lizz_t 		*lizz;
 
 lizz_t 		*lizz_configure(bool debug);
 int 		lizz_start(bool debug);
-void 		lizz_quit(void);
+void 		lizz_stop(void);
 
 # endif

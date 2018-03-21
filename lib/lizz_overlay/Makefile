@@ -11,13 +11,15 @@
 
 NAME 				= 	liblizz.a
 
+TESTS 				= 	lizz_tests
+
 SRCNAMES			= 	lizz.c 							\
 						debugger/logger.c 				\
 						utils/str_functions.c
 
 SRC 				= 	$(addprefix src/, $(SRCNAMES))
 
-CFLAGS 				= 	-Wall -Wextra -I./include
+CFLAGS 				= 	-Wall -Wextra -I./include -g3
 
 CC					= 	gcc
 
@@ -45,6 +47,7 @@ $(NAME):			$(LIB_OBJ)
 
 clean:
 					$(RM) $(LIB_OBJ)
+					$(RM) $(TESTS)
 
 fclean: 			clean
 					$(RM) ../$(NAME)
@@ -52,3 +55,6 @@ fclean: 			clean
 					$(RM) $(REMOTE_INCLUDE)
 
 re: 				fclean all
+
+tests:				re
+					$(CC) $(CFLAGS) tests/*.c -lc_graph_prog -L../ -llizz -o $(TESTS)
