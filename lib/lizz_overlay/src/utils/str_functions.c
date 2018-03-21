@@ -14,10 +14,8 @@ int lizz_strlen(char *str)
 
 	if (!str)
 		return (0);
-
 	while (*str)
 		str++, size++;
-
 	return (size);
 }
 
@@ -27,7 +25,6 @@ void lizz_print(int fd, char *text)
 
 	if (fd < 0 || !text)
 		return;
-
 	len = lizz_strlen(text);
 	write(fd, text, len);
 }

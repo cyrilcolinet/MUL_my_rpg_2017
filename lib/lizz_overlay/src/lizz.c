@@ -13,13 +13,13 @@ lizz_t *lizz_configure(void)
 	lizz_t *conf = malloc(sizeof(lizz_t));
 
 	if (conf == NULL) {
-		lizz_error("Unable to alloc: Out of memory.\n");
+		lizz_error("Unable to alloc lizz_t: Out of memory.\n");
 		return (NULL);
 	}
 
 	conf->btn = malloc(sizeof(button_t));
 	if (!conf->btn) {
-		lizz_error("Unable to alloc: Out of memory.\n");
+		lizz_error("Unable to alloc button_t: Out of memory.\n");
 		return (NULL);
 	}
 
