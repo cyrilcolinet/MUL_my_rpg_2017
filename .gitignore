@@ -66,3 +66,5 @@ my_rpg
 .clang_complete
 README.md
 include/lizz/
+
+__pycache__/

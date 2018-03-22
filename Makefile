@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2018
-## PSU_tetris_2017
+## my_rpg_2017
 ## File description:
 ## Makefile
 ##
