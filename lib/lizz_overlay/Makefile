@@ -17,7 +17,8 @@ SRCNAMES			= 	lizz.c 							\
 						debugger/logger.c 				\
 						utils/str_functions.c 			\
 						managers/buttons_manager.c 		\
-						buttons/btn_textures.c
+						buttons/btn_textures.c 			\
+						buttons/btn_sprites.c
 
 SRC 				= 	$(addprefix src/, $(SRCNAMES))
 

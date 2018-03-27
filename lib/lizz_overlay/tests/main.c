@@ -22,7 +22,11 @@ int main(void)
 	lizz_btn_create("fraise", stMain);
 
 	btn = lizz_get_btn("fraise", stMain);
-	btn->setTexture(btn, "a.png", NULL);
+	btn->setTexture(btn, "../../assets/buttons/buttons.png", NULL);
+	btn->setPosition(btn, 20, 20);
+	sfIntRect r = { 30, 45, 45, 65 };
+	btn->setTextureRect(btn, &r);
+	btn->setTextureRect(btn, NULL);
 
 	while (sfRenderWindow_isOpen(win)) {
 		while (sfRenderWindow_pollEvent(win, &event))

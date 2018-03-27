@@ -18,7 +18,11 @@ int 		lizz_start(bool debug);
 void 		lizz_stop(void);
 
 // buttons/btn_textures.c
-void 		lizz_btn_set_texture(btn_t *btn, char *path, sfIntRect *rect);
+void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);
+
+// buttons/btn_sprites.c
+void 		lizz_btn_set_position(btn_t *btn, int x, int y);
+void 		lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect);
 
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
@@ -26,6 +30,6 @@ void 		lizz_btn_set_texture(btn_t *btn, char *path, sfIntRect *rect);
 
 // Buttons
 int 		lizz_btn_create(char *name, menu_e belongsTo);
-btn_t	*lizz_get_btn(char *name, menu_e belongsTo);
+btn_t		*lizz_get_btn(char *name, menu_e belongsTo);
 
 # endif
