@@ -5,7 +5,18 @@
 ** btn_textures functions
 */
 
+# include "utils.h"
+# include "debug.h"
 # include "lizz.h"
+
+static void print_debug(char *btn, char *file)
+{
+	lizz_info("Texture of \"");
+	lizz_print(1, btn);
+	lizz_print(1, "\" button changed to \"");
+	lizz_print(1, file);
+	lizz_print(1, "\"\n");
+}
 
 /*
 ** Appliquer une texture au bouton avec son rectangle
@@ -17,8 +28,10 @@
 */
 void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
 {
-	if (!btn)
+	if (!btn) {
+		lizz_error("Button can't be NULL.\n");
 		return;
+	}
 
 	btn->texture = sfTexture_createFromFile(file, rect);
 	btn->rect = rect;
@@ -27,4 +40,11 @@ void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
 
 	btn->sprite = sfSprite_create();
 	sfSprite_setTexture(btn->sprite, btn->texture, sfFalse);
+	print_debug(btn->name, file);
+}
+
+
+void lizz_btn_set_texture_rect(btn_t *btn)
+{
+	
 }

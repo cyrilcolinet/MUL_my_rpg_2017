@@ -20,6 +20,9 @@ void 		lizz_stop(void);
 // buttons/btn_textures.c
 void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);
 
+// buttons/btn_sprites.c
+void 		lizz_btn_set_position(btn_t *btn, int x, int y);
+
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
 // # # # # # # # # # # # # # # //

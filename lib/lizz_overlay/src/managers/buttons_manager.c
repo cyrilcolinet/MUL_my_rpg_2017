@@ -29,6 +29,7 @@ static btn_t *new_btn_node(void)
 static btn_t *set_functions(btn_t *btn)
 {
 	btn->setTexture = &lizz_btn_set_texture;
+	btn->setPosition = &lizz_btn_set_position;
 
 	return (btn);
 }
