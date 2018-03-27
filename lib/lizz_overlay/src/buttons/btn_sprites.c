@@ -20,6 +20,7 @@ static void print_debug_1(char *btn, int x, int y)
 	lizz_print(1, "\n");
 }
 
+// TODO: free itoa
 static void print_debug_2(char *btn, sfIntRect rect, bool reset)
 {
 	lizz_info("Texture rect of \"");
