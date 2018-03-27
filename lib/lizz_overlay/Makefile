@@ -17,6 +17,7 @@ SRCNAMES			= 	lizz.c 							\
 						debugger/logger.c 				\
 						utils/str_functions.c 			\
 						managers/buttons_manager.c 		\
+						managers/destroy_manager.c 		\
 						buttons/actions/btn_actions.c 	\
 						buttons/btn_textures.c 			\
 						buttons/btn_sprites.c 			\

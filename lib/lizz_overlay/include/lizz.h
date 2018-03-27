@@ -16,6 +16,7 @@ lizz_t 		*lizz;
 lizz_t 		*lizz_configure(void);
 int 		lizz_start(bool debug);
 void 		lizz_stop(void);
+void 		lizz_destroy_all(void);
 
 // buttons/btn_textures.c
 void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);

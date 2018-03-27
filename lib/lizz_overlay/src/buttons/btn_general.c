@@ -27,6 +27,4 @@ void lizz_btn_destroy(btn_t *btn)
 	lizz_info("Sprite of \"");
 	lizz_print(1, btn->name);
 	lizz_print(1, "\" button has been destroyed!\n");
-	if (btn->name)
-		free(btn->name);
 }

@@ -5,25 +5,25 @@
 ** buttons_manager functions
 */
 
+# include "utils.h"
 # include "debug.h"
 # include "lizz.h"
 
 static btn_t *new_btn_node(void)
 {
-	btn_t *tmp = lizz->btn;
+	btn_t **tmp = &lizz->btn;
 
-	while (tmp->next != NULL)
-		tmp = tmp->next;
+	while (*tmp != NULL)
+		printf("%s\n", "salut"), *tmp = (*tmp)->next;
 
-	free(tmp->next);
-	tmp->next = malloc(sizeof(btn_t));
+	*tmp = malloc(sizeof(btn_t));
 
-	if (tmp->next == NULL) {
+	if (*tmp == NULL) {
 		lizz_error("Unable to alloc button_t: Out of memory.\n");
 		return (NULL);
 	}
 
-	return (tmp->next);
+	return (*tmp);
 }
 
 static btn_t *set_functions(btn_t *btn)
@@ -40,13 +40,14 @@ int lizz_btn_create(char *name, menu_e belongsTo)
 {
 	btn_t *btn = NULL;
 
-	if (!name) {
+	if (!name || lizz_strlen(name) == 0) {
 		lizz_error("name must be not empty.\n");
 		return (-1);
 	}
 	btn = new_btn_node();
 	if (!btn)
 		return (-1);
+
 	btn->name = name;
 	btn->belongsTo = belongsTo;
 	btn->texture = NULL;
@@ -61,10 +62,10 @@ btn_t *lizz_get_btn(char *name, menu_e belongsTo)
 {
 	btn_t *tmp = lizz->btn;
 
-	while (tmp->next != NULL) {
-		if (strcmp(tmp->next->name, name) == 0) { // TODO: Forbidden function
-			if (tmp->next->belongsTo == belongsTo) {
-				return (tmp->next);
+	while (tmp != NULL) {
+		if (strcmp(tmp->name, name) == 0) { // TODO: Forbidden function
+			if (tmp->belongsTo == belongsTo) {
+				return (tmp);
 			}
 		}
 		tmp = tmp->next;

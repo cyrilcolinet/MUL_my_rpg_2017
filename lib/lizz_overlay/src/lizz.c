@@ -17,11 +17,7 @@ lizz_t *lizz_configure(void)
 		return (NULL);
 	}
 
-	conf->btn = malloc(sizeof(btn_t));
-	if (!conf->btn) {
-		lizz_error("Unable to alloc button_t: Out of memory.\n");
-		return (NULL);
-	}
+	conf->btn = NULL;
 
 	return (conf);
 }
@@ -40,6 +36,7 @@ int lizz_start(bool debug)
 
 void lizz_stop(void)
 {
+	lizz_destroy_all();
 	free(lizz->btn);
 	free(lizz);
 }
