@@ -44,7 +44,7 @@ typedef struct btn_t {
 	sfSprite 			*sprite;
 	sfTexture 			*texture;
 	sfIntRect			*rect;
-	sfIntRect			*def_rect;
+	sfIntRect			def_rect;
 	pos_t 				current_pos;
 	btn_texture_t 		setTexture;
 	btn_texture_rect_t	setTextureRect;

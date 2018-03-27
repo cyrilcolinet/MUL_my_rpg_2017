@@ -33,7 +33,7 @@ static void print_debug_2(char *btn, sfIntRect rect, bool reset)
 	lizz_print(1, ", left = ");
 	lizz_print(1, lizz_itoa(rect.left));
 	if (reset)
-		lizz_print(1, " (reset by default)")
+		lizz_print(1, " (reset by default)");
 	lizz_print(1, "\n");
 }
 
@@ -81,13 +81,12 @@ void lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect)
 		lizz_error("Button can't be NULL.\n");
 		return;
 	}
-	if (!btn->sprite || !btn->name || !btn->rect || !btn->def_rect)
+
+	if (!btn->sprite || !btn->name)
 		return;
+
 	if (rect == NULL) {
-		r.height = btn->def_rect->height;
-		r.width = btn->def_rect->width;
-		r.top = btn->def_rect->top;
-		r.left = btn->def_rect->left;
+		r = btn->def_rect;
 		reset = true;
 	} else
 		r = *rect;
