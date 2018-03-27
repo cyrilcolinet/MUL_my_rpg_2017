@@ -20,7 +20,7 @@ static void print_debug_1(char *btn, int x, int y)
 	lizz_print(1, "\n");
 }
 
-static void print_debug_2(char *btn, sfIntRect rect)
+static void print_debug_2(char *btn, sfIntRect rect, bool reset)
 {
 	lizz_info("Texture rect of \"");
 	lizz_print(1, btn);
@@ -32,6 +32,8 @@ static void print_debug_2(char *btn, sfIntRect rect)
 	lizz_print(1, lizz_itoa(rect.top));
 	lizz_print(1, ", left = ");
 	lizz_print(1, lizz_itoa(rect.left));
+	if (reset)
+		lizz_print(1, " (reset by default)")
 	lizz_print(1, "\n");
 }
 
@@ -73,23 +75,23 @@ void lizz_btn_set_position(btn_t *btn, int x, int y)
 void lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect)
 {
 	sfIntRect r;
+	bool reset = false;
 
 	if (!btn) {
 		lizz_error("Button can't be NULL.\n");
 		return;
 	}
-
 	if (!btn->sprite || !btn->name || !btn->rect || !btn->def_rect)
 		return;
-
 	if (rect == NULL) {
 		r.height = btn->def_rect->height;
 		r.width = btn->def_rect->width;
 		r.top = btn->def_rect->top;
 		r.left = btn->def_rect->left;
+		reset = true;
 	} else
 		r = *rect;
 
 	sfSprite_setTextureRect(btn->sprite, r);
-	print_debug_2(btn->name, r);
+	print_debug_2(btn->name, r, reset);
 }
