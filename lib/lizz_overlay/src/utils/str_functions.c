@@ -13,9 +13,6 @@ char *lizz_strconfigure(size_t size)
 	char *ptr;
 	size_t i = 0;
 
-	if (!size)
-		return (NULL);
-
 	ptr = malloc(sizeof(char) * (size + 1));
 	if (!ptr)
 		return (NULL);
@@ -28,7 +25,7 @@ char *lizz_strconfigure(size_t size)
 
 char *lizz_itoa(int num)
 {
-	int len = 0;
+	int len = ((num == 0) ? 1 : 0);
 	int tmp = num;
 	char *ptr = NULL;
 
