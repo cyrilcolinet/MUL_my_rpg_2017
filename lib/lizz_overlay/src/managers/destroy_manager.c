@@ -16,15 +16,7 @@ static void destroy_all_btn(void)
 	while (lizz->btn != NULL) {
 		tmp = lizz->btn;
 		lizz->btn = lizz->btn->next;
-		//tmp->destroy(tmp);
-		sfTexture_destroy(tmp->texture);
-		lizz_info("Texture of \"");
-		lizz_print(1, tmp->name);
-		lizz_print(1, "\" button has been destroyed!\n");
-		sfSprite_destroy(tmp->sprite);
-		lizz_info("Sprite of \"");
-		lizz_print(1, tmp->name);
-		lizz_print(1, "\" button has been destroyed!\n");
+		tmp->destroy(tmp);
 		free(tmp);
 	}
 }
