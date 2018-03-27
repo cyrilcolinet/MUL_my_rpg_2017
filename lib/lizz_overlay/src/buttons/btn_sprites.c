@@ -67,18 +67,29 @@ void lizz_btn_set_position(btn_t *btn, int x, int y)
 ** @param (btn_t *btn) - Bouton
 ** @param (sfIntRect *rect) - Rectangle a mettre en place (hauteur, longeur,
 ** top et left)
+** Set rect to NULL equals to reset by default the rectangle shape
 ** @return (void)
 */
 void lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect)
 {
+	sfIntRect r;
+
 	if (!btn) {
 		lizz_error("Button can't be NULL.\n");
 		return;
 	}
 
-	if (!btn->sprite || !btn->name)
+	if (!btn->sprite || !btn->name || !btn->rect || !btn->def_rect)
 		return;
 
-	sfSprite_setTextureRect(btn->sprite, *rect);
-	print_debug_2(btn->name, *rect);
+	if (rect == NULL) {
+		r.height = btn->def_rect->height;
+		r.width = btn->def_rect->width;
+		r.top = btn->def_rect->top;
+		r.left = btn->def_rect->left;
+	} else
+		r = *rect;
+
+	sfSprite_setTextureRect(btn->sprite, r);
+	print_debug_2(btn->name, r);
 }

@@ -34,10 +34,11 @@ void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
 	}
 
 	btn->texture = sfTexture_createFromFile(file, rect);
-	btn->rect = rect;
 	if (!btn->texture)
 		return;
 
+	btn->rect = rect;
+	btn->def_rect = rect;
 	btn->sprite = sfSprite_create();
 	sfSprite_setTexture(btn->sprite, btn->texture, sfFalse);
 	print_debug(btn->name, file);
