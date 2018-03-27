@@ -42,9 +42,3 @@ void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
 	sfSprite_setTexture(btn->sprite, btn->texture, sfFalse);
 	print_debug(btn->name, file);
 }
-
-
-void lizz_btn_set_texture_rect(btn_t *btn)
-{
-	
-}

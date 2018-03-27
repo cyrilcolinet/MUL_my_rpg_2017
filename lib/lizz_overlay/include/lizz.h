@@ -22,6 +22,7 @@ void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);
 
 // buttons/btn_sprites.c
 void 		lizz_btn_set_position(btn_t *btn, int x, int y);
+void 		lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect);
 
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
