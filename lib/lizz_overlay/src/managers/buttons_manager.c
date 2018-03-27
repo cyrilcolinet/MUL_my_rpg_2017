@@ -30,6 +30,7 @@ static btn_t *set_functions(btn_t *btn)
 {
 	btn->setTexture = &lizz_btn_set_texture;
 	btn->setPosition = &lizz_btn_set_position;
+	btn->setTextureRect = &lizz_btn_set_texture_rect;
 
 	return (btn);
 }
