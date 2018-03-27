@@ -14,12 +14,12 @@ static btn_t *new_btn_node(void)
 	btn_t **tmp = &lizz->btn;
 
 	while (*tmp != NULL)
-		printf("%s\n", "salut"), *tmp = (*tmp)->next;
+		*tmp = (*tmp)->next;
 
 	*tmp = malloc(sizeof(btn_t));
 
 	if (*tmp == NULL) {
-		lizz_error("Unable to alloc button_t: Out of memory.\n");
+		lizz_error("Unable to alloc btn_t: Out of memory.\n");
 		return (NULL);
 	}
 
@@ -36,6 +36,12 @@ static btn_t *set_functions(btn_t *btn)
 	return (btn);
 }
 
+/*
+** Creer un bouton
+** @param (char *name) - Nom/ID du bouton
+** @param (menu_e belongsTo) - Scene a laquelle le bouton appartient
+** @return (int) - Retourne -1 si il y a une erreur, et 0 autrement
+*/
 int lizz_btn_create(char *name, menu_e belongsTo)
 {
 	btn_t *btn = NULL;
@@ -58,6 +64,13 @@ int lizz_btn_create(char *name, menu_e belongsTo)
 	return (0);
 }
 
+/*
+** Récupérer un bouton grace à son nom et sa scene correspondante
+** @param (char *name) - Nom/ID du bouton
+** @param (menu_e belonsTo) - Scene à laquelle le bouton appartient
+** @return (btn_t) - Retourne NULL si aucun bouton n'est trouvé, et
+** retourne le bouton si correspondant au nom et à la scene donnée
+*/
 btn_t *lizz_get_btn(char *name, menu_e belongsTo)
 {
 	btn_t *tmp = lizz->btn;

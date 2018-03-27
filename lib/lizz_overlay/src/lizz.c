@@ -18,6 +18,7 @@ lizz_t *lizz_configure(void)
 	}
 
 	conf->btn = NULL;
+	conf->thread = NULL;
 
 	return (conf);
 }

@@ -21,7 +21,20 @@ static void destroy_all_btn(void)
 	}
 }
 
+static void destroy_all_threads(void)
+{
+	thread_t *tmp = NULL;
+
+	while (lizz->thread != NULL) {
+		tmp = lizz->thread;
+		lizz->thread = lizz->thread->next;
+		tmp->destroy(tmp);
+		free(tmp);
+	}
+}
+
 void lizz_destroy_all(void)
 {
 	destroy_all_btn();
+	destroy_all_threads();
 }

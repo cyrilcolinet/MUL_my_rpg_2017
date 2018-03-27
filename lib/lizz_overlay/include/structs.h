@@ -15,6 +15,7 @@
 # include <SFML/OpenGL.h>
 # include <SFML/System.h>
 # include <SFML/Window.h>
+# include <SFML/System.h>
 
 # include <stdlib.h>
 # include <stdio.h>
@@ -31,6 +32,15 @@ typedef struct pos_t {
 	int 			rows;
 	int 			columns;
 } 	pos_t;
+
+typedef struct thread_t {
+	char 			*name;
+	sfThread 		*thread;
+	void 			*user_data;
+	void 			(*callback)(void *);
+	void 			(*destroy)(struct thread_t *);
+	struct thread_t	*next;
+}	thread_t;
 
 typedef struct btn_t {
 	char 			*name;
@@ -50,6 +60,7 @@ typedef struct btn_t {
 
 typedef struct lizz_t {
 	btn_t	 		*btn;
+	thread_t 		*thread;
 }	lizz_t;
 
 # endif
