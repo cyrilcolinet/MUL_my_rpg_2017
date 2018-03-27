@@ -24,12 +24,28 @@
 
 # include "config.h"
 
+struct	pos_t;
+struct 	btn_t;
+
+// buttons
+typedef void (*btn_texture_t)(struct btn_t *, char *, sfIntRect *);
+typedef void (*btn_hover_t)(struct btn_t *, int move);
+typedef void (*btn_position_t)(struct btn_t *, struct pos_t);
+
+typedef struct pos_t {
+	int 			rows;
+	int 			columns;
+} 	pos_t;
+
 typedef struct btn_t {
 	char 			*name;
 	menu_e 			belongsTo;
 	sfSprite 		*sprite;
 	sfTexture 		*texture;
-	void 			(*setTexture)(struct btn_t *, char *, sfIntRect *);
+	sfIntRect		*rect;
+	btn_texture_t 	setTexture;
+	btn_hover_t		onHover;
+	btn_position_t	setPosition;
 	struct btn_t *next;
 } 	btn_t;
 

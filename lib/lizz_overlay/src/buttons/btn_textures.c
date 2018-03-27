@@ -7,12 +7,21 @@
 
 # include "lizz.h"
 
-void lizz_btn_set_texture(btn_t *btn, char *path, sfIntRect *rect)
+/*
+** Appliquer une texture au bouton avec son rectangle
+** @param (btn_t *btn) - Bouton ou la texture doit être appliquée
+** @param (char *file) - Fichier de texture (ne doit pas contenir le
+** chemin en entier, juste le fichier)
+** @param (sfIntRect *rect) - Rectangle area
+** @return (void)
+*/
+void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
 {
 	if (!btn)
 		return;
 
-	btn->texture = sfTexture_createFromFile(path, rect);
+	btn->texture = sfTexture_createFromFile(file, rect);
+	btn->rect = rect;
 	if (!btn->texture)
 		return;
 

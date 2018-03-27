@@ -26,6 +26,13 @@ static btn_t *new_btn_node(void)
 	return (tmp->next);
 }
 
+static btn_t *set_functions(btn_t *btn)
+{
+	btn->setTexture = &lizz_btn_set_texture;
+
+	return (btn);
+}
+
 int lizz_btn_create(char *name, menu_e belongsTo)
 {
 	btn_t *btn = NULL;
@@ -41,7 +48,7 @@ int lizz_btn_create(char *name, menu_e belongsTo)
 	btn->belongsTo = belongsTo;
 	btn->texture = NULL;
 	btn->sprite = NULL;
-	btn->setTexture = &lizz_btn_set_texture;
+	btn = set_functions(btn);
 	btn->next = NULL;
 
 	return (0);
