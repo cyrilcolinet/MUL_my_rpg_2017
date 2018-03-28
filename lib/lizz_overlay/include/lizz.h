@@ -32,6 +32,7 @@ void 		lizz_btn_destroy(btn_t *btn);
 void 		lizz_thread_destroy(thread_t *thread);
 void 		lizz_thread_wait(thread_t *thread);
 void 		lizz_thread_start(thread_t *thread);
+void 		lizz_thread_terminate(thread_t *thread);
 
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
@@ -43,5 +44,6 @@ btn_t		*lizz_get_btn(char *name, menu_e belongsTo);
 
 // Threads
 int 		lizz_thread_create(char *name, void (*c)(void *), void *data);
+thread_t 	*lizz_get_thread(char *name);
 
 # endif

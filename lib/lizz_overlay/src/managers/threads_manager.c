@@ -26,6 +26,13 @@ static thread_t *new_thread_node(void)
 	return (*tmp);
 }
 
+static void print_created(thread_t *thread)
+{
+	lizz_info("Thread \"");
+	lizz_print(1, thread->name);
+	lizz_print(1, "\" created.\n");
+}
+
 /*
 ** Créerun noueau thread identifié par un nom
 ** @param (char *name) - Nom/ID du thread
@@ -45,13 +52,14 @@ int lizz_thread_create(char *name, void (*callback)(void *), void *data)
 	thread = new_thread_node();
 	if (!thread)
 		return (-1);
-
 	thread->name = name;
 	thread->thread = sfThread_create(callback, data);
 	thread->destroy = &lizz_thread_destroy;
 	thread->wait = &lizz_thread_wait;
 	thread->start = &lizz_thread_start;
+	thread->terminate = &lizz_thread_terminate;
 	thread->next = NULL;
+	print_created(thread);
 
 	return (0);
 }
@@ -73,5 +81,8 @@ thread_t *lizz_get_thread(char *name)
 		tmp = tmp->next;
 	}
 
+	lizz_error("Unable to found a thread named \"");
+	lizz_print(2, name);
+	lizz_print(2, "\"\n");
 	return (NULL);
 }

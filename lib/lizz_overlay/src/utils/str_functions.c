@@ -5,6 +5,7 @@
 ** str_functions functions
 */
 
+# include "debug.h"
 # include "lizz.h"
 # include "utils.h"
 
@@ -59,15 +60,17 @@ int lizz_strlen(char *str)
 
 void lizz_print(int fd, char *text)
 {
-	int len = 0;
+	if (_debug) {
+		int len = 0;
 
-	if (fd < 0)
-		return;
+		if (fd < 0)
+			return;
 
-	if (text) {
-		len = lizz_strlen(text);
-		write(fd, text, len);
-	} else {
-		write(fd, "(null)", 6);
+		if (text) {
+			len = lizz_strlen(text);
+			write(fd, text, len);
+		} else {
+			write(fd, "(null)", 6);
+		}
 	}
 }

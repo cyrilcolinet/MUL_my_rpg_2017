@@ -39,6 +39,7 @@ typedef struct thread_t {
 	void 			(*destroy)(struct thread_t *);
 	void 			(*start)(struct thread_t *);
 	void 			(*wait)(struct thread_t *);
+	void 			(*terminate)(struct thread_t *);
 	struct thread_t	*next;
 }	thread_t;
 

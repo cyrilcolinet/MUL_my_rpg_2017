@@ -31,7 +31,6 @@ static sfIntRect set_default_rect(sfIntRect *rect, sfTexture *texture)
 	ret.left = 0;
 	ret.height = ((int)size.y);
 	ret.width = ((int)size.x);
-	printf("%u %u\n", size.x, size.y);
 
 	return (ret);
 }

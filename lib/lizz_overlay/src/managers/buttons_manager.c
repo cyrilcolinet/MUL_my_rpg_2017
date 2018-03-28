@@ -33,6 +33,10 @@ static btn_t *set_functions(btn_t *btn)
 	btn->setTextureRect = &lizz_btn_set_texture_rect;
 	btn->destroy = &lizz_btn_destroy;
 
+	lizz_info("Button \"");
+	lizz_print(1, btn->name);
+	lizz_print(1, "\" created.\n");
+
 	return (btn);
 }
 
@@ -84,5 +88,8 @@ btn_t *lizz_get_btn(char *name, menu_e belongsTo)
 		tmp = tmp->next;
 	}
 
+	lizz_error("Unable to found a button named \"");
+	lizz_print(2, name);
+	lizz_print(2, "\"\n");
 	return (NULL);
 }
