@@ -33,6 +33,10 @@ void 		lizz_thread_wait(thread_t *thread);
 void 		lizz_thread_start(thread_t *thread);
 void 		lizz_thread_terminate(thread_t *thread);
 
+// clocks/clock_general.c
+void 		lizz_clock_destroy(clk_t *thread);
+void 		lizz_clock_restart(clk_t *thread);
+
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
 // # # # # # # # # # # # # # # //
@@ -44,5 +48,9 @@ btn_t		*lizz_get_btn(char *name, menu_e belongsTo);
 // Threads
 int 		lizz_thread_create(char *name, void (*c)(void *), void *data);
 thread_t 	*lizz_get_thread(char *name);
+
+// Clock
+int 		lizz_clock_create(char *name);
+clk_t		*lizz_get_clock(char *name);
 
 # endif

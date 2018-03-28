@@ -47,10 +47,9 @@ typedef struct thread_t {
 
 typedef struct clk_t {
 	char 			*name;
-	sfClock			*clack;
+	sfClock			*clock;
 	void 			(*destroy)(struct clk_t *);
-	void 			(*getElapsedTime)(struct clk_t *);
-	void 			*(restart)(struct clk_t *);
+	void 			(*restart)(struct clk_t *);
 	struct clk_t 	*next;
 }	clk_t;
 

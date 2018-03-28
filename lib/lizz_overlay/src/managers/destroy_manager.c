@@ -33,8 +33,21 @@ static void destroy_all_threads(void)
 	}
 }
 
+static void destroy_all_clocks(void)
+{
+	clk_t *tmp = NULL;
+
+	while (lizz->clock != NULL) {
+		tmp = lizz->clock;
+		lizz->clock = lizz->clock->next;
+		tmp->destroy(tmp);
+		free(tmp);
+	}
+}
+
 void lizz_destroy_all(void)
 {
 	destroy_all_btn();
 	destroy_all_threads();
+	destroy_all_clocks();
 }

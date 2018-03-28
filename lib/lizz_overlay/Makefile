@@ -19,11 +19,13 @@ SRCNAMES			= 	lizz.c 							\
 						managers/buttons_manager.c 		\
 						managers/destroy_manager.c 		\
 						managers/threads_manager.c 		\
+						managers/clocks_manager.c 		\
 						buttons/actions/btn_actions.c 	\
 						buttons/btn_textures.c 			\
 						buttons/btn_sprites.c 			\
 						buttons/btn_general.c 			\
-						threads/thread_general.c
+						threads/thread_general.c 		\
+						clocks/clock_general.c
 
 SRC 				= 	$(addprefix src/, $(SRCNAMES))
 
