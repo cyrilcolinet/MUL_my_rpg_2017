@@ -43,6 +43,7 @@ int main(void)
 	sfIntRect r = { 30, 45, 45, 65 };
 	btn->setTextureRect(btn, &r);
 	btn->setTextureRect(btn, NULL);
+	btn->setRotation(btn, 56);
 
 	// threads tests
 	thread = lizz_get_thread("animation");

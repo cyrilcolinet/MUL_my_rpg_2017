@@ -28,6 +28,7 @@
 struct	pos_t;
 struct 	thread_t;
 struct 	clk_t;
+struct 	sound_t;
 struct 	btn_t;
 
 typedef struct pos_t {
@@ -53,6 +54,12 @@ typedef struct clk_t {
 	struct clk_t 	*next;
 }	clk_t;
 
+typedef struct sound_t {
+	char 			*name;
+	sfSound			*sound;
+	struct sound_t 	*next;
+}	sound_t;
+
 typedef struct btn_t {
 	char 			*name;
 	menu_e 			belongsTo;
@@ -65,6 +72,7 @@ typedef struct btn_t {
 	void			(*setTextureRect)(struct btn_t *, sfIntRect *);
 	void			(*onHover)(struct btn_t *, int move);
 	void			(*setPosition)(struct btn_t *, int, int);
+	void 			(*setRotation)(struct btn_t *, float);
 	void 			(*destroy)(struct btn_t *);
 	struct btn_t 	*next;
 } 	btn_t;

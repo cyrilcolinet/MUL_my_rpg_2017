@@ -95,3 +95,31 @@ void lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect)
 	sfSprite_setTextureRect(btn->sprite, r);
 	print_debug_2(btn->name, r, reset);
 }
+
+/*
+** Changer la rotation d'un sprite
+** @param (btn_t *btn) - Bouton
+** @param (float angle) - Angle en degrés
+** @return (void)
+*/
+void lizz_btn_set_rotation(btn_t *btn, float angle)
+{
+	char *deg = NULL;
+
+	if (!btn) {
+		lizz_error("Button can't be NULL.\n");
+		return;
+	}
+
+	if (!btn->sprite || !btn->name)
+		return;
+
+	sfSprite_setRotation(btn->sprite, angle);
+	lizz_info("Rotation of \"");
+	lizz_print(1, btn->name);
+	lizz_print(1, "\" button changed to ");
+	deg = lizz_itoa(((int)angle));
+	lizz_print(1, deg);
+	free(deg);
+	lizz_print(1, " degrees.\n");
+}

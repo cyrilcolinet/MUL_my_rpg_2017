@@ -23,6 +23,7 @@ void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);
 // buttons/btn_sprites.c
 void 		lizz_btn_set_position(btn_t *btn, int x, int y);
 void 		lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect);
+void 		lizz_btn_set_rotation(btn_t *btn, float angle);
 
 // buttons/btn_general.c
 void 		lizz_btn_destroy(btn_t *btn);
