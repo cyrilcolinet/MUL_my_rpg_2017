@@ -28,6 +28,11 @@ void 		lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect);
 // buttons/btn_general.c
 void 		lizz_btn_destroy(btn_t *btn);
 
+// threads/thread_general.c
+void 		lizz_thread_destroy(thread_t *thread);
+void 		lizz_thread_wait(thread_t *thread);
+void 		lizz_thread_start(thread_t *thread);
+
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
 // # # # # # # # # # # # # # # //
@@ -35,5 +40,8 @@ void 		lizz_btn_destroy(btn_t *btn);
 // Buttons
 int 		lizz_btn_create(char *name, menu_e belongsTo);
 btn_t		*lizz_get_btn(char *name, menu_e belongsTo);
+
+// Threads
+int 		lizz_thread_create(char *name, void (*c)(void *), void *data);
 
 # endif

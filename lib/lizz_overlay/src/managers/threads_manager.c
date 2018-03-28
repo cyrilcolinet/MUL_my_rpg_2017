@@ -29,9 +29,11 @@ static thread_t *new_thread_node(void)
 /*
 ** Créerun noueau thread identifié par un nom
 ** @param (char *name) - Nom/ID du thread
+** @param (void (*callback)(void *)) - Executed threaded function
+** @param (void *data) - User data (see SFML documentation)
 **  @return (int) - Retourne -1 si erreur et 0 si pas d'erreurs
 */
-int lizz_thread_create(char *name)
+int lizz_thread_create(char *name, void (*callback)(void *), void *data)
 {
 	thread_t *thread = NULL;
 
@@ -45,9 +47,10 @@ int lizz_thread_create(char *name)
 		return (-1);
 
 	thread->name = name;
-	thread->thread = NULL;
-	thread->callback = NULL;
-	thread->user_data = NULL;
+	thread->thread = sfThread_create(callback, data);
+	thread->destroy = &lizz_thread_destroy;
+	thread->wait = &lizz_thread_wait;
+	thread->start = &lizz_thread_start;
 	thread->next = NULL;
 
 	return (0);

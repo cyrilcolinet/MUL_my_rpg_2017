@@ -21,7 +21,8 @@ SRCNAMES			= 	lizz.c 							\
 						buttons/actions/btn_actions.c 	\
 						buttons/btn_textures.c 			\
 						buttons/btn_sprites.c 			\
-						buttons/btn_general.c
+						buttons/btn_general.c 			\
+						threads/thread_general.c
 
 SRC 				= 	$(addprefix src/, $(SRCNAMES))
 

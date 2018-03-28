@@ -36,9 +36,9 @@ typedef struct pos_t {
 typedef struct thread_t {
 	char 			*name;
 	sfThread 		*thread;
-	void 			*user_data;
-	void 			(*callback)(void *);
 	void 			(*destroy)(struct thread_t *);
+	void 			(*start)(struct thread_t *);
+	void 			(*wait)(struct thread_t *);
 	struct thread_t	*next;
 }	thread_t;
 
