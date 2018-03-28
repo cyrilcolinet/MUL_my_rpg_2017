@@ -11,6 +11,7 @@ void func_thread(void *data)
 {
 	for (int i = 0; i <= 10; i++) {
 		printf("data = %d\n", *((int *)data));
+		*((int *)data) += 1;
 		usleep(3000000);
 	}
 }
@@ -31,13 +32,13 @@ int main(void)
 	sfRenderWindow_setFramerateLimit(win, 60);
 
 	// create buttons
-	lizz_btn_create("play", stMain);
+	lizz_btn_create("btn_play", stMain);
 
 	// create threads
-	lizz_thread_create("animation", &func_thread, &user_data);
+	lizz_thread_create("thread_animation", &func_thread, &user_data);
 
 	// buttons tests
-	btn = lizz_get_btn("play", stMain);
+	btn = lizz_get_btn("btn_play", stMain);
 	btn->setTexture(btn, "../../assets/buttons/buttons.png", NULL);
 	btn->setPosition(btn, 20, 20);
 	sfIntRect r = { 30, 45, 45, 65 };
@@ -46,7 +47,7 @@ int main(void)
 	btn->setRotation(btn, 56);
 
 	// threads tests
-	thread = lizz_get_thread("animation");
+	thread = lizz_get_thread("thread_animation");
 	thread->start(thread);
 
 	while (sfRenderWindow_isOpen(win)) {
@@ -54,11 +55,11 @@ int main(void)
 			if (sfKeyboard_isKeyPressed(sfKeyEscape)) {
 				sfRenderWindow_close(win);
 			} else if (sfKeyboard_isKeyPressed(sfKeyT)) {
-				pause();
 				thread->wait(thread);
 			}
 		}
 
+		printf("cc\n");
 		sfRenderWindow_display(win);
 	}
 
