@@ -26,6 +26,8 @@
 # include "config.h"
 
 struct	pos_t;
+struct 	thread_t;
+struct 	clk_t;
 struct 	btn_t;
 
 typedef struct pos_t {
@@ -42,6 +44,15 @@ typedef struct thread_t {
 	void 			(*terminate)(struct thread_t *);
 	struct thread_t	*next;
 }	thread_t;
+
+typedef struct clk_t {
+	char 			*name;
+	sfClock			*clack;
+	void 			(*destroy)(struct clk_t *);
+	void 			(*getElapsedTime)(struct clk_t *);
+	void 			*(restart)(struct clk_t *);
+	struct clk_t 	*next;
+}	clk_t;
 
 typedef struct btn_t {
 	char 			*name;
@@ -62,6 +73,7 @@ typedef struct btn_t {
 typedef struct lizz_t {
 	btn_t	 		*btn;
 	thread_t 		*thread;
+	clk_t 			*clock;
 }	lizz_t;
 
 # endif
