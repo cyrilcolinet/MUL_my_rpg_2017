@@ -8,7 +8,7 @@
 # include "debug.h"
 # include "lizz.h"
 
-lizz_t *lizz_configure(void)
+static lizz_t *configure(void)
 {
 	lizz_t *conf = malloc(sizeof(lizz_t));
 
@@ -23,10 +23,16 @@ lizz_t *lizz_configure(void)
 	return (conf);
 }
 
+/*
+** Start LiZz CSFML Overlay
+** @prarm (bool debug) - Mettre cette valeur à "true" si vous
+** voulez activer le debug mode.
+** @return (int) - Retourne -1 s'il y a une erreur et 0 si non.
+*/
 int lizz_start(bool debug)
 {
 	_debug = debug;
-	lizz = lizz_configure();
+	lizz = configure();
 
 	if (!lizz)
 		return (-1);
@@ -35,6 +41,10 @@ int lizz_start(bool debug)
 	return (0);
 }
 
+/*
+** Stoppe et détruit tout les objets instanciés, et ferme l'Overlay
+** @return (void)
+*/
 void lizz_stop(void)
 {
 	lizz_destroy_all();

@@ -13,7 +13,6 @@
 lizz_t 		*lizz;
 
 // lizz.c
-lizz_t 		*lizz_configure(void);
 int 		lizz_start(bool debug);
 void 		lizz_stop(void);
 void 		lizz_destroy_all(void);
