@@ -10,12 +10,18 @@
 int main(int ac, char **av, char **env)
 {
 	int res = 0;
+	int fd = -1;
 
 	sfRenderTexture *topkek;
-	Py_Initialize();
 	if (env == NULL)
 		return (84);
-
-//	res = main_rpg(ac, av);
+	Py_InitializeEx(0);
+	PyObject *obj = Py_BuildValue("s", "test.py");
+	FILE *file = _Py_fopen_obj(obj, "r+");
+	if(file != NULL)
+		PyRun_SimpleFile(file, "test.py");
+	if (Py_FinalizeEx() < 0)
+		return (ERROR_CODE);
+	res = main_rpg(ac, av);
 	return (res);
 }

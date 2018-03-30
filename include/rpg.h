@@ -19,6 +19,8 @@
 # include "struct.h"
 #include <python3.6m/Python.h>
 
+#define ERROR_CODE 84
+
 // rpg.c
 int 		main_rpg(int ac, char **av);
 

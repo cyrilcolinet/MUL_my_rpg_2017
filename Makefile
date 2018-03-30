@@ -1,6 +1,6 @@
 ##
 ## EPITECH PROJECT, 2018
-## PSU_tetris_2017
+## my_rpg_2017
 ## File description:
 ## Makefile
 ##
@@ -11,7 +11,7 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-l c_graph_prog -l python3.6m -L lib/ -lmy
+LDFLAGS		=	-l c_graph_prog -l python3.6m -L lib/ -lmy -llizz
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
@@ -41,7 +41,7 @@ clean:
 	rm -f $(OBJ_TEST)
 
 fclean:	clean
-	make -C lib/my fclean
+	make -C lib fclean
 	rm -f $(NAME)
 	rm -f $(TEST)
 	find -name '*.gc*' -delete
@@ -59,7 +59,7 @@ $(NAME):	lib obj
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 lib:
-	make -C lib/my
+	make -C lib
 
 obj:
 	$(foreach src, $(SRC), $(CC) $(CFLAGS) -c $(src) $(INCLUDE) -o $(src:.c=.o);)
