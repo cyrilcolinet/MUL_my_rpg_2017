@@ -8,6 +8,7 @@
 #ifndef TEST
 #define TEST
 
+#include <stdbool.h>
 #include <stdio.h>
 #include <unistd.h>
 #include <stddef.h>
@@ -28,7 +29,6 @@ typedef struct enemy {
 	sfSprite *spite;
 	sfTexture *texture;
 	sfVector2f pos;
-	int id;
 	int hp;
 	int dmg;
 	int armor;
@@ -36,11 +36,9 @@ typedef struct enemy {
 
 typedef struct fight {
 	sfRectangleShape **map;
-	int **state;
 	sfVector2f pos;
 	sfSprite *spite;
 	sfTexture *texture;
-	int id;
 	int number_enemy;
 	enemy_t **enemy;
 } fight_t;
@@ -66,11 +64,11 @@ typedef struct hero {
 
 typedef struct data {
 	sfRenderWindow *window;
-	int x;
-	int y;
+	int **map;
 	hero_t *hero;
 	fight_t **fight;
 	rune_t **rune;
+	int id;
 	int number_fight;
 	int number_rune;
 } data_t;
@@ -82,9 +80,11 @@ void free_all(data_t *data);
 
 /* MAP */
 void display_map(data_t *data, int id);
+void fill_map_state(data_t *data, int id);
 
 /* EVENT */
 void event_management(data_t *data);
+void deplacement(data_t *data, sfEvent event);
 
 /* INIT */
 void init_data(data_t *data);

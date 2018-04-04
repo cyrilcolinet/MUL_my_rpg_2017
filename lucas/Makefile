@@ -18,11 +18,13 @@ TEST_DIR	= 	tests/
 SRC_FILES	= 	main.c\
 			test.c\
 			event/event_management.c\
+			event/deplacement.c\
 			init/init_data.c\
 			init/init_fight.c\
 			init/init_hero.c\
 			init/init_rune.c\
 			map/display_map.c\
+			map/fill_map_state.c\
 			free/free_all.c\
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))

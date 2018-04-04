@@ -21,5 +21,6 @@ void event_management(data_t *data)
 
 	while (sfRenderWindow_pollEvent(data->window, &event)) {
 		exit_function(data, event);
+		deplacement(data, event);
 	}
 }

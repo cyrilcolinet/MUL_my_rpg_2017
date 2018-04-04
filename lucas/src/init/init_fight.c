@@ -48,12 +48,6 @@ static fight_t *create_fight(void)
 
 	fight = malloc(sizeof(fight_t));
 	create_map(fight);
-	fight->state = malloc(sizeof(int *) * 10);
-	for (int i = 0; i < 10; i++) {
-		fight->state[i] = malloc(sizeof(int) * 12);
-		for (int n = 0; n < 12; n++)
-			fight->state[i][n] = 0;
-	}
 	fight->number_enemy = 5;
 	return (fight);
 }
@@ -78,12 +72,10 @@ void init_fight(data_t *data)
 	data->fight = malloc (sizeof(fight_t *) * data->number_fight);
 	for (int i = 0; i < data->number_fight; i++) {
 		data->fight[i] = create_fight();
-		data->fight[i]->id = i;
 		data->fight[i]->enemy = malloc(sizeof(enemy_t *)
 					* data->fight[i]->number_enemy);
 		for (int j = 0; j < data->fight[i]->number_enemy; j++) {
 			data->fight[i]->enemy[j] = create_enemy(j);
-			data->fight[i]->enemy[j]->id = j;
 		}
 	}
 }

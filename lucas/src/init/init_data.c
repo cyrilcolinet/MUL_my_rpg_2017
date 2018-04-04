@@ -17,8 +17,12 @@ void init_data(data_t *data)
 	data->window = sfRenderWindow_create(mode, "test", sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(data->window, 30);
 
-	data->x = 56;
-	data->x = 43;
+	data->map = malloc(sizeof(int *) * 10);
+        for (int i = 0; i < 10; i++) {
+                data->map[i] = malloc(sizeof(int) * 12);
+                for (int n = 0; n < 12; n++)
+                        data->map[i][n] = 0;
+	}
 	init_fight(data);
 	init_hero(data);
 	init_rune(data);
