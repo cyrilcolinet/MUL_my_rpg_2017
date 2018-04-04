@@ -18,6 +18,11 @@
 #include <math.h>
 #include "my.h"
 
+#define MAP_X 225
+#define MAP_Y 130
+#define B_X 114
+#define B_Y 72
+
 typedef struct enemy {
 	sfRectangleShape *form;
 	sfSprite *spite;
@@ -31,6 +36,7 @@ typedef struct enemy {
 
 typedef struct fight {
 	sfRectangleShape **map;
+	int **state;
 	sfVector2f pos;
 	sfSprite *spite;
 	sfTexture *texture;
@@ -48,6 +54,7 @@ typedef struct rune {
 } rune_t;
 
 typedef struct hero {
+	sfRectangleShape *form;
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfVector2f pos;
@@ -63,8 +70,8 @@ typedef struct data {
 	int y;
 	hero_t *hero;
 	fight_t **fight;
-	int number_fight;
 	rune_t **rune;
+	int number_fight;
 	int number_rune;
 } data_t;
 

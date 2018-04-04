@@ -23,9 +23,15 @@ static void free_fight(data_t *data, int n)
 
 void free_all(data_t *data)
 {
-	for (int i = 0; i < data->number_fight; i++)
+	for (int i = 0; i < data->number_fight; i++) {
+		for (int j = 0; j < 10; j++)
+			free(data->fight[i]->state[j]);
+		free(data->fight[i]->state);
 		free_fight(data, i);
+	}
 	free(data->fight);
+	sfRectangleShape_destroy(data->hero->form);
+	free(data->hero);
 	sfRenderWindow_destroy(data->window);
 	free(data);
 }
