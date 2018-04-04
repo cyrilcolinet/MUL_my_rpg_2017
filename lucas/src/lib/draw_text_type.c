@@ -13,7 +13,8 @@ void draw_text_type(sfText *text, param_t *param)
 		str[i] = param->message[i];
 	if (param->struct->size < param->len_message) {
 		sfText_setString(text, str);
-		sfRenderWindow_drawText(param->window, param->struct->text, NULL);
+		sfRenderWindow_drawText(param->window,
+					param->struct->text, NULL);
 		if (param->message[param->struct->size - 1] != '\0'
 		&& param->message[param->struct->size - 1] == '\n')
 			wait_second(1);

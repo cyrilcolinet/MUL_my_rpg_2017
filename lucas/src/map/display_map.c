@@ -18,7 +18,8 @@ void display_map(data_t *data, int id)
 	for (int i = 0; i < data->fight[id]->number_enemy; i++) {
 		pos.x = MAP_X + data->fight[id]->enemy[i]->pos.x * B_X + 35;
 		pos.y = MAP_Y + data->fight[id]->enemy[i]->pos.y * B_Y + 5;
-		sfRectangleShape_setPosition(data->fight[id]->enemy[i]->form, pos);
+		sfRectangleShape_setPosition
+			(data->fight[id]->enemy[i]->form, pos);
 		sfRenderWindow_drawRectangleShape
 			(data->window, data->fight[id]->enemy[i]->form, NULL);
 	}

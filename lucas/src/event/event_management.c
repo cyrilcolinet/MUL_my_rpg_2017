@@ -12,7 +12,7 @@ static void exit_function(data_t *data, sfEvent event)
 	if (event.type == sfEvtClosed
 	|| (event.type == sfEvtKeyPressed
 	&& event.key.code == sfKeyEscape))
-		sfRenderWindow_close(data->window); 
+		sfRenderWindow_close(data->window);
 }
 
 void event_management(data_t *data)

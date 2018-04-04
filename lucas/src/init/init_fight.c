@@ -10,21 +10,21 @@
 static void create_map(fight_t *fight)
 {
 	sfVector2f size = {B_X, B_Y};
-	int nb = 0;
+	int n = 0;
 
-	fight->pos.x = MAP_X - 1;
-	fight->pos.y = MAP_Y - 1;
 	fight->map = malloc(sizeof(sfRectangleShape *) * 120);
 	for (int i = 0; i < 10; i++) {
 		for (int j = 0; j < 12; j++) {
-			fight->map[nb] = sfRectangleShape_create();
-			sfRectangleShape_setPosition(fight->map[nb], fight->pos);
-			sfRectangleShape_setSize(fight->map[nb], size);
-			sfRectangleShape_setFillColor(fight->map[nb], sfTransparent);
-			sfRectangleShape_setOutlineColor(fight->map[nb], sfColor_fromRGB(125, 125, 135));
-			sfRectangleShape_setOutlineThickness(fight->map[nb], 1);
+			fight->map[n] = sfRectangleShape_create();
+			sfRectangleShape_setPosition(fight->map[n], fight->pos);
+			sfRectangleShape_setSize(fight->map[n], size);
+			sfRectangleShape_setFillColor
+				(fight->map[n], sfTransparent);
+			sfRectangleShape_setOutlineColor
+				(fight->map[n], sfColor_fromRGB(125, 125, 135));
+			sfRectangleShape_setOutlineThickness(fight->map[n], 1);
 			fight->pos.x += B_X;
-			nb++;
+			n++;
 		}
 		fight->pos.x = MAP_X - 1;
 		fight->pos.y += B_Y;
@@ -34,7 +34,7 @@ static void create_map(fight_t *fight)
 static void enemy_form(enemy_t *enemy)
 {
 	sfVector2f size = {45, 60};
-	
+
 	enemy->form = sfRectangleShape_create();
 	sfRectangleShape_setSize(enemy->form, size);
 	sfRectangleShape_setFillColor(enemy->form, sfRed);
@@ -47,6 +47,8 @@ static fight_t *create_fight(void)
 	fight_t *fight;
 
 	fight = malloc(sizeof(fight_t));
+	fight->pos.x = MAP_X - 1;
+	fight->pos.y = MAP_Y - 1;
 	create_map(fight);
 	fight->number_enemy = 5;
 	return (fight);
