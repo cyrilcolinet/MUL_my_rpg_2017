@@ -22,8 +22,7 @@ static void create_map(fight_t *fight)
 				(fight->map[n], sfTransparent);
 			sfRectangleShape_setOutlineColor
 				(fight->map[n], sfColor_fromRGB(125, 125, 135));
-			sfRectangleShape_setOutlineThickness
-				(fight->map[n], 1);
+			sfRectangleShape_setOutlineThickness(fight->map[n], 1);
 			fight->pos.x += B_X;
 			n++;
 		}

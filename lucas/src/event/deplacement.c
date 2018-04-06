@@ -25,13 +25,14 @@ static void clear_map_state(data_t *data)
 	y = data->hero->pos.y;
 	data->map[y][x] = 1;
 	for (int i = 0; i < 120; i++)
-		sfRectangleShape_setFillColor(data->fight[data->id]->map[i], sfBlack);
+		sfRectangleShape_setFillColor(data->fight
+			[data->id]->map[i], sfBlack);
 }
 
 static void move_hero(data_t *data, int i, sfVector2f pos)
 {
 	if ((data->mouse.x > pos.x && data->mouse.x < pos.x + B_X) &&
-	    (data->mouse.y > pos.y && data->mouse.y < pos.y + B_Y))
+	(data->mouse.y > pos.y && data->mouse.y < pos.y + B_Y))
 		if (data->map[i / 12][i % 12] == 3) {
 			data->hero->select = false;
 			data->hero->pos.x = i % 12;
@@ -46,7 +47,8 @@ static void deplacement_hero(data_t *data)
 
 	if (data->hero->select) {
 		for (int i = 0; i < 120; i++) {
-			pos = sfRectangleShape_getPosition(data->fight[data->id]->map[i]);
+			pos = sfRectangleShape_getPosition
+				(data->fight[data->id]->map[i]);
 			move_hero(data, i, pos);
 		}
 	}
@@ -55,14 +57,13 @@ static void deplacement_hero(data_t *data)
 void deplacement(data_t *data, sfEvent event)
 {
 	if (event.type == sfEvtKeyPressed) {
-
 	}
 
 	if (event.type == sfEvtMouseButtonPressed) {
 		if (event.mouseButton.button == sfMouseLeft)
 			selection_deplacement(data);
 		if (data->hero->select &&
-		    event.mouseButton.button == sfMouseRight)
-			deplacement_hero(data);			
+		event.mouseButton.button == sfMouseRight)
+			deplacement_hero(data);
 	}
 }

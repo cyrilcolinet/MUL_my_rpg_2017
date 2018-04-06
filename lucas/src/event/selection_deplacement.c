@@ -16,12 +16,12 @@ static void display_possible_case(data_t *data, int i, int j)
 	&& abs(j - x) < 3) && (abs(i - y) + abs(j - x) < 3)
 	&& data->map[i][j] != 2) {
 		if (data->hero->select) {
-			sfRectangleShape_setFillColor
-				(data->fight[data->id]->map[i * 12 + j], sfGreen);
+			sfRectangleShape_setFillColor(data->fight
+				[data->id]->map[i * 12 + j], sfGreen);
 			data->map[i][j] = 3;
 		} else if (!data->hero->select && data->map[i][j] == 3) {
-			sfRectangleShape_setFillColor
-				(data->fight[data->id]->map[i * 12 + j], sfBlack);
+			sfRectangleShape_setFillColor(data->fight
+				[data->id]->map[i * 12 + j], sfBlack);
 			data->map[i][j] = 0;
 		}
 	}
@@ -53,7 +53,8 @@ void selection_deplacement(data_t *data)
 {
 	sfVector2f pos;
 	for (int i = 0; i < 120; i++) {
-		pos = sfRectangleShape_getPosition(data->fight[data->id]->map[i]);
+		pos = sfRectangleShape_getPosition
+			(data->fight[data->id]->map[i]);
 		if ((data->mouse.x > pos.x && data->mouse.x < pos.x + B_X) &&
 		(data->mouse.y > pos.y && data->mouse.y < pos.y + B_Y))
 			select_or_unselect(data, i);
