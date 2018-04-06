@@ -56,6 +56,7 @@ typedef struct hero {
 	sfSprite *sprite;
 	sfTexture *texture;
 	sfVector2f pos;
+	bool select;
 	int hp;
 	int dmg;
 	int armor;
@@ -68,6 +69,7 @@ typedef struct data {
 	hero_t *hero;
 	fight_t **fight;
 	rune_t **rune;
+	sfVector2f mouse;
 	int id;
 	int number_fight;
 	int number_rune;
@@ -84,6 +86,7 @@ void fill_map_state(data_t *data, int id);
 
 /* EVENT */
 void event_management(data_t *data);
+void selection_deplacement(data_t *data);
 void deplacement(data_t *data, sfEvent event);
 
 /* INIT */

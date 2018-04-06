@@ -19,6 +19,7 @@ SRC_FILES	= 	main.c\
 			test.c\
 			event/event_management.c\
 			event/deplacement.c\
+			event/selection_deplacement.c\
 			init/init_data.c\
 			init/init_fight.c\
 			init/init_hero.c\

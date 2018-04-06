@@ -15,9 +15,8 @@ void test(void)
 	data->id = 1;
 	while (sfRenderWindow_isOpen(data->window)) {
 		sfRenderWindow_clear(data->window, sfBlack);
-		fill_map_state(data, data->id);
 		event_management(data);
-
+		fill_map_state(data, data->id);
 		display_map(data, data->id);
 		sfRenderWindow_display(data->window);
 	}

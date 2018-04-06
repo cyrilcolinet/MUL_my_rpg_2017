@@ -14,6 +14,7 @@ void init_hero(data_t *data)
 	data->hero = malloc(sizeof(hero_t));
 	data->hero->pos.x = 0;
 	data->hero->pos.y = 0;
+	data->hero->select = false;
 	data->hero->form = sfRectangleShape_create();
 	sfRectangleShape_setPosition(data->hero->form, data->hero->pos);
 	sfRectangleShape_setSize(data->hero->form, size);
