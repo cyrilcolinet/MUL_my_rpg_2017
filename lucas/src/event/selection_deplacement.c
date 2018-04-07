@@ -12,8 +12,8 @@ static void display_possible_case(data_t *data, int i, int j)
 	int x = data->hero->pos.x;
 	int y = data->hero->pos.y;
 
-	if ((i != y || j != x) && (abs(i - y) < 3
-	&& abs(j - x) < 3) && (abs(i - y) + abs(j - x) < 3)
+	if ((i != y || j != x) && (abs(i - y) < 4
+	&& abs(j - x) < 4) && (abs(i - y) + abs(j - x) < 4)
 	&& data->map[i][j] != 2) {
 		if (data->hero->select) {
 			sfRectangleShape_setFillColor(data->fight
