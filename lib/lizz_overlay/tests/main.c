@@ -16,6 +16,14 @@ void func_thread(void *data)
 	}
 }
 
+void lizz_object_creation(void)
+{
+	int user_data = 8;
+
+	lizz_btn_create("btn_play", stMain);
+	lizz_thread_create("thread_animation", &func_thread, &user_data);
+}
+
 int main(void)
 {
 	sfVideoMode video = { 1600, 800, 32 };
@@ -23,7 +31,6 @@ int main(void)
 	sfEvent event;
 	btn_t *btn = NULL;
 	thread_t *thread = NULL;
-	int user_data = 8;
 
 	if (lizz_start(true) < 0) // Start lizz overlay
 		return (84);
@@ -31,11 +38,8 @@ int main(void)
 	win = sfRenderWindow_create(video, "Lizz Overlay", sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(win, 60);
 
-	// create buttons
-	lizz_btn_create("btn_play", stMain);
-
-	// create threads
-	lizz_thread_create("thread_animation", &func_thread, &user_data);
+	// create lizz objects
+	lizz_object_creation();
 
 	// buttons tests
 	btn = lizz_get_btn("btn_play", stMain);
@@ -59,7 +63,6 @@ int main(void)
 			}
 		}
 
-		printf("cc\n");
 		sfRenderWindow_display(win);
 	}
 

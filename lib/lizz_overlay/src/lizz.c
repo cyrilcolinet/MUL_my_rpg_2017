@@ -19,6 +19,8 @@ static lizz_t *configure(void)
 
 	conf->btn = NULL;
 	conf->thread = NULL;
+	conf->menus = NULL;
+	conf->clock = NULL;
 
 	return (conf);
 }

@@ -30,6 +30,7 @@ struct 	thread_t;
 struct 	clk_t;
 struct 	sound_t;
 struct 	btn_t;
+struct	menu_t;
 
 typedef struct pos_t {
 	int 			rows;
@@ -77,8 +78,16 @@ typedef struct btn_t {
 	struct btn_t 	*next;
 } 	btn_t;
 
+typedef struct menu_t {
+	char 			*name;
+	menu_e			menu;
+	char 			**btn;
+	struct menu_t 	*next;
+}	menu_t;
+
 typedef struct lizz_t {
 	btn_t	 		*btn;
+	menu_t 			*menus;
 	thread_t 		*thread;
 	clk_t 			*clock;
 }	lizz_t;
