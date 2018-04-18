@@ -9,19 +9,24 @@
 
 int main(int ac, char **av, char **env)
 {
-	int res = 0;
-	int fd = -1;
+	sfRenderWindow *window = NULL;
+	sfVideoMode mode = {800, 600, 32};
+	sfEvent event;
+	btn_t btn;
 
-	sfRenderTexture *topkek;
+	(void)ac;
+	(void)av;
 	if (env == NULL)
 		return (84);
-	Py_InitializeEx(0);
-	PyObject *obj = Py_BuildValue("s", "test.py");
-	FILE *file = _Py_fopen_obj(obj, "r+");
-	if(file != NULL)
-		PyRun_SimpleFile(file, "test.py");
-	if (Py_FinalizeEx() < 0)
-		return (ERROR_CODE);
-	res = main_rpg(ac, av);
-	return (res);
+	window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
+	while (sfRenderWindow_isOpen(window)) {
+		while (sfRenderWindow_pollEvent(window, &event)) {
+			if (event.type == sfEvtClosed || (event.type == sfEvtKeyReleased && event.key.code == sfKeyEscape))
+				sfRenderWindow_close(window);
+		}
+		sfRenderWindow_clear(window, sfBlack);
+		sfRenderWindow_display(window);
+	}
+	sfRenderWindow_destroy(window);
+	return (0);
 }

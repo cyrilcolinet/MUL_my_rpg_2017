@@ -11,15 +11,13 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-l c_graph_prog -l python3.6m -L lib/ -lmy -llizz
+LDFLAGS		=	-l c_graph_prog -L lib/ -lmy -llizz
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
 NAME		=	my_rpg
 
-SRC		=	src/main.c	\
-			src/rpg.c	\
-
+SRC		=	src/main.c			\
 
 OBJ		=	$(SRC:.c=.o)
 
