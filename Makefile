@@ -11,13 +11,20 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-l c_graph_prog -llua -L lib/ -lmy -llizz
+LDFLAGS		=	-lc_graph_prog -lm -llua -L lib/ -lmy
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
 NAME		=	my_rpg
 
-SRC		=	src/main.c			\
+SRC		=	src/draw/interface.c		\
+			src/draw/map.c			\
+			src/draw/sprite.c		\
+			src/event/event.c		\
+			src/state/interface.c		\
+			src/state/play.c		\
+			src/game.c			\
+			src/main.c			\
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -39,12 +46,14 @@ clean:
 	rm -f $(OBJ_TEST)
 
 fclean:	clean
-	make -C lib fclean
+	make -C lib/my fclean
+	make -C lib/lizz_overlay fclean
 	rm -f $(NAME)
 	rm -f $(TEST)
 	find -name '*.gc*' -delete
 	find -name 'vgcore.*' -delete
 	find -name '.gcov*' -delete
+	find -name '*.gch' -delete
 
 re: fclean all
 	rm -f $(OBJ)
@@ -57,7 +66,9 @@ $(NAME):	lib obj
 	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
 
 lib:
-	make -C lib
+	make -C lib/my
+	make -C lib/lizz_overlay
+
 
 obj:
 	$(foreach src, $(SRC), $(CC) $(CFLAGS) -c $(src) $(INCLUDE) -o $(src:.c=.o);)

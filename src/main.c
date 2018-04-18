@@ -7,27 +7,29 @@
 
 #include "rpg.h"
 
-int main(int ac, char **av, char **env)
+int main(int args, char const * const * const argv, char **env)
 {
-	sfRenderWindow *window = NULL;
-	sfVideoMode mode = {800, 600, 32};
-	sfEvent event;
-	btn_t btn;
+	game_t *game = NULL;
+	state_interface_t *state_interface_play = NULL;
 
-	(void)ac;
-	(void)av;
-	lua_close(NULL);
-	if (env == NULL)
-		return (84);
-	window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
-	while (sfRenderWindow_isOpen(window)) {
-		while (sfRenderWindow_pollEvent(window, &event)) {
-			if (event.type == sfEvtClosed || (event.type == sfEvtKeyReleased && event.key.code == sfKeyEscape))
-				sfRenderWindow_close(window);
+	(void)args;
+	(void)argv;
+	CHECK_DO(env == NULL, return (MY_ERROR_CODE);)
+	game = init_game();
+//TODO add state list to constructor
+	state_interface_play = init_state_interface(init_play("assets/test.png", "assets/pp.png"), &set_method_play);
+	game->state_list = my_calloc(sizeof(state_interface_t) * NBR_STATES);
+	game->state_list[0] = state_interface_play;
+//
+	while (sfRenderWindow_isOpen(game->window)) {
+		while (sfRenderWindow_pollEvent(game->window, &game->event)) {
+			event_close_window(game->event, game->window);
+			game->state_list[game->state]->event_handler(game);
 		}
-		sfRenderWindow_clear(window, sfBlack);
-		sfRenderWindow_display(window);
+		sfRenderWindow_clear(game->window, sfBlack);
+		game->state_list[game->state]->display_handler(game->state_list[game->state]->state_item, game->window);
+		sfRenderWindow_display(game->window);
 	}
-	sfRenderWindow_destroy(window);
-	return (0);
+	del_game(game);
+	return 0;
 }
