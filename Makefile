@@ -11,7 +11,7 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-l c_graph_prog -L lib/ -lmy -llizz
+LDFLAGS		=	-l c_graph_prog -llua -L lib/ -lmy -llizz
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 

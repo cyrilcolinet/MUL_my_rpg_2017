@@ -5,8 +5,8 @@
 ** RPG functions (header file)
 */
 
-# ifndef RPG_H
-# define RPG_H
+# ifndef _RPG_H
+# define _RPG_H
 
 # include <SFML/Graphics.h>
 # include <SFML/Audio.h>
@@ -20,10 +20,12 @@
 # include "struct.h"
 # include "lizz/lizz.h"
 
+#ifndef lua_h
+#include <lua.h>
+#endif
+
 # define ERROR_CODE 84
-# define INTERFACE_PORT_REQ 9001
-# define INTERFACE_PORT_REP 9002
-// rpg.c
+
 int 		main_rpg(int ac, char **av);
 
 # endif

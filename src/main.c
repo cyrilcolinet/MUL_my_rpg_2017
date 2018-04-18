@@ -16,6 +16,7 @@ int main(int ac, char **av, char **env)
 
 	(void)ac;
 	(void)av;
+	lua_close(NULL);
 	if (env == NULL)
 		return (84);
 	window = sfRenderWindow_create(mode, "my_rpg", sfClose, NULL);
