@@ -24,8 +24,8 @@ typedef enum {
 
 typedef struct {
 	void *draw_item;
-	void (*draw)(void *, sfRenderWindow *);
-	void (*del)(void *);
+	void (*draw)(void *self, sfRenderWindow *window);
+	void (*del)(void *self);
 } draw_interface_t;
 
 typedef struct {
@@ -38,6 +38,15 @@ typedef struct {
 	sfSprite *sprite;
 	sfIntRect rect;
 } sprite_t;
+
+typedef struct {
+	void *anim_item;
+	u_int32_t delay;
+	u_int32_t time_0;
+	void (*anim)(void *self);
+	void (*del)(void *self);
+
+} anim_t;
 
 //interface
 draw_interface_t *init_draw_interface(void *draw_item, void (*set_method)(draw_interface_t *draw_interface));
@@ -52,5 +61,9 @@ sprite_t *init_sprite(char const *path);
 void draw_sprite(void *self, sfRenderWindow *window);
 void del_sprite(void *self);
 void set_method_sprite(draw_interface_t *draw_interface);
+void sprite_walk(void *sprite);
+void set_method_sprite_anim(anim_t *anim);
+//anim
+anim_t *init_anim(void *anim_item, u_int32_t delay, void (*set_method)(anim_t *anim));
 
 #endif

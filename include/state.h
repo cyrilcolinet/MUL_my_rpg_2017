@@ -18,6 +18,7 @@ typedef struct {
 typedef struct {
 	map_t *map;
 	sprite_t *sprite;
+	anim_t *anim;
 } play_t;
 
 //interface

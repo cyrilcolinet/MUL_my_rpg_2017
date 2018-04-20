@@ -17,7 +17,8 @@ LDFLAGS_TEST	=	-lcriterion -lgcov
 
 NAME		=	my_rpg
 
-SRC		=	src/draw/interface.c		\
+SRC		=	src/draw/anim.c			\
+			src/draw/interface.c		\
 			src/draw/map.c			\
 			src/draw/sprite.c		\
 			src/event/event.c		\

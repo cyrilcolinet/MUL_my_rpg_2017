@@ -18,11 +18,19 @@ typedef struct game_s {
 	state_interface_t **state_list;
 	game_state_t state;
 	game_state_t prev;
+	sfInt32 tick;
+	sfClock *clock;
 } game_t;
+
+typedef struct {
+	sfInt32 *tick;
+	sfClock *clock;
+} ll_t;
 
 //game
 sfRenderWindow *init_window(void);
 game_t *init_game(void);
 void del_game(game_t *);
+void game_update_tick(void *data);
 
 #endif
