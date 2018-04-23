@@ -1,86 +1,99 @@
 ##
 ## EPITECH PROJECT, 2018
-## my_rpg_2017
+## CPE_corewar_2017
 ## File description:
-## Makefile
+## Corewar Folder Makefile
 ##
- 
-CC		=	gcc
 
-CFLAGS		=	-Wall -Wextra -std=c99
+## VARIABLES
 
-CFLAGS_TEST	=	--coverage
+NAME					= 	my_rpg
 
-LDFLAGS		=	-lc_graph_prog -lm -llua -L lib/ -lmy
+UNITS 					= 	units
 
-LDFLAGS_TEST	=	-lcriterion -lgcov
+SRC_DIR 				= 	src/
 
-NAME		=	my_rpg
+TEST_DIR				= 	tests/
 
-SRC		=	src/draw/anim.c			\
-			src/draw/interface.c		\
-			src/draw/map.c			\
-			src/draw/sprite.c		\
-			src/event/event.c		\
-			src/state/interface.c		\
-			src/state/play.c		\
-			src/game.c			\
-			src/main.c			\
+SRC_FILES				= 	main.c 										\
+							rpg.c
 
-OBJ		=	$(SRC:.c=.o)
+SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
-INCLUDE		=	-I include -I include/lua
+TESTS_FILES				=	$(filter-out main.c, $(SRC_FILES))
 
-TEST		=	tests/tests
+TESTS_FILES				+=	""
 
-SRC_TEST	=
+INCLUDE					= 	include/
 
-OBJ_TEST	=	$(filter-out src/main.o, $(OBJ))	\
-			$(SRC_TEST:.c=.o)			\
+LIBRARY_DIR				= 	lib/
 
+CC						=	gcc
 
-all:	$(NAME) clean
+CFLAGS					= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
+
+LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz
+
+UNITS_LFLAGS			= 	$(LFLAGS) -lgcov -lcriterion
+
+## BUILD VARIABLES
+
+BUILD_DIR				= 	build/
+
+BUILD_TESTS_DIR			= 	tests/build/
+
+BUILD_OBJ				= 	$(addprefix $(BUILD_DIR), $(SRC_FILES:.c=.o))
+
+BUILD_TESTS_OBJ			= 	$(addprefix $(BUILD_TESTS_DIR), $(TESTS_FILES:.c=.o))
+
+BUILD_SD				= 	$(shell find $(SRC_DIR) -mindepth 1 -type d -printf '%p\n' | sed -e 's/^src\///')
+
+## RULES
+
+all:					library $(BUILD_DIR) $(NAME)
+
+library:
+						make -C $(LIBRARY_DIR)
+
+$(BUILD_DIR):
+						mkdir -p $(BUILD_DIR)
+						$(foreach SUB_DIR, $(BUILD_SD), $(shell mkdir -p $(BUILD_DIR)$(SUB_DIR)))
+
+$(BUILD_DIR)%.o:		$(SRC_DIR)%.c
+						$(CC) $(CFLAGS)   -c -o $@ $<
+
+$(NAME):				$(BUILD_OBJ)
+						$(CC) $(CFLAGS)   -o $(NAME) $(BUILD_OBJ) $(LFLAGS)
+
+tests_run:				fclean library $(UNITS)
+						find $(BUILD_TESTS_DIR) -name '*.gc*' -exec mv -t ./ {} +
+						./$(UNITS)
+
+$(UNITS):				$(BUILD_TESTS_DIR) $(BUILD_TESTS_OBJ)
+						$(CC) $(CFLAGS)   -o $(UNITS) $(BUILD_TESTS_OBJ) --coverage $(UNITS_LFLAGS)
+
+$(BUILD_TESTS_DIR):
+						mkdir -p $(BUILD_TESTS_DIR)$(TEST_DIR)
+						$(foreach SUB_DIR, $(BUILD_SD), $(shell mkdir -p $(BUILD_TESTS_DIR)$(SUB_DIR)))
+
+$(BUILD_TESTS_DIR)%.o:	$(SRC_DIR)%.c
+						$(CC) $(CFLAGS) --coverage   -c -o $@ $<
+
+$(BUILD_TESTS_DIR)%.o:	$(TEST_DIR)%.c
+						$(CC) $(CFLAGS) --coverage   -c -o $@ $<
 
 clean:
-	rm -f $(OBJ)
-	rm -f $(OBJ_TEST)
+						rm -rf $(BUILD_DIR)
+						rm -rf $(BUILD_TESTS_DIR)
+						find -name '*.gc*' -delete -or -name 'vgcore.*' -delete -o -name '*.o' -delete
+						make clean -C $(LIBRARY_DIR)
 
-fclean:	clean
-	make -C lib/my fclean
-	make -C lib/lizz_overlay fclean
-	rm -f $(NAME)
-	rm -f $(TEST)
-	find -name '*.gc*' -delete
-	find -name 'vgcore.*' -delete
-	find -name '.gcov*' -delete
-	find -name '*.gch' -delete
+fclean:					clean
+						rm -rf $(NAME)
+						rm -rf $(UNITS)
+						make fclean -C $(LIBRARY_DIR)
 
-re: fclean all
-	rm -f $(OBJ)
-	rm -f $(OBJ_TEST)
+re:						fclean all
 
-tests_run:	$(TEST) clean
-	./$(TEST)
-
-$(NAME):	lib obj
-	$(CC) -o $(NAME) $(OBJ) $(LDFLAGS)
-
-lib:
-	make -C lib/my
-	make -C lib/lizz_overlay
-
-
-obj:
-	$(foreach src, $(SRC), $(CC) $(CFLAGS) -c $(src) $(INCLUDE) -o $(src:.c=.o);)
-
-$(TEST):	lib obj_test
-	$(CC) -o $(TEST) $(OBJ_TEST) $(LDFLAGS) $(LDFLAGS_TEST)
-
-obj_test:
-	$(foreach src, $(filter-out src/main.c, $(SRC)), $(CC) $(CFLAGS) $(CFLAGS_TEST) $(INCLUDE) -c $(src) -o $(src:.c=.o);)
-	$(foreach src, $(SRC_TEST), $(CC) $(CFLAGS) $(INCLUDE) -c $(src) -o $(src:.c=.o);)
-
-gcov:
-	gcov -abcfu $(filter-out src/main.c, $(SRC))
-
-.PHONY:	all tests_run clean fclean lib
+# Just in case those files exist in the root dir
+.PHONY					: all library clean fclean re tests_run
