@@ -29,7 +29,7 @@ SRC		=	src/draw/anim.c			\
 
 OBJ		=	$(SRC:.c=.o)
 
-INCLUDE		=	-I include
+INCLUDE		=	-I include -I include/lua
 
 TEST		=	tests/tests
 
