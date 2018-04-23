@@ -38,7 +38,6 @@ SRC_TEST	=
 OBJ_TEST	=	$(filter-out src/main.o, $(OBJ))	\
 			$(SRC_TEST:.c=.o)			\
 
-.PHONY:	all tests_run clean fclean lib
 
 all:	$(NAME) clean
 
@@ -83,3 +82,5 @@ obj_test:
 
 gcov:
 	gcov -abcfu $(filter-out src/main.c, $(SRC))
+
+.PHONY:	all tests_run clean fclean lib
