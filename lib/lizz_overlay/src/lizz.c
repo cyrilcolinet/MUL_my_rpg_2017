@@ -8,19 +8,19 @@
 # include "debug.h"
 # include "lizz.h"
 
-static lizz_t *configure(void)
+static bool configure(lizz_t **conf)
 {
-	lizz_t *conf = malloc(sizeof(lizz_t));
+	*conf = malloc(sizeof(lizz_t));
 
-	if (conf == NULL) {
+	if (*conf == NULL) {
 		lizz_error("Unable to alloc lizz_t: Out of memory.\n");
 		return (NULL);
 	}
 
-	conf->btn = NULL;
-	conf->thread = NULL;
-	conf->menus = NULL;
-	conf->clock = NULL;
+	(*conf)->btn = NULL;
+	(*conf)->thread = NULL;
+	(*conf)->menus = NULL;
+	(*conf)->clock = NULL;
 
 	return (conf);
 }
@@ -31,12 +31,11 @@ static lizz_t *configure(void)
 ** voulez activer le debug mode.
 ** @return (int) - Retourne -1 s'il y a une erreur et 0 si non.
 */
-int lizz_start(bool debug)
+int lizz_start(lizz_t **st, bool debug)
 {
 	_debug = debug;
-	lizz = configure();
 
-	if (!lizz)
+	if (!configure(st))
 		return (-1);
 
 	lizz_info("Debug mode enabled.\n");
@@ -47,9 +46,9 @@ int lizz_start(bool debug)
 ** Stoppe et détruit tout les objets instanciés, et ferme l'Overlay
 ** @return (void)
 */
-void lizz_stop(void)
+void lizz_stop(lizz_t *lizz)
 {
-	lizz_destroy_all();
+	lizz_destroy_all(lizz);
 	free(lizz->btn);
 	free(lizz);
 }

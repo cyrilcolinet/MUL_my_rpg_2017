@@ -10,23 +10,21 @@
 
 # include "structs.h"
 
-lizz_t 		*lizz;
-
 // lizz.c
-int 		lizz_start(bool debug);
-void 		lizz_stop(void);
-void 		lizz_destroy_all(void);
+int 		lizz_start(lizz_t **, bool);
+void 		lizz_stop(lizz_t *);
+void 		lizz_destroy_all(lizz_t *);
 
 // buttons/btn_textures.c
-void 		lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect);
+void 		lizz_btn_set_texture(btn_t *, char *, sfIntRect *);
 
 // buttons/btn_sprites.c
-void 		lizz_btn_set_position(btn_t *btn, int x, int y);
-void 		lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect);
-void 		lizz_btn_set_rotation(btn_t *btn, float angle);
+void 		lizz_btn_set_position(btn_t *, int, int);
+void 		lizz_btn_set_texture_rect(btn_t *, sfIntRect *);
+void 		lizz_btn_set_rotation(btn_t *, float);
 
 // buttons/btn_general.c
-void 		lizz_btn_destroy(btn_t *btn);
+void 		lizz_btn_destroy(btn_t *);
 
 // threads/thread_general.c
 void 		lizz_thread_destroy(thread_t *thread);
@@ -43,15 +41,15 @@ void 		lizz_clock_restart(clk_t *thread);
 // # # # # # # # # # # # # # # //
 
 // Buttons
-int 		lizz_btn_create(char *name, menu_e belongsTo);
-btn_t		*lizz_get_btn(char *name, menu_e belongsTo);
+int 		lizz_btn_create(lizz_t *, char *, menu_e);
+btn_t		*lizz_get_btn(lizz_t *, char *name, menu_e belongsTo);
 
 // Threads
-int 		lizz_thread_create(char *name, void (*c)(void *), void *data);
-thread_t 	*lizz_get_thread(char *name);
+int 		lizz_thread_create(lizz_t *, char *name, void (*c)(void *), void *data);
+thread_t 	*lizz_get_thread(lizz_t *, char *name);
 
 // Clock
-int 		lizz_clock_create(char *name);
-clk_t		*lizz_get_clock(char *name);
+int 		lizz_clock_create(lizz_t *, char *name);
+clk_t		*lizz_get_clock(lizz_t *, char *name);
 
 # endif
