@@ -78,6 +78,14 @@ typedef struct game_s game_t;
 #include <lua.h>
 #endif
 
+#ifndef lauxlib_h
+#include <lauxlib.h>
+#endif
+
+#ifndef lualib_h
+#include <lualib.h>
+#endif
+
 #undef MY_ERROR_CODE
 #define MY_ERROR_CODE 84
 
