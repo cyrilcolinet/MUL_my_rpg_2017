@@ -17,6 +17,7 @@ void test(void)
 		sfRenderWindow_clear(data->window, sfBlack);
 		event_management(data);
 		fill_map_state(data, data->id);
+		display_interface(data);
 		display_map(data, data->id);
 		sfRenderWindow_display(data->window);
 	}

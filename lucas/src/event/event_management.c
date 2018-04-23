@@ -31,5 +31,6 @@ void event_management(data_t *data)
 		exit_function(data, event);
 		mouse_coord(data, event);
 		deplacement(data, event);
+		attack(data, event);
 	}
 }
