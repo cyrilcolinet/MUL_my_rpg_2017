@@ -2,17 +2,17 @@
 ** EPITECH PROJECT, 2018
 ** lizz_overlay
 ** File description:
-** btn_sprite functions
+** assets_sprite functions
 */
 
 # include "utils.h"
 # include "debug.h"
 # include "lizz.h"
 
-static void print_debug_1(char *btn, int x, int y)
+static void print_debug_1(char *assets, int x, int y)
 {
 	lizz_info("Position of \"");
-	lizz_print(1, btn);
+	lizz_print(1, assets);
 	lizz_print(1, "\" button changed to: x = ");
 	lizz_print(1, lizz_itoa(x));
 	lizz_print(1, ", y = ");
@@ -21,10 +21,10 @@ static void print_debug_1(char *btn, int x, int y)
 }
 
 // TODO: free itoa
-static void print_debug_2(char *btn, sfIntRect rect, bool reset)
+static void print_debug_2(char *assets, sfIntRect rect, bool reset)
 {
 	lizz_info("Texture rect of \"");
-	lizz_print(1, btn);
+	lizz_print(1, assets);
 	lizz_print(1, "\" button changed to: heigth = ");
 	lizz_print(1, lizz_itoa(rect.height));
 	lizz_print(1, ", width = ");
@@ -40,84 +40,84 @@ static void print_debug_2(char *btn, sfIntRect rect, bool reset)
 
 /*
 ** Changer la position d'une sprite
-** @param (btn_t *btn) - Bouton
+** @param (assets_t *assets) - Bouton
 ** @param (int x) - Position en x
 ** @param (int y) - Position en y
 ** @return (void)
 */
-void lizz_btn_set_position(btn_t *btn, int x, int y)
+void lizz_assets_set_position(assets_t *assets, int x, int y)
 {
 	sfVector2f pos;
 
-	if (!btn) {
+	if (!assets) {
 		lizz_error("Button can't be NULL.\n");
 		return;
 	}
 
-	if (!btn->sprite || !btn->texture || !btn->name)
+	if (!assets->sprite || !assets->texture || !assets->name)
 		return;
 
 	pos.x = x;
 	pos.y = y;
-	btn->current_pos.columns = pos.x;
-	btn->current_pos.rows = pos.y;
-	sfSprite_setPosition(btn->sprite, pos);
-	print_debug_1(btn->name, x, y);
+	assets->current_pos.columns = pos.x;
+	assets->current_pos.rows = pos.y;
+	sfSprite_setPosition(assets->sprite, pos);
+	print_debug_1(assets->name, x, y);
 }
 
 /*
 ** Changer le rectangle d'un sprite (annimations par exemple)
-** @param (btn_t *btn) - Bouton
+** @param (assets_t *assets) - Bouton
 ** @param (sfIntRect *rect) - Rectangle a mettre en place (hauteur, longeur,
 ** top et left)
 ** Set rect to NULL equals to reset by default the rectangle shape
 ** @return (void)
 */
-void lizz_btn_set_texture_rect(btn_t *btn, sfIntRect *rect)
+void lizz_assets_set_texture_rect(assets_t *assets, sfIntRect *rect)
 {
 	sfIntRect r;
 	bool reset = false;
 
-	if (!btn) {
-		lizz_error("Button can't be NULL.\n");
+	if (!assets) {
+		lizz_error("Asset can't be NULL.\n");
 		return;
 	}
 
-	if (!btn->sprite || !btn->name)
+	if (!assets->sprite || !assets->name)
 		return;
 
 	if (rect == NULL) {
-		r = btn->def_rect;
+		r = assets->def_rect;
 		reset = true;
 	} else
 		r = *rect;
 
-	sfSprite_setTextureRect(btn->sprite, r);
-	print_debug_2(btn->name, r, reset);
+	sfSprite_setTextureRect(assets->sprite, r);
+	print_debug_2(assets->name, r, reset);
 }
 
 /*
 ** Changer la rotation d'un sprite
-** @param (btn_t *btn) - Bouton
+** @param (assets_t *assets) - Bouton
 ** @param (float angle) - Angle en degrés
 ** @return (void)
 */
-void lizz_btn_set_rotation(btn_t *btn, float angle)
+void lizz_assets_set_rotation(assets_t *assets, float angle)
 {
 	char *deg = NULL;
 
-	if (!btn) {
-		lizz_error("Button can't be NULL.\n");
+	if (!assets) {
+		lizz_error("Asset can't be NULL.\n");
 		return;
 	}
 
-	if (!btn->sprite || !btn->name)
+	if (!assets->sprite || !assets->name)
 		return;
 
-	sfSprite_setRotation(btn->sprite, angle);
+	sfSprite_setRotation(assets->sprite, angle);
 	lizz_info("Rotation of \"");
-	lizz_print(1, btn->name);
-	lizz_print(1, "\" button changed to ");
+	lizz_print(1, assets->name);
+	lizz_print(1, "\" asset changed to ");
 	deg = lizz_itoa(((int)angle));
 	lizz_print(1, deg);
 	free(deg);

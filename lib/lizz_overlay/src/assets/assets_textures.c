@@ -2,18 +2,18 @@
 ** EPITECH PROJECT, 2018
 ** lizz_overlay
 ** File description:
-** btn_textures functions
+** assets_textures functions
 */
 
 # include "utils.h"
 # include "debug.h"
 # include "lizz.h"
 
-static void print_debug(char *btn, char *file)
+static void print_debug(char *assets, char *file)
 {
 	lizz_info("Texture of \"");
-	lizz_print(1, btn);
-	lizz_print(1, "\" button changed to \"");
+	lizz_print(1, assets);
+	lizz_print(1, "\" asset changed to \"");
 	lizz_print(1, file);
 	lizz_print(1, "\"\n");
 }
@@ -37,26 +37,26 @@ static sfIntRect set_default_rect(sfIntRect *rect, sfTexture *texture)
 
 /*
 ** Appliquer une texture au bouton avec son rectangle
-** @param (btn_t *btn) - Bouton ou la texture doit être appliquée
+** @param (assets_t *assets) - Bouton ou la texture doit être appliquée
 ** @param (char *file) - Fichier de texture (ne doit pas contenir le
 ** chemin en entier, juste le fichier)
 ** @param (sfIntRect *rect) - Rectangle area
 ** @return (void)
 */
-void lizz_btn_set_texture(btn_t *btn, char *file, sfIntRect *rect)
+void lizz_assets_set_texture(assets_t *assets, char *file, sfIntRect *rect)
 {
-	if (!btn) {
-		lizz_error("Button can't be NULL.\n");
+	if (!assets) {
+		lizz_error("Asset can't be NULL.\n");
 		return;
 	}
 
-	btn->texture = sfTexture_createFromFile(file, rect);
-	if (!btn->texture)
+	assets->texture = sfTexture_createFromFile(file, rect);
+	if (!assets->texture)
 		return;
 
-	btn->rect = rect;
-	btn->def_rect = set_default_rect(rect, btn->texture);
-	btn->sprite = sfSprite_create();
-	sfSprite_setTexture(btn->sprite, btn->texture, sfFalse);
-	print_debug(btn->name, file);
+	assets->rect = rect;
+	assets->def_rect = set_default_rect(rect, assets->texture);
+	assets->sprite = sfSprite_create();
+	sfSprite_setTexture(assets->sprite, assets->texture, sfFalse);
+	print_debug(assets->name, file);
 }

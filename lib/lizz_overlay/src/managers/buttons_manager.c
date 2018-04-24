@@ -11,10 +11,7 @@
 
 static btn_t *set_functions(btn_t *btn)
 {
-	btn->setTexture = &lizz_btn_set_texture;
-	btn->setPosition = &lizz_btn_set_position;
-	btn->setRotation = &lizz_btn_set_rotation;
-	btn->setTextureRect = &lizz_btn_set_texture_rect;
+	btn->create_asset = &lizz_btn_create_asset;
 	btn->destroy = &lizz_btn_destroy;
 
 	lizz_info("Button \"");
@@ -28,8 +25,7 @@ static void fill_node_values(btn_t *node, btn_t values)
 {
 	node->name = values.name;
 	node->belongsTo = values.belongsTo;
-	node->texture = NULL;
-	node->sprite = NULL;
+	node->asset = NULL;
 	node = set_functions(node);
 	node->next = NULL;
 }
@@ -59,29 +55,6 @@ static bool new_btn_node(lizz_t *st, btn_t values)
 }
 
 /*
-** Creer un bouton
-** @param (char *name) - Nom/ID du bouton
-** @param (menu_e belongsTo) - Scene a laquelle le bouton appartient
-** @return (int) - Retourne -1 si il y a une erreur, et 0 autrement
-*/
-int lizz_btn_create(lizz_t *st, char *name, menu_e belongsTo)
-{
-	btn_t btn;
-
-	if (!name || lizz_strlen(name) == 0) {
-		lizz_error("name must be not empty.\n");
-		return (-1);
-	}
-
-	btn.name = name;
-	btn.belongsTo = belongsTo;
-	if (!new_btn_node(st, btn))
-		return (-1);
-
-	return (0);
-}
-
-/*
 ** Récupérer un bouton grace à son nom et sa scene correspondante
 ** @param (char *name) - Nom/ID du bouton
 ** @param (menu_e belonsTo) - Scene à laquelle le bouton appartient
@@ -105,4 +78,28 @@ btn_t *lizz_get_btn(lizz_t *st, char *name, menu_e belongsTo)
 	lizz_print(2, name);
 	lizz_print(2, "\"\n");
 	return (NULL);
+}
+
+/*
+** Creer un bouton
+** @param (char *name) - Nom/ID du bouton
+** @param (menu_e belongsTo) - Scene a laquelle le bouton appartient
+** @return (int) - Retourne -1 si il y a une erreur, et 0 autrement
+*/
+int lizz_btn_create(lizz_t *st, char *name, menu_e belongsTo)
+{
+	btn_t btn;
+
+	if (!name || lizz_strlen(name) == 0) {
+		lizz_error("name must be not empty.\n");
+		return (-1);
+	}
+
+	btn.name = name;
+	btn.belongsTo = belongsTo;
+
+	if (!new_btn_node(st, btn))
+		return (-1);
+
+	return (0);
 }

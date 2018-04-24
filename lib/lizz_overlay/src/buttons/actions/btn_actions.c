@@ -9,9 +9,9 @@
 
 void lizz_btn_on_hover_def(btn_t *btn, int move)
 {
-	if (!btn)
+	if (!btn && !btn->asset)
 		return;
 
-	btn->rect->top += move;
-	sfSprite_setTextureRect(btn->sprite, *btn->rect);
+	btn->asset->rect->top += move;
+	sfSprite_setTextureRect(btn->asset->sprite, *btn->asset->rect);
 }

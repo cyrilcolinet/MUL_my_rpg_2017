@@ -45,20 +45,22 @@ int main(void)
 
 	// buttons tests
 	btn = lizz_get_btn(lizz, "btn_play", stMain);
-	btn->setTexture(btn, "./assets/buttons/buttons.png", NULL);
-	btn->setPosition(btn, 20, 20);
+	btn->create_asset(btn, lizz);
+	btn->asset->setTexture(btn->asset, "./assets/buttons/buttons.png", NULL);
+	btn->asset->setPosition(btn->asset, 20, 20);
 	sfIntRect r = { 30, 45, 45, 65 };
-	btn->setTextureRect(btn, &r);
-	btn->setTextureRect(btn, NULL);
-	btn->setRotation(btn, 56);
+	btn->asset->setTextureRect(btn->asset, &r);
+	btn->asset->setTextureRect(btn->asset, NULL);
+	btn->asset->setRotation(btn->asset, 56);
 
 	btn = lizz_get_btn(lizz, "btn_settings", stMain);
-	btn->setTexture(btn, "./assets/buttons/buttons.png", NULL);
-	btn->setPosition(btn, 20, 20);
+	btn->create_asset(btn, lizz);
+	btn->asset->setTexture(btn->asset, "./assets/buttons/buttons.png", NULL);
+	btn->asset->setPosition(btn->asset, 20, 20);
 	sfIntRect rr = { 30, 45, 45, 65 };
-	btn->setTextureRect(btn, &rr);
-	btn->setTextureRect(btn, NULL);
-	btn->setRotation(btn, 56);
+	btn->asset->setTextureRect(btn->asset, &rr);
+	btn->asset->setTextureRect(btn->asset, NULL);
+	btn->asset->setRotation(btn->asset, 56);
 
 	// threads tests
 	thread = lizz_get_thread(lizz, "thread_animation");

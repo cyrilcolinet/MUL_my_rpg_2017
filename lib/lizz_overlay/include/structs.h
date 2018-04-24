@@ -31,6 +31,7 @@ struct 	clk_t;
 struct 	sound_t;
 struct 	btn_t;
 struct	menu_t;
+struct	lizz_t;
 
 typedef struct pos_t {
 	int 			rows;
@@ -62,19 +63,29 @@ typedef struct sound_t {
 	struct sound_t 	*next;
 }	sound_t;
 
-typedef struct btn_t {
+typedef struct assets_t {
 	char 			*name;
-	menu_e 			belongsTo;
 	sfSprite 		*sprite;
 	sfTexture 		*texture;
 	sfIntRect		*rect;
 	sfIntRect		def_rect;
 	pos_t 			current_pos;
-	void 			(*setTexture)(struct btn_t *, char *, sfIntRect *);
-	void			(*setTextureRect)(struct btn_t *, sfIntRect *);
+	void 			(*setTexture)(struct assets_t *, char *, sfIntRect *);
+	void			(*setTextureRect)(struct assets_t *, sfIntRect *);
+	void			(*setPosition)(struct assets_t *, int, int);
+	void 			(*setRotation)(struct assets_t *, float);
+	void 			(*destroy)(struct assets_t *);
+	struct assets_t	*next;
+
+}	assets_t;
+
+typedef struct btn_t {
+	char 			*name;
+	menu_e 			belongsTo;
+	assets_t		*asset;
+	void 			(*create_asset)(struct btn_t *, struct lizz_t *);
 	void			(*onHover)(struct btn_t *, int move);
-	void			(*setPosition)(struct btn_t *, int, int);
-	void 			(*setRotation)(struct btn_t *, float);
+	void			(*onClicked)(struct btn_t *, int move);
 	void 			(*destroy)(struct btn_t *);
 	struct btn_t 	*next;
 } 	btn_t;
@@ -87,6 +98,7 @@ typedef struct menu_t {
 }	menu_t;
 
 typedef struct lizz_t {
+	assets_t 		*assets;
 	btn_t	 		*btn;
 	menu_t 			*menus;
 	thread_t 		*thread;

@@ -20,10 +20,12 @@ SRCNAMES			= 	lizz.c 							\
 						managers/destroy_manager.c 		\
 						managers/threads_manager.c 		\
 						managers/clocks_manager.c 		\
+						managers/assets_manager.c 		\
 						buttons/actions/btn_actions.c 	\
-						buttons/btn_textures.c 			\
-						buttons/btn_sprites.c 			\
 						buttons/btn_general.c 			\
+						assets/assets_general.c 		\
+						assets/assets_sprites.c			\
+						assets/assets_textures.c		\
 						threads/thread_general.c 		\
 						clocks/clock_general.c
 
