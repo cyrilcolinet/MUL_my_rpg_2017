@@ -28,9 +28,12 @@
 # include "lizz/lizz.h"
 # include "my.h"
 
+# define STYLE 			(sfClose)
+
 typedef struct rpg_t {
 	sfRenderWindow	*win;
 	lizz_t			*lizz;
+	menu_e			state;
 }	rpg_t;
 
 int 	rpg_main(int, char **);
@@ -52,5 +55,10 @@ void 	main_menu_config(rpg_t *);
 
 // tasks/background_task.c
 void 	bg_task(void *);
+
+// EVENTS
+
+// events/init_events.c
+void 	poll_events(rpg_t *, sfEvent *);
 
 # endif

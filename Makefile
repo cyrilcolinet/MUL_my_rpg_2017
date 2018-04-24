@@ -20,7 +20,8 @@ SRC_FILES				= 	main.c 										\
 							utils/struct_utils.c 						\
 							configuration/init_config.c					\
 							configuration/menus/main_menu_config.c 		\
-							tasks/background_task.c
+							tasks/background_task.c 					\
+							events/init_events.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

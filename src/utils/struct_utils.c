@@ -20,6 +20,8 @@ rpg_t *initialize_struct(void)
 		return (NULL);
 
 	rpg->lizz = NULL;
+	rpg->state = stMain;
+	rpg->win = NULL;
 
 	return (rpg);
 }

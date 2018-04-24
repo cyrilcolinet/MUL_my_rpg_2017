@@ -7,7 +7,7 @@
 
 # include "rpg.h"
 
-static bool get_debugger(int ac, char **av)
+bool get_debugger(int ac, char **av)
 {
 	if (ac > 2) {
 		write(2, "Wrong argument number.\n", 23);
@@ -21,24 +21,37 @@ static bool get_debugger(int ac, char **av)
 	return (false);
 }
 
-int game_loop(rpg_t *rpg)
+int game_loop(rpg_t *rpg, sfEvent *event)
 {
-	
+	if (sfRenderWindow_pollEvent(rpg->win, event))
+		poll_events(rpg, event);
+
+	sfRenderWindow_clear(rpg->win, sfBlack);
+	//lizz_draw_elements(rpg->state);
+	sfRenderWindow_display(rpg->win);
+	return (0);
 }
 
 int game(rpg_t *rpg)
 {
 	int status = 0;
 	sfVideoMode mode = { 1920, 1080, 32 };
+	sfEvent event;
 
-	rpg->win = sfRenderWindow_create(mode, "RPG", sfFullscreen, NULL);
+	rpg->win = sfRenderWindow_create(mode, "RPG", STYLE, NULL);
 	if (rpg->win == NULL)
 		return (84);
 
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
 	sfRenderWindow_setMouseCursorVisible(rpg->win, sfFalse);
 
-	status = game_loop(rpg);
+	while (sfRenderWindow_isOpen(rpg->win) && status == 0)
+		status = game_loop(rpg, &event);
+
+	if (!sfRenderWindow_isOpen(rpg->win))
+		sfRenderWindow_close(rpg->win);
+
+	sfRenderWindow_destroy(rpg->win);
 	return (status);
 }
 
