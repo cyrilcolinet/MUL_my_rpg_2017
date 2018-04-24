@@ -32,10 +32,10 @@ void lizz_btn_create_asset(btn_t *btn, lizz_t *lizz)
 
 	if (!btn)
 		return;
-	if (lizz_assets_create(lizz, btn->name) < 0)
+	if (lizz_assets_create(lizz, btn->name, btn->belongsTo) < 0)
 		return;
 
-	tmp = lizz_get_assets(lizz, btn->name);
+	tmp = lizz_get_assets(lizz, btn->name, btn->belongsTo);
 	if (tmp == NULL) {
 		lizz_error("Unable to create asset for button \"");
 		lizz_print(1, btn->name);

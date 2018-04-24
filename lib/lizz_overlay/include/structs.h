@@ -65,6 +65,7 @@ typedef struct sound_t {
 
 typedef struct assets_t {
 	char 			*name;
+	menu_e 			belongsTo;
 	sfSprite 		*sprite;
 	sfTexture 		*texture;
 	sfIntRect		*rect;

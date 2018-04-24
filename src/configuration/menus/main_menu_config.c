@@ -18,6 +18,12 @@ static void configure_buttons(rpg_t *rpg)
 
 void main_menu_config(rpg_t *rpg)
 {
+	assets_t *tmp = NULL;
+
+	lizz_assets_create(rpg->lizz, "main_bg", stMain);
+	tmp = lizz_get_assets(rpg->lizz, "main_bg", stMain);
+	tmp->setTexture(tmp, "assets/background.jpg", NULL);
+
 	lizz_btn_create(rpg->lizz, "btn_play", stMain);
 	lizz_btn_create(rpg->lizz, "btn_settings", stMain);
 	lizz_btn_create(rpg->lizz, "btn_credits", stMain);

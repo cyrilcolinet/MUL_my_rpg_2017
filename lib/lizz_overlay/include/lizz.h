@@ -40,6 +40,9 @@ void 		lizz_thread_terminate(thread_t *thread);
 void 		lizz_clock_destroy(clk_t *thread);
 void 		lizz_clock_restart(clk_t *thread);
 
+// drawing_manager.c
+void 		lizz_draw_elements(lizz_t *, menu_e, sfRenderWindow *);
+
 // # # # # # # # # # # # # # # //
 // #       MANAGERS          # //
 // # # # # # # # # # # # # # # //
@@ -49,8 +52,8 @@ int 		lizz_btn_create(lizz_t *, char *, menu_e);
 btn_t		*lizz_get_btn(lizz_t *, char *, menu_e);
 
 // assets
-int 		lizz_assets_create(lizz_t *, char *);
-assets_t	*lizz_get_assets(lizz_t *, char *);
+int 		lizz_assets_create(lizz_t *, char *, menu_e);
+assets_t	*lizz_get_assets(lizz_t *, char *, menu_e);
 
 // Threads
 int 		lizz_thread_create(lizz_t *, char *, void (*)(void *), void *);

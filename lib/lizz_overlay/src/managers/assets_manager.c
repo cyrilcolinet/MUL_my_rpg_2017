@@ -27,6 +27,7 @@ static assets_t *set_functions(assets_t *assets)
 static void fill_node_values(assets_t *node, assets_t values)
 {
 	node->name = values.name;
+	node->belongsTo = values.belongsTo;
 	node->texture = NULL;
 	node->sprite = NULL;
 	node = set_functions(node);
@@ -63,13 +64,14 @@ static bool new_assets_node(lizz_t *st, assets_t values)
 ** @return (assets_t) - Retourne NULL si aucun bouton n'est trouvé, et
 ** retourne le bouton si correspondant au nom et à la scene donnée
 */
-assets_t *lizz_get_assets(lizz_t *st, char *name)
+assets_t *lizz_get_assets(lizz_t *st, char *name, menu_e belongsTo)
 {
 	assets_t *tmp = st->assets;
 
 	while (tmp != NULL) {
 		if (strcmp(tmp->name, name) == 0) { // TODO: Forbidden function
-			return (tmp);
+			if (tmp->belongsTo == belongsTo)
+				return (tmp);
 		}
 		tmp = tmp->next;
 	}
@@ -85,7 +87,7 @@ assets_t *lizz_get_assets(lizz_t *st, char *name)
 ** @param (char *name) - Nom/ID du bouton
 ** @return (int) - Retourne -1 si il y a une erreur, et 0 autrement
 */
-int lizz_assets_create(lizz_t *st, char *name)
+int lizz_assets_create(lizz_t *st, char *name, menu_e belongsTo)
 {
 	assets_t assets;
 
@@ -95,7 +97,7 @@ int lizz_assets_create(lizz_t *st, char *name)
 	}
 
 	assets.name = name;
-
+	assets.belongsTo = belongsTo;
 	if (!new_assets_node(st, assets))
 		return (-1);
 
