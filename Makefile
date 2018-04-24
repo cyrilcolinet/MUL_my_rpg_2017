@@ -17,7 +17,10 @@ TEST_DIR				= 	tests/
 
 SRC_FILES				= 	main.c 										\
 							rpg.c 										\
-							utils/struct_utils.c
+							utils/struct_utils.c 						\
+							configuration/init_config.c					\
+							configuration/menus/main_menu_config.c 		\
+							tasks/background_task.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
@@ -33,7 +36,7 @@ CC						=	gcc
 
 CFLAGS					= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
 
-LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz
+LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz -llua -lm -lc_graph_prog
 
 UNITS_LFLAGS			= 	$(LFLAGS) -lgcov -lcriterion
 

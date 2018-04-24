@@ -21,9 +21,25 @@ static bool get_debugger(int ac, char **av)
 	return (false);
 }
 
+int game_loop(rpg_t *rpg)
+{
+	
+}
+
 int game(rpg_t *rpg)
 {
-	return (0);
+	int status = 0;
+	sfVideoMode mode = { 1920, 1080, 32 };
+
+	rpg->win = sfRenderWindow_create(mode, "RPG", sfFullscreen, NULL);
+	if (rpg->win == NULL)
+		return (84);
+
+	sfRenderWindow_setFramerateLimit(rpg->win, 60);
+	sfRenderWindow_setMouseCursorVisible(rpg->win, sfFalse);
+
+	status = game_loop(rpg);
+	return (status);
 }
 
 int rpg_main(int ac, char **av)
@@ -34,12 +50,13 @@ int rpg_main(int ac, char **av)
 
 	if (rpg == NULL)
 		return (84);
-
 	if (lizz_start(&rpg->lizz, debug) < 0)
 		return (84);
+	if ((status = init_config(rpg)) != 0)
+		return (status);
 
 	status = game(rpg);
 	lizz_stop(rpg->lizz);
 	free_all(rpg);
-	return (0);
+	return (status);
 }
