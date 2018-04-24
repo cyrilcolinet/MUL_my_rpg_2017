@@ -16,7 +16,7 @@
 */
 void lizz_btn_destroy(btn_t *btn)
 {
-	if (!btn && !btn->asset)
+	if (!btn || !btn->asset)
 		return;
 
 	btn->asset->destroy(btn->asset);
