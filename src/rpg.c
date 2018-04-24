@@ -9,7 +9,7 @@
 
 static bool get_debugger(int ac, char **av)
 {
-	if (ac != 2) {
+	if (ac > 2) {
 		write(2, "Wrong argument number.\n", 23);
 		write(2, "Usage: ./my_rpg [-d]\n", 21);
 		return (false);
@@ -29,7 +29,7 @@ int game(rpg_t *rpg)
 int rpg_main(int ac, char **av)
 {
 	int status = 0;
-	bool debug = get_debugger(av, av);
+	bool debug = get_debugger(ac, av);
 	rpg_t *rpg = initialize_struct();
 
 	if (rpg == NULL)

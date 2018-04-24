@@ -19,7 +19,6 @@ rpg_t *initialize_struct(void)
 	if (rpg == NULL)
 		return (NULL);
 
-	rpg->status = 0;
 	rpg->lizz = NULL;
 
 	return (rpg);

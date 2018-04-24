@@ -51,4 +51,5 @@ void lizz_stop(lizz_t *lizz)
 	lizz_destroy_all(lizz);
 	free(lizz->btn);
 	free(lizz);
+	lizz_info("Lizz overlay been stopped.\n");
 }
