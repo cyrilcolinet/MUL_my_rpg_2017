@@ -40,6 +40,9 @@ void 		lizz_thread_terminate(thread_t *thread);
 void 		lizz_clock_destroy(clk_t *thread);
 void 		lizz_clock_restart(clk_t *thread);
 
+// events_manager
+void 		lizz_poll_events(lizz_t *, sfEvent *, menu_e);
+
 // drawing_manager.c
 void 		lizz_draw_elements(lizz_t *, menu_e, sfRenderWindow *);
 

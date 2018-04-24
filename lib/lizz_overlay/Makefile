@@ -22,6 +22,7 @@ SRCNAMES			= 	lizz.c 							\
 						managers/clocks_manager.c 		\
 						managers/assets_manager.c 		\
 						managers/drawing_manager.c 		\
+						managers/events_manager.c 		\
 						buttons/actions/btn_actions.c 	\
 						buttons/btn_general.c 			\
 						assets/assets_general.c 		\

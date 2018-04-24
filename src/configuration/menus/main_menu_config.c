@@ -10,10 +10,12 @@
 static void configure_buttons(rpg_t *rpg)
 {
 	btn_t *btn = NULL;
+	sfIntRect rec = { 2, 1, 290, 82 };
 
 	btn = lizz_get_btn(rpg->lizz, "btn_play", stMain);
 	btn->create_asset(btn, rpg->lizz);
-	btn->asset->setTexture(btn->asset, "assets/buttons/buttons.png", NULL);
+	btn->asset->setTexture(btn->asset, "assets/buttons/buttons.png", &rec);
+	btn->asset->setPosition(btn->asset, 34, 34);
 }
 
 void main_menu_config(rpg_t *rpg)

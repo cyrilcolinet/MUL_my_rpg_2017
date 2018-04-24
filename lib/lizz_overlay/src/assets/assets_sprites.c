@@ -59,8 +59,8 @@ void lizz_assets_set_position(assets_t *assets, int x, int y)
 
 	pos.x = x;
 	pos.y = y;
-	assets->current_pos.columns = pos.x;
-	assets->current_pos.rows = pos.y;
+	assets->pos.x = pos.x;
+	assets->pos.y = pos.y;
 	sfSprite_setPosition(assets->sprite, pos);
 	print_debug_1(assets->name, x, y);
 }

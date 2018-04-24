@@ -34,8 +34,8 @@ struct	menu_t;
 struct	lizz_t;
 
 typedef struct pos_t {
-	int 			rows;
-	int 			columns;
+	int 			x;
+	int 			y;
 } 	pos_t;
 
 typedef struct thread_t {
@@ -70,7 +70,7 @@ typedef struct assets_t {
 	sfTexture 		*texture;
 	sfIntRect		*rect;
 	sfIntRect		def_rect;
-	pos_t 			current_pos;
+	sfVector2f		pos;
 	void 			(*setTexture)(struct assets_t *, char *, sfIntRect *);
 	void			(*setTextureRect)(struct assets_t *, sfIntRect *);
 	void			(*setPosition)(struct assets_t *, int, int);

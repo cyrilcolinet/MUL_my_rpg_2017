@@ -43,7 +43,6 @@ int game(rpg_t *rpg)
 		return (84);
 
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
-	//sfRenderWindow_setMouseCursorVisible(rpg->win, sfFalse);
 
 	while (sfRenderWindow_isOpen(rpg->win) && status == 0)
 		status = game_loop(rpg, &event);

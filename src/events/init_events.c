@@ -12,4 +12,6 @@ void poll_events(rpg_t *rpg, sfEvent *event)
 	if (event->type == sfEvtClosed || (event->type == sfEvtKeyReleased \
 	&& event->key.code == sfKeyEscape))
 		sfRenderWindow_close(rpg->win);
+
+	lizz_poll_events(rpg->lizz, event, rpg->state);
 }
