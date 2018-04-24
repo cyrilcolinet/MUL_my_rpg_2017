@@ -37,8 +37,9 @@ int game(rpg_t *rpg)
 	int status = 0;
 	sfVideoMode mode = { 1920, 1080, 32 };
 	sfEvent event;
+	char *title = "RPG - Menu principal";
 
-	rpg->win = sfRenderWindow_create(mode, "RPG", STYLE, NULL);
+	rpg->win = sfRenderWindow_create(mode, title, STYLE, NULL);
 	if (rpg->win == NULL)
 		return (84);
 

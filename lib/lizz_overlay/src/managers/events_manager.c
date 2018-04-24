@@ -14,7 +14,7 @@ static btn_t *get_button(lizz_t *l, menu_e m, pos_t p)
 	sfIntRect rec;
 
 	while (tmp != NULL) {
-		if (tmp->belongsTo == m) {
+		if (tmp->belongsTo == m && tmp->asset != NULL) {
 			pos = tmp->asset->pos;
 			rec = *tmp->asset->rect;
 

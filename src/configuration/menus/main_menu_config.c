@@ -7,18 +7,12 @@
 
 # include "rpg.h"
 
-static void configure_buttons(rpg_t *rpg)
+void configure_buttons(rpg_t *rpg)
 {
-	btn_t *btn = NULL;
-	sfIntRect rec = { 2, 1, 290, 82 };
-
-	btn = lizz_get_btn(rpg->lizz, "btn_play", stMain);
-	btn->create_asset(btn, rpg->lizz);
-	btn->asset->setTexture(btn->asset, "assets/buttons/buttons.png", &rec);
-	btn->asset->setPosition(btn->asset, 34, 34);
+	main_menu_btn_play(rpg);
 }
 
-void main_menu_config(rpg_t *rpg)
+void configure_default_assets(rpg_t *rpg)
 {
 	assets_t *tmp = NULL;
 
@@ -26,10 +20,20 @@ void main_menu_config(rpg_t *rpg)
 	tmp = lizz_get_assets(rpg->lizz, "main_bg", stMain);
 	tmp->setTexture(tmp, "assets/background.jpg", NULL);
 
+	lizz_assets_create(rpg->lizz, "main_logo", stMain);
+	tmp = lizz_get_assets(rpg->lizz, "main_logo", stMain);
+	tmp->setTexture(tmp, "assets/logo.png", NULL);
+	tmp->setPosition(tmp, (1920 / 2) - (500 / 2), 100);
+}
+
+void main_menu_config(rpg_t *rpg)
+{
 	lizz_btn_create(rpg->lizz, "btn_play", stMain);
 	lizz_btn_create(rpg->lizz, "btn_settings", stMain);
 	lizz_btn_create(rpg->lizz, "btn_credits", stMain);
 	lizz_btn_create(rpg->lizz, "btn_quit", stMain);
 	lizz_thread_create(rpg->lizz, "th_bg", &bg_task, &rpg);
+
+	configure_default_assets(rpg);
 	configure_buttons(rpg);
 }

@@ -8,6 +8,8 @@
 # ifndef RPG_H
 # define RPG_H
 
+# define STYLE 		(sfClose)
+
 # include <SFML/Audio.h>
 # include <SFML/Config.h>
 # include <SFML/Graphics.h>
@@ -27,38 +29,40 @@
 
 # include "lizz/lizz.h"
 # include "my.h"
+# include "structs.h"
+# include "configuration.h"
 
-# define STYLE 			(sfClose)
-
-typedef struct rpg_t {
-	sfRenderWindow	*win;
-	lizz_t			*lizz;
-	menu_e			state;
-}	rpg_t;
-
+// rpg.c
+bool 	get_debugger(int, char **);
+int 	game_loop(rpg_t *, sfEvent *);
+int 	game(rpg_t *);
 int 	rpg_main(int, char **);
 
-// utils/struct_utils.c
-void 	free_all(rpg_t *);
-rpg_t	*initialize_struct(void);
+/*
+** Tasks
+** List of threaded tasks for all menus
+** (Only thread named and used for overlay works)
+*/
 
-// CONFIGURATIONS
-
-// configuration/init_config.c
-void 	init_menus_configuration(rpg_t *);
-int 	init_config(rpg_t *);
-
-// configuration/menus_main_menu_config.c
-void 	main_menu_config(rpg_t *);
-
-// TASKS
-
-// tasks/background_task.c
+// background_task.c
 void 	bg_task(void *);
 
-// EVENTS
+/*
+** Events management
+** Contains mousen keyboard, joystick, and others
+** Exclude lizz_overlay events polling
+*/
 
-// events/init_events.c
+// init_events.c
 void 	poll_events(rpg_t *, sfEvent *);
+
+/*
+** Utilities
+** PArsing, list, management and graphic utils
+*/
+
+// struct_utils.c
+void 	free_all(rpg_t *);
+rpg_t	*initialize_struct(void);
 
 # endif

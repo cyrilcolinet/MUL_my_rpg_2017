@@ -20,6 +20,7 @@ SRC_FILES				= 	main.c 										\
 							utils/struct_utils.c 						\
 							configuration/init_config.c					\
 							configuration/menus/main_menu_config.c 		\
+							configuration/menus/main_menu_buttons.c		\
 							tasks/background_task.c 					\
 							events/init_events.c
 

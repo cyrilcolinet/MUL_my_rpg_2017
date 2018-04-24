@@ -9,5 +9,5 @@
 
 void bg_task(void *data)
 {
-	
+	(void)data;
 }

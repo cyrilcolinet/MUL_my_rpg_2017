@@ -30,6 +30,8 @@ static void fill_node_values(assets_t *node, assets_t values)
 	node->belongsTo = values.belongsTo;
 	node->texture = NULL;
 	node->sprite = NULL;
+	node->pos.x = 0;
+	node->pos.y = 0;
 	node = set_functions(node);
 	node->next = NULL;
 }
