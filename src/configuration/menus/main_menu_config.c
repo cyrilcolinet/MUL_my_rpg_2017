@@ -10,6 +10,9 @@
 void configure_buttons(rpg_t *rpg)
 {
 	main_menu_btn_play(rpg);
+	main_menu_btn_settings(rpg);
+	main_menu_btn_credits(rpg);
+	main_menu_btn_quit(rpg);
 }
 
 void configure_default_assets(rpg_t *rpg)

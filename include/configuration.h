@@ -22,6 +22,9 @@ int 	init_config(rpg_t *);
 
 // menus/main_menu_buttons.c
 void 	main_menu_btn_play(rpg_t *);
+void 	main_menu_btn_credits(rpg_t *);
+void 	main_menu_btn_settings(rpg_t *);
+void 	main_menu_btn_quit(rpg_t *);
 
 // menus/main_menu_config.c
 void 	configure_buttons(rpg_t *);
