@@ -11,7 +11,7 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-lc_graph_prog -lm -llua -L lib/ -lmy
+LDFLAGS		=	-lc_graph_prog -lm -llua -L lib/ -lmy -L lib/ -lcl
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
@@ -22,6 +22,10 @@ SRC		=	src/draw/anim.c			\
 			src/draw/map.c			\
 			src/draw/sprite.c		\
 			src/event/event.c		\
+			src/lua/lua_table_get.c		\
+			src/lua/lua_table_goto.c	\
+			src/ressource/ressource.c	\
+			src/ressource/tileset.c		\
 			src/state/interface.c		\
 			src/state/play.c		\
 			src/game.c			\
@@ -29,7 +33,7 @@ SRC		=	src/draw/anim.c			\
 
 OBJ		=	$(SRC:.c=.o)
 
-INCLUDE		=	-I include -I include/lua
+INCLUDE		=	-I include
 
 TEST		=	tests/tests
 
@@ -49,6 +53,7 @@ clean:
 fclean:	clean
 	make -C lib/my fclean
 	make -C lib/lizz_overlay fclean
+	make -C lib/cl fclean
 	rm -f $(NAME)
 	rm -f $(TEST)
 	find -name '*.gc*' -delete
@@ -69,6 +74,7 @@ $(NAME):	lib obj
 lib:
 	make -C lib/my
 	make -C lib/lizz_overlay
+	make -C lib/cl
 
 
 obj:

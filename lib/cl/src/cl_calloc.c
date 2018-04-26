@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2018
-** lib my
+** lib cl
 ** File description:
-** my calloc
+** calloc
 */
 
-#include "my.h"
+#include "cl.h"
 
-void *my_calloc(size_t size)
+void *cl_calloc(size_t size)
 {
 	void *ptr = NULL;
-	u_int8_t *tmp = NULL;
+	uint8_t *tmp = NULL;
 
 	CHECK_DO(size == 0, return NULL;)
 	ptr = malloc(size);

@@ -355,13 +355,6 @@ void my_printf(char *format, ...);
 **/
 void my_free(void **ptr);
 
-/**
-** Calloc function recoded
-** @param (size_t) size
-** @return (void *) ptr
-**/
-void *my_calloc(size_t size);
-
 char *my_strconfigure(unsigned int size);
 
 char *my_strjoin(char *str1, char *str2);

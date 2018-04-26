@@ -29,7 +29,6 @@ SRC	=	my_atoi.c		\
 		my_strdup.c 		\
 		my_strcpy.c 		\
 		my_strcat.c		\
-		my_calloc.c		\
 
 SRC	:=	$(addprefix $(SRC_DIR)/, $(SRC))
 

@@ -12,7 +12,7 @@ sprite_t *init_sprite(char const *path)
 	sfTexture *texture = NULL;
 	sprite_t *sprite = NULL;
 
-	sprite = my_calloc(sizeof(sprite_t));
+	sprite = cl_calloc(sizeof(sprite_t));
 	sprite->direction = DOWN;
 	sprite->state = STATIC_1;
 	sprite->sprite = sfSprite_create();

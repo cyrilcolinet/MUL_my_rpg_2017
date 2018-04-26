@@ -21,35 +21,45 @@ sfRenderWindow *init_window(void)
 game_t *init_game(void)
 {
 	game_t *game = NULL;
+	lua_State *state = NULL;
 
-	game = my_calloc(sizeof(game_t));
+	state = luaL_newstate();
+	game = cl_calloc(sizeof(game_t));
 	game->window = init_window();
 	game->state_list = NULL;
 	game->state = PLAY;
 	game->prev = PLAY;
-	game->tick = 10;
+	game->tick = 0;
+	game->game_clock = sfThread_create(&game_update_tick, game);
+	lua_close(state);
+	sfThread_launch(game->game_clock);
 	return game;
 }
 
-void del_game(game_t *game)
+void del_game(void *self)
 {
-	sfRenderWindow_destroy(game->window);
+	game_t *_self = NULL;
+
+	_self = (game_t *)self;
+	sfRenderWindow_destroy(_self->window);
 	for (u_int64_t i = 0; i < NBR_STATES; i++)
-		game->state_list[i]->del(game->state_list[i]);
-	del_play(game->state_list[0]);
-	free(game->state_list);
-	free(game);
+		_self->state_list[i]->del(_self->state_list[i]);
+	del_play(_self->state_list[0]);
+	free(_self->state_list);
+	sfThread_terminate(_self->game_clock);
+	sfThread_destroy(_self->game_clock);
+	free(_self);
 }
 
 void game_update_tick(void *data)
 {
 	game_t *game = NULL;
-	sfInt32 *tick = NULL;
+	uint8_t *tick = NULL;
 	sfClock *clock = NULL;
 
-	game = data;
+	game = (game_t *)data;
 	tick = &game->tick;
-	clock = game->clock;
+	clock = sfClock_create();
 	while (1)
 		 *tick = (u_int32_t)floor(((sfTime_asMilliseconds(sfClock_getElapsedTime(clock)) % 250) * 120) / 250);
 }

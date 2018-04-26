@@ -10,85 +10,6 @@
 
 typedef struct game_s game_t;
 
-#ifndef _STDIO_H
-#include <stdio.h>
-#endif
-
-#ifndef _STDLIB_H
-#include <stdlib.h>
-#endif
-
-#ifndef _STDBOOL_H
-#include <stdbool.h>
-#endif
-
-#ifndef _STDDEF_H
-#include <stddef.h>
-#endif
-
-#ifndef _UNISTD_H
-#include <unistd.h>
-#endif
-
-#ifndef _FCNTL_H
-#include <fcntl.h>
-#endif
-
-#ifndef _LIMITS_H
-#include <limits.h>
-#endif
-
-#ifndef SFML_GRAPHICS_H
-#include <SFML/Graphics.h>
-#endif
-
-#ifndef SFML_AUDIO_H
-#include <SFML/Audio.h>
-#endif
-
-#ifndef SFML_NETWORK_H
-#include <SFML/Network.h>
-#endif
-
-#ifndef _MATH_H
-#include <math.h>
-#endif
-
-#ifndef _MY_H
-#include "my.h"
-#endif
-
-#ifndef _DRAW_H
-#include "draw.h"
-#endif
-
-#ifndef _STATE_H
-#include "state.h"
-#endif
-
-#ifndef _GAME_H
-#include "game.h"
-#endif
-
-#ifndef _EVENT_H
-#include "event.h"
-#endif
-
-#ifndef lua_h
-#include <lua.h>
-#endif
-
-#ifndef lauxlib_h
-#include <lauxlib.h>
-#endif
-
-#ifndef lualib_h
-#include <lualib.h>
-#endif
-
-#undef MY_ERROR_CODE
-#define MY_ERROR_CODE 84
-
 #undef SMALLEST_KEY
 #define SMALLEST_KEY sfKeyLeft
 
@@ -116,10 +37,66 @@ typedef struct game_s game_t;
 #undef WINDOW_TITLE
 #define WINDOW_TITLE "my_rpg"
 
+#undef TILESET_DATA
+#define TILESET_DATA_PATH "/assets/data/tilesets.lua"
+
 #undef FRAMERATE
 #define FRAMERATE 60
 
 #undef NBR_STATES
 #define NBR_STATES 1
+
+#undef TILESET_NAME_LEN
+#define TILESET_NAME_LEN 128
+
+#ifndef SFML_GRAPHICS_H
+#include <SFML/Graphics.h>
+#endif
+
+#ifndef SFML_AUDIO_H
+#include <SFML/Audio.h>
+#endif
+
+#ifndef SFML_NETWORK_H
+#include <SFML/Network.h>
+#endif
+
+#ifndef _MATH_H
+#include <math.h>
+#endif
+
+#ifndef _MY_H
+#include "my.h"
+#endif
+
+#ifndef _CL_H
+#include "cl.h"
+#endif
+
+#ifndef _RESSOURCE_H
+#include "ressource.h"
+#endif
+
+#ifndef _DRAW_H
+#include "draw.h"
+#endif
+
+#ifndef _STATE_H
+#include "state.h"
+#endif
+
+#ifndef _GAME_H
+#include "game.h"
+#endif
+
+#ifndef _EVENT_H
+#include "event.h"
+#endif
+
+#ifndef _LUA_H
+#include "lua.h"
+#endif
+
+char *tricat(char const *str1, char const *str2, char const *str3);
 
 #endif

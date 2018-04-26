@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** test_graph
 ** File description:
-** drawable header
+** draw header
 */
 
 #ifndef _DRAW_H
@@ -30,6 +30,14 @@ typedef struct {
 
 typedef struct {
 	sfSprite *map;
+	uint8_t id;
+	u_int64_t height;
+	u_int64_t width;
+	tileset_t *tileset;
+	sfVertex *layer1;
+	sfVertex *layer2;
+	uint8_t hidden_layer;
+	uint16_t connection_layer;
 } map_t;
 
 typedef struct {
@@ -41,16 +49,15 @@ typedef struct {
 
 typedef struct {
 	void *anim_item;
-	u_int32_t delay;
-	u_int32_t time_0;
+	uint8_t delay;
+	uint8_t time_0;
 	void (*anim)(void *self);
 	void (*del)(void *self);
-
 } anim_t;
 
 //interface
 draw_interface_t *init_draw_interface(void *draw_item, void (*set_method)(draw_interface_t *draw_interface));
-void del_draw_interface(draw_interface_t *draw_interface);
+void del_draw_interface(void *self);
 //map
 map_t *init_map(char const *path);
 void draw_map(void *self, sfRenderWindow *window);
