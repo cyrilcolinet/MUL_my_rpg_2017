@@ -8,6 +8,30 @@
 #ifndef _GAME_H
 #define _GAME_H
 
+#undef WINDOW_HEIGHT
+#define WINDOW_HEIGHT 1080
+
+#undef WINDOW_WIDTH
+#define WINDOW_WIDTH 1920
+
+#undef WINDOW_TITLE
+#define WINDOW_TITLE "my_rpg"
+
+#undef WINDOW_STYLE
+#define WINDOW_STYLE (sfClose)
+
+#undef FRAMERATE
+#define FRAMERATE 60
+
+#undef NBR_STATES
+#define NBR_STATES 1
+
+#undef SMALLEST_KEY
+#define SMALLEST_KEY sfKeyLeft
+
+#undef BIGGEST_KEY
+#define BIGGEST_KEY sfKeyDown
+
 typedef enum {
 	PLAY
 } game_state_t;

@@ -11,7 +11,7 @@ CFLAGS		=	-Wall -Wextra -std=c99
 
 CFLAGS_TEST	=	--coverage
 
-LDFLAGS		=	-lc_graph_prog -lm -llua -L lib/ -lmy -L lib/ -lcl
+LDFLAGS		=	-lc_graph_prog -lm -L lib/ -lmy -L lib/ -lcl -Wl,-rpath='lib/lua/' -L lib/lua/ -llua
 
 LDFLAGS_TEST	=	-lcriterion -lgcov
 
@@ -28,6 +28,7 @@ SRC		=	src/draw/anim.c			\
 			src/ressource/tileset.c		\
 			src/state/interface.c		\
 			src/state/play.c		\
+			src/utils/utils0.c		\
 			src/game.c			\
 			src/main.c			\
 

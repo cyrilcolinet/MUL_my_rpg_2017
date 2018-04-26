@@ -40,7 +40,7 @@ int64_t get_number_s(lua_State *state, char const *key)
 	return number;
 }
 
-int64_t  get_number_n(lua_State *state, uint64_t key)
+int64_t get_number_n(lua_State *state, uint64_t key)
 {
 	int64_t number = 0;
 

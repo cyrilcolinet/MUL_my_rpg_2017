@@ -16,7 +16,8 @@ typedef struct {
 } state_interface_t;
 
 typedef struct {
-	map_t *map;
+	uint16_t current_map;
+	map_t **map;
 	sprite_t *sprite;
 	anim_t *anim;
 } play_t;

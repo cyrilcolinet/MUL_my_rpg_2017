@@ -53,7 +53,6 @@ void *cl_calloc(size_t size);
 uint64_t cl_get_occurrence(char c, char const *str);
 bool cl_is_in_str(char c, char const *str);
 bool cl_str_cmp(char const *str1, char const *str2);
-void cl_strcat(char **str1, char **str2);
 uint64_t cl_strchr(char c, char const *str, uint64_t which);
 char *cl_strdup(char const *str);
 uint64_t cl_strlen(char const *str);

@@ -12,7 +12,7 @@ sfRenderWindow *init_window(void)
 	sfRenderWindow *window = NULL;
 	sfVideoMode mode = {WINDOW_WIDTH, WINDOW_HEIGHT, 32};
 
-	window = sfRenderWindow_create(mode, WINDOW_TITLE, sfClose, NULL);
+	window = sfRenderWindow_create(mode, WINDOW_TITLE, WINDOW_STYLE, NULL);
 	sfRenderWindow_setFramerateLimit(window, FRAMERATE);
 	sfRenderWindow_setMouseCursorVisible(window, sfFalse);
 	return window;
@@ -31,6 +31,7 @@ game_t *init_game(void)
 	game->prev = PLAY;
 	game->tick = 0;
 	game->game_clock = sfThread_create(&game_update_tick, game);
+	game->ressource = init_ressource(state);
 	lua_close(state);
 	sfThread_launch(game->game_clock);
 	return game;

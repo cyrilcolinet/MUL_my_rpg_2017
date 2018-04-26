@@ -8,6 +8,18 @@
 #ifndef _DRAW_H
 #define _DRAW_H
 
+#undef SPRITE_HEIGHT
+#define SPRITE_HEIGHT 32
+
+#undef SPRITE_WIDTH
+#define SPRITE_WIDTH 32
+
+#undef SPRITESHEET_HEIGHT
+#define SPRITESHEET_HEIGHT 4
+
+#undef SPRITESHEET_WIDTH
+#define SPRITESHEET_WIDTH 4
+
 typedef enum {
 	LEFT,
 	RIGHT,

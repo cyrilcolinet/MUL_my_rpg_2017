@@ -66,3 +66,4 @@ README.md
 
 include/lizz/
 __pycache__/
+vgcore.*
