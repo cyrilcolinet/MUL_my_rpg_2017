@@ -5,13 +5,15 @@
 ** create text function
 */
 
+#include "test.h"
+
 sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 {
 	sfText *text;
 
-	text = sftext_create();
-	sfText_setFront(text, font);
-	sfText_setStyle(text, sfTextregular);
+	text = sfText_create();
+	sfText_setFont(text, font);
+	sfText_setStyle(text, sfTextRegular);
 	sfText_setColor(text, color);
 	sfText_setPosition(text, pos);
 	sfText_setCharacterSize(text, 15);

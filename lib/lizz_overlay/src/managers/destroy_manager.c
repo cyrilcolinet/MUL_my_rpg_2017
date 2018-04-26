@@ -9,7 +9,7 @@
 # include "debug.h"
 # include "lizz.h"
 
-static void destroy_all_btn(void)
+static void destroy_all_btn(lizz_t *lizz)
 {
 	btn_t *tmp = NULL;
 
@@ -21,7 +21,7 @@ static void destroy_all_btn(void)
 	}
 }
 
-static void destroy_all_threads(void)
+static void destroy_all_threads(lizz_t *lizz)
 {
 	thread_t *tmp = NULL;
 
@@ -33,7 +33,7 @@ static void destroy_all_threads(void)
 	}
 }
 
-static void destroy_all_clocks(void)
+static void destroy_all_clocks(lizz_t *lizz)
 {
 	clk_t *tmp = NULL;
 
@@ -45,9 +45,9 @@ static void destroy_all_clocks(void)
 	}
 }
 
-void lizz_destroy_all(void)
+void lizz_destroy_all(lizz_t *lizz)
 {
-	destroy_all_btn();
-	destroy_all_threads();
-	destroy_all_clocks();
+	destroy_all_btn(lizz);
+	destroy_all_threads(lizz);
+	destroy_all_clocks(lizz);
 }

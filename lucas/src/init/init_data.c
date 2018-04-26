@@ -10,6 +10,7 @@
 void init_data(data_t *data)
 {
 	sfVideoMode mode;
+	sfVector2f pos = {1600, 150};
 
 	mode.width = 1920;
 	mode.height = 1080;
@@ -22,6 +23,8 @@ void init_data(data_t *data)
 		for (int n = 0; n < 12; n++)
 			data->map[i][n] = 0;
 	}
+	data->font = sfFont_createFromFile("./Cyberspace.otf");
+	data->text = create_text(data->font, "Interface", pos, sfWhite);
 	init_fight(data);
 	init_hero(data);
 	init_rune(data);

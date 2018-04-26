@@ -62,6 +62,7 @@ static enemy_t *create_enemy(int nb)
 	enemy->pos.x = 11;
 	enemy->pos.y = 0 + nb;
 	enemy_form(enemy);
+	enemy->select = false;
 	enemy->hp = 20;
 	enemy->dmg = 5;
 	enemy->armor = 1;

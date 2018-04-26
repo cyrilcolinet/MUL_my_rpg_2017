@@ -18,14 +18,21 @@ TEST_DIR	= 	tests/
 SRC_FILES	= 	main.c\
 			test.c\
 			event/event_management.c\
-			event/deplacement.c\
-			event/selection_deplacement.c\
+			event/deplacement/deplacement.c\
+			event/deplacement/hero_deplacement.c\
+			event/deplacement/enemy_deplacement.c\
+			event/deplacement/reset_map_state.c\
+			event/deplacement/select_or_unselect.c\
+			event/deplacement/check_deplacement.c\
+			event/attack/attack.c\
 			init/init_data.c\
 			init/init_fight.c\
 			init/init_hero.c\
 			init/init_rune.c\
 			map/display_map.c\
+			map/display_interface.c\
 			map/fill_map_state.c\
+			lib/create_text.c\
 			free/free_all.c\
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))

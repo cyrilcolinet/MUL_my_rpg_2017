@@ -9,21 +9,52 @@
 # include "debug.h"
 # include "lizz.h"
 
-static clk_t *new_clk_node(void)
+static clk_t *set_functions(clk_t *clk)
 {
-	clk_t **tmp = &lizz->clock;
+	clk->restart = &lizz_clock_restart;
+	clk->destroy = &lizz_clock_destroy;
 
-	while (*tmp != NULL)
-		*tmp = (*tmp)->next;
+	lizz_info("Clock \"");
+	lizz_print(1, clk->name);
+	lizz_print(1, "\" created.\n");
 
-	*tmp = malloc(sizeof(clk_t));
+	return (clk);
+}
 
-	if (*tmp == NULL) {
-		lizz_error("Unable to alloc clk_t: Out of memory.\n");
-		return (NULL);
+static void fill_node_values(clk_t *node, clk_t values)
+{
+	node->name = values.name;
+	node->clock = sfClock_create();
+	if (node->clock == NULL) {
+		lizz_error("Error during creation of clock.\n");
 	}
 
-	return (*tmp);
+	node = set_functions(node);
+	node->next = NULL;
+}
+
+static bool new_clk_node(lizz_t *st, clk_t values)
+{
+	clk_t **clks = &st->clock;
+	clk_t *node = NULL;
+
+	if (st->clock == NULL) {
+		node = malloc(sizeof(clk_t));
+		fill_node_values(node, values);
+		node->next = *clks;
+		*clks = node;
+		return (true);
+	}
+
+	node = st->clock;
+	while (node->next != NULL)
+		node = node->next;
+
+	node->next = malloc(sizeof(clk_t));
+	if (node->next == NULL)
+		return (false);
+	fill_node_values(node->next, values);
+	return (true);
 }
 
 /*
@@ -31,27 +62,18 @@ static clk_t *new_clk_node(void)
 ** @param (char *name) - Nom/ID de la clock
 ** @return (int) - Retourne -1 s'il y a erreur, et 0 si non
 */
-int lizz_clock_create(char *name)
+int lizz_clock_create(lizz_t *st, char *name)
 {
-	clk_t *clk = NULL;
+	clk_t clk;
 
 	if (!name || lizz_strlen(name) == 0) {
 		lizz_error("name must be not empty.\n");
 		return (-1);
 	}
-	clk = new_clk_node();
-	if (!clk)
-		return (-1);
 
-	clk->name = name;
-	clk->clock = sfClock_create();
-	if (!clk->clock) {
-		lizz_error("Error durint creation of clock");
+	clk.name = name;
+	if (!new_clk_node(st, clk))
 		return (-1);
-	}
-	clk->destroy = &lizz_clock_destroy;
-	clk->restart = &lizz_clock_restart;
-	clk->next = NULL;
 
 	return (0);
 }
@@ -62,9 +84,9 @@ int lizz_clock_create(char *name)
 ** @return (clk_t) - Retourne NULL si clock non trouvée, et retourne
 ** la clock trouvée autrement
 */
-clk_t *lizz_get_clock(char *name)
+clk_t *lizz_get_clock(lizz_t *st, char *name)
 {
-	clk_t *tmp = lizz->clock;
+	clk_t *tmp = st->clock;
 
 	while (tmp != NULL) {
 		if (strcmp(tmp->name, name) == 0) { // TODO: Forbidden function

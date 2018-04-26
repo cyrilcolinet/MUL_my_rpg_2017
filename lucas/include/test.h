@@ -29,6 +29,7 @@ typedef struct enemy {
 	sfSprite *spite;
 	sfTexture *texture;
 	sfVector2f pos;
+	bool select;
 	int hp;
 	int dmg;
 	int armor;
@@ -65,11 +66,13 @@ typedef struct hero {
 
 typedef struct data {
 	sfRenderWindow *window;
-	int **map;
 	hero_t *hero;
 	fight_t **fight;
 	rune_t **rune;
 	sfVector2f mouse;
+	sfFont *font;
+	sfText *text;
+	int **map;
 	int id;
 	int number_fight;
 	int number_rune;
@@ -82,17 +85,29 @@ void free_all(data_t *data);
 
 /* MAP */
 void display_map(data_t *data, int id);
+void display_interface(data_t *data);
 void fill_map_state(data_t *data, int id);
 
 /* EVENT */
 void event_management(data_t *data);
-void selection_deplacement(data_t *data);
+
+/*EVENT->DEPLACEMENT*/
 void deplacement(data_t *data, sfEvent event);
+void reset_map_state(data_t *data);
+void hero_deplacement(data_t *data, int i, sfVector2f pos);
+void enemy_deplacement(data_t *data, int i, int x, sfVector2f pos);
+void select_or_unselect(data_t *data, int i);
+void check_deplacement(data_t *data);
+
+/*EVENT->DEPLACEMENT*/
+void attack(data_t *data, sfEvent event);
 
 /* INIT */
 void init_data(data_t *data);
 void init_fight(data_t *data);
 void init_hero(data_t *data);
 void init_rune(data_t *data);
+
+sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color);
 
 #endif
