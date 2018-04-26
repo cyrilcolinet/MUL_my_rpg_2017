@@ -13,7 +13,6 @@ SRC		=	cl_calloc		\
 			cl_get_occurrence	\
 			cl_is_in_str		\
 			cl_str_cmp		\
-			cl_strcat		\
 			cl_strchr		\
 			cl_strdup		\
 			cl_strlen		\
