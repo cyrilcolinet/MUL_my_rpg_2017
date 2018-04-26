@@ -17,13 +17,15 @@
 **   - enum button_e
 **
 ** Des macros:
+**   - LIZZ_BTN_PREFIX (default: "btn_")
 **   - LIZZ_BTN_PATH (default: "./assets/buttons/")
 **
 ** Si aucunes des configurations précédentes sont requises, vous
 ** devez obligatoirement les initialiser, mais les laisser vide.
 */
 
-# define LIZZ_BTN_PATH 						("./assets/buttons/")
+# define LIZZ_BTN_PREFIX				("btn_")
+# define LIZZ_BTN_PATH 					("./assets/buttons/")
 
 typedef enum menu_e {
 	stMain,

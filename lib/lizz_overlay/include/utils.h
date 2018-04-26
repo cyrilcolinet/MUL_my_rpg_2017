@@ -8,11 +8,13 @@
 # ifndef LIZZ_OVERLAY_UTILS_H
 # define LIZZ_OVERLAY_UTILS_H
 
+# include <stdbool.h>
 # include <stdlib.h>
 
-char 		*lizz_strconfigure(size_t size);
-char 		*lizz_itoa(int num);
-int 		lizz_strlen(char *str);
-void 		lizz_print(int fd, char *text);
+char 		*lizz_strconfigure(size_t);
+char 		*lizz_itoa(int);
+int 		lizz_strlen(char *);
+void 		lizz_print(int, char *);
+bool		lizz_startswith(char *, char *);
 
 # endif

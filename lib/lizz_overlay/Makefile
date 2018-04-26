@@ -33,7 +33,7 @@ SRCNAMES			= 	lizz.c 							\
 
 SRC 				= 	$(addprefix src/, $(SRCNAMES))
 
-CFLAGS 				= 	-Wall -Wextra -I./include -g3
+CFLAGS 				= 	-Wall -Wextra -I./include
 
 CC					= 	gcc
 
