@@ -13,9 +13,9 @@ static void draw_buttons(lizz_t *lizz, sfRenderWindow *win, menu_e menu)
 	btn_t *btn = lizz->btn;
 
 	while (btn != NULL) {
-		if (btn->asset->sprite && btn->asset->texture) {
+		if (btn->sprite && btn->asset->texture) {
 			if (btn->belongsTo == menu)
-				sfRenderWindow_drawSprite(win, btn->asset->sprite, NULL);
+				sfRenderWindow_drawSprite(win, btn->sprite, NULL);
 		}
 		btn = btn->next;
 	}

@@ -32,6 +32,7 @@ static void fill_node_values(assets_t *node, assets_t values)
 	node->sprite = NULL;
 	node->pos.x = 0;
 	node->pos.y = 0;
+	node->is_btn = false;
 	node = set_functions(node);
 	node->next = NULL;
 }

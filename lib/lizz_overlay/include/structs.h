@@ -66,6 +66,7 @@ typedef struct sound_t {
 typedef struct assets_t {
 	char 			*name;
 	menu_e 			belongsTo;
+	bool			is_btn;
 	sfSprite 		*sprite;
 	sfTexture 		*texture;
 	sfIntRect		*rect;
@@ -84,6 +85,7 @@ typedef struct btn_t {
 	char 			*name;
 	menu_e 			belongsTo;
 	assets_t		*asset;
+	sfSprite 		*sprite;
 	void 			(*create_asset)(struct btn_t *, struct lizz_t *);
 	void			(*onHover)(struct btn_t *, int move);
 	void			(*onClicked)(struct btn_t *, int move);

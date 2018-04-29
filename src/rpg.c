@@ -48,7 +48,7 @@ int game(rpg_t *rpg)
 	while (sfRenderWindow_isOpen(rpg->win) && status == 0)
 		status = game_loop(rpg, &event);
 
-	if (!sfRenderWindow_isOpen(rpg->win))
+	if (sfRenderWindow_isOpen(rpg->win))
 		sfRenderWindow_close(rpg->win);
 
 	sfRenderWindow_destroy(rpg->win);
