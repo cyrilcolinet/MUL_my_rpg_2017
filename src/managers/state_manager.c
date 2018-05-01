@@ -19,7 +19,7 @@ void init_play_state(game_t *game)
 	if (item == NULL)
 		return;
 
-	game->state_list[0] = init_state_interface(item, &set_method_play);
+	game->state_list[PLAY] = init_state_interface(item, &set_method_play);
 }
 
 int initialize_states(game_t *game)
