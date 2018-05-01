@@ -48,7 +48,6 @@ int cook_main(int ac, char **av)
 		return (status);
 
 	cook = configure_struct();
-
 	if (cook == NULL)
 		return (84);
 

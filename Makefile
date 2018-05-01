@@ -56,7 +56,7 @@ SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
 TESTS_FILES				=	$(filter-out main.c, $(SRC_FILES))
 
-TESTS_FILES				+=	""
+TESTS_FILES				+=	
 
 INCLUDE					= 	include/
 
@@ -66,7 +66,7 @@ CC						=	gcc
 
 CFLAGS					= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
 
-LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz -llua -lm -lc_graph_prog
+LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz -lm -lc_graph_prog
 
 UNITS_LFLAGS			= 	$(LFLAGS) -lgcov -lcriterion
 
