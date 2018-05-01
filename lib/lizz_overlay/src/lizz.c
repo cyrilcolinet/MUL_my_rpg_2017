@@ -19,7 +19,6 @@ static bool configure(lizz_t **conf)
 
 	(*conf)->btn = NULL;
 	(*conf)->thread = NULL;
-	(*conf)->menus = NULL;
 	(*conf)->clock = NULL;
 
 	return (conf);
