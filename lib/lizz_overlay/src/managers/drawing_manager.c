@@ -29,11 +29,11 @@ void lizz_draw_elements(lizz_t *lizz, menu_e menu, sfRenderWindow *win)
 
 	while (ass != NULL) {
 		if (ass->sprite && ass->texture && ass->belongsTo == menu) {
-			if (!lizz_startswith(ass->name, LIZZ_BTN_PREFIX))
+			//if (!lizz_startswith(ass->name, LIZZ_BTN_PREFIX))
 				sfRenderWindow_drawSprite(win, ass->sprite, NULL);
 		}
 		ass = ass->next;
 	}
 
-	draw_buttons(lizz, win, menu);
+	//draw_buttons(lizz, win, menu);
 }

@@ -93,17 +93,9 @@ typedef struct btn_t {
 	struct btn_t 	*next;
 } 	btn_t;
 
-typedef struct menu_t {
-	char 			*name;
-	menu_e			menu;
-	char 			**btn;
-	struct menu_t 	*next;
-}	menu_t;
-
 typedef struct lizz_t {
 	assets_t 		*assets;
 	btn_t	 		*btn;
-	menu_t 			*menus;
 	thread_t 		*thread;
 	clk_t 			*clock;
 }	lizz_t;
