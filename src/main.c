@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_rpg_2017
+** cook
 ** File description:
-** main function
+** Main function
 */
 
-# include "rpg.h"
+# include "cook.h"
 
 int main(int ac, char **av, char **env)
 {
@@ -14,6 +14,6 @@ int main(int ac, char **av, char **env)
 	if (*env == NULL)
 		return (res);
 
-	res = rpg_main(ac, av);
+	res = cook_main(ac, av);
 	return (res);
 }

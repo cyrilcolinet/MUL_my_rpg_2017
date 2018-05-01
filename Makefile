@@ -15,14 +15,42 @@ SRC_DIR 				= 	src/
 
 TEST_DIR				= 	tests/
 
-SRC_FILES				= 	main.c 										\
-							rpg.c 										\
-							utils/struct_utils.c 						\
-							configuration/init_config.c					\
-							configuration/menus/main_menu_config.c 		\
-							configuration/menus/main_menu_buttons.c		\
-							tasks/background_task.c 					\
-							events/init_events.c
+SRC_FILES				= 	main.c 									\
+							cook.c 									\
+							game/wait/wait_loop.c 					\
+							game/run/run_loop.c						\
+							utilities/args_handling.c 				\
+							utilities/struct_utils.c 				\
+							utilities/options_manager.c 			\
+							utilities/fct_pointers.c				\
+							utilities/windows_utils.c 				\
+							utilities/rect_utils.c 					\
+							utilities/sound_manager.c 				\
+							events/events_manager.c 				\
+							events/mouse_events.c 					\
+							assets/buttons_loader.c 				\
+							assets/sliders_loader.c 				\
+							assets/buttons_manager.c 				\
+							assets/sliders_manager.c 				\
+							assets/assets_manager.c 				\
+							assets/setup/wait_buttons.c 			\
+							assets/setup/options_buttons.c 			\
+							assets/setup/options_sliders.c 			\
+							assets/setup/credits_buttons.c 			\
+							assets/sprite_manager.c 				\
+							callback/return_callback.c 				\
+							callback/sliders/volume_callback.c 		\
+							callback/wait/play_btn_callback.c 		\
+							callback/wait/settings_btn_callback.c 	\
+							callback/wait/credits_btn_callback.c 	\
+							callback/wait/quit_btn_callback.c 		\
+							callback/default_callback.c 			\
+							views/options_view.c 					\
+							views/credits_view.c 					\
+							debug/logger.c 							\
+							debug/buttons_debugger.c 				\
+							debug/assets_debugger.c 				\
+							debug/sliders_debugger.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
