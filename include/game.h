@@ -32,6 +32,8 @@
 #undef BIGGEST_KEY
 #define BIGGEST_KEY sfKeyDown
 
+# include "rpg.h"
+
 typedef enum {
 	PLAY
 } game_state_t;

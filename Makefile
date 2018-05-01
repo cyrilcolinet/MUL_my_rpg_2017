@@ -29,8 +29,10 @@ SRC		=	src/draw/anim.c			\
 			src/state/interface.c		\
 			src/state/play.c		\
 			src/utils/utils0.c		\
+			src/managers/state_manager.c	\
 			src/game.c			\
 			src/main.c			\
+			src/rpg.c
 
 OBJ		=	$(SRC:.c=.o)
 
@@ -53,7 +55,7 @@ clean:
 
 fclean:	clean
 	make -C lib/my fclean
-	make -C lib/lizz_overlay fclean
+	#make -C lib/lizz_overlay fclean
 	make -C lib/cl fclean
 	rm -f $(NAME)
 	rm -f $(TEST)
@@ -74,7 +76,7 @@ $(NAME):	lib obj
 
 lib:
 	make -C lib/my
-	make -C lib/lizz_overlay
+	#make -C lib/lizz_overlay
 	make -C lib/cl
 
 

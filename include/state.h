@@ -32,4 +32,8 @@ void event_handler_play(game_t *game);
 void del_play(void *self);
 void set_method_play(state_interface_t *state_interface);
 
+// manager
+void 	init_play_state(game_t *);
+int		initialize_states(game_t *);
+
 #endif
