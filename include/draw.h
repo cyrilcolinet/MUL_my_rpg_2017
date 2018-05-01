@@ -20,6 +20,8 @@
 #undef SPRITESHEET_WIDTH
 #define SPRITESHEET_WIDTH 4
 
+# include "rpg.h"
+
 typedef enum {
 	LEFT,
 	RIGHT,

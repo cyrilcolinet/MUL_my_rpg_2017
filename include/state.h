@@ -8,6 +8,8 @@
 #ifndef _STATE_H
 #define _STATE_H
 
+# include "rpg.h"
+
 typedef struct {
 	void *state_item;
 	void (*display_handler)(void *, sfRenderWindow *);

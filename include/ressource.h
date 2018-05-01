@@ -20,6 +20,8 @@
 #undef EXT_CHAR
 #define EXT_CHAR '.'
 
+# include "rpg.h"
+
 typedef struct {
 	sfRenderStates tileset;
 	char name[TILESET_NAME_LEN];
