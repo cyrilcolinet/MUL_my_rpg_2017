@@ -30,7 +30,20 @@ void event_management(data_t *data)
 	while (sfRenderWindow_pollEvent(data->window, &event)) {
 		exit_function(data, event);
 		mouse_coord(data, event);
-		deplacement(data, event);
-		attack(data, event);
+		interaction(data, event);
+		if (event.type == sfEvtKeyPressed) {
+			if (event.key.code == sfKeyX) {
+				data->hero->played = false;
+				data->hero->move = false;
+				data->hero->attack = false;
+				data->id++;
+			}
+			if (event.key.code == sfKeyW) {
+				data->hero->played = false;
+				data->hero->move = false;
+				data->hero->attack = false;
+				data->id--;
+			}
+		}
 	}
 }

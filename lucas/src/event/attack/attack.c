@@ -7,10 +7,13 @@
 
 #include "test.h"
 
+//static void enemy_detection();
+
 void attack(data_t *data, sfEvent event)
 {
 	int x = data->hero->pos.x;
 	int y = data->hero->pos.y;
+	sfVector2f pos;
 
 	if (data->hero->select) {
 		for (int i = 0; i < 10; i++) {
@@ -24,4 +27,5 @@ void attack(data_t *data, sfEvent event)
 			}
 		}
 	}
+	data->hero->attack = true;
 }

@@ -16,7 +16,7 @@ static void check_enemy_deplacement(data_t *data, int x, sfVector2f pos)
 	}
 }
 
-static void right_click(data_t *data)
+static void hero_turn(data_t *data)
 {
 	sfVector2f pos;
 
@@ -27,33 +27,22 @@ static void right_click(data_t *data)
 			hero_deplacement(data, i, pos);
 		}
 	}
-	for (int i = 0; i < data->fight[data->id]->number_enemy; i++)
-		if (data->fight[data->id]->enemy[i]->select)
-			check_enemy_deplacement(data, i, pos);
 }
 
-static void left_click(data_t *data)
+static void enemy_turn(data_t *data)
 {
 	sfVector2f pos;
 
-	for (int i = 0; i < 120; i++) {
-		pos = sfRectangleShape_getPosition
-			(data->fight[data->id]->map[i]);
-		if ((data->mouse.x > pos.x && data->mouse.x < pos.x + B_X) &&
-		(data->mouse.y > pos.y && data->mouse.y < pos.y + B_Y))
-			select_or_unselect(data, i);
-	}
+	for (int i = 0; i < data->fight[data->id]->number_enemy; i++)
+		if (data->fight[data->id]->enemy[i]->select
+		&& !data->fight[data->id]->enemy[i]->played)
+			check_enemy_deplacement(data, i, pos);
 }
 
-void deplacement(data_t *data, sfEvent event)
+void deplacement(data_t *data)
 {
-	if (event.type == sfEvtKeyPressed) {
-	}
-
-	if (event.type == sfEvtMouseButtonPressed) {
-		if (event.mouseButton.button == sfMouseLeft)
-			left_click(data);
-		if (event.mouseButton.button == sfMouseRight)
-			right_click(data);
-	}
+	if (data->fight[data->id]->enemy_turn) {
+		enemy_turn(data);
+	} else
+		hero_turn(data);
 }

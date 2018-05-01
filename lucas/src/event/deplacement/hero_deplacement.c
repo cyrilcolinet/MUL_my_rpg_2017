@@ -13,6 +13,7 @@ void hero_deplacement(data_t *data, int i, sfVector2f pos)
 	(data->mouse.y > pos.y && data->mouse.y < pos.y + B_Y))
 		if (data->map[i / 12][i % 12] == 3) {
 			data->hero->select = false;
+			data->hero->move = true;
 			data->hero->pos.x = i % 12;
 			data->hero->pos.y = i / 12;
 			reset_map_state(data);

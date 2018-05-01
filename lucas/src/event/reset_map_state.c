@@ -26,5 +26,5 @@ void reset_map_state(data_t *data)
 	data->map[y][x] = 1;
 	for (int i = 0; i < 120; i++)
 		sfRectangleShape_setFillColor(data->fight
-			[data->id]->map[i], sfBlack);
+			[data->id]->map[i], sfTransparent);
 }

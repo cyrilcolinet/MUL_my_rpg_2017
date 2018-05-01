@@ -54,5 +54,4 @@ void select_or_unselect(data_t *data, int i)
 		hero_selection(data, i);
 	else if (data->map[i / 12][i % 12] == 2)
 		enemy_selection(data, i);
-	check_deplacement(data);
 }

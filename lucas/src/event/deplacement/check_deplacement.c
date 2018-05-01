@@ -38,10 +38,12 @@ static void display_possible_case_enemy(data_t *data, int i, int j, int a)
 
 static void check_select(data_t *data, int i, int j)
 {
-	if (data->hero->select)
+	if (data->hero->select && !data->fight[data->id]->enemy_turn)
 		display_possible_case_hero(data, i, j);
 	for (int a = 0; a < data->fight[data->id]->number_enemy; a++) {
-		if (data->fight[data->id]->enemy[a]->select)
+		if (data->fight[data->id]->enemy[a]->select
+		&& !data->fight[data->id]->enemy[a]->played
+		&& data->fight[data->id]->enemy_turn)
 			display_possible_case_enemy(data, i, j, a);
 	}
 }
