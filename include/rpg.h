@@ -58,4 +58,6 @@ typedef struct game_s game_t;
 #include "event.h"
 #endif
 
+int		main_rpg(void);
+
 #endif
