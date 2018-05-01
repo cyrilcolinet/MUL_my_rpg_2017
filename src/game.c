@@ -27,8 +27,8 @@ game_t *init_game(void)
 	game = cl_calloc(sizeof(game_t));
 	game->window = init_window();
 	game->state_list = NULL;
-	game->state = PLAY;
-	game->prev = PLAY;
+	game->state = MAIN;
+	game->prev = MAIN;
 	game->tick = 0;
 	game->game_clock = sfThread_create(&game_update_tick, game);
 	game->ressource = init_ressource(state);

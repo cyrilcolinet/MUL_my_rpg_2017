@@ -35,6 +35,7 @@ void del_play(void *self);
 void set_method_play(state_interface_t *state_interface);
 
 // manager
+void 	init_main_state(game_t *);
 void 	init_play_state(game_t *);
 int		initialize_states(game_t *);
 
