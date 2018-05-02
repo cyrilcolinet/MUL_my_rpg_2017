@@ -13,7 +13,7 @@ void default_hover_callback(cook_t *cook, button_t *btn)
 	(void)cook;
 
 	rec = btn->rect;
-	rec.top += 68;
+	rec.top += btn->normal_rect.height;
 
 	sfSprite_setTextureRect(btn->sprite, rec);
 }
@@ -25,7 +25,7 @@ void default_click_callback(cook_t *cook, button_t *btn)
 
 	btn->pressed = true;
 	rec = btn->rect;
-	rec.top += 68 * 2;
+	rec.top += btn->normal_rect.height * 2;
 
 	sfSprite_setTextureRect(btn->sprite, rec);
 }
