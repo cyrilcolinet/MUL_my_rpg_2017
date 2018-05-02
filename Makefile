@@ -103,14 +103,15 @@ library:
 assets_compress:
 ifeq ($(ASSETS_EXISTS), 1)
 						$(info [INFO] Compress assets to reduce size)
-						tar cvf $(ASSETS_COMPRESSED) $(ASSETS)
+						tar zcvf $(ASSETS_COMPRESSED) $(ASSETS)
 endif
 
 assets_decompress:
 ifeq ($(ASSETS_TGZ_EXISTS), 1)
-						mkdir -p $(ASSETS)
+ifeq ($(ASSETS_EXISTS), 0)
 						$(info [INFO] Decompress assets)
-						cd $(ASSETS) && tar xvzf $(ASSETS_COMPRESSED)
+						tar xvzf $(ASSETS_COMPRESSED)
+endif
 endif
 
 $(BUILD_DIR):
