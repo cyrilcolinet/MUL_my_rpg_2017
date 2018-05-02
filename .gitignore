@@ -63,6 +63,7 @@ include/my.h
 my_rpg
 .clang_complete
 README.md
+assets/
 
 include/lizz/
 __pycache__/
