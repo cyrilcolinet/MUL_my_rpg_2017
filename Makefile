@@ -56,7 +56,7 @@ SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
 TESTS_FILES				=	$(filter-out main.c, $(SRC_FILES))
 
-TESTS_FILES				+=	
+TESTS_FILES				+=
 
 INCLUDE					= 	include/
 
@@ -82,12 +82,36 @@ BUILD_TESTS_OBJ			= 	$(addprefix $(BUILD_TESTS_DIR), $(TESTS_FILES:.c=.o))
 
 BUILD_SD				= 	$(shell find $(SRC_DIR) -mindepth 1 -type d -printf '%p\n' | sed -e 's/^src\///')
 
+## COMPRESSION
+
+ASSETS 					= 	assets/
+
+ASSETS_EXISTS 			= 	$(shell [ -e $(ASSETS) ] && echo 1 || echo 0)
+
+ASSETS_COMPRESSED 		=	assets.tar.gz
+
+ASSETS_TGZ_EXISTS 		= 	$(shell [ -e $(ASSETS_COMPRESSED) ] && echo 1 || echo 0)
+
 ## RULES
 
 all:					library $(BUILD_DIR) $(NAME)
 
 library:
+						$(info [INFO] Compile library)
 						make -C $(LIBRARY_DIR)
+
+assets_compress:
+ifeq ($(ASSETS_EXISTS), 1)
+						$(info [INFO] Compress assets to reduce size)
+						tar cvf $(ASSETS_COMPRESSED) $(ASSETS)
+endif
+
+assets_decompress:
+ifeq ($(ASSETS_TGZ_EXISTS), 1)
+						mkdir -p $(ASSETS)
+						$(info [INFO] Decompress assets)
+						cd $(ASSETS) && tar xvzf $(ASSETS_COMPRESSED)
+endif
 
 $(BUILD_DIR):
 						mkdir -p $(BUILD_DIR)
@@ -96,7 +120,7 @@ $(BUILD_DIR):
 $(BUILD_DIR)%.o:		$(SRC_DIR)%.c
 						$(CC) $(CFLAGS)   -c -o $@ $<
 
-$(NAME):				$(BUILD_OBJ)
+$(NAME):				$(BUILD_OBJ) assets_decompress
 						$(CC) $(CFLAGS)   -o $(NAME) $(BUILD_OBJ) $(LFLAGS)
 
 tests_run:				fclean library $(UNITS)
