@@ -22,7 +22,7 @@ void print_assets(cook_t *cook)
 {
 	char *id[] = {
 		"aWaitBg", "aBtnSp", "aPauseBg", "aOptionsBg", "aCreditsBg",
-		"aHoomansSp"
+		"aHoomansSp", "aMap1"
 	};
 	assets_t *tmp = cook->assets;
 
