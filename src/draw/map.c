@@ -89,6 +89,7 @@ void set_method_map(draw_interface_t *draw_interface)
 void draw_map(void *self, tileset_t **tileset, sfRenderWindow *window)
 {
 	map_t *_self = NULL;
+
 	_self = (map_t *)self;
 	for (uint8_t i = 0; i < 3; i++)
 		sfRenderWindow_drawVertexArray(window, _self->layers[i], &tileset[_self->tileset]->tileset);

@@ -35,19 +35,19 @@
 # include "rpg.h"
 
 typedef enum {
-	PLAY,
-	MAIN
+	MAIN,
+	PLAY
 } game_state_t;
 
 typedef struct game_s {
 	sfRenderWindow 	*window;
-	sfEvent 		event;
-	ressource_t 	*ressource;
+	sfEvent event;
+	ressource_t *ressource;
 	state_interface_t **state_list;
-	game_state_t 	state;
-	game_state_t 	prev;
- 	uint8_t 		tick;
-	sfThread 		*game_clock;
+	game_state_t state;
+	game_state_t prev;
+ 	uint8_t tick;
+	sfThread *game_clock;
 } game_t;
 
 //game

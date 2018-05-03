@@ -66,6 +66,4 @@ typedef struct anim_s anim_t;
 # include "event.h"
 # endif
 
-int		main_rpg(void);
-
 # endif

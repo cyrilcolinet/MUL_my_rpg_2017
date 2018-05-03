@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-sfVector2f tile_apply_pattern(sfVector2f vec, sfVector2f pattern, int64_t value)
+static sfVector2f tile_apply_pattern(sfVector2f vec, sfVector2f pattern, int64_t value)
 {
 	vec.x += pattern.x * value;
 	vec.y += pattern.y * value;
@@ -35,7 +35,6 @@ tile_t init_tile(sfVector2f pos, sfVector2f tex)
 
 void tile_append(tile_t tile, sfVertexArray *array)
 {
-	for (uint64_t i = 0; i < 4; i++) {
+	for (uint64_t i = 0; i < 4; i++)
 		sfVertexArray_append(array, tile.tile[i]);
-	}
 }

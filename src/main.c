@@ -11,9 +11,10 @@ int main(int ac, char **av, char **env)
 {
 	game_t *game = NULL;
 
-	(void)args;
+	(void)argc;
 	(void)argv;
-	CHECK_DO(env == NULL, return (CL_ERROR_CODE);)
+	if (av == NULL)
+		return NULL;
 	game = init_game();
 	while (sfRenderWindow_isOpen(game->window)) {
 		while (sfRenderWindow_pollEvent(game->window, &game->event)) {

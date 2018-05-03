@@ -33,7 +33,7 @@ SRC		=	src/draw/anim.c			\
 			src/managers/state_manager.c	\
 			src/game.c			\
 			src/main.c			\
-			src/rpg.c
+			src/rpg.c			\
 
 OBJ		=	$(SRC:.c=.o)
 

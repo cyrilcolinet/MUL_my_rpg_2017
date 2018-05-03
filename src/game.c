@@ -9,7 +9,7 @@
 
 void make_states(game_t *game, lua_State *state)
 {
-	game->state_list = cl_calloc(sizeof(state_interface_t *) * (NBR_STATES + 1));
+	game->state_list = cl_calloc(sizeof(state_interface_t *) * NBR_STATES);
 	game->state_list[0] = init_state_interface(init_play("assets/graphics/spritesheets/pp.png", state), &set_method_play);
 }
 
