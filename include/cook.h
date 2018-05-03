@@ -19,10 +19,10 @@
 # define aCreditsBg 	(4)
 # define aHoomansSp		(5)
 
-// cook.c
+// rpg.c
 void 	exit_game(cook_t *cook);
-int		cook_game(cook_t *cook);
-int 	cook_main(int ac, char **av);
+int		rpg_game(cook_t *cook);
+int 	rpg_main(int ac, char **av);
 
 // game/wait/wait_loop.c
 void 	wait_loop(cook_t *cook);

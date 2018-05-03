@@ -17,7 +17,7 @@ void exit_game(cook_t *cook)
 	info("Window destroyed!");
 }
 
-int cook_game(cook_t *cook)
+int rpg_game(cook_t *cook)
 {
 	sfEvent event;
 	int status = load_assets(cook);
@@ -39,7 +39,7 @@ int cook_game(cook_t *cook)
 	return (status);
 }
 
-int cook_main(int ac, char **av)
+int rpg_main(int ac, char **av)
 {
 	int status = check_arguments(ac, av);
 	cook_t *cook = NULL;
@@ -51,8 +51,8 @@ int cook_main(int ac, char **av)
 	if (cook == NULL)
 		return (84);
 
-	info("Main cook_t struct correctly configured.");
-	status = cook_game(cook);
+	info("Main rpg_t struct correctly configured.");
+	status = rpg_game(cook);
 	free(cook);
 	info("Project correctly exited. Bye!");
 

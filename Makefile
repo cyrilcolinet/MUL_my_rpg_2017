@@ -16,7 +16,7 @@ SRC_DIR 				= 	src/
 TEST_DIR				= 	tests/
 
 SRC_FILES				= 	main.c 									\
-							cook.c 									\
+							rpg.c 									\
 							game/wait/wait_loop.c 					\
 							game/run/run_loop.c						\
 							utilities/args_handling.c 				\

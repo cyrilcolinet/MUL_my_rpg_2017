@@ -14,6 +14,6 @@ int main(int ac, char **av, char **env)
 	if (*env == NULL)
 		return (res);
 
-	res = cook_main(ac, av);
+	res = rpg_main(ac, av);
 	return (res);
 }
