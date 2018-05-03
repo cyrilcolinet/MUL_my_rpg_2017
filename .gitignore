@@ -61,6 +61,7 @@ build/
 buil_tests/
 include/my.h
 my_rpg
+test
 .clang_complete
 README.md
 /assets/
