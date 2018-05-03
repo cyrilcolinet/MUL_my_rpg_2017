@@ -8,8 +8,6 @@
 # ifndef _EVENT_H
 # define _EVENT_H
 
-# include "rpg.h"
-
-void 	event_close_window(sfEvent, sfRenderWindow *);
+void event_close_window(sfEvent event, sfRenderWindow *window);
 
 # endif

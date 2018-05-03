@@ -59,9 +59,9 @@ typedef struct tile_s {
 
 typedef struct sprite_s {
 	direction_t direction;
-	state_t 	state;
-	sfSprite 	*sprite;
-	sfIntRect 	rect;
+	state_t state;
+	sfSprite *sprite;
+	sfIntRect rect;
 } sprite_t;
 
 typedef struct anim_s {
@@ -75,7 +75,6 @@ typedef struct anim_s {
 //interface
 draw_interface_t *init_draw_interface(void *, void (*)(draw_interface_t *));
 void 	del_draw_interface(void *self);
-
 //map
 map_t *init_map(char const *path, lua_State *state);
 void draw_map(void *self, tileset_t **tileset, sfRenderWindow *window);
@@ -83,14 +82,14 @@ void del_map(void *self);
 void set_method_sprite(draw_interface_t *draw_interface);
 //sprite
 sprite_t *init_sprite(char const *path);
-void 	draw_sprite(void *self, sfRenderWindow *window);
-void 	del_sprite(void *self);
-void 	set_method_sprite(draw_interface_t *draw_interface);
-void 	sprite_walk(void *sprite);
-void 	set_method_sprite_anim(anim_t *anim);
-
+void draw_sprite(void *self, sfRenderWindow *window);
+void del_sprite(void *self);
+void set_method_sprite(draw_interface_t *draw_interface);
+void sprite_walk(void *sprite);
+void set_method_sprite_anim(anim_t *anim);
 //anim
-anim_t *init_anim(void *anim_item, u_int32_t delay, void (*set_method)(anim_t *anim));
+anim_t *init_anim(void *anim_item, u_int32_t delay,
+	void (*set_method)(anim_t *anim));
 //tile
 tile_t init_tile(sfVector2f pos, sfVector2f tex);
 void tile_append(tile_t tile, sfVertexArray *array);

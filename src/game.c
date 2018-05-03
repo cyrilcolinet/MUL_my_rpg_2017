@@ -7,10 +7,12 @@
 
 #include "rpg.h"
 
-void make_states(game_t *game, lua_State *state)
+static void make_states(game_t *game, lua_State *state)
 {
 	game->state_list = cl_calloc(sizeof(state_interface_t *) * NBR_STATES);
-	game->state_list[0] = init_state_interface(init_play("assets/graphics/spritesheets/pp.png", state), &set_method_play);
+	game->state_list[0] = init_state_interface(init_play(
+		"assets/graphics/spritesheets/pp.png", state),
+		&set_method_play);
 }
 
 sfRenderWindow *init_window(void)
@@ -68,5 +70,6 @@ void game_update_tick(void *data)
 	tick = &game->tick;
 	clock = sfClock_create();
 	while (1)
-		 *tick = (u_int32_t)floor(((sfTime_asMilliseconds(sfClock_getElapsedTime(clock)) % 250) * 120) / 250);
+		 *tick = (u_int32_t)floor(((sfTime_asMilliseconds(
+			sfClock_getElapsedTime(clock)) % 250) * 120) / 250);
 }

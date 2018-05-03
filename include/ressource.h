@@ -9,19 +9,13 @@
 # define _RESSOURCE_H
 
 # undef TILESET_DATA_PATH
-# define TILESET_DATA_PATH 		("assets/data/tilesets.lua")
+# define TILESET_DATA_PATH "assets/data/tilesets.lua"
 
 # undef TILESET_NAME_LEN
-# define TILESET_NAME_LEN 		(128)
+# define TILESET_NAME_LEN 128
 
 #undef MAP_DATA_PATH
 #define MAP_DATA_PATH "assets/data/maps.lua"
-
-#undef PATH_CHAR
-#define PATH_CHAR '/'
-
-# undef EXT_CHAR
-# define EXT_CHAR 				('.')
 
 typedef struct tileset_s {
 	sfRenderStates tileset;

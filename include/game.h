@@ -40,7 +40,7 @@ typedef enum {
 } game_state_t;
 
 typedef struct game_s {
-	sfRenderWindow 	*window;
+	sfRenderWindow *window;
 	sfEvent event;
 	ressource_t *ressource;
 	state_interface_t **state_list;
@@ -52,8 +52,8 @@ typedef struct game_s {
 
 //game
 sfRenderWindow *init_window(void);
-game_t 	*init_game(void);
-void 	del_game(void *self);
-void 	game_update_tick(void *data);
+game_t *init_game(void);
+void del_game(void *self);
+void game_update_tick(void *data);
 
 # endif

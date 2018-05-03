@@ -26,17 +26,13 @@ typedef struct play_s {
 //interface
 state_interface_t *init_state_interface(void *, void (*)(state_interface_t *));
 void 	del_state_interface(state_interface_t *);
-
 //play
 play_t *init_play(char const *sprite_path, lua_State *state);
-void display_handler_play(void *self, ressource_t *ressource, sfRenderWindow *window);
+void display_handler_play(void *self, ressource_t *ressource,
+	sfRenderWindow *window);
 void event_handler_play(game_t *game);
 void del_play(void *self);
 void set_method_play(state_interface_t *state_interface);
-
 // manager
-void 	init_main_state(game_t *);
-void 	init_play_state(game_t *);
-int		initialize_states(game_t *);
 
 #endif
