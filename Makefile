@@ -7,7 +7,7 @@
 
 CC		=	gcc
 
-CFLAGS		=	-Wall -Wextra -std=c99
+CFLAGS		=	-Wall -Wextra -std=c99 -g -g3
 
 CFLAGS_TEST	=	--coverage
 
@@ -21,6 +21,7 @@ SRC		=	src/draw/anim.c			\
 			src/draw/interface.c		\
 			src/draw/map.c			\
 			src/draw/sprite.c		\
+			src/draw/tile.c			\
 			src/event/event.c		\
 			src/lua/lua_table_get.c		\
 			src/lua/lua_table_goto.c	\
@@ -78,7 +79,6 @@ lib:
 	make -C lib/my
 	#make -C lib/lizz_overlay
 	make -C lib/cl
-
 
 obj:
 	$(foreach src, $(SRC), $(CC) $(CFLAGS) -c $(src) $(INCLUDE) -o $(src:.c=.o);)

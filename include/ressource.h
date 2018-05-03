@@ -14,24 +14,25 @@
 # undef TILESET_NAME_LEN
 # define TILESET_NAME_LEN 		(128)
 
-# undef PATH_CHAR
-# define PATH_CHAR 				('/')
+#undef MAP_DATA_PATH
+#define MAP_DATA_PATH "assets/data/maps.lua"
+
+#undef PATH_CHAR
+#define PATH_CHAR '/'
 
 # undef EXT_CHAR
 # define EXT_CHAR 				('.')
 
-# include "rpg.h"
-
-typedef struct {
+typedef struct tileset_s {
 	sfRenderStates tileset;
-	char name[TILESET_NAME_LEN];
+	uint8_t id;
 	uint64_t height;
 	uint64_t width;
 } tileset_t;
 
-typedef struct {
+typedef struct ressource_s {
 	tileset_t **tileset;
-	u_int64_t number_tileset;
+	uint64_t number_tileset;
 } ressource_t;
 
 //ressource

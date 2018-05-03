@@ -9,6 +9,14 @@
 # define _RPG_H
 
 typedef struct game_s game_t;
+typedef struct state_interface_s state_interface_t;
+typedef struct play_s play_t;
+typedef struct ressource_s ressource_t;
+typedef struct tileset_s tileset_t;
+typedef struct draw_interface_s draw_interface_t;
+typedef struct map_s map_t;
+typedef struct sprite_s sprite_t;
+typedef struct anim_s anim_t;
 
 # ifndef SFML_GRAPHICS_H
 # include <SFML/Graphics.h>
@@ -38,17 +46,17 @@ typedef struct game_s game_t;
 # include "lua.h"
 # endif
 
-# ifndef _RESSOURCE_H
-# include "ressource.h"
-# endif
+#ifndef _DRAW_H
+#include "draw.h"
+#endif
 
-# ifndef _DRAW_H
-# include "draw.h"
-# endif
+#ifndef _RESSOURCE_H
+#include "ressource.h"
+#endif
 
-# ifndef _STATE_H
-# include "state.h"
-# endif
+#ifndef _STATE_H
+#include "state.h"
+#endif
 
 # ifndef _GAME_H
 # include "game.h"

@@ -7,18 +7,6 @@
 
 #include "rpg.h"
 
-static void get_tileset_name(tileset_t *tileset, char const *path)
-{
-	uint64_t name_offset = cl_strchr(PATH_CHAR, path, cl_get_occurrence(PATH_CHAR, path)) + 1;
-
-	for (uint64_t i = 0; i < TILESET_NAME_LEN; i++) {
-		if (name_offset + 1 >= cl_strlen(path) || path[name_offset + 1] == EXT_CHAR)
-			break;
-		else
-			tileset->name[i] = path[name_offset + i];
-	}
-}
-
 tileset_t *init_tileset(char const *path)
 {
 	tileset_t *tileset = NULL;
@@ -29,7 +17,6 @@ tileset_t *init_tileset(char const *path)
 	tileset->tileset.texture = sfTexture_createFromFile(path, NULL);
 	tileset->height = sfTexture_getSize(tileset->tileset.texture).x;
 	tileset->width = sfTexture_getSize(tileset->tileset.texture).y;
-	get_tileset_name(tileset, path);
 	free((void *)path);
 	return tileset;
 }

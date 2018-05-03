@@ -7,6 +7,12 @@
 
 #include "rpg.h"
 
+void make_states(game_t *game, lua_State *state)
+{
+	game->state_list = cl_calloc(sizeof(state_interface_t *) * (NBR_STATES + 1));
+	game->state_list[0] = init_state_interface(init_play("assets/graphics/spritesheets/pp.png", state), &set_method_play);
+}
+
 sfRenderWindow *init_window(void)
 {
 	sfRenderWindow *window = NULL;
@@ -32,6 +38,7 @@ game_t *init_game(void)
 	game->tick = 0;
 	game->game_clock = sfThread_create(&game_update_tick, game);
 	game->ressource = init_ressource(state);
+	make_states(game, state);
 	lua_close(state);
 	sfThread_launch(game->game_clock);
 	return game;
@@ -44,8 +51,7 @@ void del_game(void *self)
 	_self = (game_t *)self;
 	sfRenderWindow_destroy(_self->window);
 	for (u_int64_t i = 0; i < NBR_STATES; i++)
-		_self->state_list[i]->del(_self->state_list[i]);
-	del_play(_self->state_list[0]);
+		del_state_interface(_self->state_list[i]);
 	free(_self->state_list);
 	sfThread_terminate(_self->game_clock);
 	sfThread_destroy(_self->game_clock);
