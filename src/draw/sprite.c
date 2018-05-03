@@ -55,13 +55,3 @@ void set_method_sprite_anim(anim_t *anim)
 	anim->anim = &sprite_walk;
 	anim->del = &del_sprite;
 }
-
-void sprite_walk(void *self)
-{
-	sprite_t *_self = NULL;
-
-	_self = self;
-	_self->state = (_self->state + 1) % SPRITESHEET_WIDTH;
-	_self->rect.left = _self->state * SPRITE_WIDTH;
-	sfSprite_setTextureRect(_self->sprite, _self->rect);
-}

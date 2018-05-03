@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-draw_interface_t *init_draw_interface(void *draw_item, void (*set_method)(draw_interface_t *draw_interface))
+draw_interface_t *init_draw_interface(void *draw_item,
+	void (*set_method)(draw_interface_t *draw_interface))
 {
 	draw_interface_t *draw_interface = NULL;
 

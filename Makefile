@@ -20,6 +20,7 @@ NAME		=	my_rpg
 SRC		=	src/draw/anim.c			\
 			src/draw/interface.c		\
 			src/draw/map.c			\
+			src/draw/sprite_anim.c		\
 			src/draw/sprite.c		\
 			src/draw/tile.c			\
 			src/event/event.c		\
@@ -28,6 +29,7 @@ SRC		=	src/draw/anim.c			\
 			src/ressource/ressource.c	\
 			src/ressource/tileset.c		\
 			src/state/interface.c		\
+			src/state/play_loader.c		\
 			src/state/play.c		\
 			src/utils/utils0.c		\
 			src/managers/state_manager.c	\

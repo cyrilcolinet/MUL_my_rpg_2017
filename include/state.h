@@ -20,13 +20,14 @@ typedef struct play_s {
 	uint64_t map_number;
 	map_t **map;
 	sprite_t *sprite;
-	anim_t 	*anim;
+	anim_t *anim;
 } play_t;
 
 //interface
 state_interface_t *init_state_interface(void *, void (*)(state_interface_t *));
-void 	del_state_interface(state_interface_t *);
+void del_state_interface(state_interface_t *);
 //play
+void load_map(lua_State *state, play_t *play);
 play_t *init_play(char const *sprite_path, lua_State *state);
 void display_handler_play(void *self, ressource_t *ressource,
 	sfRenderWindow *window);

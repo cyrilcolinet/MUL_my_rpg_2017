@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-anim_t *init_anim(void *anim_item, uint32_t delay, void (*set_method)(anim_t *anim))
+anim_t *init_anim(void *anim_item, uint32_t delay,
+	void (*set_method)(anim_t *anim))
 {
 	anim_t *anim = NULL;
 

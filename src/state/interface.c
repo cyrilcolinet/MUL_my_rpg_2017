@@ -7,7 +7,8 @@
 
 #include "rpg.h"
 
-state_interface_t *init_state_interface(void *state_item, void (*set_method)(state_interface_t *state_interface))
+state_interface_t *init_state_interface(void *state_item,
+	void (*set_method)(state_interface_t *state_interface))
 {
 	state_interface_t *state_interface = NULL;
 
