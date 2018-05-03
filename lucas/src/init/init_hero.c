@@ -5,20 +5,27 @@
 ** rpg
 */
 
-#include "test.h"
+#include "battle.h"
 
-void init_hero(data_t *data)
+void init_hero(battle_t *battle)
 {
 	sfVector2f size = {45, 60};
 
-	data->hero = malloc(sizeof(hero_t));
-	data->hero->pos.x = 0;
-	data->hero->pos.y = 5;
-	data->hero->select = false;
-	data->hero->form = sfRectangleShape_create();
-	sfRectangleShape_setPosition(data->hero->form, data->hero->pos);
-	sfRectangleShape_setSize(data->hero->form, size);
-	sfRectangleShape_setFillColor(data->hero->form, sfBlue);
-	sfRectangleShape_setOutlineColor(data->hero->form, sfWhite);
-	sfRectangleShape_setOutlineThickness(data->hero->form, 1);
+	battle->hero = malloc(sizeof(hero_t));
+	battle->hero->pos.x = 0;
+	battle->hero->pos.y = 5;
+	battle->hero->alive = true;
+	battle->hero->played = false;
+	battle->hero->select = false;
+	battle->hero->move = false;
+	battle->hero->attack = false;
+	battle->hero->hp = 120;
+	battle->hero->dmg = 67;
+	battle->hero->armor = 7;
+	battle->hero->form = sfRectangleShape_create();
+	sfRectangleShape_setPosition(battle->hero->form, battle->hero->pos);
+	sfRectangleShape_setSize(battle->hero->form, size);
+	sfRectangleShape_setFillColor(battle->hero->form, sfBlue);
+	sfRectangleShape_setOutlineColor(battle->hero->form, sfWhite);
+	sfRectangleShape_setOutlineThickness(battle->hero->form, 1);
 }

@@ -17,22 +17,27 @@ TEST_DIR	= 	tests/
 
 SRC_FILES	= 	main.c\
 			test.c\
-			event/event_management.c\
-			event/deplacement/deplacement.c\
-			event/deplacement/hero_deplacement.c\
-			event/deplacement/enemy_deplacement.c\
-			event/deplacement/reset_map_state.c\
-			event/deplacement/select_or_unselect.c\
-			event/deplacement/check_deplacement.c\
-			event/attack/attack.c\
+			battle/event/event_management.c\
+			battle/event/interaction.c\
+			battle/event/reset_map_state.c\
+			battle/event/deplacement/check_deplacement.c\
+			battle/event/deplacement/deplacement.c\
+			battle/event/select_or_unselect.c\
+			battle/event/attack/attack.c\
+			battle/ai_enemy/enemy_turn.c\
+			battle/ai_enemy/enemy_attack.c\
+			battle/ai_enemy/enemy_attack_anim.c\
+			battle/ai_enemy/enemy_deplacement_anim.c\
 			init/init_data.c\
 			init/init_fight.c\
 			init/init_hero.c\
-			init/init_rune.c\
-			map/display_map.c\
-			map/display_interface.c\
-			map/fill_map_state.c\
+			battle/display/display_map.c\
+			battle/display/display_interface.c\
+			battle/display/display_enemy_stats.c\
+			battle/display/display_current_target.c\
+			battle/display/fill_map_state.c\
 			lib/create_text.c\
+			lib/my_itoa.c\
 			free/free_all.c\
 
 SRC		= 	$(addprefix $(SRC_DIR), $(SRC_FILES))

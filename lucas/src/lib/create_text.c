@@ -5,7 +5,7 @@
 ** create text function
 */
 
-#include "test.h"
+#include "battle.h"
 
 sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 {
@@ -16,7 +16,7 @@ sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 	sfText_setStyle(text, sfTextRegular);
 	sfText_setColor(text, color);
 	sfText_setPosition(text, pos);
-	sfText_setCharacterSize(text, 15);
+	sfText_setCharacterSize(text, 12);
 	sfText_setString(text, str);
 	return (text);
 }

@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "test.h"
+#include "battle.h"
 
 int main(void)
 {

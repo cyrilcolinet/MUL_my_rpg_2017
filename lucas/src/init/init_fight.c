@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "test.h"
+#include "battle.h"
 
 static void create_map(fight_t *fight)
 {
@@ -36,10 +36,17 @@ static void enemy_form(enemy_t *enemy)
 	sfVector2f size = {45, 60};
 
 	enemy->form = sfRectangleShape_create();
+	enemy->frame = sfRectangleShape_create();
 	sfRectangleShape_setSize(enemy->form, size);
+	size.x = 60;
+	size.y = 60;
+	sfRectangleShape_setSize(enemy->frame, size);
 	sfRectangleShape_setFillColor(enemy->form, sfRed);
 	sfRectangleShape_setOutlineColor(enemy->form, sfWhite);
 	sfRectangleShape_setOutlineThickness(enemy->form, 1);
+	sfRectangleShape_setFillColor(enemy->frame, sfRed);
+	sfRectangleShape_setOutlineColor(enemy->frame, sfBlack);
+	sfRectangleShape_setOutlineThickness(enemy->frame, 3);
 }
 
 static fight_t *create_fight(void)
@@ -51,34 +58,48 @@ static fight_t *create_fight(void)
 	fight->pos.y = MAP_Y - 1;
 	create_map(fight);
 	fight->number_enemy = 5;
+	fight->enemy_turn = false;
 	return (fight);
 }
 
-static enemy_t *create_enemy(int nb)
+static enemy_t *create_enemy(int nb, int n)
 {
 	enemy_t *enemy;
 
 	enemy = malloc(sizeof(enemy_t));
-	enemy->pos.x = 11;
+	enemy->pos.x = 11 + n;
 	enemy->pos.y = 0 + nb;
 	enemy_form(enemy);
 	enemy->select = false;
+	enemy->played = false;
+	enemy->alive = true;
 	enemy->hp = 20;
 	enemy->dmg = 5;
 	enemy->armor = 1;
 	return (enemy);
 }
 
-void init_fight(data_t *data)
+void init_fight(battle_t *battle)
 {
-	data->number_fight = 2;
-	data->fight = malloc (sizeof(fight_t *) * data->number_fight);
-	for (int i = 0; i < data->number_fight; i++) {
-		data->fight[i] = create_fight();
-		data->fight[i]->enemy = malloc(sizeof(enemy_t *)
-					* data->fight[i]->number_enemy);
-		for (int j = 0; j < data->fight[i]->number_enemy; j++) {
-			data->fight[i]->enemy[j] = create_enemy(j);
+	battle->number_fight = 5;
+	battle->fight = malloc (sizeof(fight_t *) * battle->number_fight);
+	for (int i = 0; i < battle->number_fight; i++) {
+		battle->fight[i] = create_fight();
+		if (i == 1)
+			battle->fight[i]->number_enemy = 2;
+		if (i == 2)
+			battle->fight[i]->number_enemy = 7;
+		if (i == 3)
+			battle->fight[i]->number_enemy = 10;
+		if (i == 4)
+			battle->fight[i]->number_enemy = 12;
+		battle->fight[i]->enemy = malloc(sizeof(enemy_t *)
+					* battle->fight[i]->number_enemy);
+		for (int j = 0; j < battle->fight[i]->number_enemy; j++) {
+			if (j > 9)
+				battle->fight[i]->enemy[j] = create_enemy(j - 10, -1);
+			else
+				battle->fight[i]->enemy[j] = create_enemy(j, 0);
 		}
 	}
 }
