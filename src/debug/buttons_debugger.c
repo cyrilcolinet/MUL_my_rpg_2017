@@ -22,7 +22,7 @@ void print_buttons(cook_t *cook)
 	button_t *tmp = cook->btn;
 	char *bt[] = {
 		"btnPlay", "btnPause", "btnCredits", "btnQuit", "btnSettings",
-		"btnReturn", "btnMute", "btnVolume", "btnNull"
+		"btnReturn", "btnMute", "btnVolume", "btnFullscreen", "btnNull"
 	};
 	char *st[] = {
 		"gameUnknown", "gameWait", "gameRun", "gameEnd", "gamePause",

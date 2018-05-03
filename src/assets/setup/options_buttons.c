@@ -34,12 +34,12 @@ void setup_volume_settings_button(cook_t *cook)
 void setup_return_settings_button(cook_t *cook)
 {
 	button_t conf;
-	sfIntRect rec = { 295, 507, 290, 82 };
+	sfIntRect rec = { 265, 0, 265, 80 };
 	sfTexture *texture = get_texture(cook, aBtnSp);
 
 	conf.type = btnReturn;
-	conf.pos.x = 160;
-	conf.pos.y = 580;
+	conf.pos.x = 320;
+	conf.pos.y = 830;
 	conf.onClick = default_click_callback;
 	conf.onHover = default_hover_callback;
 	conf.onStart = btn_return_released;
@@ -52,4 +52,28 @@ void setup_return_settings_button(cook_t *cook)
 	conf.next = NULL;
 	add_button(cook, conf);
 	info("Configured return button for setting view!");
+}
+
+void setup_fullscreen_settings_button(cook_t *cook)
+{
+	button_t conf;
+	sfIntRect rec = { 265, 240, 265, 80 };
+	sfTexture *texture = get_texture(cook, aBtnSp);
+
+	conf.type = btnFullscreen;
+	conf.pos.x = 320;
+	conf.pos.y = 440;
+	conf.onClick = default_click_callback;
+	conf.onHover = default_hover_callback;
+	conf.onStart = nothing_callback; // TODO: Start fullscreen
+	conf.state = gameOnSettings;
+	conf.sprite = sfSprite_create();
+	sfSprite_setTexture(conf.sprite, texture, sfFalse);
+	sfSprite_setTextureRect(conf.sprite, rec);
+	sfSprite_setPosition(conf.sprite, conf.pos);
+	conf.rect = rec;
+	conf.next = NULL;
+
+	add_button(cook, conf);
+	info("Configured fullscreen button for setting view!");
 }

@@ -13,7 +13,7 @@ void options_view(cook_t *cook)
 	slider_t *vol = get_slider(cook, slideVolume);
 
 	sfRenderWindow_clear(cook->win, sfBlack);
-	sfRenderWindow_setTitle(cook->win, "My Cook | Options");
+	sfRenderWindow_setTitle(cook->win, "Legacy Of The Kek | Options");
 	sfRenderWindow_drawSprite(cook->win, sprite, NULL);
 
 	if (vol != NULL) {

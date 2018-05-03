@@ -19,6 +19,7 @@ void load_settings_buttons(cook_t *cook)
 {
 	setup_volume_settings_button(cook);
 	setup_return_settings_button(cook);
+	setup_fullscreen_settings_button(cook);
 }
 
 void load_credits_buttons(cook_t *cook)

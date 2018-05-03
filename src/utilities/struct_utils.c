@@ -63,7 +63,7 @@ cook_t *configure_struct(void)
 {
 	cook_t *cook = malloc(sizeof(cook_t));
 	sfVideoMode mode = { 1920, 1080, 32 };
-	char *title = "My Cook | Menu Principal";
+	char *title = "Legacy Of The Kek | Menu Principal";
 
 	if (cook == NULL)
 		return (NULL);

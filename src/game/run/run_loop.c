@@ -9,5 +9,5 @@
 
 void run_loop(cook_t *cook)
 {
-	sfRenderWindow_drawSprite(cook->win, get_sprite(cook, aPauseBg), NULL);
+	sfRenderWindow_drawSprite(cook->win, get_sprite(cook, aMap1), NULL);
 }
