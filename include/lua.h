@@ -11,15 +11,15 @@
 #define _LUA_H
 
 #ifndef lua_h
-#include "lua/lua.h"
+#include "../extern_libs/lua-5.3.4/src/lua.h"
 #endif
 
 #ifndef lauxlib_h
-#include "lua/lauxlib.h"
+#include "../extern_libs/lua-5.3.4/src/lauxlib.h"
 #endif
 
 #ifndef lualib_h
-#include "lua/lualib.h"
+#include "../extern_libs/lua-5.3.4/src/lualib.h"
 #endif
 
 bool load_table(lua_State *state, char const *path);
