@@ -15,7 +15,7 @@ play_t *init_play(char const *sprite_path, lua_State *state)
 	load_map(state, play);
 	play->current_map = 0;
 	play->sprite = init_sprite(sprite_path);
-	play->anim = init_anim(play->sprite, 30, set_method_sprite_anim);
+	play->anim = init_anim(play->sprite, 0, set_method_sprite_anim);
 	return play;
 }
 
@@ -32,13 +32,19 @@ void display_handler_play(void *self, ressource_t *ressource,
 void event_handler_play(game_t *game)
 {
 	anim_t *anim = NULL;
-	sfVector2f ku = {0, SPRITE_HEIGHT};
+	sfVector2f move_vec[4] = {{-TILE_SIDE / 4, 0}, {TILE_SIDE / 4, 0},
+		{0, -TILE_SIDE / 4}, {0, TILE_SIDE / 4}};
 
 	anim = ((play_t *)game->state_list[game->state]->state_item)->anim;
-	if (game->event.type == sfEvtKeyPressed && game->event.key.code == sfKeyDown) {
+	if (game->event.type == sfEvtKeyPressed && (game->event.key.code >=
+		SMALLEST_KEY && game->event.key.code <= BIGGEST_KEY)) {
+		sprite_change_direction(anim->anim_item, game->event.key.code
+			- SMALLEST_KEY);
 		if ((uint8_t)abs(game->tick - anim->time_0) >= anim->delay) {
 			anim->anim(anim->anim_item);
-			sfSprite_move(((sprite_t *)anim->anim_item)->sprite, ku);
+			anim->time_0 = game->tick;
+			sfSprite_move(((sprite_t *)anim->anim_item)->sprite,
+				move_vec[game->event.key.code - SMALLEST_KEY]);
 		}
 	}
 }

@@ -87,6 +87,7 @@ void del_sprite(void *self);
 void set_method_sprite(draw_interface_t *draw_interface);
 void sprite_walk(void *sprite);
 void set_method_sprite_anim(anim_t *anim);
+void sprite_change_direction(void *self, direction_t direction);
 //anim
 anim_t *init_anim(void *anim_item, u_int32_t delay,
 	void (*set_method)(anim_t *anim));
