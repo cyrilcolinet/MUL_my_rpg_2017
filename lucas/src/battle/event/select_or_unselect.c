@@ -32,21 +32,6 @@ static void hero_selection(battle_t *battle, int i)
 	battle->hero->select = true;
 }
 
-static void enemy_selection(battle_t *battle, int i)
-{
-	for (int j = 0; j < battle->fight[battle->id]->number_enemy; j++) {
-		if (battle->fight[battle->id]->enemy[j]->pos.x == i % 12
-		&& battle->fight[battle->id]->enemy[j]->pos.y == i / 12) {
-			battle->fight[battle->id]->enemy[j]->select = true;
-			sfRectangleShape_setFillColor
-				(battle->fight[battle->id]->map[i], sfYellow);
-		} else {
-			battle->fight[battle->id]->enemy[j]->select = false;
-		}
-	}
-	battle->hero->select = false;
-}
-
 void select_or_unselect(battle_t *battle, int i)
 {
 	unselect_all(battle, i);

@@ -27,7 +27,10 @@ SRC_FILES	= 	main.c\
 			battle/ai_enemy/enemy_turn.c\
 			battle/ai_enemy/enemy_attack.c\
 			battle/ai_enemy/enemy_attack_anim.c\
-			battle/ai_enemy/enemy_deplacement_anim.c\
+			battle/ai_enemy/enemy_deplacement_left.c\
+			battle/ai_enemy/enemy_deplacement_right.c\
+			battle/ai_enemy/enemy_deplacement_up.c\
+			battle/ai_enemy/enemy_deplacement_down.c\
 			init/init_data.c\
 			init/init_fight.c\
 			init/init_hero.c\

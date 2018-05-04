@@ -7,8 +7,7 @@
 
 #include "battle.h"
 
-static bool check_hero_position(battle_t *battle, int x,
-		sfVector2f pos, sfVector2f hero)
+static bool check_hero_position(sfVector2f pos, sfVector2f hero)
 {
 	int a = pos.x - hero.x;
 	int b = pos.y - hero.y;
@@ -23,7 +22,7 @@ static void check_enemy_deplacement(data_t *data, battle_t *battle
 {
 	sfVector2f hero = {battle->hero->pos.x, battle->hero->pos.y};
 
-	for (int i = 3; i > 0; i--) {
+	for (int i = 2; i > 0; i--) {
 		if (enemy_go_left(data, battle, x, pos) ||
 		enemy_go_right(data, battle, x, pos) ||
 		enemy_go_up(data, battle, x, pos) ||
@@ -31,7 +30,7 @@ static void check_enemy_deplacement(data_t *data, battle_t *battle
 		}
 		pos.x = battle->fight[battle->id]->enemy[x]->pos.x;
 		pos.y = battle->fight[battle->id]->enemy[x]->pos.y;
-		if (check_hero_position(battle, x, pos, hero))
+		if (check_hero_position(pos, hero))
 			break;
 	}
 	battle->fight[battle->id]->enemy[x]->played = true;
