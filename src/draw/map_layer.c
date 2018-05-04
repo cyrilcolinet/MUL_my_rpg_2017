@@ -5,6 +5,27 @@
 ** map layer
 */
 
+static sfVector2f calc_position(uint64_t width, uint64_t i)
+{
+	sfVector2f position = {0, 0};
+
+	position.x = ((i - 1) % width) * TILE_SIDE;
+	position.y = round((i - 1) / width) * TILE_SIDE;
+	return position;
+}
+
+static sfVector2f calc_tex_coords(uint64_t tileset_width, uint64_t i,
+	lua_State *state)
+{
+	sfVector2f tex_coords = {0, 0};
+
+	tex_coords.x = ((get_number_n(state, i) * TILE_SIDE)
+		% tileset_width) - TILE_SIDE;
+	tex_coords.y = (round((round(get_number_n(state, i)) * TILE_SIDE)
+		/ tileset_width)) * TILE_SIDE;
+	return tex_coords;
+}
+
 static sfVertexArray *generate_layer(uint64_t tileset_width, uint8_t layer_id,
 	lua_State *state)
 {
@@ -20,10 +41,8 @@ static sfVertexArray *generate_layer(uint64_t tileset_width, uint8_t layer_id,
 	height = get_number_s(state, "height");
 	goto_table_s(state, "data");
 	for (uint64_t i = 1; i <= (width * height); i++) {
-		tile[0].x = ceil((i - 1) / width);
- 		tile[0].y = (i - 1) % width;
-		tile[1].x = ceil(get_number_n(state, i) / tileset_width);
-		tile[1].y = get_number_n(state, i) % tileset_width;
+		tile[0] = calc_position(width, i);
+		tile[1] = calc_tex_coords(tileset_width, i, state);
 		tile_append(init_tile(tile[0], tile[1]), layer);
 	}
 	lua_pop(state, 3);

@@ -38,4 +38,5 @@ void tile_append(tile_t tile, sfVertexArray *array)
 {
 	for (uint64_t i = 0; i < 4; i++)
 		sfVertexArray_append(array, tile.tile[i]);
+	sfVertexArray_setPrimitiveType(array, sfQuads);
 }

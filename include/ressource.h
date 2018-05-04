@@ -33,7 +33,6 @@ typedef struct ressource_s {
 ressource_t *init_ressource(lua_State *state);
 void del_ressource(void *self);
 void load_tilesets(lua_State *state, ressource_t *ressource);
-
 //tileset
 tileset_t *init_tileset(char const *name);
 void del_tileset(void *self);
