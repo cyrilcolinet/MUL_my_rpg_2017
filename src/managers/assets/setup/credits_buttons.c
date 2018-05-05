@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** settings_buttons functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void setup_return_credits_button(cook_t *cook)
+void setup_return_credits_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 295, 507, 290, 82 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnReturn;
 	conf.pos.x = 47;
@@ -27,6 +27,6 @@ void setup_return_credits_button(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured return button for credits view!");
 }

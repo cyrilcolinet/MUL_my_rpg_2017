@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg
 ** File description:
 ** credits_view functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void credits_view(cook_t *cook)
+void credits_view(rpg_t *rpg)
 {
-	sfSprite *sprite = get_sprite(cook, aCreditsBg);
+	sfSprite *sprite = get_sprite(rpg, aCreditsBg);
 
-	sfRenderWindow_clear(cook->win, sfBlack);
-	sfRenderWindow_setTitle(cook->win, "Legacy Of The Kek | Credits");
-	sfRenderWindow_drawSprite(cook->win, sprite, NULL);
+	sfRenderWindow_clear(rpg->win, sfBlack);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Credits");
+	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }

@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** sliders_debugger functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 # include "debug.h"
 
 void print_sliders_infos(slider_t *slide, char *sd[], char *st[])
 {
 	info("Print slider: ->");
-	print_key_value_str("type", sd[slide->type]);
+	print_key_value_str("name", slide->name);
 	print_key_value_int("midaxis", slide->mid_axis);
 	print_key_value_int("range.x", slide->range.x);
 	print_key_value_int("range.y", slide->range.y);
@@ -23,12 +23,9 @@ void print_sliders_infos(slider_t *slide, char *sd[], char *st[])
 	print_key_value_int("pos.y", slide->btn->pos.y);
 }
 
-void print_sliders(cook_t *cook)
+void print_sliders(rpg_t *rpg)
 {
-	slider_t *tmp = cook->slides;
-	char *sd[] = {
-		"slideVolume", "slideNull"
-	};
+	slider_t *tmp = rpg->slides;
 	char *st[] = {
 		"gameUnknown", "gameWait", "gameRun", "gameEnd", "gamePause",
 		"gameOnSettings", "gameOnCredits"
@@ -36,8 +33,8 @@ void print_sliders(cook_t *cook)
 
 	info("\n");
 	info("----------------");
-	while (debug && tmp->next != NULL) {
-		print_sliders_infos(tmp->next, sd, st);
+	while (debug && tmp != NULL) {
+		print_sliders_infos(tmp, st);
 		tmp = tmp->next;
 	}
 }

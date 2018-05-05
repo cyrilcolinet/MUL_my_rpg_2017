@@ -1,49 +1,49 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg
 ** File description:
 ** mouse_events functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void mouse_button_pressed(cook_t *cook, sfMouseButtonEvent mouse)
+void mouse_button_pressed(rpg_t *rpg, sfMouseButtonEvent mouse)
 {
-	button_t *btn = is_button(cook, mouse.x, mouse.y);
+	button_t *btn = is_button(rpg, mouse.x, mouse.y);
 
 	if (btn != NULL) {
-		btn->onClick(cook, btn);
+		btn->onClick(rpg, btn);
 		return;
 	}
 
-	reset_to_normal_rect(cook);
+	reset_to_normal_rect(rpg);
 }
 
-void mouse_button_released(cook_t *cook, sfMouseButtonEvent mouse)
+void mouse_button_released(rpg_t *rpg, sfMouseButtonEvent mouse)
 {
-	button_t *btn = is_button(cook, mouse.x, mouse.y);
+	button_t *btn = is_button(rpg, mouse.x, mouse.y);
 
 	if (btn != NULL) {
-		btn->onStart(cook, btn);
+		btn->onStart(rpg, btn);
 		return;
 	}
 
-	reset_to_normal_rect(cook);
+	reset_to_normal_rect(rpg);
 }
 
-void mouse_moved(cook_t *cook, sfMouseMoveEvent mouse)
+void mouse_moved(rpg_t *rpg, sfMouseMoveEvent mouse)
 {
 	slider_t *tmp = NULL;
-	button_t *btn = is_button(cook, mouse.x, mouse.y);
+	button_t *btn = is_button(rpg, mouse.x, mouse.y);
 
 	if (btn != NULL) {
-		tmp = cook->slides;
-		btn->onHover(cook, btn);
+		tmp = rpg->slides;
+		btn->onHover(rpg, btn);
 
 		if (btn->pressed) {
-			while (tmp->next != NULL) {
-				if (tmp->next->btn->type == btn->type) {
-					tmp->next->onSlide(cook, tmp->next);
+			while (tmp != NULL) {
+				if (my_strequ(tmp->btn->name, btn->name)) {
+					tmp->onSlide(rpg, tmp);
 					return;
 				}
 				tmp = tmp->next;
@@ -53,5 +53,5 @@ void mouse_moved(cook_t *cook, sfMouseMoveEvent mouse)
 		return;
 	}
 
-	reset_to_normal_rect(cook);
+	reset_to_normal_rect(rpg);
 }

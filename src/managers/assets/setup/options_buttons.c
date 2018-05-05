@@ -1,18 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** Options button configuration
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void setup_volume_settings_button(cook_t *cook)
+void setup_volume_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 590, 507, 80, 82 };
 	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnVolume;
 	conf.pos.x = 0;
@@ -27,15 +27,15 @@ void setup_volume_settings_button(cook_t *cook)
 	sfSprite_setOrigin(conf.sprite, origin);
 	conf.rect = rec;
 	conf.next = NULL;
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured volume button for settings view!");
 }
 
-void setup_return_settings_button(cook_t *cook)
+void setup_return_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 0, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnReturn;
 	conf.pos.x = 320;
@@ -50,15 +50,15 @@ void setup_return_settings_button(cook_t *cook)
 	sfSprite_setPosition(conf.sprite, conf.pos);
 	conf.rect = rec;
 	conf.next = NULL;
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured return button for setting view!");
 }
 
-void setup_fullscreen_settings_button(cook_t *cook)
+void setup_fullscreen_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 240, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnFullscreen;
 	conf.pos.x = 320;
@@ -74,6 +74,6 @@ void setup_fullscreen_settings_button(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured fullscreen button for setting view!");
 }

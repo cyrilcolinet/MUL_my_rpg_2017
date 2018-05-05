@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg
 ** File description:
 ** windows_utils functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void set_favicon(cook_t *cook)
+void set_favicon(rpg_t *rpg)
 {
 	sfImage *icon = sfImage_createFromFile("assets/favicon.png");
 
@@ -15,5 +15,5 @@ void set_favicon(cook_t *cook)
 		return;
 
 	info("Setting icon...");
-	sfRenderWindow_setIcon(cook->win, 256, 256, sfImage_getPixelsPtr(icon));
+	sfRenderWindow_setIcon(rpg->win, 256, 256, sfImage_getPixelsPtr(icon));
 }

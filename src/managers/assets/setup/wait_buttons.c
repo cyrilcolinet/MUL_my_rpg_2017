@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg
 ** File description:
 ** wait_buttons setup functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void setup_wait_play_btn(cook_t *cook)
+void setup_wait_play_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 0, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnPlay;
 	conf.pos.x = 547;
@@ -27,15 +27,15 @@ void setup_wait_play_btn(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured play button!");
 }
 
-void setup_wait_settings_btn(cook_t *cook)
+void setup_wait_settings_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 240, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnSettings;
 	conf.pos.x = 1179;
@@ -51,15 +51,15 @@ void setup_wait_settings_btn(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured options button!");
 }
 
-void setup_wait_credits_btn(cook_t *cook)
+void setup_wait_credits_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 480, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnCredits;
 	conf.pos.x = 642;
@@ -75,15 +75,15 @@ void setup_wait_credits_btn(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured credits button!");
 }
 
-void setup_wait_quit_btn(cook_t *cook)
+void setup_wait_quit_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 720, 265, 80 };
-	sfTexture *texture = get_texture(cook, aBtnSp);
+	sfTexture *texture = get_texture(rpg, aBtnSp);
 
 	conf.type = btnQuit;
 	conf.pos.x = 1069;
@@ -99,6 +99,6 @@ void setup_wait_quit_btn(cook_t *cook)
 	conf.rect = rec;
 	conf.next = NULL;
 
-	add_button(cook, conf);
+	add_button(rpg, conf);
 	info("Configured quit button!");
 }

@@ -1,17 +1,17 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** sount_manager functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void configure_audio(cook_t *cook)
+void configure_audio(rpg_t *rpg)
 {
-	cook->sound = sfSound_create();
+	rpg->sound = sfSound_create();
 
-	if (cook->sound == NULL) {
+	if (rpg->sound == NULL) {
 		warning("Sound equals to (null) !");
 		return;
 	}

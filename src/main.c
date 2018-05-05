@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2018
-** cook
+** rpg
 ** File description:
 ** Main function
 */
 
-# include "cook.h"
+# include "rpg.h"
 
 int main(int ac, char **av, char **env)
 {

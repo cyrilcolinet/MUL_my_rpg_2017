@@ -5,9 +5,14 @@
 ** loop of the game
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void run_loop(cook_t *cook)
+void run_loop(rpg_t *rpg)
 {
-	sfRenderWindow_drawSprite(cook->win, get_sprite(cook, aMap1), NULL);
+	sfSprite *sp = get_sprite(rpg, "bg_run");
+
+	if (sp == NULL)
+		return;
+
+	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
 }

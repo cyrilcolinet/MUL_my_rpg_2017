@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** array of pointers of the function representating the states of the game
 */
 
-#include "cook.h"
+#include "rpg.h"
 
-void fct_pointers(cook_t *cook)
+void fct_pointers(rpg_t *rpg)
 {
-	void (*fun_ptr_arr[])(cook_t *) = {
+	void (*fun_ptr_arr[])(rpg_t *) = {
 		NULL,
 		wait_loop,
 		run_loop,
@@ -19,5 +19,5 @@ void fct_pointers(cook_t *cook)
 		credits_view
 	};
 
-	(*fun_ptr_arr[cook->state])(cook);
+	(*fun_ptr_arr[rpg->state])(rpg);
 }

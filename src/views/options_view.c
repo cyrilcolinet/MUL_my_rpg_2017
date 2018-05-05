@@ -1,22 +1,22 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg
 ** File description:
 ** options_view functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void options_view(cook_t *cook)
+void options_view(rpg_t *rpg)
 {
-	sfSprite *sprite = get_sprite(cook, aOptionsBg);
-	slider_t *vol = get_slider(cook, slideVolume);
+	sfSprite *sprite = get_sprite(rpg, aOptionsBg);
+	slider_t *vol = get_slider(rpg, slideVolume);
 
-	sfRenderWindow_clear(cook->win, sfBlack);
-	sfRenderWindow_setTitle(cook->win, "Legacy Of The Kek | Options");
-	sfRenderWindow_drawSprite(cook->win, sprite, NULL);
+	sfRenderWindow_clear(rpg->win, sfBlack);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Options");
+	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 
 	if (vol != NULL) {
-		sfRenderWindow_drawText(cook->win, vol->text, NULL);
+		sfRenderWindow_drawText(rpg->win, vol->text, NULL);
 	}
 }

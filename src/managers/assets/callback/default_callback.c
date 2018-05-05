@@ -1,16 +1,16 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** default_callback functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void default_hover_callback(cook_t *cook, button_t *btn)
+void default_hover_callback(rpg_t *rpg, button_t *btn)
 {
 	sfIntRect rec;
-	(void)cook;
+	(void)rpg;
 
 	rec = btn->rect;
 	rec.top += btn->normal_rect.height;
@@ -18,10 +18,10 @@ void default_hover_callback(cook_t *cook, button_t *btn)
 	sfSprite_setTextureRect(btn->sprite, rec);
 }
 
-void default_click_callback(cook_t *cook, button_t *btn)
+void default_click_callback(rpg_t *rpg, button_t *btn)
 {
 	sfIntRect rec;
-	(void)cook;
+	(void)rpg;
 
 	btn->pressed = true;
 	rec = btn->rect;
@@ -30,10 +30,10 @@ void default_click_callback(cook_t *cook, button_t *btn)
 	sfSprite_setTextureRect(btn->sprite, rec);
 }
 
-void nothing_callback(cook_t *cook, button_t *btn)
+void nothing_callback(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
-	reset_to_normal_rect(cook);
+	reset_to_normal_rect(rpg);
 	return;
 }

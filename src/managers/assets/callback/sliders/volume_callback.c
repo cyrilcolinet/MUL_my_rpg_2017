@@ -1,18 +1,18 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook_2017
+** my_rpg_2017
 ** File description:
 ** volume_callback functions
 */
 
-# include "cook.h"
+# include "rpg.h"
 
-void slider_volume_callback(cook_t *cook, slider_t *slider)
+void slider_volume_callback(rpg_t *rpg, slider_t *slider)
 {
-	sfVector2i tmp = sfMouse_getPositionRenderWindow(cook->win);
+	sfVector2i tmp = sfMouse_getPositionRenderWindow(rpg->win);
 	float rec = slider->btn->rect.width / 2;
 	sfVector2f p = { tmp.x - rec, slider->mid_axis };
-	float volume = sfSound_getVolume(cook->sound);
+	float volume = sfSound_getVolume(rpg->sound);
 	char *vol = NULL;
 
 	volume = ((p.x - slider->range.x) * 100);
