@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2018
 ** my_rpg_2017
 ** File description:
-** Options button configuration
+** settings_button configuration
 */
 
 # include "rpg.h"
 
-void setup_volume_settings_button(rpg_t *rpg)
+void configure_settings_volume_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 590, 507, 80, 82 };
@@ -31,7 +31,7 @@ void setup_volume_settings_button(rpg_t *rpg)
 	info("Configured volume button for settings view!");
 }
 
-void setup_return_settings_button(rpg_t *rpg)
+void configure_settings_return_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 0, 265, 80 };
@@ -54,7 +54,7 @@ void setup_return_settings_button(rpg_t *rpg)
 	info("Configured return button for setting view!");
 }
 
-void setup_fullscreen_settings_button(rpg_t *rpg)
+void configure_settings_fullscreen_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 240, 265, 80 };

@@ -2,12 +2,12 @@
 ** EPITECH PROJECT, 2018
 ** my_rpg_2017
 ** File description:
-** settings_buttons functions
+** credits_buttons configuration
 */
 
 # include "rpg.h"
 
-void setup_return_credits_button(rpg_t *rpg)
+void configure_credits_return_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 295, 507, 290, 82 };

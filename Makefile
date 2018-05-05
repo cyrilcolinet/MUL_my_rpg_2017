@@ -30,20 +30,20 @@ SRC_FILES				= 	main.c 														\
 							utilities/debug/sliders_debugger.c							\
 							managers/assets_manager.c		 							\
 							managers/assets_loader_manager.c 							\
-							managers/assets/buttons_loader.c 							\
 							managers/assets/sliders_loader.c 							\
 							managers/assets/buttons_manager.c 							\
 							managers/assets/sliders_manager.c 							\
 							managers/assets/getter.c 									\
-							managers/assets/setup/wait_buttons.c 						\
-							managers/assets/setup/options_buttons.c 					\
-							managers/assets/setup/options_sliders.c 					\
-							managers/assets/setup/credits_buttons.c 					\
 							managers/assets/callback/actions_callback.c 				\
 							managers/assets/callback/goto_view_callback.c 				\
 							managers/assets/callback/sliders/volume_callback.c 			\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\
+							configurations/views_config.c 								\
+							configurations/views/credits/buttons.c 						\
+							configurations/views/main/buttons.c 						\
+							configurations/views/settings/buttons.c 					\
+							configurations/views/settings/sliders.c						\
 							views/menu_views.c 											\
 							views/play_view.c
 

@@ -1,13 +1,13 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_rpg
+** my_rpg_2017
 ** File description:
-** wait_buttons setup functions
+** main_buttons configuration
 */
 
 # include "rpg.h"
 
-void setup_wait_play_btn(rpg_t *rpg)
+void configure_main_play_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 0, 265, 80 };
@@ -31,7 +31,7 @@ void setup_wait_play_btn(rpg_t *rpg)
 	info("Configured play button!");
 }
 
-void setup_wait_settings_btn(rpg_t *rpg)
+void configure_main_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 240, 265, 80 };
@@ -55,7 +55,7 @@ void setup_wait_settings_btn(rpg_t *rpg)
 	info("Configured settings button!");
 }
 
-void setup_wait_credits_btn(rpg_t *rpg)
+void configure_main_credits_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 480, 265, 80 };
@@ -79,7 +79,7 @@ void setup_wait_credits_btn(rpg_t *rpg)
 	info("Configured credits button!");
 }
 
-void setup_wait_quit_btn(rpg_t *rpg)
+void configure_main_quit_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 720, 265, 80 };

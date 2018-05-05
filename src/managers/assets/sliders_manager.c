@@ -7,42 +7,37 @@
 
 # include "rpg.h"
 
-void callback_slide(slider_t *slide, slider_t conf)
+static void fill_values(slider_t *node, slider_t conf)
 {
-	slide->state = conf.state;
-	slide->onSlide = conf.onSlide;
+	node->name = conf.name;
+	node->range = conf.range;
+	node->mid_axis = conf.mid_axis;
+	node->btn = conf.btn;
+	node->text = conf.text;
+	node->state = conf.state;
+	node->onSlide = conf.onSlide;
+	node->next = NULL;
 }
 
 void add_slider(rpg_t *rpg, slider_t conf)
 {
-	slider_t *tmp = rpg->slides;
+	slider_t **assets = &rpg->slides;
+	slider_t *node = NULL;
 
-	while (tmp != NULL)
-		tmp = tmp->next;
-
-	tmp = malloc(sizeof(slider_t));
-	if (tmp == NULL)
+	if (rpg->slides == NULL) {
+		node = malloc(sizeof(slider_t));
+		if (node == NULL)
+			return;
+		fill_values(node, conf);
+		node->next = *assets;
+		*assets = node;
 		return;
-
-	tmp->name = conf.name;
-	tmp->range = conf.range;
-	tmp->mid_axis = conf.mid_axis;
-	tmp->btn = conf.btn;
-	tmp->text = conf.text;
-	tmp->next = NULL;
-
-	callback_slide(tmp, conf);
-}
-
-slider_t *get_slider(rpg_t *rpg, char *name)
-{
-	slider_t *tmp = rpg->slides;
-
-	while (tmp != NULL) {
-		if (my_strequ(tmp->name, name))
-			return (tmp);
-		tmp = tmp->next;
 	}
-
-	return (NULL);
+	node = rpg->slides;
+	while (node->next != NULL)
+		node = node->next;
+	node->next = malloc(sizeof(slider_t));
+	if (node->next == NULL)
+		return;
+	fill_values(node->next, conf);
 }

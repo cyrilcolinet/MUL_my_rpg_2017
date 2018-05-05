@@ -33,3 +33,16 @@ sfTexture *get_texture(rpg_t *rpg, char *name)
 
 	return (NULL);
 }
+
+slider_t *get_slider(rpg_t *rpg, char *name)
+{
+	slider_t *tmp = rpg->slides;
+
+	while (tmp != NULL) {
+		if (my_strequ(tmp->name, name))
+			return (tmp);
+		tmp = tmp->next;
+	}
+
+	return (NULL);
+}

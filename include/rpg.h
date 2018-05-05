@@ -52,12 +52,13 @@ c_assets_t 	**configure_assets(rpg_t *);
 int 		load_assets(rpg_t *);
 
 // assets_loader_manager.c
-void 		load_buttons(rpg_t *);
+void 		configure_views(rpg_t *);
 void 		start_loader(rpg_t *);
 
 // assets/getter.c
 sfSprite	*get_sprite(rpg_t *, char *);
 sfTexture	*get_texture(rpg_t *, char *);
+slider_t 	*get_slider(rpg_t *, char *);
 
 // assets/button_manager.c
 void 		callback_btn(button_t *, button_t);
@@ -65,6 +66,9 @@ void 		add_button(rpg_t *, button_t);
 button_t	*is_button(rpg_t *, int, int);
 void 		draw_buttons(rpg_t *);
 button_t 	*get_button(rpg_t *, char *, state_e);
+
+// assets/slider_manager.c
+void 		add_slider(rpg_t *, slider_t);
 
 // callback/goto_view_callback.c
 void 		cb_goto_credits_view(rpg_t *, button_t *);
@@ -77,6 +81,33 @@ void 		cb_return_action(rpg_t *, button_t *);
 void 		cb_void_action(rpg_t *, button_t *);
 void 		cb_click_action(rpg_t *, button_t *);
 void 		cb_hover_action(rpg_t *, button_t *);
+
+/*
+** Configurations
+** All configurations for sprites, audio, etc...
+*/
+
+// views_config.c
+void 		configure_main_view(rpg_t *);
+void 		configure_settings_view(rpg_t *);
+void 		configure_credits_view(rpg_t *);
+
+// views/main/buttons.c
+void 		configure_main_play_button(rpg_t *);
+void 		configure_main_settings_button(rpg_t *);
+void 		configure_main_credits_button(rpg_t *);
+void 		configure_main_quit_button(rpg_t *);
+
+// views/settings/buttons.c
+void 		configure_settings_volume_button(rpg_t *);
+void 		configure_settings_return_button(rpg_t *);
+void 		configure_settings_fullscreen_button(rpg_t *);
+
+// views/settings/sliders.c
+void 		configure_settings_volume_slider(rpg_t *);
+
+// views/options/buttons.c
+void 		configure_credits_return_button(rpg_t *);
 
 
 /*
