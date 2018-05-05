@@ -1,12 +1,11 @@
 /*
 ** EPITECH PROJECT, 2018
-** my_cook
+** my_rpg_2017
 ** File description:
-** deug_utils functions
+** debug_utils
 */
 
-# include "cook.h"
-# include "debug.h"
+# include "rpg.h"
 
 void info(char *msg)
 {

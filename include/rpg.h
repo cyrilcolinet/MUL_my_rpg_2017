@@ -48,4 +48,40 @@ int 		load_assets(rpg_t *);
 void 		load_buttons(rpg_t *);
 void 		start_loader(rpg_t *);
 
+/*
+** Utilities
+** Struct utils, pointers utils and more...
+*/
+
+// args_utils.c
+int 		check_arguments(int, char **);
+
+// debug_utils.c
+void 		info(char *);
+void 		warning(char *);
+void 		print_key_value_str(char *, char *);
+void 		print_key_value_int(char *, int);
+
+// display_utils.c
+void 		display_view(rpg_t *);
+
+// rect_utils.c
+void 		reset_to_normal_rect(rpg_t *);
+
+// settings_utils.c
+char 		*my_itoa(int);
+char 		*get_sound_in_str(int);
+
+// sound_utils.c
+void 		configure_audio(rpg_t *);
+
+// struct_utils.c
+void 		destroy_buttons(rpg_t *);
+void 		destroy_assets(rpg_t *);
+void 		destroy_slides(rpg_t *);
+rpg_t 		*configure_struct(void);
+
+// windows_tils.c
+void 		set_favicon(rpg_t *);
+
 # endif

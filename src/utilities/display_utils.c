@@ -5,11 +5,11 @@
 ** array of pointers of the function representating the states of the game
 */
 
-#include "rpg.h"
+# include "rpg.h"
 
-void fct_pointers(rpg_t *rpg)
+void display_view(rpg_t *rpg)
 {
-	void (*fun_ptr_arr[])(rpg_t *) = {
+	void (*tab[])(rpg_t *) = {
 		NULL,
 		wait_loop,
 		run_loop,
@@ -19,5 +19,5 @@ void fct_pointers(rpg_t *rpg)
 		credits_view
 	};
 
-	(*fun_ptr_arr[rpg->state])(rpg);
+	(*tab[rpg->state])(rpg);
 }

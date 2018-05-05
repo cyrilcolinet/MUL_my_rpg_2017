@@ -19,13 +19,17 @@ SRC_FILES				= 	main.c 														\
 							rpg.c 														\
 							game/wait/wait_loop.c 										\
 							game/run/run_loop.c											\
-							utilities/args_handling.c 									\
+							utilities/args_utils.c 										\
 							utilities/struct_utils.c 									\
-							utilities/options_manager.c 								\
-							utilities/fct_pointers.c									\
+							utilities/settings_utils.c 									\
+							utilities/display_utils.c									\
 							utilities/windows_utils.c 									\
 							utilities/rect_utils.c 										\
-							utilities/sound_manager.c 									\
+							utilities/sound_utils.c 									\
+							utilities/debug_utils.c 									\
+							utilities/debug/buttons_debugger.c 							\
+							utilities/debug/assets_debugger.c 							\
+							utilities/debug/sliders_debugger.c							\
 							events/events_manager.c 									\
 							events/mouse_events.c 										\
 							managers/assets_manager.c		 							\
@@ -47,11 +51,7 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/callback/wait/quit_btn_callback.c 			\
 							managers/assets/callback/default_callback.c 				\
 							views/options_view.c 										\
-							views/credits_view.c 										\
-							debug/logger.c 												\
-							debug/buttons_debugger.c 									\
-							debug/assets_debugger.c 									\
-							debug/sliders_debugger.c
+							views/credits_view.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
