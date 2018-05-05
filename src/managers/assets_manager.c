@@ -8,24 +8,36 @@
 # include "debug.h"
 # include "rpg.h"
 
+static void fill_values(assets_t *node, texture_t texture)
+{
+	node->name = texture.name;
+	node->texture = texture.texture;
+	node->file = texture.file;
+	node->sp = texture.sp;
+	node->next = NULL;
+}
+
 int new_asset(rpg_t *rpg, texture_t texture)
 {
-	assets_t *tmp = rpg->assets;
+	assets_t **assets = &rpg->assets;
+	assets_t *node = NULL;
 
-	while (tmp->next != NULL)
-		tmp = tmp->next;
-
-	tmp->next = malloc(sizeof(assets_t));
-
-	if (tmp->next == NULL)
-		return (84);
-
-	tmp->next->texture = texture.texture;
-	tmp->next->file = texture.file;
-	tmp->next->sp = texture.sp;
-	tmp->next->name = texture.name;
-	tmp->next->next = NULL;
-
+	if (rpg->assets == NULL) {
+		node = malloc(sizeof(assets_t));
+		if (node == NULL)
+			return (-1);
+		fill_values(node, texture);
+		node->next = *assets;
+		*assets = node;
+		return (0);
+	}
+	node = rpg->assets;
+	while (node->next != NULL)
+		node = node->next;
+	node->next = malloc(sizeof(assets_t));
+	if (node->next == NULL)
+		return (-1);
+	fill_values(node->next, texture);
 	return (0);
 }
 
@@ -47,15 +59,21 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 	return (res);
 }
 
-// TODO: Change assets_number (set in config)
-c_assets_t **configure_assets(void)
+// TODO: Temporary creation of assets
+c_assets_t **configure_assets(rpg_t *rpg)
 {
+	create_texture(rpg, "bg_main", "assets/main_menu.png");
+	create_texture(rpg, "buttons", "assets/buttons.png");
+	create_texture(rpg, "bg_pause", "assets/pause_menu.png");
+	create_texture(rpg, "bg_settings", "assets/options_menu.png");
+	create_texture(rpg, "bg_credits", "assets/credits_menu.png");
+	create_texture(rpg, "map1", "assets/map/1.png");
 	return (NULL);
 }
 
 int load_assets(rpg_t *rpg)
 {
-	c_assets_t **assets = configure_assets();
+	c_assets_t **assets = configure_assets(rpg);
 	char *name = NULL;
 	char *filename = NULL;
 

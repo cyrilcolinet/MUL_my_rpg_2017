@@ -7,33 +7,41 @@
 
 # include "rpg.h"
 
-void callback_btn(button_t *btn, button_t conf)
+static void fill_values(button_t *node, button_t conf)
 {
-	btn->state = conf.state;
-	btn->onClick = conf.onClick;
-	btn->onHover = conf.onHover;
-	btn->onStart = conf.onStart;
+	node->name = conf.name;
+	node->pos = conf.pos;
+	node->rect = conf.rect;
+	node->normal_rect = conf.rect;
+	node->sprite = conf.sprite;
+	node->state = conf.state;
+	node->onClick = conf.onClick;
+	node->onHover = conf.onHover;
+	node->onStart = conf.onStart;
+	node->next = NULL;
 }
 
 void add_button(rpg_t *rpg, button_t conf)
 {
-	button_t *tmp = rpg->btn;
+	button_t **assets = &rpg->btn;
+	button_t *node = NULL;
 
-	while (tmp != NULL)
-		tmp = tmp->next;
-
-	tmp = malloc(sizeof(button_t));
-	if (tmp == NULL)
+	if (rpg->btn == NULL) {
+		node = malloc(sizeof(button_t));
+		if (node == NULL)
+			return;
+		fill_values(node, conf);
+		node->next = *assets;
+		*assets = node;
 		return;
-
-	tmp->name = conf.name;
-	tmp->pos = conf.pos;
-	tmp->rect = conf.rect;
-	tmp->normal_rect = conf.rect;
-	tmp->sprite = conf.sprite;
-	tmp->next = NULL;
-
-	callback_btn(tmp, conf);
+	}
+	node = rpg->btn;
+	while (node->next != NULL)
+		node = node->next;
+	node->next = malloc(sizeof(button_t));
+	if (node->next == NULL)
+		return;
+	fill_values(node->next, conf);
 }
 
 button_t *is_button(rpg_t *rpg, int x, int y)

@@ -9,7 +9,7 @@
 
 void play_view(rpg_t *rpg)
 {
-	sfSprite *sp = get_sprite(rpg, "bg_play");
+	sfSprite *sp = get_sprite(rpg, "map1");
 
 	if (sp == NULL)
 		return;

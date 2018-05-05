@@ -14,6 +14,11 @@ void load_buttons(rpg_t *rpg)
 	load_credits_buttons(rpg);
 }
 
+void load_sliders(rpg_t *rpg)
+{
+	load_options_sliders(rpg);
+}
+
 void start_loader(rpg_t *rpg)
 {
 	rpg->font = sfFont_createFromFile("assets/GROBOLD.ttf");

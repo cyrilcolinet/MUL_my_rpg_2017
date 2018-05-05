@@ -29,7 +29,7 @@ int rpg_game(rpg_t *rpg)
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
-		fct_pointers(rpg);
+		display_view(rpg);
 		draw_buttons(rpg);
 		sfRenderWindow_display(rpg->win);
 	}

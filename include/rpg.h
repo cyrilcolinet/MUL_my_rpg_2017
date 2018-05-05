@@ -48,7 +48,7 @@ void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 // assets_manager.c
 int 		new_asset(rpg_t *, texture_t);
 int			create_texture(rpg_t *, char *, char *);
-c_assets_t 	**configure_assets(void);
+c_assets_t 	**configure_assets(rpg_t *);
 int 		load_assets(rpg_t *);
 
 // assets_loader_manager.c
@@ -128,5 +128,6 @@ rpg_t 		*configure_struct(void);
 
 // windows_tils.c
 void 		set_favicon(rpg_t *);
+
 
 # endif

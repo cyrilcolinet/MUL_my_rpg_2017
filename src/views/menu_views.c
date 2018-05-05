@@ -25,7 +25,7 @@ void settings_view(rpg_t *rpg)
 	sfSprite *sprite = get_sprite(rpg, "bg_settings");
 	slider_t *vol = get_slider(rpg, "sld_volume");
 
-	if (sprite == NULL || vol == NULL)
+	if (sprite == NULL)
 		return;
 
 	sfRenderWindow_clear(rpg->win, sfBlack);
