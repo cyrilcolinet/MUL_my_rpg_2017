@@ -11,14 +11,14 @@ void setup_wait_play_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 0, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnPlay;
+	conf.name = "btn_play";
 	conf.pos.x = 547;
 	conf.pos.y = 717;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = btn_play_released;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_goto_play_view;
 	conf.state = gameWait;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -35,14 +35,14 @@ void setup_wait_settings_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 240, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnSettings;
+	conf.name = "btn_settings";
 	conf.pos.x = 1179;
 	conf.pos.y = 717;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = btn_settings_released;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_goto_settings_view;
 	conf.state = gameWait;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -52,21 +52,21 @@ void setup_wait_settings_btn(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured options button!");
+	info("Configured settings button!");
 }
 
 void setup_wait_credits_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 480, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnCredits;
+	conf.name = "btn_credits";
 	conf.pos.x = 642;
 	conf.pos.y = 873;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = btn_credits_released;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_goto_credits_view;
 	conf.state = gameWait;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -83,14 +83,14 @@ void setup_wait_quit_btn(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 0, 720, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnQuit;
+	conf.name = "btn_quit";
 	conf.pos.x = 1069;
 	conf.pos.y = 873;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = btn_quit_released;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_quit_action;
 	conf.state = gameWait;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);

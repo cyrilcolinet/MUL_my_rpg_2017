@@ -6,7 +6,7 @@
 */
 
 # include "rpg.h"
-
+/*
 static slider_t extra_config(rpg_t *rpg, slider_t conf)
 {
 	slider_t c = conf;
@@ -38,3 +38,4 @@ void setup_volume_options_slider(rpg_t *rpg)
 
 	add_slider(rpg, extra_config(rpg, conf));
 }
+*/

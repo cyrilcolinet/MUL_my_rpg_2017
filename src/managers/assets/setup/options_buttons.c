@@ -12,14 +12,14 @@ void setup_volume_settings_button(rpg_t *rpg)
 	button_t conf;
 	sfIntRect rec = { 590, 507, 80, 82 };
 	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnVolume;
+	conf.name = "btn_volume";
 	conf.pos.x = 0;
 	conf.pos.y = 0;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = nothing_callback;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_void_action;
 	conf.state = gameOnSettings;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -35,14 +35,14 @@ void setup_return_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 0, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnReturn;
+	conf.name = "btn_return";
 	conf.pos.x = 320;
 	conf.pos.y = 830;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = btn_return_released;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_return_action;
 	conf.state = gameOnSettings;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -58,14 +58,14 @@ void setup_fullscreen_settings_button(rpg_t *rpg)
 {
 	button_t conf;
 	sfIntRect rec = { 265, 240, 265, 80 };
-	sfTexture *texture = get_texture(rpg, aBtnSp);
+	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.type = btnFullscreen;
+	conf.name = "btn_fullscreen";
 	conf.pos.x = 320;
 	conf.pos.y = 440;
-	conf.onClick = default_click_callback;
-	conf.onHover = default_hover_callback;
-	conf.onStart = nothing_callback; // TODO: Start fullscreen
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_void_action; // TODO: Start fullscreen
 	conf.state = gameOnSettings;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);

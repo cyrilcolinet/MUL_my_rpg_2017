@@ -33,19 +33,15 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/buttons_loader.c 							\
 							managers/assets/sliders_loader.c 							\
 							managers/assets/buttons_manager.c 							\
-							managers/assets/sliders_manager.c 							\
+							managers/assets/getter.c		 							\
 							managers/assets/setup/wait_buttons.c 						\
 							managers/assets/setup/options_buttons.c 					\
 							managers/assets/setup/options_sliders.c 					\
 							managers/assets/setup/credits_buttons.c 					\
 							managers/assets/sprite_manager.c 							\
-							managers/assets/callback/return_callback.c 					\
+							managers/assets/callback/actions_callback.c 				\
+							managers/assets/callback/goto_view_callback.c 				\
 							managers/assets/callback/sliders/volume_callback.c 			\
-							managers/assets/callback/wait/play_btn_callback.c 			\
-							managers/assets/callback/wait/settings_btn_callback.c 		\
-							managers/assets/callback/wait/credits_btn_callback.c 		\
-							managers/assets/callback/wait/quit_btn_callback.c 			\
-							managers/assets/callback/default_callback.c 				\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\
 							views/menu_views.c 											\
