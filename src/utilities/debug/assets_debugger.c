@@ -12,7 +12,7 @@ void print_assets_infos(assets_t *asset)
 {
 	sfTexture *texture = NULL;
 
-	print_key_value_str("name", asset->id);
+	print_key_value_str("name", asset->name);
 	print_key_value_str("file", asset->file);
 	texture = asset->texture;
 	print_key_value_str("texture", ((texture == NULL) ? "(null)" : "OK"));

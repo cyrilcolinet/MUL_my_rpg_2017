@@ -11,11 +11,11 @@ void display_view(rpg_t *rpg)
 {
 	void (*tab[])(rpg_t *) = {
 		NULL,
-		wait_loop,
-		run_loop,
+		main_view,
+		play_view,
 		NULL,
 		NULL,
-		options_view,
+		settings_view,
 		credits_view
 	};
 

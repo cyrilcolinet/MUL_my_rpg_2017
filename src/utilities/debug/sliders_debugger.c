@@ -8,7 +8,7 @@
 # include "rpg.h"
 # include "debug.h"
 
-void print_sliders_infos(slider_t *slide, char *sd[], char *st[])
+void print_sliders_infos(slider_t *slide, char *st[])
 {
 	info("Print slider: ->");
 	print_key_value_str("name", slide->name);

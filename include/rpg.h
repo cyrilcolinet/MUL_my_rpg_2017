@@ -8,21 +8,6 @@
 # ifndef PG_H
 # define PG_H
 
-# include <SFML/Audio.h>
-# include <SFML/Config.h>
-# include <SFML/Graphics.h>
-# include <SFML/Network.h>
-# include <SFML/OpenGL.h>
-# include <SFML/System.h>
-# include <SFML/Window.h>
-# include <SFML/System.h>
-
-# include <stdbool.h>
-# include <stdlib.h>
-# include <unistd.h>
-# include <stdio.h>
-# include <dirent.h>
-
 # include "my.h"
 # include "structs.h"
 
@@ -39,6 +24,7 @@ void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
 int			rpg_main(int, char **);
 
+
 /*
 ** Events manager
 ** Management of events (mouse, keyboard, etc...)
@@ -52,6 +38,7 @@ void 		poll_event(rpg_t *, sfEvent *);
 void 		mouse_button_pressed(rpg_t *, sfMouseButtonEvent);
 void 		mouse_button_released(rpg_t *, sfMouseButtonEvent);
 void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
+
 
 /*
 ** Assets manager
@@ -67,6 +54,21 @@ int 		load_assets(rpg_t *);
 // assets_loader_manager.c
 void 		load_buttons(rpg_t *);
 void 		start_loader(rpg_t *);
+
+
+/*
+** Views gesture
+** Menu displaying with their actions etc...
+*/
+
+// menu_views.c
+void 		credits_view(rpg_t *);
+void 		settings_view(rpg_t *);
+void 		main_view(rpg_t *);
+
+// play_view.c
+void 		play_view(rpg_t *);
+
 
 /*
 ** Utilities

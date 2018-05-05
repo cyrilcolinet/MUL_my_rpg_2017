@@ -17,8 +17,6 @@ TEST_DIR				= 	tests/
 
 SRC_FILES				= 	main.c 														\
 							rpg.c 														\
-							game/wait/wait_loop.c 										\
-							game/run/run_loop.c											\
 							utilities/args_utils.c 										\
 							utilities/struct_utils.c 									\
 							utilities/settings_utils.c 									\
@@ -50,8 +48,8 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/callback/default_callback.c 				\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\
-							views/options_view.c 										\
-							views/credits_view.c
+							views/menu_views.c 											\
+							views/play_view.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

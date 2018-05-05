@@ -8,7 +8,20 @@
 # ifndef STRUCT_RPG_H
 # define STRUCT_RPG_H
 
-# include "rpg.h"
+# include <SFML/Audio.h>
+# include <SFML/Config.h>
+# include <SFML/Graphics.h>
+# include <SFML/Network.h>
+# include <SFML/OpenGL.h>
+# include <SFML/System.h>
+# include <SFML/Window.h>
+# include <SFML/System.h>
+
+# include <stdbool.h>
+# include <stdlib.h>
+# include <unistd.h>
+# include <stdio.h>
+# include <dirent.h>
 
 // Struct prototypes
 struct 	texture_t;

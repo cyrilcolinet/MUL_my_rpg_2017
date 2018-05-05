@@ -1,15 +1,15 @@
 /*
 ** EPITECH PROJECT, 2018
-** run_loop
+** my_rpg_2017
 ** File description:
-** loop of the game
+** play_view functions
 */
 
 # include "rpg.h"
 
-void run_loop(rpg_t *rpg)
+void play_view(rpg_t *rpg)
 {
-	sfSprite *sp = get_sprite(rpg, "bg_run");
+	sfSprite *sp = get_sprite(rpg, "bg_play");
 
 	if (sp == NULL)
 		return;
