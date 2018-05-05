@@ -8,8 +8,14 @@
 # ifndef PG_H
 # define PG_H
 
-# include <SFML/Graphics.h>
 # include <SFML/Audio.h>
+# include <SFML/Config.h>
+# include <SFML/Graphics.h>
+# include <SFML/Network.h>
+# include <SFML/OpenGL.h>
+# include <SFML/System.h>
+# include <SFML/Window.h>
+# include <SFML/System.h>
 
 # include <stdbool.h>
 # include <stdlib.h>
@@ -32,6 +38,20 @@ typedef struct c_assets_t {
 void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
 int			rpg_main(int, char **);
+
+/*
+** Events manager
+** Management of events (mouse, keyboard, etc...)
+*/
+
+// events_manager.c
+void 		mouse_manager(rpg_t *, sfEvent *);
+void 		poll_event(rpg_t *, sfEvent *);
+
+// events/mouse_events.c
+void 		mouse_button_pressed(rpg_t *, sfMouseButtonEvent);
+void 		mouse_button_released(rpg_t *, sfMouseButtonEvent);
+void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 
 /*
 ** Assets manager

@@ -49,9 +49,7 @@ void mouse_moved(rpg_t *rpg, sfMouseMoveEvent mouse)
 				tmp = tmp->next;
 			}
 		}
-
 		return;
 	}
-
 	reset_to_normal_rect(rpg);
 }

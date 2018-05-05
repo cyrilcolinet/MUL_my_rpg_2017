@@ -30,8 +30,6 @@ SRC_FILES				= 	main.c 														\
 							utilities/debug/buttons_debugger.c 							\
 							utilities/debug/assets_debugger.c 							\
 							utilities/debug/sliders_debugger.c							\
-							events/events_manager.c 									\
-							events/mouse_events.c 										\
 							managers/assets_manager.c		 							\
 							managers/assets_loader_manager.c 							\
 							managers/assets/buttons_loader.c 							\
@@ -50,6 +48,8 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/callback/wait/credits_btn_callback.c 		\
 							managers/assets/callback/wait/quit_btn_callback.c 			\
 							managers/assets/callback/default_callback.c 				\
+							managers/events_manager.c 									\
+							managers/events/mouse_events.c								\
 							views/options_view.c 										\
 							views/credits_view.c
 
