@@ -20,7 +20,7 @@ SRC_FILES				= 	main.c 														\
 							utilities/args_utils.c 										\
 							utilities/struct_utils.c 									\
 							utilities/settings_utils.c 									\
-							utilities/display_utils.c									\
+							utilities/views_utils.c										\
 							utilities/windows_utils.c 									\
 							utilities/rect_utils.c 										\
 							utilities/sound_utils.c 									\
@@ -39,6 +39,7 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/callback/sliders/volume_callback.c 			\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\
+							managers/events/views_events.c								\
 							configurations/views_config.c 								\
 							configurations/views/credits/buttons.c 						\
 							configurations/views/main/buttons.c 						\

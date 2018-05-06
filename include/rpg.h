@@ -15,8 +15,8 @@
 bool 	debug;
 
 typedef struct c_assets_t {
-	char 	*name;
-	char 	*filename;
+	char 		*name;
+	char 		*filename;
 }	c_assets_t;
 
 // rpg.c
@@ -31,7 +31,8 @@ int			rpg_main(int, char **);
 */
 
 // events_manager.c
-void 		mouse_manager(rpg_t *, sfEvent *);
+void 		mouse_events(rpg_t *, sfEvent *);
+void 		keyboard_events(rpg_t *, sfEvent *);
 void 		poll_event(rpg_t *, sfEvent *);
 
 // events/mouse_events.c
@@ -39,6 +40,8 @@ void 		mouse_button_pressed(rpg_t *, sfMouseButtonEvent);
 void 		mouse_button_released(rpg_t *, sfMouseButtonEvent);
 void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 
+// events/views_events.c
+void 		views_events(rpg_t *, sfEvent *);
 
 /*
 ** Assets manager
@@ -138,7 +141,7 @@ void 		warning(char *);
 void 		print_key_value_str(char *, char *);
 void 		print_key_value_int(char *, int);
 
-// display_utils.c
+// views_utils.c
 void 		display_view(rpg_t *);
 
 // rect_utils.c
