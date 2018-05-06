@@ -79,5 +79,6 @@ rpg_t *configure_struct(void)
 	rpg->btn = NULL;
 	rpg->slides = NULL;
 	rpg->img = NULL;
+	rpg->clock = sfClock_create();
 	return (rpg);
 }

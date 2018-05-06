@@ -43,10 +43,12 @@ SRC_FILES				= 	main.c 														\
 							configurations/views_config.c 								\
 							configurations/views/credits/buttons.c 						\
 							configurations/views/main/buttons.c 						\
+							configurations/views/main/history_button.c 					\
 							configurations/views/settings/buttons.c 					\
 							configurations/views/settings/sliders.c						\
 							views/menu_views.c 											\
-							views/play_view.c
+							views/play_view.c 											\
+							views/main_view.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

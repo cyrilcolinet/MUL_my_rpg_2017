@@ -68,7 +68,7 @@ c_assets_t **configure_assets(rpg_t *rpg)
 	create_texture(rpg, "bg_settings", "assets/options_menu.png");
 	create_texture(rpg, "bg_credits", "assets/credits_menu.png");
 	create_texture(rpg, "map1", "assets/map/1.png");
-	create_texture(rpg, "btn_history", "assets/history.png");
+	create_texture(rpg, "booksheet", "assets/booksheet.png");
 	return (NULL);
 }
 

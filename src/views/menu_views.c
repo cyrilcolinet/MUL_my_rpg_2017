@@ -18,7 +18,6 @@ void credits_view(rpg_t *rpg)
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }
 
-
 void settings_view(rpg_t *rpg)
 {
 	sfSprite *sprite = get_sprite(rpg, "bg_settings");
@@ -47,14 +46,4 @@ void settings_keymapping_view(rpg_t *rpg)
 	sfSprite_setTexture(sprite, texture, sfFalse);
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	sfSprite_destroy(sprite);
-}
-
-void main_view(rpg_t *rpg)
-{
-	sfSprite *sp = get_sprite(rpg, "bg_main");
-
-	if (sp == NULL)
-		return;
-
-	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
 }

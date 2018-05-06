@@ -14,6 +14,7 @@ void exit_game(rpg_t *rpg)
 	destroy_slides(rpg);
 	sfRenderWindow_destroy(rpg->win);
 	sfSound_destroy(rpg->sound);
+	sfClock_destroy(rpg->clock);
 	info("Window destroyed!");
 }
 
@@ -25,7 +26,6 @@ int rpg_game(rpg_t *rpg)
 	if (status != 0)
 		return (status);
 
-	info("Starting game loop...");
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);

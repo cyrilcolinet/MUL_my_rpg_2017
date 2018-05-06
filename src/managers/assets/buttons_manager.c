@@ -72,7 +72,8 @@ void draw_buttons(rpg_t *rpg)
 	while (tmp != NULL) {
 		if (tmp->state == rpg->state) {
 			sprite = tmp->sprite;
-			sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+			if (sprite != NULL)
+				sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 		}
 		tmp = tmp->next;
 	}

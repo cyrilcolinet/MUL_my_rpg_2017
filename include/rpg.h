@@ -128,10 +128,13 @@ void 		configure_credits_return_button(rpg_t *);
 void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
 void 		settings_keymapping_view(rpg_t *);
-void 		main_view(rpg_t *);
 
 // play_view.c
 void 		play_view(rpg_t *);
+
+// main_view.c
+void 		draw_history_button(rpg_t *);
+void 		main_view(rpg_t *);
 
 
 /*

@@ -13,6 +13,7 @@ void configure_main_view(rpg_t *rpg)
 	configure_main_settings_button(rpg);
 	configure_main_credits_button(rpg);
 	configure_main_quit_button(rpg);
+	configure_main_history_button(rpg);
 }
 
 void configure_settings_view(rpg_t *rpg)
