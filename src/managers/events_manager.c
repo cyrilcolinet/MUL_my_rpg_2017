@@ -20,10 +20,20 @@ void mouse_events(rpg_t *rpg, sfEvent *event)
 	}
 }
 
-void keyboard_manager(rpg_t *rpg, sfEvent *event)
+void keyboard_events(rpg_t *rpg, sfEvent *event)
 {
-	(void)rpg;
-	(void)event;
+	state_e cpy = rpg->state;
+
+	if (event->type == sfEvtKeyReleased) {
+		if (event->key.code == sfKeyEscape) {
+			if (rpg->state == gameWait) {
+				sfRenderWindow_close(rpg->win);
+			} else {
+				rpg->state = rpg->last_st;
+				rpg->last_st = cpy;
+			}
+		}
+	}
 }
 
 void poll_event(rpg_t *rpg, sfEvent *event)
@@ -33,6 +43,7 @@ void poll_event(rpg_t *rpg, sfEvent *event)
 			sfRenderWindow_close(rpg->win);
 
 		mouse_events(rpg, event);
+		keyboard_events(rpg, event);
 		views_events(rpg, event);
 	}
 }

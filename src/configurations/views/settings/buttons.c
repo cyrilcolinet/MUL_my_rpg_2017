@@ -77,3 +77,27 @@ void configure_settings_fullscreen_button(rpg_t *rpg)
 	add_button(rpg, conf);
 	info("Configured fullscreen button for setting view!");
 }
+
+void configure_settings_keymapping_button(rpg_t *rpg)
+{
+	button_t conf;
+	sfIntRect rec = { 265, 240, 265, 80 };
+	sfTexture *texture = get_texture(rpg, "buttons");
+
+	conf.name = "btn_keymapping";
+	conf.pos.x = 320;
+	conf.pos.y = 570;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_goto_settings_keymapping_view;
+	conf.state = gameOnSettings;
+	conf.sprite = sfSprite_create();
+	sfSprite_setTexture(conf.sprite, texture, sfFalse);
+	sfSprite_setTextureRect(conf.sprite, rec);
+	sfSprite_setPosition(conf.sprite, conf.pos);
+	conf.rect = rec;
+	conf.next = NULL;
+
+	add_button(rpg, conf);
+	info("Configured keymapping button for setting view!");
+}

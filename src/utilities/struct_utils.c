@@ -78,5 +78,6 @@ rpg_t *configure_struct(void)
 	rpg->assets = NULL;
 	rpg->btn = NULL;
 	rpg->slides = NULL;
+	rpg->img = NULL;
 	return (rpg);
 }

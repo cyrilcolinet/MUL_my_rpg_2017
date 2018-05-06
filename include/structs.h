@@ -39,7 +39,8 @@ typedef enum state_e {
 		gameEnd,
 		gamePause,
 		gameOnSettings,
-		gameOnCredits
+		gameOnCredits,
+		gameOnKeymapping
 }		state_e;
 
 // Structs declarations
@@ -93,6 +94,7 @@ typedef struct rpg_t {
 		sfSound 		*sound;
 		sfFont 			*font;
 		state_e 		state;
+		sfImage 		*img;
 		state_e 		last_st;
 		options_t 		options;
 		assets_t 		*assets;

@@ -16,7 +16,8 @@ void display_view(rpg_t *rpg)
 		NULL,
 		NULL,
 		settings_view,
-		credits_view
+		credits_view,
+		settings_keymapping_view
 	};
 
 	(*tab[rpg->state])(rpg);

@@ -15,7 +15,6 @@ void credits_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_clear(rpg->win, sfBlack);
-	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Credits");
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }
 
@@ -29,7 +28,6 @@ void settings_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_clear(rpg->win, sfBlack);
-	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Options");
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 
 	if (vol != NULL) {
@@ -37,11 +35,23 @@ void settings_view(rpg_t *rpg)
 	}
 }
 
+void settings_keymapping_view(rpg_t *rpg)
+{
+	sfTexture *texture = sfTexture_createFromImage(rpg->img, NULL);
+	sfSprite *sprite = NULL;
+
+	if (texture == NULL)
+		return;
+
+	sprite = sfSprite_create();
+	sfSprite_setTexture(sprite, texture, sfFalse);
+	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+	sfSprite_destroy(sprite);
+}
+
 void main_view(rpg_t *rpg)
 {
 	sfSprite *sp = get_sprite(rpg, "bg_main");
-
-	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Menu Principal");
 
 	if (sp == NULL)
 		return;

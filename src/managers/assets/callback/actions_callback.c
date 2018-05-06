@@ -18,10 +18,11 @@ void cb_quit_action(rpg_t *rpg, button_t *btn)
 void cb_return_action(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
+	state_e cpy = rpg->state;
 
 	reset_to_normal_rect(rpg);
 	rpg->state = rpg->last_st;
-	rpg->last_st = gameUnknown;
+	rpg->last_st = cpy;
 }
 
 void cb_void_action(rpg_t *rpg, button_t *btn)

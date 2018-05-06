@@ -74,9 +74,11 @@ button_t 	*get_button(rpg_t *, char *, state_e);
 void 		add_slider(rpg_t *, slider_t);
 
 // callback/goto_view_callback.c
+void 		cb_goto_main_view(rpg_t *, button_t *);
 void 		cb_goto_credits_view(rpg_t *, button_t *);
 void 		cb_goto_play_view(rpg_t *, button_t *);
 void 		cb_goto_settings_view(rpg_t *, button_t *);
+void 		cb_goto_settings_keymapping_view(rpg_t *, button_t *);
 
 // callback/actions_callback.c
 void 		cb_quit_action(rpg_t *, button_t *);
@@ -105,6 +107,7 @@ void 		configure_main_quit_button(rpg_t *);
 void 		configure_settings_volume_button(rpg_t *);
 void 		configure_settings_return_button(rpg_t *);
 void 		configure_settings_fullscreen_button(rpg_t *);
+void 		configure_settings_keymapping_button(rpg_t *);
 
 // views/settings/sliders.c
 void 		configure_settings_volume_slider(rpg_t *);
@@ -121,6 +124,7 @@ void 		configure_credits_return_button(rpg_t *);
 // menu_views.c
 void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
+void 		settings_keymapping_view(rpg_t *);
 void 		main_view(rpg_t *);
 
 // play_view.c

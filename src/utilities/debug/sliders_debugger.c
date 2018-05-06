@@ -28,7 +28,7 @@ void print_sliders(rpg_t *rpg)
 	slider_t *tmp = rpg->slides;
 	char *st[] = {
 		"gameUnknown", "gameWait", "gameRun", "gameEnd", "gamePause",
-		"gameOnSettings", "gameOnCredits"
+		"gameOnSettings", "gameOnCredits", "gameOnKeymapping"
 	};
 
 	info("\n");
