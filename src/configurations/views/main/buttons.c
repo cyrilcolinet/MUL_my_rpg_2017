@@ -14,8 +14,8 @@ void configure_main_play_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_play";
-	conf.pos.x = 547;
-	conf.pos.y = 717;
+	conf.pos.x = 460;
+	conf.pos.y = 745;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_play_view;
@@ -38,8 +38,8 @@ void configure_main_settings_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_settings";
-	conf.pos.x = 1179;
-	conf.pos.y = 717;
+	conf.pos.x = 1185;
+	conf.pos.y = 745;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_settings_view;
@@ -62,8 +62,8 @@ void configure_main_credits_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_credits";
-	conf.pos.x = 642;
-	conf.pos.y = 873;
+	conf.pos.x = 565;
+	conf.pos.y = 910;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_credits_view;
@@ -86,8 +86,8 @@ void configure_main_quit_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_quit";
-	conf.pos.x = 1069;
-	conf.pos.y = 873;
+	conf.pos.x = 1095;
+	conf.pos.y = 910;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_quit_action;

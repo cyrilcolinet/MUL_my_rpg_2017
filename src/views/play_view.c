@@ -7,6 +7,11 @@
 
 # include "rpg.h"
 
+void draw_history_button(rpg_t *rpg)
+{
+	
+}
+
 void play_view(rpg_t *rpg)
 {
 	sfSprite *sp = get_sprite(rpg, "map1");
@@ -15,4 +20,5 @@ void play_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
+	draw_history_button(rpg);
 }

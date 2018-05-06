@@ -11,7 +11,7 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
-	rpg->state = gameRun;
+	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	reset_to_normal_rect(rpg);
 	info("Openning main menu...");

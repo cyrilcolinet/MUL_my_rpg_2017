@@ -103,6 +103,9 @@ void 		configure_main_settings_button(rpg_t *);
 void 		configure_main_credits_button(rpg_t *);
 void 		configure_main_quit_button(rpg_t *);
 
+// views/main/history_button.c
+void 		configure_main_history_button(rpg_t *);
+
 // views/settings/buttons.c
 void 		configure_settings_volume_button(rpg_t *);
 void 		configure_settings_return_button(rpg_t *);

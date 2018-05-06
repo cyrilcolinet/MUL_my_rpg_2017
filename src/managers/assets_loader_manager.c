@@ -9,7 +9,7 @@
 
 void start_loader(rpg_t *rpg)
 {
-	rpg->font = sfFont_createFromFile("assets/GROBOLD.ttf");
+	rpg->font = sfFont_createFromFile("assets/Cyberspace.otf");
 
 	configure_main_view(rpg);
 	configure_settings_view(rpg);
