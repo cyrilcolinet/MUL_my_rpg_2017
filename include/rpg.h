@@ -62,6 +62,7 @@ void 		start_loader(rpg_t *);
 sfSprite	*get_sprite(rpg_t *, char *);
 sfTexture	*get_texture(rpg_t *, char *);
 slider_t 	*get_slider(rpg_t *, char *);
+assets_t 	*get_asset(rpg_t *, char *);
 
 // assets/button_manager.c
 void 		callback_btn(button_t *, button_t);
@@ -133,6 +134,7 @@ void 		settings_keymapping_view(rpg_t *);
 void 		play_view(rpg_t *);
 
 // main_view.c
+void 		animate_book_sprite(rpg_t *, assets_t *);
 void 		draw_history_button(rpg_t *);
 void 		main_view(rpg_t *);
 

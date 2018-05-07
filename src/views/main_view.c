@@ -7,20 +7,41 @@
 
 # include "rpg.h"
 
+void animate_book_sprite(rpg_t *rpg, assets_t *asset)
+{
+	sfTime t = sfClock_getElapsedTime(rpg->clock);
+	static float refresh = 0.1;
+
+	if (sfTime_asSeconds(t) >= refresh) {
+	 	asset->rec.left += asset->rec.width + 1;
+		if (asset->rec.left >= asset->rec.width * 6) {
+			asset->rec.left = 0;
+			asset->rec.top += asset->rec.height + 1;
+			if (asset->rec.top >= asset->rec.height * 7) {
+				asset->rec.top = 0;
+			}
+		}
+		sfSprite_setTextureRect(asset->sp, asset->rec);
+		refresh += 0.1;
+	}
+
+	if (refresh >= (0.1 * 41)) {
+		sfClock_restart(rpg->clock);
+		refresh = 0.1;
+	}
+}
+
 void draw_history_button(rpg_t *rpg)
 {
-	sfTexture *texture = get_texture(rpg, "booksheet");
-	sfSprite *sprite = NULL;
-	sfVector2f pos = { 930, 740 };
+	assets_t *asset = get_asset(rpg, "booksheet");
+	sfVector2f pos = { 930, 730 };
 
-	if (texture == NULL)
+	if (asset == NULL)
 		return;
 
-	sprite = sfSprite_create();
-	sfSprite_setTexture(sprite, texture, sfFalse);
-	sfSprite_setPosition(sprite, pos);
-	sfRenderWindow_drawSprite(rpg->win, sprite, sfFalse);
-	sfSprite_destroy(sprite);
+	sfSprite_setPosition(asset->sp, pos);
+	animate_book_sprite(rpg, asset);
+	sfRenderWindow_drawSprite(rpg->win, asset->sp, NULL);
 }
 
 void main_view(rpg_t *rpg)

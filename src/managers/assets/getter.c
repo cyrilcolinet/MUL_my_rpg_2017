@@ -46,3 +46,17 @@ slider_t *get_slider(rpg_t *rpg, char *name)
 
 	return (NULL);
 }
+
+assets_t *get_asset(rpg_t *rpg, char *name)
+{
+	assets_t *tmp = rpg->assets;
+
+	while (tmp != NULL) {
+		if (my_strequ(tmp->name, name)) {
+			return (tmp);
+		}
+		tmp = tmp->next;
+	}
+
+	return (NULL);
+}
