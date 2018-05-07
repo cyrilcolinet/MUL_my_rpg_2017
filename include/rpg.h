@@ -125,8 +125,8 @@ void 		configure_main_history_button(rpg_t *);
 
 // views/pause/buttons.c
 void 		configure_pause_resume_button(rpg_t *);
+void 		configure_pause_save_button(rpg_t *);
 void 		configure_pause_settings_button(rpg_t *);
-void 		configure_pause_credits_button(rpg_t *);
 void 		configure_pause_quit_button(rpg_t *);
 
 // views/settings/buttons.c

@@ -43,6 +43,7 @@ SRC_FILES				= 	main.c 														\
 							managers/events/mouse_events.c								\
 							managers/events/views_events.c								\
 							managers/events/views/play/events.c 						\
+							managers/events/views/battle/events.c 						\
 							configurations/views_config.c 								\
 							configurations/views/credits/buttons.c 						\
 							configurations/views/main/buttons.c 						\
@@ -52,7 +53,8 @@ SRC_FILES				= 	main.c 														\
 							configurations/views/pause/buttons.c 						\
 							views/menu_views.c 											\
 							views/play_view.c 											\
-							views/main_view.c
+							views/main_view.c 											\
+							views/battle_view.c
 
 SRC						= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

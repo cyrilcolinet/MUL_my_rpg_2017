@@ -41,7 +41,8 @@ typedef enum state_e {
 	gameOnSettings,
 	gameOnCredits,
 	gameOnKeymapping,
-	gameHistory
+	gameHistory,
+	gameBattle
 }	state_e;
 
 // Structs declarations
