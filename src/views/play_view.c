@@ -15,5 +15,4 @@ void play_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
-	draw_history_button(rpg);
 }

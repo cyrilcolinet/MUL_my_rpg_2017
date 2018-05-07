@@ -34,7 +34,7 @@ void animate_book_sprite(rpg_t *rpg, assets_t *asset)
 void draw_history_button(rpg_t *rpg)
 {
 	assets_t *asset = get_asset(rpg, "booksheet");
-	sfVector2f pos = { 930, 730 };
+	sfVector2f pos = { 915, 700 };
 
 	if (asset == NULL)
 		return;
