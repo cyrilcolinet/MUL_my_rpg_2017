@@ -31,17 +31,18 @@ SRC_FILES				= 	main.c 														\
 							managers/sounds_manager.c 									\
 							managers/assets_manager.c		 							\
 							managers/assets_loader_manager.c 							\
-							managers/assets/sliders_loader.c 							\
 							managers/assets/buttons_manager.c 							\
 							managers/assets/sliders_manager.c 							\
 							managers/assets/getter.c 									\
 							managers/assets/callback/actions_callback.c 				\
 							managers/assets/callback/goto_view_callback.c 				\
+							managers/assets/callback/goto_view_callback2.c 				\
 							managers/assets/callback/play_callback.c 					\
 							managers/assets/callback/sliders/volume_callback.c 			\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\
 							managers/events/views_events.c								\
+							managers/events/views/play/events.c 						\
 							configurations/views_config.c 								\
 							configurations/views/credits/buttons.c 						\
 							configurations/views/main/buttons.c 						\
@@ -66,7 +67,7 @@ CC						=	gcc
 
 CFLAGS					= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
 
-LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -llizz -lm -lc_graph_prog
+LFLAGS					= 	-L $(LIBRARY_DIR) -lmy -lm -lc_graph_prog
 
 UNITS_LFLAGS			= 	$(LFLAGS) -lgcov -lcriterion
 

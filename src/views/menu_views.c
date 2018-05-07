@@ -7,6 +7,22 @@
 
 # include "rpg.h"
 
+void pause_view(rpg_t *rpg)
+{
+	sfTexture *texture = sfTexture_createFromImage(rpg->img, NULL);
+	sfSprite *sp = NULL;
+	sfSprite *sp1 = get_sprite(rpg, "bg_pause");
+
+	if (texture == NULL || sp1 == NULL)
+		return;
+
+	sp = sfSprite_create();
+	sfSprite_setTexture(sp, texture, sfFalse);
+	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
+	sfRenderWindow_drawSprite(rpg->win, sp1, NULL);
+	sfSprite_destroy(sp);
+}
+
 void credits_view(rpg_t *rpg)
 {
 	sfSprite *sprite = get_sprite(rpg, "bg_credits");
@@ -14,7 +30,6 @@ void credits_view(rpg_t *rpg)
 	if (sprite == NULL)
 		return;
 
-	sfRenderWindow_clear(rpg->win, sfBlack);
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }
 
@@ -26,7 +41,6 @@ void settings_view(rpg_t *rpg)
 	if (sprite == NULL)
 		return;
 
-	sfRenderWindow_clear(rpg->win, sfBlack);
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 
 	if (vol != NULL) {

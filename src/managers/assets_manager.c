@@ -62,6 +62,7 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 void configure_assets(rpg_t *rpg)
 {
 	create_texture(rpg, "bg_main", "assets/menus/main.png");
+	create_texture(rpg, "bg_pause", "assets/menus/pause.png");
 	create_texture(rpg, "buttons", "assets/spritesheets/buttons.png");
 	create_texture(rpg, "bg_pause", "assets/menus/pause.png");
 	create_texture(rpg, "bg_settings", "assets/menus/options.png");

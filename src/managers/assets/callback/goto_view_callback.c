@@ -56,6 +56,8 @@ void cb_goto_settings_keymapping_view(rpg_t *rpg, button_t *btn)
 	(void)btn;
 
 	reset_to_normal_rect(rpg);
+	if (rpg->img != NULL)
+		sfImage_destroy(rpg->img);
 	rpg->img = sfRenderWindow_capture(rpg->win);
 	if (rpg->img == NULL)
 		return;

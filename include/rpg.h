@@ -38,6 +38,9 @@ void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 // events/views_events.c
 void 		views_events(rpg_t *, sfEvent *);
 
+// events/views/play/events.c
+void 		ev_run(rpg_t *, sfEvent *);
+
 
 /*
 ** Sounds manager
@@ -87,6 +90,9 @@ void 		cb_goto_play_view(rpg_t *, button_t *);
 void 		cb_goto_settings_view(rpg_t *, button_t *);
 void 		cb_goto_settings_keymapping_view(rpg_t *, button_t *);
 
+// callback/goto_view_callback2.c
+void 		cb_goto_pause_view(rpg_t *, button_t *);
+
 // callback/actions_callback.c
 void 		cb_quit_action(rpg_t *, button_t *);
 void 		cb_return_action(rpg_t *, button_t *);
@@ -135,6 +141,7 @@ void 		configure_credits_return_button(rpg_t *);
 */
 
 // menu_views.c
+void 		pause_view(rpg_t *);
 void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
 void 		settings_keymapping_view(rpg_t *);

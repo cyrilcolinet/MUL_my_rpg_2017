@@ -14,7 +14,7 @@ void display_view(rpg_t *rpg)
 		main_view,
 		play_view,
 		NULL,
-		NULL,
+		pause_view,
 		settings_view,
 		credits_view,
 		settings_keymapping_view

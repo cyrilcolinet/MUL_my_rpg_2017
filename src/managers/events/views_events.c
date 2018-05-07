@@ -12,7 +12,7 @@ void views_events(rpg_t *rpg, sfEvent *event)
 	void (*tab[])(rpg_t *, sfEvent *) = {
 		NULL,
 		NULL,
-		NULL,
+		ev_run,
 		NULL,
 		NULL,
 		NULL,
@@ -23,6 +23,5 @@ void views_events(rpg_t *rpg, sfEvent *event)
 	if ((*tab[rpg->state]) == NULL)
 		return;
 
-	info("Event state handled!");
 	(*tab[rpg->state])(rpg, event);
 }
