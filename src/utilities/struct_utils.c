@@ -88,7 +88,7 @@ rpg_t *configure_struct(void)
 
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
-	rpg->win = sfRenderWindow_create(mode, title, sfClose, NULL);
+	rpg->win = sfRenderWindow_create(mode, title, sfFullscreen, NULL);
 	if (rpg->win == NULL)
 		return (NULL);
 
