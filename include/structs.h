@@ -86,8 +86,16 @@ typedef struct assets_t {
 		struct assets_t *next;
 } 		assets_t;
 
+typedef struct sound_t {
+		char 			*name;
+		char 			*file;
+		sfSoundBuffer	*buffer;
+		sfSound 		*sound;
+		struct sound_t	*next;
+}		sound_t;
+
 typedef struct options_t {
-		int 			volume;
+		float 			volume;
 } 		options_t;
 
 typedef struct rpg_t {
@@ -98,6 +106,7 @@ typedef struct rpg_t {
 		sfImage 		*img;
 		state_e 		last_st;
 		sfClock			*clock;
+		sound_t 		*sounds;
 		options_t 		options;
 		assets_t 		*assets;
 		button_t 		*btn;

@@ -54,4 +54,5 @@ void cb_hover_action(rpg_t *rpg, button_t *btn)
 	rec.top += btn->normal_rect.height;
 
 	sfSprite_setTextureRect(btn->sprite, rec);
+	cb_play_sound1(rpg, btn);
 }

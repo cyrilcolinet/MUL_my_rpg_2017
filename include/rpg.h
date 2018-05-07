@@ -14,11 +14,6 @@
 // Debug global variable
 bool 	debug;
 
-typedef struct c_assets_t {
-	char 		*name;
-	char 		*filename;
-}	c_assets_t;
-
 // rpg.c
 void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
@@ -43,6 +38,16 @@ void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 // events/views_events.c
 void 		views_events(rpg_t *, sfEvent *);
 
+
+/*
+** Sounds manager
+** Manage sounds, button click, and other noises
+*/
+
+// sounds_manager.c
+int 		load_sounds(rpg_t *);
+
+
 /*
 ** Assets manager
 ** Manage buttons, sliders, views and menus
@@ -51,7 +56,7 @@ void 		views_events(rpg_t *, sfEvent *);
 // assets_manager.c
 int 		new_asset(rpg_t *, texture_t);
 int			create_texture(rpg_t *, char *, char *);
-c_assets_t 	**configure_assets(rpg_t *);
+void 		configure_assets(rpg_t *);
 int 		load_assets(rpg_t *);
 
 // assets_loader_manager.c
@@ -63,6 +68,7 @@ sfSprite	*get_sprite(rpg_t *, char *);
 sfTexture	*get_texture(rpg_t *, char *);
 slider_t 	*get_slider(rpg_t *, char *);
 assets_t 	*get_asset(rpg_t *, char *);
+sound_t 	*get_sound(rpg_t *, char *);
 
 // assets/button_manager.c
 void 		callback_btn(button_t *, button_t);
@@ -87,6 +93,9 @@ void 		cb_return_action(rpg_t *, button_t *);
 void 		cb_void_action(rpg_t *, button_t *);
 void 		cb_click_action(rpg_t *, button_t *);
 void 		cb_hover_action(rpg_t *, button_t *);
+
+// callbacks/play_callback.c
+void 		cb_play_sound1(rpg_t *, button_t *);
 
 /*
 ** Configurations
@@ -170,6 +179,7 @@ void 		configure_audio(rpg_t *);
 void 		destroy_buttons(rpg_t *);
 void 		destroy_assets(rpg_t *);
 void 		destroy_slides(rpg_t *);
+void 		destroy_sounds(rpg_t *);
 rpg_t 		*configure_struct(void);
 
 // windows_tils.c

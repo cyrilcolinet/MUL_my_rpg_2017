@@ -60,3 +60,17 @@ assets_t *get_asset(rpg_t *rpg, char *name)
 
 	return (NULL);
 }
+
+sound_t *get_sound(rpg_t *rpg, char *name)
+{
+	sound_t *tmp = rpg->sounds;
+
+	while (tmp != NULL) {
+		if (my_strequ(tmp->name, name)) {
+			return (tmp);
+		}
+		tmp = tmp->next;
+	}
+
+	return (NULL);
+}

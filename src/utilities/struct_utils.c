@@ -59,6 +59,24 @@ void destroy_slides(rpg_t *rpg)
 	info("All sliders destroyed!");
 }
 
+void destroy_sounds(rpg_t *rpg)
+{
+	sound_t **cpy = NULL;
+	sound_t *tmp = rpg->sounds;
+
+	while (tmp != NULL) {
+		sfSound_destroy(tmp->sound);
+		sfSoundBuffer_destroy(tmp->buffer);
+		cpy = &tmp;
+		tmp = tmp->next;
+		free(*cpy);
+	}
+
+	free(rpg->sounds);
+	rpg->sounds = NULL;
+	info("All sounds destroyed!");
+}
+
 rpg_t *configure_struct(void)
 {
 	rpg_t *rpg = malloc(sizeof(rpg_t));
@@ -80,5 +98,6 @@ rpg_t *configure_struct(void)
 	rpg->slides = NULL;
 	rpg->img = NULL;
 	rpg->clock = sfClock_create();
+	rpg->options.volume = 100;
 	return (rpg);
 }

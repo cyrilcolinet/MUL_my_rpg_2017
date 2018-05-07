@@ -59,8 +59,7 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 	return (res);
 }
 
-// TODO: Temporary creation of assets
-c_assets_t **configure_assets(rpg_t *rpg)
+void configure_assets(rpg_t *rpg)
 {
 	create_texture(rpg, "bg_main", "assets/main_menu.png");
 	create_texture(rpg, "buttons", "assets/buttons.png");
@@ -69,29 +68,17 @@ c_assets_t **configure_assets(rpg_t *rpg)
 	create_texture(rpg, "bg_credits", "assets/credits_menu.png");
 	create_texture(rpg, "map1", "assets/map/1.png");
 	create_texture(rpg, "booksheet", "assets/booksheet.png");
-	return (NULL);
 }
 
 int load_assets(rpg_t *rpg)
 {
-	c_assets_t **assets = configure_assets(rpg);
-	char *name = NULL;
-	char *filename = NULL;
-
-	for (int i = 0; assets && assets[i] != NULL; i++) {
-		if (!assets[i]->name && !assets[i]->filename)
-			return (-1);
-
-		name = assets[i]->name;
-		filename = assets[i]->filename;
-		create_texture(rpg, name, filename);
-	}
-
-	configure_audio(rpg);
+	configure_assets(rpg);
+	//configure_audio(rpg);
 	start_loader(rpg);
 	print_assets(rpg);
 	print_buttons(rpg);
 	print_sliders(rpg);
+	load_sounds(rpg);
 
 	return (0);
 }

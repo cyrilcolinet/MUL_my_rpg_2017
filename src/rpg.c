@@ -12,6 +12,7 @@ void exit_game(rpg_t *rpg)
 	destroy_assets(rpg);
 	destroy_buttons(rpg);
 	destroy_slides(rpg);
+	destroy_sounds(rpg);
 	sfRenderWindow_destroy(rpg->win);
 	sfSound_destroy(rpg->sound);
 	sfClock_destroy(rpg->clock);

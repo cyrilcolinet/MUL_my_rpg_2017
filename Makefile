@@ -28,6 +28,7 @@ SRC_FILES				= 	main.c 														\
 							utilities/debug/buttons_debugger.c 							\
 							utilities/debug/assets_debugger.c 							\
 							utilities/debug/sliders_debugger.c							\
+							managers/sounds_manager.c 									\
 							managers/assets_manager.c		 							\
 							managers/assets_loader_manager.c 							\
 							managers/assets/sliders_loader.c 							\
@@ -36,6 +37,7 @@ SRC_FILES				= 	main.c 														\
 							managers/assets/getter.c 									\
 							managers/assets/callback/actions_callback.c 				\
 							managers/assets/callback/goto_view_callback.c 				\
+							managers/assets/callback/play_callback.c 					\
 							managers/assets/callback/sliders/volume_callback.c 			\
 							managers/events_manager.c 									\
 							managers/events/mouse_events.c								\

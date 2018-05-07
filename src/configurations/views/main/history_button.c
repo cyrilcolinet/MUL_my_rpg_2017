@@ -32,7 +32,7 @@ void configure_main_history_button(rpg_t *rpg)
 	conf.pos.x = 875;
 	conf.pos.y = 720;
 	conf.onClick = cb_void_action;
-	conf.onHover = cb_void_action;
+	conf.onHover = cb_play_sound1;
 	conf.onStart = cb_void_action;
 	conf.state = gameWait;
 	conf.sprite = NULL;
