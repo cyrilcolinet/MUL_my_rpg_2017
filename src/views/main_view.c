@@ -10,24 +10,17 @@
 void animate_book_sprite(rpg_t *rpg, assets_t *asset)
 {
 	sfTime t = sfClock_getElapsedTime(rpg->clock);
-	static float refresh = 0.1;
 
-	if (sfTime_asSeconds(t) >= refresh) {
-	 	asset->rec.left += asset->rec.width + 1;
+	if (sfTime_asSeconds(t) >= sfTime_asSeconds(sfSeconds(0.1))) {
+		sfClock_restart(rpg->clock);
+		asset->rec.left += asset->rec.width + 1;
 		if (asset->rec.left >= asset->rec.width * 6) {
 			asset->rec.left = 0;
 			asset->rec.top += asset->rec.height + 1;
-			if (asset->rec.top >= asset->rec.height * 7) {
-				asset->rec.top = 0;
-			}
 		}
+		if (asset->rec.top >= asset->rec.height * 7)
+			asset->rec.top = 0;
 		sfSprite_setTextureRect(asset->sp, asset->rec);
-		refresh += 0.1;
-	}
-
-	if (refresh >= (0.1 * 41)) {
-		sfClock_restart(rpg->clock);
-		refresh = 0.1;
 	}
 }
 
