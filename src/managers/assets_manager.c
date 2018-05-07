@@ -61,13 +61,13 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 
 void configure_assets(rpg_t *rpg)
 {
-	create_texture(rpg, "bg_main", "assets/main_menu.png");
-	create_texture(rpg, "buttons", "assets/buttons.png");
-	create_texture(rpg, "bg_pause", "assets/pause_menu.png");
-	create_texture(rpg, "bg_settings", "assets/options_menu.png");
-	create_texture(rpg, "bg_credits", "assets/credits_menu.png");
+	create_texture(rpg, "bg_main", "assets/menus/main.png");
+	create_texture(rpg, "buttons", "assets/spritesheets/buttons.png");
+	create_texture(rpg, "bg_pause", "assets/menus/pause.png");
+	create_texture(rpg, "bg_settings", "assets/menus/options.png");
+	create_texture(rpg, "bg_credits", "assets/menus/credits.png");
 	create_texture(rpg, "map1", "assets/map/1.png");
-	create_texture(rpg, "booksheet", "assets/booksheet.png");
+	create_texture(rpg, "booksheet", "assets/spritesheets/book.png");
 }
 
 int load_assets(rpg_t *rpg)
