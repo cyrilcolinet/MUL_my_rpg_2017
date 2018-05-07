@@ -74,7 +74,6 @@ void configure_assets(rpg_t *rpg)
 int load_assets(rpg_t *rpg)
 {
 	configure_assets(rpg);
-	//configure_audio(rpg);
 	start_loader(rpg);
 	print_assets(rpg);
 	print_buttons(rpg);

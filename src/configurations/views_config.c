@@ -29,3 +29,11 @@ void configure_credits_view(rpg_t *rpg)
 {
 	configure_credits_return_button(rpg);
 }
+
+void configure_pause_view(rpg_t *rpg)
+{
+	configure_pause_resume_button(rpg);
+	configure_pause_settings_button(rpg);
+	configure_pause_credits_button(rpg);
+	configure_pause_quit_button(rpg);
+}

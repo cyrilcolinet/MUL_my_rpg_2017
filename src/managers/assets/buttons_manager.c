@@ -18,6 +18,7 @@ static void fill_values(button_t *node, button_t conf)
 	node->onClick = conf.onClick;
 	node->onHover = conf.onHover;
 	node->onStart = conf.onStart;
+	node->pressed = false;
 	node->next = NULL;
 }
 

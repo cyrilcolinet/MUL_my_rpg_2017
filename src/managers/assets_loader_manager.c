@@ -14,4 +14,5 @@ void start_loader(rpg_t *rpg)
 	configure_main_view(rpg);
 	configure_settings_view(rpg);
 	configure_credits_view(rpg);
+	configure_pause_view(rpg);
 }

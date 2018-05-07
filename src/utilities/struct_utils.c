@@ -30,11 +30,14 @@ void destroy_assets(rpg_t *rpg)
 	assets_t *tmp = rpg->assets;
 
 	while (tmp != NULL) {
-		sfSprite_destroy(tmp->sp);
-		sfTexture_destroy(tmp->texture);
+		if (tmp->sp != NULL)
+			sfSprite_destroy(tmp->sp);
+		if (tmp->texture)
+			sfTexture_destroy(tmp->texture);
 		cpy = &tmp;
 		tmp = tmp->next;
 		free(*cpy);
+		cpy = NULL;
 	}
 
 	free(rpg->assets);
@@ -85,18 +88,17 @@ rpg_t *configure_struct(void)
 
 	if (rpg == NULL)
 		return (NULL);
-
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	rpg->win = sfRenderWindow_create(mode, title, sfClose, NULL);
 	if (rpg->win == NULL)
 		return (NULL);
-
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
 	rpg->assets = NULL;
 	rpg->btn = NULL;
 	rpg->slides = NULL;
-	rpg->img = NULL;
+	rpg->sounds = NULL;
+	rpg->capture = NULL;
 	rpg->clock = sfClock_create();
 	rpg->options.volume = 100;
 	return (rpg);

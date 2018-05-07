@@ -16,8 +16,8 @@ void exit_game(rpg_t *rpg)
 	sfRenderWindow_destroy(rpg->win);
 	sfSound_destroy(rpg->sound);
 	sfClock_destroy(rpg->clock);
-	if (rpg->img != NULL)
-		sfImage_destroy(rpg->img);
+	if (rpg->capture != NULL)
+		sfSprite_destroy(rpg->capture);
 	info("Window destroyed!");
 }
 

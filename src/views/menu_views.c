@@ -9,18 +9,13 @@
 
 void pause_view(rpg_t *rpg)
 {
-	sfTexture *texture = sfTexture_createFromImage(rpg->img, NULL);
-	sfSprite *sp = NULL;
-	sfSprite *sp1 = get_sprite(rpg, "bg_pause");
+	sfSprite *sp = get_sprite(rpg, "bg_pause");
 
-	if (texture == NULL || sp1 == NULL)
+	if (rpg->capture == NULL || sp == NULL)
 		return;
 
-	sp = sfSprite_create();
-	sfSprite_setTexture(sp, texture, sfFalse);
+	sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
 	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
-	sfRenderWindow_drawSprite(rpg->win, sp1, NULL);
-	sfSprite_destroy(sp);
 }
 
 void credits_view(rpg_t *rpg)
@@ -50,14 +45,8 @@ void settings_view(rpg_t *rpg)
 
 void settings_keymapping_view(rpg_t *rpg)
 {
-	sfTexture *texture = sfTexture_createFromImage(rpg->img, NULL);
-	sfSprite *sprite = NULL;
-
-	if (texture == NULL)
+	if (rpg->capture == NULL)
 		return;
 
-	sprite = sfSprite_create();
-	sfSprite_setTexture(sprite, texture, sfFalse);
-	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
-	sfSprite_destroy(sprite);
+	sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
 }

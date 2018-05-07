@@ -49,6 +49,7 @@ SRC_FILES				= 	main.c 														\
 							configurations/views/main/history_button.c 					\
 							configurations/views/settings/buttons.c 					\
 							configurations/views/settings/sliders.c						\
+							configurations/views/pause/buttons.c 						\
 							views/menu_views.c 											\
 							views/play_view.c 											\
 							views/main_view.c

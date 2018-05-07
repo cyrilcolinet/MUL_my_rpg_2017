@@ -12,7 +12,7 @@
 # include "structs.h"
 
 // Debug global variable
-bool 	debug;
+bool 		debug;
 
 // rpg.c
 void 		exit_game(rpg_t *);
@@ -112,6 +112,7 @@ void 		cb_play_sound1(rpg_t *, button_t *);
 void 		configure_main_view(rpg_t *);
 void 		configure_settings_view(rpg_t *);
 void 		configure_credits_view(rpg_t *);
+void 		configure_pause_view(rpg_t *);
 
 // views/main/buttons.c
 void 		configure_main_play_button(rpg_t *);
@@ -121,6 +122,12 @@ void 		configure_main_quit_button(rpg_t *);
 
 // views/main/history_button.c
 void 		configure_main_history_button(rpg_t *);
+
+// views/pause/buttons.c
+void 		configure_pause_resume_button(rpg_t *);
+void 		configure_pause_settings_button(rpg_t *);
+void 		configure_pause_credits_button(rpg_t *);
+void 		configure_pause_quit_button(rpg_t *);
 
 // views/settings/buttons.c
 void 		configure_settings_volume_button(rpg_t *);
