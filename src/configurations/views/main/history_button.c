@@ -23,11 +23,11 @@ void configure_main_history_button(rpg_t *rpg)
 {
 	button_t conf;
 	assets_t *asset = get_asset(rpg, "booksheet");
-	sfIntRect rec;
+	sfIntRect rec = { 0, 0, 195, 200 };
 
 	if (!asset || asset->texture == NULL)
 		return;
-	asset->rec = rec = set_rect(asset->texture);
+	asset->rec = set_rect(asset->texture);
 	conf.name = "btn_history";
 	conf.pos.x = 875;
 	conf.pos.y = 720;

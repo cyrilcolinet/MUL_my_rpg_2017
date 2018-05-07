@@ -15,7 +15,6 @@ void mouse_button_pressed(rpg_t *rpg, sfMouseButtonEvent mouse)
 		btn->onClick(rpg, btn);
 		return;
 	}
-
 	reset_to_normal_rect(rpg);
 }
 
@@ -27,7 +26,6 @@ void mouse_button_released(rpg_t *rpg, sfMouseButtonEvent mouse)
 		btn->onStart(rpg, btn);
 		return;
 	}
-
 	reset_to_normal_rect(rpg);
 }
 
