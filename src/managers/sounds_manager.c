@@ -52,7 +52,7 @@ void set_volume(rpg_t *rpg, float vol, bool music)
 	while (tmp != NULL) {
 		if (my_strstartswith(tmp->name, "eff_") && !music) {
 			sfSound_setVolume(tmp->sound, vol);
-		} else if (music && !my_strstartswith(tmp->name, "eff_")) {
+		} else {
 			sfSound_setVolume(tmp->sound, vol);
 		}
 		tmp = tmp->next;
