@@ -64,6 +64,7 @@ typedef struct button_t {
 	sfIntRect 		rect;
 	sfIntRect 		normal_rect;
 	bool			pressed;
+	bool			hovered;
 	struct button_t *next;
 } 	button_t;
 

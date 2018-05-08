@@ -22,15 +22,12 @@ void mouse_events(rpg_t *rpg, sfEvent *event)
 
 void keyboard_events(rpg_t *rpg, sfEvent *event)
 {
-	state_e cpy = rpg->state;
-
 	if (event->type == sfEvtKeyReleased) {
 		if (event->key.code == sfKeyEscape) {
 			if (rpg->state == gameWait) {
 				sfRenderWindow_close(rpg->win);
-			} else if(rpg->state != gameRun) {
-				rpg->state = rpg->last_st;
-				rpg->last_st = cpy;
+			} else if(rpg->state != gameRun && rpg->state != gamePause) {
+				cb_return_action(rpg, NULL);
 			}
 		}
 	}
