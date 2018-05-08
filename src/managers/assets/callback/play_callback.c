@@ -9,7 +9,7 @@
 
 void cb_play_sound1(rpg_t *rpg, button_t *btn)
 {
-	sound_t *sound = get_sound(rpg, "hover1");
+	sound_t *sound = get_sound(rpg, "eff_hover1");
 
 	if (sound == NULL || btn->hovered)
 		return;

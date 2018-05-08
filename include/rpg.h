@@ -48,6 +48,8 @@ void 		ev_run(rpg_t *, sfEvent *);
 */
 
 // sounds_manager.c
+int 		new_sound(rpg_t *, char *, char *);
+void 		set_volume(rpg_t *, float, bool);
 int 		load_sounds(rpg_t *);
 
 

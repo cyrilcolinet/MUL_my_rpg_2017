@@ -7,7 +7,7 @@
 
 # include "rpg.h"
 
-static void fill_values(sound_t *node, char *name, char *file)
+static void fill_values(sound_t *node, char *name, char *file, rpg_t *rpg)
 {
 	node->name = name;
 	node->file = file;
@@ -16,6 +16,7 @@ static void fill_values(sound_t *node, char *name, char *file)
 		return;
 	node->sound = sfSound_create();
 	sfSound_setBuffer(node->sound, node->buffer);
+	sfSound_setVolume(node->sound, rpg->options.volume);
 	node->next = NULL;
 }
 
@@ -28,7 +29,7 @@ int new_sound(rpg_t *rpg, char *name, char *file)
 		node = malloc(sizeof(sound_t));
 		if (node == NULL)
 			return (-1);
-		fill_values(node, name, file);
+		fill_values(node, name, file, rpg);
 		node->next = *sound;
 		*sound = node;
 		return (0);
@@ -39,13 +40,28 @@ int new_sound(rpg_t *rpg, char *name, char *file)
 	node->next = malloc(sizeof(sound_t));
 	if (node->next == NULL)
 		return (-1);
-	fill_values(node->next, name, file);
+	fill_values(node->next, name, file, rpg);
 	return (0);
+}
+
+// true if volume motified is music and false otherwise
+void set_volume(rpg_t *rpg, float vol, bool music)
+{
+	sound_t *tmp = rpg->sounds;
+
+	while (tmp != NULL) {
+		if (my_strstartswith(tmp->name, "eff_") && !music) {
+			sfSound_setVolume(tmp->sound, vol);
+		} else if (music && !my_strstartswith(tmp->name, "eff_")) {
+			sfSound_setVolume(tmp->sound, vol);
+		}
+		tmp = tmp->next;
+	}
 }
 
 int load_sounds(rpg_t *rpg)
 {
-	new_sound(rpg, "hover1", "assets/sounds/hover1.ogg");
+	new_sound(rpg, "eff_hover1", "assets/sounds/hover1.ogg");
 	new_sound(rpg, "main", "assets/sounds/main.ogg");
 	return (0);
 }
