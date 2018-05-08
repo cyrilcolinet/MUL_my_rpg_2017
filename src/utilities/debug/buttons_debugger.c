@@ -22,8 +22,8 @@ void print_buttons(rpg_t *rpg)
 	button_t *tmp = rpg->btn;
 	char *st[] = {
 		"gameUnknown", "gameWait", "gameRun", "gameEnd", "gamePause",
-		"gameOnSettings", "gameOnCredits", "gameOnKeymapping",
-		"gameHistory"
+		"gameOnSettings", "gameOnCredits", "gameHistory",
+		"gameBattle", "gameSelect"
 	};
 
 	info("\n");
