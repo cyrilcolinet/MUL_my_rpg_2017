@@ -9,6 +9,7 @@
 
 void exit_game(rpg_t *rpg)
 {
+	sfSound_stop(get_sound(rpg, "main")->sound);
 	destroy_assets(rpg);
 	destroy_buttons(rpg);
 	destroy_slides(rpg);
@@ -29,6 +30,8 @@ int rpg_game(rpg_t *rpg)
 	if (status != 0)
 		return (status);
 
+	sfSound_play(get_sound(rpg, "main")->sound);
+	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);

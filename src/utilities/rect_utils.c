@@ -13,12 +13,12 @@ void reset_to_normal_rect(rpg_t *rpg)
 	sfSprite *sprite = NULL;
 	sfIntRect rec;
 
-	while (tmp->next != NULL) {
-		if (tmp->next->state == rpg->state) {
-			sprite = tmp->next->sprite;
-			rec = tmp->next->normal_rect;
-			tmp->next->pressed = false;
-			tmp->next->hovered = false;
+	while (tmp != NULL) {
+		if (tmp->state == rpg->state) {
+			sprite = tmp->sprite;
+			rec = tmp->normal_rect;
+			tmp->pressed = false;
+			tmp->hovered = false;
 			if (sprite != NULL)
 				sfSprite_setTextureRect(sprite, rec);
 		}

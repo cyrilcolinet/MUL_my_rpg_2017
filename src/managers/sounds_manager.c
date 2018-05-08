@@ -46,5 +46,6 @@ int new_sound(rpg_t *rpg, char *name, char *file)
 int load_sounds(rpg_t *rpg)
 {
 	new_sound(rpg, "hover1", "assets/sounds/hover1.ogg");
+	new_sound(rpg, "main", "assets/sounds/main.ogg");
 	return (0);
 }
