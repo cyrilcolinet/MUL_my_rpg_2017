@@ -88,7 +88,7 @@ void 		cb_goto_main_view(rpg_t *, button_t *);
 void 		cb_goto_credits_view(rpg_t *, button_t *);
 void 		cb_goto_play_view(rpg_t *, button_t *);
 void 		cb_goto_settings_view(rpg_t *, button_t *);
-void 		cb_goto_settings_keymapping_view(rpg_t *, button_t *);
+void 		cb_goto_history_view(rpg_t *, button_t *);
 
 // callback/goto_view_callback2.c
 void 		cb_goto_pause_view(rpg_t *, button_t *);
@@ -133,13 +133,19 @@ void 		configure_pause_quit_button(rpg_t *);
 void 		configure_settings_volume_button(rpg_t *);
 void 		configure_settings_return_button(rpg_t *);
 void 		configure_settings_fullscreen_button(rpg_t *);
-void 		configure_settings_keymapping_button(rpg_t *);
 
 // views/settings/sliders.c
 void 		configure_settings_volume_slider(rpg_t *);
 
-// views/options/buttons.c
+// views/settings/buttons.c
 void 		configure_credits_return_button(rpg_t *);
+
+// views/history/buttons.c
+void 		configure_history_return_button(rpg_t *);
+
+// views/select/buttons.c
+void 		configure_select_male_button(rpg_t *);
+void 		configure_select_female_button(rpg_t *);
 
 
 /*
@@ -151,7 +157,7 @@ void 		configure_credits_return_button(rpg_t *);
 void 		pause_view(rpg_t *);
 void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
-void 		settings_keymapping_view(rpg_t *);
+void 		history_view(rpg_t *);
 
 // play_view.c
 void 		play_view(rpg_t *);

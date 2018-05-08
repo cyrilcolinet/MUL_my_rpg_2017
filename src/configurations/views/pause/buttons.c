@@ -18,7 +18,7 @@ void configure_pause_resume_button(rpg_t *rpg)
 	conf.pos.y = 650;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
-	conf.onStart = cb_return_action;
+	conf.onStart = cb_goto_play_view;
 	conf.state = gamePause;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);

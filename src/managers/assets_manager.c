@@ -66,6 +66,9 @@ void configure_assets(rpg_t *rpg)
 	create_texture(rpg, "buttons", "assets/spritesheets/buttons.png");
 	create_texture(rpg, "bg_pause", "assets/menus/pause.png");
 	create_texture(rpg, "bg_settings", "assets/menus/options.png");
+	create_texture(rpg, "bg_settings1", "assets/menus/options2.png");
+	create_texture(rpg, "bg_select", "assets/menus/select.png");
+	create_texture(rpg, "bg_history", "assets/menus/history.png");
 	create_texture(rpg, "bg_credits", "assets/menus/credits.png");
 	create_texture(rpg, "map1", "assets/map/1.png");
 	create_texture(rpg, "booksheet", "assets/spritesheets/book.png");

@@ -40,7 +40,6 @@ typedef enum state_e {
 	gamePause,
 	gameOnSettings,
 	gameOnCredits,
-	gameOnKeymapping,
 	gameHistory,
 	gameBattle
 }	state_e;

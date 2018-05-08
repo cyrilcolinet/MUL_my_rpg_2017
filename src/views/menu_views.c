@@ -30,12 +30,15 @@ void credits_view(rpg_t *rpg)
 
 void settings_view(rpg_t *rpg)
 {
-	sfSprite *sprite = get_sprite(rpg, "bg_settings");
+	char *name = ((rpg->last_st == gameWait) ? "bg_settings" \
+	: "bg_settings1");
+	sfSprite *sprite = get_sprite(rpg, name);
 	slider_t *vol = get_slider(rpg, "sld_volume");
 
+	if (rpg->capture != NULL)
+		sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
 	if (sprite == NULL)
 		return;
-
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 
 	if (vol != NULL) {
@@ -43,10 +46,12 @@ void settings_view(rpg_t *rpg)
 	}
 }
 
-void settings_keymapping_view(rpg_t *rpg)
+void history_view(rpg_t *rpg)
 {
-	if (rpg->capture == NULL)
+	sfSprite *sprite = get_sprite(rpg, "bg_history");
+
+	if (sprite == NULL)
 		return;
 
-	sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
+	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }

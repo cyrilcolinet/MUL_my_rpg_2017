@@ -17,8 +17,7 @@ void display_view(rpg_t *rpg)
 		pause_view,
 		settings_view,
 		credits_view,
-		settings_keymapping_view,
-		NULL,
+		history_view,
 		NULL
 	};
 

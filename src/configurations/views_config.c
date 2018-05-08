@@ -22,12 +22,12 @@ void configure_settings_view(rpg_t *rpg)
 	configure_settings_volume_slider(rpg);
 	configure_settings_return_button(rpg);
 	configure_settings_fullscreen_button(rpg);
-	configure_settings_keymapping_button(rpg);
 }
 
 void configure_credits_view(rpg_t *rpg)
 {
 	configure_credits_return_button(rpg);
+	configure_history_return_button(rpg);
 }
 
 void configure_pause_view(rpg_t *rpg)
