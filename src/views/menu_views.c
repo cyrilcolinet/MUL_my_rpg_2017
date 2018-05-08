@@ -55,3 +55,13 @@ void history_view(rpg_t *rpg)
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 }
+
+void select_view(rpg_t *rpg)
+{
+	sfSprite *sprite = get_sprite(rpg, "bg_select");
+
+	if (sprite == NULL)
+		return;
+
+	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+}

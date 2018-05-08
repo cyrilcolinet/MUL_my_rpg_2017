@@ -18,7 +18,8 @@ void display_view(rpg_t *rpg)
 		settings_view,
 		credits_view,
 		history_view,
-		NULL
+		NULL, // for battle
+		select_view
 	};
 
 	(*tab[rpg->state])(rpg);

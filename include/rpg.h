@@ -92,6 +92,7 @@ void 		cb_goto_history_view(rpg_t *, button_t *);
 
 // callback/goto_view_callback2.c
 void 		cb_goto_pause_view(rpg_t *, button_t *);
+void 		cb_goto_select_view(rpg_t *, button_t *);
 
 // callback/actions_callback.c
 void 		cb_quit_action(rpg_t *, button_t *);
@@ -146,6 +147,8 @@ void 		configure_history_return_button(rpg_t *);
 // views/select/buttons.c
 void 		configure_select_male_button(rpg_t *);
 void 		configure_select_female_button(rpg_t *);
+void 		configure_select_return_button(rpg_t *);
+void 		configure_select_play_button(rpg_t *);
 
 
 /*
@@ -158,6 +161,7 @@ void 		pause_view(rpg_t *);
 void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
 void 		history_view(rpg_t *);
+void 		select_view(rpg_t *);
 
 // play_view.c
 void 		play_view(rpg_t *);

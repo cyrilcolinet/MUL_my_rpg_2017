@@ -27,7 +27,11 @@ void configure_settings_view(rpg_t *rpg)
 void configure_credits_view(rpg_t *rpg)
 {
 	configure_credits_return_button(rpg);
+
 	configure_history_return_button(rpg);
+
+	configure_select_return_button(rpg);
+	configure_select_play_button(rpg);
 }
 
 void configure_pause_view(rpg_t *rpg)
