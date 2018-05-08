@@ -10,7 +10,7 @@
 void configure_settings_volume_button(rpg_t *rpg)
 {
 	button_t conf;
-	sfIntRect rec = { 70, 0, 50, 50 };
+	sfIntRect rec = { 660, 240, 130, 80 };
 	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
 	sfTexture *texture = get_texture(rpg, "buttons");
 
@@ -38,8 +38,8 @@ void configure_settings_return_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_return";
-	conf.pos.x = 120;
-	conf.pos.y = 830;
+	conf.pos.x = 580;
+	conf.pos.y = 845;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_return_action;
@@ -62,7 +62,7 @@ void configure_settings_fullscreen_button(rpg_t *rpg)
 
 	conf.name = "btn_fullscreen";
 	conf.pos.x = 120;
-	conf.pos.y = 440;
+	conf.pos.y = 845;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_void_action; // TODO: Start fullscreen

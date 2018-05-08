@@ -100,6 +100,6 @@ rpg_t *configure_struct(void)
 	rpg->sounds = NULL;
 	rpg->capture = NULL;
 	rpg->clock = sfClock_create();
-	rpg->options.music_vol = rpg->options.sound_vol = 100;
+	rpg->options.music_vol = rpg->options.sound_vol = 67;
 	return (rpg);
 }

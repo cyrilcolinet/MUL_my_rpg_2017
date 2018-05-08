@@ -116,6 +116,7 @@ ifeq ($(ASSETS_TGZ_EXISTS), 1)
 ifeq ($(ASSETS_EXISTS), 0)
 						$(info [INFO] Decompress assets)
 						tar xvzf $(ASSETS_COMPRESSED)
+						rm -rf $(ASSETS_COMPRESSED)
 endif
 endif
 

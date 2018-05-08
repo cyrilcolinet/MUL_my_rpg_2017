@@ -27,9 +27,9 @@ void configure_settings_volume_slider(rpg_t *rpg)
 	sfVector2f pos = { 100, 100 };
 
 	conf.name = "sld_volume_music";
-	conf.mid_axis = pos.y = 732;
-	conf.range.x = pos.x = 155;
-	conf.range.y = 460;
+	conf.mid_axis = pos.y = 670;
+	conf.range.x = pos.x = 230;
+	conf.range.y = 694;
 	conf.state = gameOnSettings;
 	conf.onSlide = cb_slider_volume_music;
 	conf.btn = get_button(rpg, "btn_volume", gameOnSettings);
