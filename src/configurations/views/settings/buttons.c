@@ -10,7 +10,7 @@
 void configure_settings_volume_button(rpg_t *rpg)
 {
 	button_t conf;
-	sfIntRect rec = { 20, 0, 80, 80 };
+	sfIntRect rec = { 70, 0, 50, 50 };
 	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
 	sfTexture *texture = get_texture(rpg, "buttons");
 
