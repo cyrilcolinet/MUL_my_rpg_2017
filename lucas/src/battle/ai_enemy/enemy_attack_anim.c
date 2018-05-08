@@ -20,9 +20,13 @@ void enemy_attack_anim(data_t *data, battle_t *battle, sfVector2f pos)
 		sfRectangleShape_setFillColor
 			(battle->fight[battle->id]->map[y * 12 + x], sfBlue);
 		draw_all(data);
+		display_enemy(data, battle);
+		display_hero(data, battle);
 		sfRenderWindow_display(data->window);
 	}
 	sfRectangleShape_setFillColor
 		(battle->fight[battle->id]->map[y * 12 + x], sfTransparent);
 	draw_all(data);
+	display_enemy(data, battle);
+	display_hero(data, battle);
 }

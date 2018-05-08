@@ -43,7 +43,8 @@ void enemy_turn(data_t *data, battle_t *battle)
 	for (int i = 0; i < battle->fight[battle->id]->number_enemy; i++) {
 		pos.x = battle->fight[battle->id]->enemy[i]->pos.x;
 		pos.y = battle->fight[battle->id]->enemy[i]->pos.y;
-		if (!battle->fight[battle->id]->enemy[i]->played
+		if (battle->fight[battle->id]->enemy[i]->alive
+		&& !battle->fight[battle->id]->enemy[i]->played
 		&& !check_enemy_attack(data, battle, i, pos)) {
 			check_enemy_deplacement(data, battle, i, pos);
 			reset_map_state(battle);

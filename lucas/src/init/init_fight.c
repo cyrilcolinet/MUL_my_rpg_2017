@@ -19,9 +19,9 @@ static void create_map(fight_t *fight)
 			sfRectangleShape_setPosition(fight->map[n], fight->pos);
 			sfRectangleShape_setSize(fight->map[n], size);
 			sfRectangleShape_setFillColor
-				(fight->map[n], sfTransparent);
+			(fight->map[n], sfTransparent);
 			sfRectangleShape_setOutlineColor
-				(fight->map[n], sfColor_fromRGB(125, 125, 135));
+			(fight->map[n], sfColor_fromRGBA(125, 125, 135, 90));
 			sfRectangleShape_setOutlineThickness(fight->map[n], 1);
 			fight->pos.x += B_X;
 			n++;
@@ -33,17 +33,23 @@ static void create_map(fight_t *fight)
 
 static void enemy_form(enemy_t *enemy)
 {
-	sfVector2f size = {45, 60};
+	sfVector2f size = {60, 60};
+	sfVector2f scale = {1.25, 1.25};
 
-	enemy->form = sfRectangleShape_create();
+	enemy->form = sfSprite_create();
+	enemy->rec.top = 75;
+	enemy->rec.left = 0;
+	enemy->rec.width = 48;
+	enemy->rec.height = 60;
+	sfSprite_setPosition(enemy->form, enemy->pos);
+        enemy->img = sfTexture_createFromFile(
+                "src/battle/image/man_nu_spear.png", NULL);
+        sfSprite_setTexture(enemy->form, enemy->img, true);
+        sfSprite_setTextureRect(enemy->form, enemy->rec);
+        sfSprite_setScale(enemy->form, scale);
+
 	enemy->frame = sfRectangleShape_create();
-	sfRectangleShape_setSize(enemy->form, size);
-	size.x = 60;
-	size.y = 60;
 	sfRectangleShape_setSize(enemy->frame, size);
-	sfRectangleShape_setFillColor(enemy->form, sfRed);
-	sfRectangleShape_setOutlineColor(enemy->form, sfWhite);
-	sfRectangleShape_setOutlineThickness(enemy->form, 1);
 	sfRectangleShape_setFillColor(enemy->frame, sfRed);
 	sfRectangleShape_setOutlineColor(enemy->frame, sfBlack);
 	sfRectangleShape_setOutlineThickness(enemy->frame, 3);
@@ -70,7 +76,6 @@ static enemy_t *create_enemy(int nb, int n)
 	enemy->pos.x = 11 + n;
 	enemy->pos.y = 0 + nb;
 	enemy_form(enemy);
-	enemy->select = false;
 	enemy->played = false;
 	enemy->alive = true;
 	enemy->hp = 20;

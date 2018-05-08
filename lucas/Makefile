@@ -19,11 +19,16 @@ SRC_FILES	= 	main.c\
 			test.c\
 			battle/event/event_management.c\
 			battle/event/interaction.c\
+			battle/event/change_turn.c\
 			battle/event/reset_map_state.c\
-			battle/event/deplacement/check_deplacement.c\
 			battle/event/deplacement/deplacement.c\
-			battle/event/select_or_unselect.c\
 			battle/event/attack/attack.c\
+			battle/event/select_or_unselect.c\
+			battle/hero/check_attack.c\
+			battle/hero/check_deplacement.c\
+			battle/hero/hero_attack.c\
+			battle/hero/hero_deplacement.c\
+			battle/hero/hero_set_deplacement_color.c\
 			battle/ai_enemy/enemy_turn.c\
 			battle/ai_enemy/enemy_attack.c\
 			battle/ai_enemy/enemy_attack_anim.c\

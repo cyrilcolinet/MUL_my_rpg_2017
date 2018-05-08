@@ -31,13 +31,15 @@ void event_management(data_t *data, battle_t *battle)
 		exit_function(data, event);
 		mouse_coord(battle, event);
 		if (battle->run) {
-			interaction(battle, event);
+			change_turn(battle);
+			if (!battle->fight[battle->id]->enemy_turn)
+				interaction(battle, event);
 			if (event.type == sfEvtKeyPressed) {
 				if (event.key.code == sfKeyN) {
 					reset_map_state(battle);
 					battle->fight[battle->id]->enemy_turn = true;
 				}
-					if (event.key.code == sfKeyX) {
+				if (event.key.code == sfKeyX) {
 					battle->hero->played = false;
 					battle->hero->move = false;
 					battle->hero->attack = false;
@@ -48,6 +50,12 @@ void event_management(data_t *data, battle_t *battle)
 					battle->hero->move = false;
 					battle->hero->attack = false;
 					battle->id--;
+				}
+				if (event.key.code == sfKeyP) {
+					sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);
+				}
+				if (event.key.code == sfKeyO) {
+					sfSprite_setTexture(battle->hero->form, battle->hero->img, false);
 				}
 				if (event.key.code == sfKeyA)
 					battle->run = false;

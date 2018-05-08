@@ -14,7 +14,8 @@ static void free_fight(battle_t *battle, int n)
 	}
 	free(battle->fight[n]->map);
 	for (int i = 0; i < battle->fight[n]->number_enemy; i++) {
-		sfRectangleShape_destroy(battle->fight[n]->enemy[i]->form);
+		sfSprite_destroy(battle->fight[n]->enemy[i]->form);
+		sfTexture_destroy(battle->fight[n]->enemy[i]->img);
 		sfRectangleShape_destroy(battle->fight[n]->enemy[i]->frame);
 		free(battle->fight[n]->enemy[i]);
 	}
@@ -28,9 +29,11 @@ void free_all(data_t *data)
 		free_fight(data->battle, i);
 	}
 	free(data->battle->fight);
-	sfRectangleShape_destroy(data->battle->hero->form);
+	sfSprite_destroy(data->battle->hero->form);
+	sfTexture_destroy(data->battle->hero->img);
 	sfText_destroy(data->battle->text);
 	sfFont_destroy(data->battle->font);
+	sfClock_destroy(data->battle->clock);
 	free(data->battle->hero);
 	for (int i = 0; i < 10; i++)
 		free(data->battle->map[i]);

@@ -31,8 +31,18 @@ void test(void)
 		if (data->battle->run) {
 			if (data->battle->fight[data->battle->id]->enemy_turn)
 				enemy_turn(data, data->battle);
+			else if (data->battle->hero->select) {
+				if (!data->battle->hero->move)
+					check_deplacement(data->battle);
+				else if (data->battle->hero->move)
+					hero_deplacement(data, data->battle);
+				check_attack(data->battle);
+				hero_attack(data, data->battle);
+			}
 			fill_map_state(data->battle, data->battle->id);
 			draw_all(data);
+			display_hero(data, data->battle);
+			display_enemy(data, data->battle);
 		}
 		sfRenderWindow_display(data->window);
 	}

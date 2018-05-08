@@ -25,14 +25,13 @@
 #define B_Y 72
 
 typedef struct enemy {
-	sfRectangleShape *form;
+	sfIntRect rec;
+	sfSprite *form;
 	sfRectangleShape *frame;
-	sfSprite *spite;
-	sfTexture *texture;
+	sfTexture *img;
 	sfVector2f pos;
 	bool alive;
 	bool played;
-	bool select;
 	int hp;
 	int dmg;
 	int armor;
@@ -41,33 +40,33 @@ typedef struct enemy {
 typedef struct fight {
 	sfRectangleShape **map;
 	sfVector2f pos;
-	sfSprite *spite;
-	sfTexture *texture;
 	int number_enemy;
 	enemy_t **enemy;
 	bool enemy_turn;
 } fight_t;
 
 typedef struct hero {
-	sfRectangleShape *form;
-	sfSprite *sprite;
-	sfTexture *texture;
+	sfIntRect rec;
+	sfSprite *form;
+	sfTexture *img;
 	sfVector2f pos;
+	sfVector2f new;
 	bool alive;
 	bool select;
 	bool played;
 	bool move;
 	bool attack;
+	int target;
 	int hp;
 	int dmg;
 	int armor;
 } hero_t;
 
 typedef struct battle {
+	bool run;
 	sfVector2f mouse;
 	int id;
 	int **map;
-	bool run;
 	int number_fight;
 	hero_t *hero;
 	fight_t **fight;
@@ -97,6 +96,15 @@ void display_enemy_stats(data_t *data, sfVector2f coord);
 void display_current_target(battle_t *battle);
 void fill_map_state(battle_t *battle, int id);
 void draw_all(data_t *data);
+void display_hero(data_t *data, battle_t *battle);
+void display_enemy(data_t *data, battle_t *battle);
+
+/* HERO */
+void check_deplacement(battle_t *battle);
+void check_attack(battle_t *battle);
+void hero_deplacement(data_t *data, battle_t *battle);
+void hero_attack(data_t *data, battle_t *battle);
+void set_color(battle_t *battle, int nb, sfColor color);
 
 /* AI_ENEMY */
 void enemy_turn(data_t *data, battle_t *battle);
@@ -110,17 +118,17 @@ bool enemy_go_down(data_t * data, battle_t *battle, int x, sfVector2f pos);
 /* EVENT */
 void event_management(data_t *data, battle_t *battle);
 void reset_map_state(battle_t *battle);
+void change_turn(battle_t *battle);
 
 /*EVENT->INTERACTION*/
 void interaction(battle_t *battle, sfEvent event);
 void select_or_unselect(battle_t *battle, int i);
 
-/*EVENT->DEPLACEMENT*/
+/*EVENT->DEPLACEMENT->HERO*/
 void deplacement(battle_t *battle);
-void check_deplacement(battle_t *battle);
 
 /*EVENT->ATTACK*/
-void attack(battle_t *battle, sfEvent event);
+void attack(battle_t *battle);
 
 /* INIT */
 void init_data(data_t *data);

@@ -17,9 +17,11 @@ void reset_map_state(battle_t *battle)
 		for (int j = 0; j < 12; j++)
 			battle->map[i][j] = 0;
 	for (int i = 0; i < battle->fight[id]->number_enemy; i++) {
-		x = battle->fight[id]->enemy[i]->pos.x;
-		y = battle->fight[id]->enemy[i]->pos.y;
-		battle->map[y][x] = 2;
+		if (battle->fight[id]->enemy[i]->alive) {
+			x = battle->fight[id]->enemy[i]->pos.x;
+			y = battle->fight[id]->enemy[i]->pos.y;
+			battle->map[y][x] = 2;
+		}
 	}
 	x = battle->hero->pos.x;
 	y = battle->hero->pos.y;

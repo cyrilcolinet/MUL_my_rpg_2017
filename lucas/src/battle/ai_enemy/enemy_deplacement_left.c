@@ -7,24 +7,72 @@
 
 #include "battle.h"
 
-static void anim(data_t *data, battle_t *battle, sfVector2f pos)
+static void display_other_enemy(data_t *data, battle_t *battle, int x)
 {
-	int x = pos.x;
-	int y = pos.y;
+	sfVector2f pos;
+	int id = battle->id;
 
-	battle->time = sfTime_Zero;
-	sfClock_restart(battle->clock);
-	while (sfTime_asSeconds(battle->time)
-	< sfTime_asSeconds(sfSeconds(0.15))) {
-		battle->time = sfClock_getElapsedTime(battle->clock);
-		sfRectangleShape_setFillColor
-			(battle->fight[battle->id]->map[y * 12 + x], sfYellow);
-		draw_all(data);
-		sfRenderWindow_display(data->window);
+	for (int i = 0; i < battle->fight[id]->number_enemy; i++) {
+		if (i != x && battle->fight[id]->enemy[i]->alive) {
+			pos.x = MAP_X + battle->fight[id]->enemy[i]->
+				pos.x * B_X + 15;
+			pos.y = MAP_Y + battle->fight[id]->enemy[i]->
+				pos.y * B_Y - 5;
+			sfSprite_setPosition
+				(battle->fight[id]->enemy[i]->form, pos);
+			sfRenderWindow_drawSprite(data->window,
+				battle->fight[id]->enemy[i]->form, NULL);
+		}
 	}
-	sfRectangleShape_setFillColor
-		(battle->fight[battle->id]->map[y * 12 + x], sfTransparent);
+}
+
+static void draw_anim(data_t *data, battle_t *battle, int x)
+{
+	battle->fight[battle->id]->enemy[x]->rec.left += 64;
+	sfSprite_setTextureRect(
+		battle->fight[battle->id]->enemy[x]->form,
+		battle->fight[battle->id]->enemy[x]->rec);
 	draw_all(data);
+	display_hero(data, battle);
+	display_other_enemy(data, battle, x);
+	sfRenderWindow_drawSprite(data->window,
+		battle->fight[battle->id]->enemy[x]->form, NULL);
+	sfRenderWindow_display(data->window);
+}
+
+static void anim(data_t *data, battle_t *battle, int x)
+{
+	sfVector2f pos = sfSprite_getPosition(
+		battle->fight[battle->id]->enemy[x]->form);
+
+	for (int i = 0; i < 9;) {
+		sfClock_restart(battle->clock);
+		battle->time = sfTime_Zero;
+		while (sfTime_asSeconds(battle->time)
+		< sfTime_asSeconds(sfSeconds(0.08)))
+			battle->time = sfClock_getElapsedTime(battle->clock);
+		pos.x += -1 * (B_X / 8);
+		sfSprite_setPosition(
+			battle->fight[battle->id]->enemy[x]->form, pos);
+		draw_anim(data, battle, x);
+		i++;
+	}
+}
+
+static void go_left(data_t *data, battle_t *battle, int x, sfVector2f pos)
+{
+	pos.x -= 1;
+	battle->fight[battle->id]->enemy[x]->pos.x -= 1;
+	battle->fight[battle->id]->enemy[x]->rec.top = 64;
+	anim(data, battle, x);
+	battle->fight[battle->id]->enemy[x]->rec.left = 0;
+	sfSprite_setTextureRect(
+		battle->fight[battle->id]->enemy[x]->form,
+		battle->fight[battle->id]->enemy[x]->rec);
+	draw_all(data);
+	display_enemy(data, battle);
+	display_hero(data, battle);
+	sfRenderWindow_display(data->window);
 }
 
 bool enemy_go_left(data_t *data, battle_t *battle, int x,
@@ -41,19 +89,11 @@ bool enemy_go_left(data_t *data, battle_t *battle, int x,
 			|| (c <= 8 && battle->map[c + 1][d] == 0)))
 			return (false);
 		if (a > 0) {
-			pos.x -= 1;
-			battle->fight[battle->id]->enemy[x]->pos.x -= 1;
-			sfRectangleShape_setPosition(
-				battle->fight[battle->id]->enemy[x]->form, pos);
-			anim(data, battle, pos);
+			go_left(data, battle, x, pos);
 			return (true);
 		} else if (a == 0 && ((c >= 1 && battle->map[c - 1][d] != 0)
-		      || (c <= 8 && battle->map[c + 1][d] != 0))) {
-			pos.x -= 1;
-			battle->fight[battle->id]->enemy[x]->pos.x -= 1;
-			sfRectangleShape_setPosition(
-				battle->fight[battle->id]->enemy[x]->form, pos);
-			anim(data, battle, pos);
+			|| (c <= 8 && battle->map[c + 1][d] != 0))) {
+			go_left(data, battle, x, pos);
 			return (true);
 		}
 	}
