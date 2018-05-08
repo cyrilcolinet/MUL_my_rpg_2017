@@ -23,7 +23,6 @@ SRC_FILES				= 	main.c 														\
 							utilities/views_utils.c										\
 							utilities/windows_utils.c 									\
 							utilities/rect_utils.c 										\
-							utilities/sound_utils.c 									\
 							utilities/debug_utils.c 									\
 							utilities/debug/buttons_debugger.c 							\
 							utilities/debug/assets_debugger.c 							\

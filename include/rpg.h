@@ -106,6 +106,9 @@ void 		cb_hover_action(rpg_t *, button_t *);
 // callbacks/play_callback.c
 void 		cb_play_sound1(rpg_t *, button_t *);
 
+// callbacks/sliders/volume_callback.c
+void 		cb_slider_volume_music(rpg_t *, slider_t *);
+
 /*
 ** Configurations
 ** All configurations for sprites, audio, etc...

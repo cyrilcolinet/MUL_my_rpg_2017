@@ -16,7 +16,7 @@ static void fill_values(sound_t *node, char *name, char *file, rpg_t *rpg)
 		return;
 	node->sound = sfSound_create();
 	sfSound_setBuffer(node->sound, node->buffer);
-	sfSound_setVolume(node->sound, rpg->options.volume);
+	sfSound_setVolume(node->sound, rpg->options.music_vol);
 	node->next = NULL;
 }
 

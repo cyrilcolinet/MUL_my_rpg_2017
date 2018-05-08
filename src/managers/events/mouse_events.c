@@ -41,7 +41,8 @@ void mouse_moved(rpg_t *rpg, sfMouseMoveEvent mouse)
 		if (btn->pressed) {
 			while (tmp != NULL) {
 				if (my_strequ(tmp->btn->name, btn->name)) {
-					tmp->onSlide(rpg, tmp);
+					if (tmp->onSlide != NULL)
+						tmp->onSlide(rpg, tmp);
 					return;
 				}
 				tmp = tmp->next;

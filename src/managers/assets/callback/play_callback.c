@@ -14,7 +14,6 @@ void cb_play_sound1(rpg_t *rpg, button_t *btn)
 	if (sound == NULL || btn->hovered)
 		return;
 
-	sfSound_setVolume(sound->sound, rpg->options.volume);
 	sfSound_setLoop(sound->sound, sfFalse);
 	sfSound_play(sound->sound);
 	btn->hovered = true;

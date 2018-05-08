@@ -7,20 +7,19 @@
 
 # include "rpg.h"
 
-void slider_volume_callback(rpg_t *rpg, slider_t *slider)
+void cb_slider_volume_music(rpg_t *rpg, slider_t *slider)
 {
 	sfVector2i tmp = sfMouse_getPositionRenderWindow(rpg->win);
 	float rec = slider->btn->rect.width / 2;
 	sfVector2f p = { tmp.x - rec, slider->mid_axis };
-	float volume = sfSound_getVolume(rpg->sound);
 	char *vol = NULL;
 
-	volume = ((p.x - slider->range.x) * 100);
-	volume /= (slider->range.y - slider->range.x);
+	rpg->options.music_vol = ((p.x - slider->range.x) * 100);
+	rpg->options.music_vol /= (slider->range.y - slider->range.x);
 
-	if (volume >= 0 && volume <= 100) {
+	if (rpg->options.music_vol >= 0 && rpg->options.music_vol <= 100) {
 		slider->btn->pos = p;
-		vol = get_sound_in_str(volume);
+		vol = get_sound_in_str(rpg->options.music_vol);
 		sfSprite_setPosition(slider->btn->sprite, slider->btn->pos);
 		sfText_setString(slider->text, vol);
 		if (!my_strequ(vol, "0%"))

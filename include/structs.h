@@ -97,12 +97,12 @@ typedef struct sound_t {
 }	sound_t;
 
 typedef struct options_t {
-	float 			volume;
+	float 			sound_vol;
+	float 			music_vol;
 } 	options_t;
 
 typedef struct rpg_t {
 	sfRenderWindow	*win;
-	sfSound 		*sound;
 	sfFont 			*font;
 	state_e 		state;
 	sfSprite 		*capture;

@@ -15,7 +15,6 @@ void exit_game(rpg_t *rpg)
 	destroy_slides(rpg);
 	destroy_sounds(rpg);
 	sfRenderWindow_destroy(rpg->win);
-	sfSound_destroy(rpg->sound);
 	sfClock_destroy(rpg->clock);
 	if (rpg->capture != NULL)
 		sfSprite_destroy(rpg->capture);
