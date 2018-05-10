@@ -62,7 +62,7 @@ bool enemy_go_up(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
 bool enemy_go_down(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
 
 /* EVENT */
-void battle_event_management(rpg_t *rpg, battle_t *battle);
+void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event);
 void reset_map_state(battle_t *battle);
 void change_turn(battle_t *battle);
 
