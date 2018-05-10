@@ -52,7 +52,7 @@ static void anim(rpg_t *rpg, battle_t *battle, int x)
 		while (sfTime_asSeconds(battle->time)
 		< sfTime_asSeconds(sfSeconds(0.08)))
 			battle->time = sfClock_getElapsedTime(battle->clock);
-		pos.x += -1 * (B_Y / 8);
+		pos.x += -1 * (B_X / 8);
 		sfSprite_setPosition(
 			battle->fight[battle->id]->enemy[x]->form, pos);
 		draw_anim(rpg, battle, x);
