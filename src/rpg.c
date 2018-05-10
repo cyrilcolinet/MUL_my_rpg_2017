@@ -36,12 +36,8 @@ int rpg_game(rpg_t *rpg)
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
-		if (rpg->battle->run)
-			battle_management(rpg, rpg->battle);
-		else {
-			display_view(rpg);
-			draw_buttons(rpg);
-		}
+		display_view(rpg);
+		draw_buttons(rpg);
 		sfRenderWindow_display(rpg->win);
 	}
 	exit_game(rpg);

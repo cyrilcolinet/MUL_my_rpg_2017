@@ -31,9 +31,6 @@ void keyboard_events(rpg_t *rpg, sfEvent *event)
 				cb_return_action(rpg, NULL);
 			}
 		}
-		if (event->key.code == sfKeyEscape) {
-			rpg->battle->run = true;
-		}
 	}
 }
 
@@ -42,8 +39,6 @@ void poll_event(rpg_t *rpg, sfEvent *event)
 	while (sfRenderWindow_pollEvent(rpg->win, event)) {
 		if (event->type == sfEvtClosed)
 			sfRenderWindow_close(rpg->win);
-		if (rpg->battle->run)
-			battle_event_management(rpg, rpg->battle, event);
 		else {
 			mouse_events(rpg, event);
 			keyboard_events(rpg, event);
