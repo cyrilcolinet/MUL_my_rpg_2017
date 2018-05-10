@@ -42,7 +42,8 @@ typedef enum state_e {
 	gameOnCredits,
 	gameHistory,
 	gameBattle,
-	gameSelect
+	gameSelect,
+	gameQuitWSave
 }	state_e;
 
 // Structs declarations
