@@ -24,8 +24,6 @@ void cb_goto_pause_view(rpg_t *rpg, button_t *btn)
 	sfImage_destroy(img);
 	rpg->last_st = rpg->state;
 	rpg->state = gamePause;
-	info("Openning pause menu...");
-	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | En pause");
 }
 
 void cb_goto_select_view(rpg_t *rpg, button_t *btn)
@@ -35,6 +33,4 @@ void cb_goto_select_view(rpg_t *rpg, button_t *btn)
 	reset_to_normal_rect(rpg);
 	rpg->last_st = rpg->state;
 	rpg->state = gameSelect;
-	info("Openning history menu...");
-	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Histoire");
 }

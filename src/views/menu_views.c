@@ -16,6 +16,7 @@ void pause_view(rpg_t *rpg)
 
 	sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
 	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | En pause");
 }
 
 void credits_view(rpg_t *rpg)
@@ -26,6 +27,7 @@ void credits_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Credits");
 }
 
 void settings_view(rpg_t *rpg)
@@ -40,6 +42,7 @@ void settings_view(rpg_t *rpg)
 	if (sprite == NULL)
 		return;
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Options");
 
 	if (vol != NULL) {
 		sfRenderWindow_drawText(rpg->win, vol->text, NULL);
@@ -54,6 +57,7 @@ void history_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Histoire");
 }
 
 void select_view(rpg_t *rpg)
@@ -64,4 +68,5 @@ void select_view(rpg_t *rpg)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Selection");
 }

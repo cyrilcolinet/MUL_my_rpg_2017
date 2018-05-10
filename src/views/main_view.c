@@ -14,12 +14,15 @@ void animate_book_sprite(rpg_t *rpg, assets_t *asset)
 	if (sfTime_asSeconds(t) >= sfTime_asSeconds(sfSeconds(0.1))) {
 		sfClock_restart(rpg->clock);
 		asset->rec.left += asset->rec.width + 1;
+
 		if (asset->rec.left >= asset->rec.width * 6) {
 			asset->rec.left = 0;
 			asset->rec.top += asset->rec.height + 1;
 		}
+
 		if (asset->rec.top >= asset->rec.height * 7)
 			asset->rec.top = 0;
+
 		sfSprite_setTextureRect(asset->sp, asset->rec);
 	}
 }
@@ -40,10 +43,12 @@ void draw_history_button(rpg_t *rpg)
 void main_view(rpg_t *rpg)
 {
 	sfSprite *sp = get_sprite(rpg, "bg_main");
+	char *title = "Legacy Of The Kek | Menu Principal";
 
 	if (sp == NULL)
 		return;
 
 	sfRenderWindow_drawSprite(rpg->win, sp, NULL);
 	draw_history_button(rpg);
+	sfRenderWindow_setTitle(rpg->win, title);
 }
