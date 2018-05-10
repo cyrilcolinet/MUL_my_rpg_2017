@@ -43,8 +43,7 @@ void configure_battle(rpg_t *rpg)
 		for (int n = 0; n < 12; n++)
 			rpg->battle->map[i][n] = 0;
 	}
-	rpg->battle->font = sfFont_createFromFile("./Cyberspace.otf");
-	rpg->battle->text = create_text(rpg->battle->font, "Interface", pos, sfWhite);
+	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
 	rpg->battle->clock = sfClock_create();
 	init_fight(rpg->battle);
 	init_hero(rpg->battle);

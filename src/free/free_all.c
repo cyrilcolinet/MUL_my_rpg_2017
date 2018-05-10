@@ -32,7 +32,6 @@ void free_all(rpg_t *rpg)
 	sfSprite_destroy(rpg->battle->hero->form);
 	sfTexture_destroy(rpg->battle->hero->img);
 	sfText_destroy(rpg->battle->text);
-	sfFont_destroy(rpg->battle->font);
 	sfClock_destroy(rpg->battle->clock);
 	free(rpg->battle->hero);
 	for (int i = 0; i < 10; i++)

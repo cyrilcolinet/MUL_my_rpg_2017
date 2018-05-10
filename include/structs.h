@@ -156,7 +156,6 @@ typedef struct battle {
 	sfRectangleShape *icone;
 	sfRectangleShape *background;
 	sfTexture **texture;
-	sfFont *font;
 	sfText *text;
 	sfTime time;
 	sfClock *clock;

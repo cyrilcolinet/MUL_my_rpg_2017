@@ -56,6 +56,7 @@ SRC_FILES		= 	main.c 							\
 				views/play_view.c 					\
 				views/main_view.c 					\
 				views/battle_view.c					\
+				battle/battle_management.c				\
 				battle/event/event_management.c				\
 				battle/event/interaction.c				\
 				battle/event/change_turn.c				\
@@ -84,7 +85,6 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
 				util_function/create_text.c				\
-				util_function/my_itoa.c					\
 				free/free_all.c						\
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
