@@ -5,8 +5,8 @@
 ** rpg functions (header file)
 */
 
-# ifndef PG_H
-# define PG_H
+# ifndef RPG_H
+# define RPG_H
 
 # include "my.h"
 # include "structs.h"
