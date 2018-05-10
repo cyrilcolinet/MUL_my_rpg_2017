@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "battle.h"
+#include "rpg.h"
 
 static void init_texture(battle_t *battle, sfVector2f pos)
 {
@@ -17,11 +17,11 @@ static void init_texture(battle_t *battle, sfVector2f pos)
 	pos.y = 20;
 	sfRectangleShape_setSize(battle->icone, pos);
 	battle->texture = malloc(sizeof(sfTexture *) * 4);
-	battle->texture[0] = sfTexture_createFromFile("src/battle/image/hp.png", NULL);
-	battle->texture[1] = sfTexture_createFromFile("src/battle/image/dmg.png", NULL);
+	battle->texture[0] = sfTexture_createFromFile("assets/icone/hp.png", NULL);
+	battle->texture[1] = sfTexture_createFromFile("assets/icone/dmg.png", NULL);
 	battle->texture[2] = sfTexture_createFromFile
-		("src/battle/image/armor.png", NULL);
-	battle->texture[3] = sfTexture_createFromFile("src/battle/image/fight_3.png", NULL);
+		("assets/icone/armor.png", NULL);
+	battle->texture[3] = sfTexture_createFromFile("assets/map/fight_3.png", NULL);
 	battle->background = sfRectangleShape_create();
 	pos.x = 0;
 	pos.y = 0;
@@ -32,27 +32,21 @@ static void init_texture(battle_t *battle, sfVector2f pos)
 	sfRectangleShape_setTexture(battle->background, battle->texture[3], sfTrue);
 }
 
-void init_data(data_t *data)
+void configure_battle(rpg_t *rpg)
 {
-	sfVideoMode mode;
 	sfVector2f pos = {1600, 50};
 
-	mode.width = 1920;
-	mode.height = 1080;
-	mode.bitsPerPixel = 32;
-	data->window = sfRenderWindow_create(mode, "test", sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(data->window, 60);
-	data->battle = malloc(sizeof(battle_t));
-	data->battle->map = malloc(sizeof(int *) * 10);
+	rpg->battle = malloc(sizeof(battle_t));
+	rpg->battle->map = malloc(sizeof(int *) * 10);
 	for (int i = 0; i < 10; i++) {
-		data->battle->map[i] = malloc(sizeof(int) * 12);
+		rpg->battle->map[i] = malloc(sizeof(int) * 12);
 		for (int n = 0; n < 12; n++)
-			data->battle->map[i][n] = 0;
+			rpg->battle->map[i][n] = 0;
 	}
-	data->battle->font = sfFont_createFromFile("./Cyberspace.otf");
-	data->battle->text = create_text(data->battle->font, "Interface", pos, sfWhite);
-	data->battle->clock = sfClock_create();
-	init_fight(data->battle);
-	init_hero(data->battle);
-	init_texture(data->battle, pos);
+	rpg->battle->font = sfFont_createFromFile("./Cyberspace.otf");
+	rpg->battle->text = create_text(rpg->battle->font, "Interface", pos, sfWhite);
+	rpg->battle->clock = sfClock_create();
+	init_fight(rpg->battle);
+	init_hero(rpg->battle);
+	init_texture(rpg->battle, pos);
 }
