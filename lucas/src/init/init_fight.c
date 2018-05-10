@@ -37,17 +37,16 @@ static void enemy_form(enemy_t *enemy)
 	sfVector2f scale = {1.25, 1.25};
 
 	enemy->form = sfSprite_create();
-	enemy->rec.top = 75;
+	enemy->rec.top = 64;
 	enemy->rec.left = 0;
-	enemy->rec.width = 48;
-	enemy->rec.height = 60;
+	enemy->rec.width = 64;
+	enemy->rec.height = 64;
 	sfSprite_setPosition(enemy->form, enemy->pos);
-        enemy->img = sfTexture_createFromFile(
-                "src/battle/image/man_nu_spear.png", NULL);
-        sfSprite_setTexture(enemy->form, enemy->img, true);
-        sfSprite_setTextureRect(enemy->form, enemy->rec);
-        sfSprite_setScale(enemy->form, scale);
-
+	enemy->img = sfTexture_createFromFile(
+		"src/battle/image/brigan_knife.png", NULL);
+	sfSprite_setTexture(enemy->form, enemy->img, true);
+	sfSprite_setTextureRect(enemy->form, enemy->rec);
+	sfSprite_setScale(enemy->form, scale);
 	enemy->frame = sfRectangleShape_create();
 	sfRectangleShape_setSize(enemy->frame, size);
 	sfRectangleShape_setFillColor(enemy->frame, sfRed);

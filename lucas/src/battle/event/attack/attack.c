@@ -16,7 +16,7 @@ static void attack_part2(battle_t *battle, int i, sfVector2f pos)
 	if ((battle->mouse.x > pos2.x && battle->mouse.x < pos2.x + B_X) &&
 	(battle->mouse.y > pos2.y && battle->mouse.y < pos2.y + B_Y)) {
 		if (battle->fight[battle->id]->enemy[i]->alive)
-		    battle->hero->target = i;
+		battle->hero->target = i;
 	}
 }
 
