@@ -21,9 +21,12 @@ $(NAME):
 	cp $(DIR)/include/libconfig.h ../include
 
 clean:
+	rm -rf ../lib/libconfig.a
+	rm -rf ../include/libconfig.h
 	make uninstall -C libconfig
+	make clean -C libconfig
 
 fclean: clean
 	rm -rf $(DIR)
-	rm -rf ../lib/libconfig.a
-	rm -rf ../include/libconfig.h
+
+re: 	fclean all
