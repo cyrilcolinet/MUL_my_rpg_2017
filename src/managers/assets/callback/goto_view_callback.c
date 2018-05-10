@@ -7,6 +7,8 @@
 
 # include "rpg.h"
 
+// TODO: Make redirect_to view callback
+
 void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
