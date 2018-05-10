@@ -60,6 +60,8 @@ dkms.conf
 build/
 build_tests/
 include/my.h
+include/libconfig.h
 my_rpg
 test
 /assets/
+extern_libs/tmp

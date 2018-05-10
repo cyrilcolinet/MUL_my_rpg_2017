@@ -71,7 +71,7 @@ CC			=	gcc
 
 CFLAGS			= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
 
-LFLAGS			= 	-L $(LIBRARY_DIR) -lmy -lm -lc_graph_prog
+LFLAGS			= 	-L $(LIBRARY_DIR) -lmy -lm -lc_graph_prog -lconfig
 
 UNITS_LFLAGS		= 	$(LFLAGS) -lgcov -lcriterion
 
@@ -104,6 +104,7 @@ all:			library $(BUILD_DIR) $(NAME)
 library:
 			$(info [INFO] Compile library)
 			make -C $(LIBRARY_DIR)
+			make -C extern_libs/
 
 assets_compress:
 ifeq ($(ASSETS_EXISTS), 1)
@@ -152,11 +153,13 @@ clean:
 			rm -rf $(BUILD_TESTS_DIR)
 			find -name '*.gc*' -delete -or -name 'vgcore.*' -delete -o -name '*.o' -delete
 			make clean -C $(LIBRARY_DIR)
+			make clean -C extern_libs
 
 fclean:			clean
 			rm -rf $(NAME)
 			rm -rf $(UNITS)
 			make fclean -C $(LIBRARY_DIR)
+			make fclean -C extern_libs
 
 re:			fclean all
 
