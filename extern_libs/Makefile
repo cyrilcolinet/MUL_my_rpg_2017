@@ -25,7 +25,6 @@ clean:
 	rm -rf ../include/libconfig.h
 	make uninstall -C libconfig
 	make clean -C libconfig
-	make distclean -C libconfig
 
 fclean: clean
 	rm -rf $(DIR)
