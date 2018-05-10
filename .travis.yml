@@ -8,7 +8,7 @@ script:
   - make assets_decompress
   - rm -rf assets.tar.gz
   - rm -rf .git
-  - cd ../ && du -sh my_rpg_2017
+  - cd ../ && du -sh $OLDPWD
 
 notifications:
   email: false
