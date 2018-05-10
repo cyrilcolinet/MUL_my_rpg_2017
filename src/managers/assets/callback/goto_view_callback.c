@@ -7,7 +7,7 @@
 
 # include "rpg.h"
 
-// TODO: Make redirect_to view callback
+// TODO: Make redirect_to view callback (continue)
 
 void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
@@ -52,4 +52,12 @@ void cb_goto_history_view(rpg_t *rpg, button_t *btn)
 	reset_to_normal_rect(rpg);
 	rpg->last_st = rpg->state;
 	rpg->state = gameHistory;
+}
+
+void *cb_redirect_to(rpg_t *rpg, state_e view)
+{
+	rpg->last_st = rpg->state;
+	rpg->state = view;
+
+	return (NULL);
 }
