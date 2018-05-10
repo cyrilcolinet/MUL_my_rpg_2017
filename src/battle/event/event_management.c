@@ -7,14 +7,6 @@
 
 #include "rpg.h"
 
-static void exit_function(rpg_t *rpg, sfEvent *event)
-{
-	if (event->type == sfEvtClosed
-	|| (event->type == sfEvtKeyPressed
-	&& event->key.code == sfKeyEscape))
-		sfRenderWindow_close(rpg->win);
-}
-
 static void mouse_coord(battle_t *battle, sfEvent *event)
 {
 	if (event->type == sfEvtMouseMoved) {
@@ -25,7 +17,6 @@ static void mouse_coord(battle_t *battle, sfEvent *event)
 
 void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 {
-	exit_function(rpg, event);
 	mouse_coord(battle, event);
 	if (!battle->fight[battle->id]->enemy_turn)
 		interaction(battle, event);
