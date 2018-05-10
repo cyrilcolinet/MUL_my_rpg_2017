@@ -93,7 +93,7 @@ typedef struct sound_t {
 	char 		*file;
 	sfSoundBuffer	*buffer;
 	sfSound 	*sound;
-	struct sound_t	*next;
+	struct sound_t 	*next;
 }	sound_t;
 
 typedef struct options_t {

@@ -44,7 +44,6 @@ int new_sound(rpg_t *rpg, char *name, char *file)
 	return (0);
 }
 
-// true if volume motified is music and false otherwise
 void set_volume(rpg_t *rpg, float vol, bool music)
 {
 	sound_t *tmp = rpg->sounds;

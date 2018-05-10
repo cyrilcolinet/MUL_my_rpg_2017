@@ -26,7 +26,8 @@ void keyboard_events(rpg_t *rpg, sfEvent *event)
 		if (event->key.code == sfKeyEscape) {
 			if (rpg->state == gameWait) {
 				sfRenderWindow_close(rpg->win);
-			} else if(rpg->state != gameRun && rpg->state != gamePause) {
+			} else if (rpg->state != gameRun && \
+			rpg->state != gamePause) {
 				cb_return_action(rpg, NULL);
 			}
 		}

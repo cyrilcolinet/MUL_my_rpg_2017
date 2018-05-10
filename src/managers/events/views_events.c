@@ -19,7 +19,7 @@ void views_events(rpg_t *rpg, sfEvent *event)
 		NULL,
 		NULL,
 		NULL,
-		NULL // TODO: @Lucas -> Battle events functions in managers/events/battle/events.c
+		NULL
 	};
 
 	if ((*tab[rpg->state]) == NULL)
