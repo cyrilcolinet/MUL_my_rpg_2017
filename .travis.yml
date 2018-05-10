@@ -1,0 +1,13 @@
+language: c
+
+group: stable
+
+os: linux
+
+install: ./install-dependencies.sh
+
+script:
+  - echo "yo"
+
+notifications:
+  email: false
