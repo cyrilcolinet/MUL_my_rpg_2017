@@ -4,10 +4,11 @@ group: stable
 
 os: linux
 
-install: ./install-dependencies.sh
-
 script:
-  - echo "yo"
+  - make assets_decompress
+  - rm -rf assets.tar.gz
+  - rm -rf .git
+  - cd ../ && du -sh my_rpg_2017
 
 notifications:
   email: false
