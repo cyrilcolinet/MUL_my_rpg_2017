@@ -1,4 +1,4 @@
-prefix=/home/cyrilcolinet/Modules/B-MUL/my_rpg_2017/extern_libs/tmp
+prefix=/home/mlucas/Tek1/C_Graphical_Programming/my_rpg_2017/extern_libs/tmp
 exec_prefix=${prefix}
 libdir=${exec_prefix}/lib
 includedir=${prefix}/include

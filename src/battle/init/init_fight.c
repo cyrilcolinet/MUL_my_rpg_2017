@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "battle.h"
+#include "rpg.h"
 
 static void create_map(fight_t *fight)
 {
@@ -43,7 +43,7 @@ static void enemy_form(enemy_t *enemy)
 	enemy->rec.height = 64;
 	sfSprite_setPosition(enemy->form, enemy->pos);
 	enemy->img = sfTexture_createFromFile(
-		"src/battle/image/women_fer_knife.png", NULL);
+		"assets/champion/women_fer_knife.png", NULL);
 	sfSprite_setTexture(enemy->form, enemy->img, true);
 	sfSprite_setTextureRect(enemy->form, enemy->rec);
 	sfSprite_setScale(enemy->form, scale);

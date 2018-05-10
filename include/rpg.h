@@ -12,21 +12,6 @@
 # include "structs.h"
 # include "battle.h"
 
-typedef struct rpg_t {
-	sfRenderWindow	*win;
-	sfFont		*font;
-	state_e		state;
-	sfSprite	*capture;
-	state_e		last_st;
-	sfClock		*clock;
-	sound_t		*sounds;
-	options_t	options;
-	assets_t	*assets;
-	button_t	*btn;
-	slider_t	*slides;
-	battle_t	*battle;
-}	rpg_t;
-
 // Debug global variable
 bool 		debug;
 
