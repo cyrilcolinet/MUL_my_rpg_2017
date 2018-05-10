@@ -49,4 +49,8 @@ void configure_battle(rpg_t *rpg)
 	init_fight(rpg->battle);
 	init_hero(rpg->battle);
 	init_texture(rpg->battle, pos);
+	rpg->battle->id = 0;
+	rpg->battle->mouse.x = 0;
+	rpg->battle->mouse.y = 0;
+	rpg->battle->run = false;
 }

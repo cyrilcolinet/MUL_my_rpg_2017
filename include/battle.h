@@ -52,7 +52,7 @@ void reset_map_state(battle_t *battle);
 void change_turn(battle_t *battle);
 
 /*EVENT->INTERACTION*/
-void interaction(battle_t *battle, sfEvent event);
+void interaction(battle_t *battle, sfEvent *event);
 void select_or_unselect(battle_t *battle, int i);
 
 /*EVENT->DEPLACEMENT->HERO*/

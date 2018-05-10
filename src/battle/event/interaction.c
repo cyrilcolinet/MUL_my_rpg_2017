@@ -28,15 +28,15 @@ static void left_click(battle_t *battle)
 	}
 }
 
-void interaction(battle_t *battle, sfEvent event)
+void interaction(battle_t *battle, sfEvent *event)
 {
-	if (event.type == sfEvtKeyPressed) {
+	if (event->type == sfEvtKeyPressed) {
 	}
 
-	if (event.type == sfEvtMouseButtonPressed) {
-		if (event.mouseButton.button == sfMouseLeft)
+	if (event->type == sfEvtMouseButtonPressed) {
+		if (event->mouseButton.button == sfMouseLeft)
 			left_click(battle);
-		if (event.mouseButton.button == sfMouseRight)
+		if (event->mouseButton.button == sfMouseRight)
 			right_click(battle);
 	}
 }

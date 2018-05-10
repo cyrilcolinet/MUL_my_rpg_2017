@@ -7,13 +7,13 @@
 
 #include "rpg.h"
 
-static void display_other_enemy(rpg_t *rpg, battle_t *battle, int x)
+static void display_other_enemy(rpg_t *rpg, battle_t *battle, int a)
 {
 	sfvector2f pos;
 	int id = battle->id;
 
 	for (int i = 0; i < battle->fight[id]->number_enemy; i++) {
-		if (i != x && battle->fight[id]->enemy[i]->alive) {
+		if (i != a && battle->fight[id]->enemy[i]->alive) {
 			pos.x = map_x + battle->fight[id]->enemy[i]->
 				pos.x * b_x + 15;
 			pos.y = map_y + battle->fight[id]->enemy[i]->

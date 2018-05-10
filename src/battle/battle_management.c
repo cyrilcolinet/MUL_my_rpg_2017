@@ -19,6 +19,7 @@ void draw_all(rpg_t *rpg)
 
 void battle_management(rpg_t *rpg, battle_t *battle)
 {
+	change_turn(battle);
 	if (rpg->battle->fight[rpg->battle->id]->enemy_turn)
 		enemy_turn(rpg, rpg->battle);
 	else if (rpg->battle->hero->select) {
