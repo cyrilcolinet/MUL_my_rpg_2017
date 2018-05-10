@@ -28,6 +28,7 @@ static void display_other_enemy(data_t *data, battle_t *battle, int x)
 
 static void draw_anim(data_t *data, battle_t *battle, int x)
 {
+	sfRenderWindow_clear(data->window, sfBlack);
 	battle->fight[battle->id]->enemy[x]->rec.left += 64;
 	sfSprite_setTextureRect(
 		battle->fight[battle->id]->enemy[x]->form,
@@ -57,6 +58,7 @@ static void anim(data_t *data, battle_t *battle, int x)
 		draw_anim(data, battle, x);
 		i++;
 	}
+	sfRenderWindow_clear(data->window, sfBlack);
 }
 
 static void go_right(data_t *data, battle_t *battle, int x, sfVector2f pos)

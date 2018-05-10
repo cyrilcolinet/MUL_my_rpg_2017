@@ -60,13 +60,9 @@ void display_current_target(battle_t *battle)
 		|| is_enemy_frame(battle, pos, size, i)) {
 			sfRectangleShape_setFillColor(
 			battle->fight[battle->id]->enemy[i]->frame, sfYellow);
-			/* sfRectangleShape_setFillColor( */
-			/* battle->fight[battle->id]->enemy[i]->form, sfYellow); */
 		} else {
 			sfRectangleShape_setFillColor(
 			battle->fight[battle->id]->enemy[i]->frame, sfRed);
-			/* sfRectangleShape_setFillColor( */
-			/* battle->fight[battle->id]->enemy[i]->form, sfRed); */
 		}
 		is_he_dead(battle, i);
 	}

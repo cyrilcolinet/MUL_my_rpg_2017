@@ -21,7 +21,7 @@ static void init_texture(battle_t *battle, sfVector2f pos)
 	battle->texture[1] = sfTexture_createFromFile("src/battle/image/dmg.png", NULL);
 	battle->texture[2] = sfTexture_createFromFile
 		("src/battle/image/armor.png", NULL);
-	battle->texture[3] = sfTexture_createFromFile("src/battle/image/fight_1.png", NULL);
+	battle->texture[3] = sfTexture_createFromFile("src/battle/image/fight_3.png", NULL);
 	battle->background = sfRectangleShape_create();
 	pos.x = 0;
 	pos.y = 0;
@@ -41,7 +41,7 @@ void init_data(data_t *data)
 	mode.height = 1080;
 	mode.bitsPerPixel = 32;
 	data->window = sfRenderWindow_create(mode, "test", sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(data->window, 30);
+	sfRenderWindow_setFramerateLimit(data->window, 60);
 	data->battle = malloc(sizeof(battle_t));
 	data->battle->map = malloc(sizeof(int *) * 10);
 	for (int i = 0; i < 10; i++) {
