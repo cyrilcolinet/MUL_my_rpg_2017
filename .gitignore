@@ -58,13 +58,8 @@ dkms.conf
 
 # Project addition
 build/
-buil_tests/
+build_tests/
 include/my.h
 my_rpg
 test
-.clang_complete
-README.md
 /assets/
-
-include/lizz/
-__pycache__/
