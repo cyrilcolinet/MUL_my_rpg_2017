@@ -16,7 +16,9 @@ void exit_game(rpg_t *rpg)
 	destroy_slides(rpg);
 	destroy_sounds(rpg);
 	sfRenderWindow_destroy(rpg->win);
+	info("Window closed. Exiting...");
 	sfClock_destroy(rpg->clock);
+	sfFont_destroy(rpg->font);
 	if (rpg->capture != NULL)
 		sfSprite_destroy(rpg->capture);
 	info("Window destroyed!");
@@ -42,7 +44,6 @@ int rpg_game(rpg_t *rpg)
 		}
 		sfRenderWindow_display(rpg->win);
 	}
-	info("Window closed. Exiting...");
 	exit_game(rpg);
 	return (status);
 }

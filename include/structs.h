@@ -33,7 +33,7 @@ struct 	slider_t;
 struct 	assets_t;
 struct 	options_t;
 struct 	rpg_t;
-struct	battle_t;
+struct	battle;
 
 // Enumerations declarations
 typedef enum state_e {
