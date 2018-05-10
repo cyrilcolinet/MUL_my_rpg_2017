@@ -66,3 +66,5 @@ test
 /assets/
 extern_libs/tmp
 lucas/
+
+extern_libs/libconfig/

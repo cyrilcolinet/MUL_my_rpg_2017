@@ -12,6 +12,7 @@ DIR	:=	$(CURDIR)/tmp
 all:	$(NAME)
 
 $(NAME):
+	tar xvzf libconf.tar.gz
 	cd libconfig && autoreconf -v
 	cd libconfig && ./configure --prefix=$(DIR)
 	make -C libconfig
@@ -23,8 +24,7 @@ $(NAME):
 clean:
 	rm -rf ../lib/libconfig.a
 	rm -rf ../include/libconfig.h
-	make uninstall -C libconfig
-	make clean -C libconfig
+	rm -rf libconfig
 
 fclean: clean
 	rm -rf $(DIR)
