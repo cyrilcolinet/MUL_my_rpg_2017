@@ -33,6 +33,7 @@ struct 	slider_t;
 struct 	assets_t;
 struct 	options_t;
 struct 	rpg_t;
+struct	battle_t;
 
 // Enumerations declarations
 typedef enum state_e {
@@ -105,19 +106,76 @@ typedef struct options_t {
 	float 		music_vol;
 } 	options_t;
 
-/* typedef struct rpg_t { */
-/* 	sfRenderWindow	*win; */
-/* 	sfFont 		*font; */
-/* 	state_e 	state; */
-/* 	sfSprite 	*capture; */
-/* 	state_e 	last_st; */
-/* 	sfClock		*clock; */
-/* 	sound_t 	*sounds; */
-/* 	options_t 	options; */
-/* 	assets_t 	*assets; */
-/* 	button_t 	*btn; */
-/* 	slider_t 	*slides; */
-/* 	battle_t	*battle; */
-/* }	rpg_t; */
+// BEGIN BATTLE STRUCTS
+typedef struct enemy {
+	sfIntRect rec;
+	sfSprite *form;
+	sfRectangleShape *frame;
+	sfTexture *img;
+	sfVector2f pos;
+	bool alive;
+	bool played;
+	int hp;
+	int dmg;
+	int armor;
+} enemy_t;
+
+typedef struct fight {
+	sfRectangleShape **map;
+	sfVector2f pos;
+	int number_enemy;
+	enemy_t **enemy;
+	bool enemy_turn;
+} fight_t;
+
+typedef struct hero {
+	sfIntRect rec;
+	sfSprite *form;
+	sfTexture *img;
+	sfVector2f pos;
+	sfVector2f new;
+	bool alive;
+	bool select;
+	bool played;
+	bool move;
+	bool attack;
+	int target;
+	int hp;
+	int dmg;
+	int armor;
+} hero_t;
+
+typedef struct battle {
+	bool run;
+	sfVector2f mouse;
+	int id;
+	int **map;
+	int number_fight;
+	hero_t *hero;
+	fight_t **fight;
+	sfRectangleShape *icone;
+	sfRectangleShape *background;
+	sfTexture **texture;
+	sfFont *font;
+	sfText *text;
+	sfTime time;
+	sfClock *clock;
+} battle_t;
+// END BATTLE STRUCT
+
+typedef struct rpg_t {
+	sfRenderWindow	*win;
+	sfFont		*font;
+	state_e		state;
+	sfSprite	*capture;
+	state_e		last_st;
+	sfClock		*clock;
+	sound_t		*sounds;
+	options_t	options;
+	assets_t	*assets;
+	button_t	*btn;
+	slider_t	*slides;
+	battle_t	*battle;
+}	rpg_t;
 
 # endif
