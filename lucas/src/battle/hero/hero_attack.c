@@ -10,17 +10,22 @@
 static void draw_anim(data_t *data, battle_t *battle)
 {
 	sfRenderWindow_clear(data->window, sfBlack);
-	battle->hero->rec.left += 64;
+	battle->hero->rec.left += 128;
 	sfSprite_setTextureRect(
 		battle->hero->form, battle->hero->rec);
 	draw_all(data);
 	display_enemy(data, battle);
-	display_hero(data, battle);
+	sfRenderWindow_drawSprite
+		(data->window, battle->hero->form, NULL);
 	sfRenderWindow_display(data->window);
 }
 
 static void attack_anim(data_t *data, battle_t *battle)
 {
+	sfVector2f pos = sfSprite_getPosition(battle->hero->form);
+
+	battle->hero->rec.width = 128;
+	battle->hero->rec.height = 128;
 	for (int i = 0; i < 11;) {
 		sfClock_restart(battle->clock);
 		battle->time = sfTime_Zero;
@@ -34,8 +39,13 @@ static void attack_anim(data_t *data, battle_t *battle)
 			battle->hero->rec.left = 0;
 	}
 	sfRenderWindow_clear(data->window, sfBlack);
+	pos.x += 32;
+	pos.y += 32;
+	sfSprite_setPosition(battle->hero->form, pos);
+	battle->hero->rec.top = ((battle->hero->rec.top - (9 * 64)) / 128) * 64;
 	battle->hero->rec.left = 0;
-	battle->hero->rec.top -= 9 * 64;
+	battle->hero->rec.width = 64;
+	battle->hero->rec.height = 64;
 	sfSprite_setTextureRect(
 		battle->hero->form, battle->hero->rec);
 }
@@ -55,14 +65,30 @@ static bool can_attack(battle_t *battle)
 
 static void set_attack_orientation(battle_t *battle, sfVector2f pos)
 {
-	if (battle->hero->pos.x > pos.x)
-		battle->hero->rec.top = 10 * 64;
-	else if (battle->hero->pos.x < pos.x)
-		battle->hero->rec.top = 12 * 64;
-	if (battle->hero->pos.y > pos.y)
-		battle->hero->rec.top = 9 * 64;
-	else if (battle->hero->pos.y < pos.y)
+	sfVector2f hero = sfSprite_getPosition(battle->hero->form);
+
+	if (battle->hero->pos.x > pos.x) {
+		hero.x -= 64;
+		hero.y -= 48;
+		sfSprite_setPosition(battle->hero->form, hero);
 		battle->hero->rec.top = 11 * 64;
+	} else if (battle->hero->pos.x < pos.x) {
+		hero.x -= 12;
+		hero.y -= 48;
+		sfSprite_setPosition(battle->hero->form, hero);
+		battle->hero->rec.top = 15 * 64;
+	}
+	if (battle->hero->pos.y > pos.y) {
+		hero.x -= 44;
+		hero.y -= 44;
+		sfSprite_setPosition(battle->hero->form, hero);;
+		battle->hero->rec.top = 9 * 64;
+	} else if (battle->hero->pos.y < pos.y) {
+		hero.x -= 44;
+		hero.y -= 44;
+		sfSprite_setPosition(battle->hero->form, hero);
+		battle->hero->rec.top = 13 * 64;
+	}
 }
 
 void hero_attack(data_t *data, battle_t *battle)

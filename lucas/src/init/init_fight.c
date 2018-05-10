@@ -43,7 +43,7 @@ static void enemy_form(enemy_t *enemy)
 	enemy->rec.height = 64;
 	sfSprite_setPosition(enemy->form, enemy->pos);
 	enemy->img = sfTexture_createFromFile(
-		"src/battle/image/brigan_knife.png", NULL);
+		"src/battle/image/women_fer_knife.png", NULL);
 	sfSprite_setTexture(enemy->form, enemy->img, true);
 	sfSprite_setTextureRect(enemy->form, enemy->rec);
 	sfSprite_setScale(enemy->form, scale);

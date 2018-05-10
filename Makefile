@@ -55,7 +55,37 @@ SRC_FILES		= 	main.c 							\
 				views/menu_views.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
-				views/battle_view.c
+				views/battle_view.c					\
+				battle/event/event_management.c				\
+				battle/event/interaction.c				\
+				battle/event/change_turn.c				\
+				battle/event/reset_map_state.c				\
+				battle/event/deplacement/deplacement.c			\
+				battle/event/attack/attack.c				\
+				battle/event/select_or_unselect.c			\
+				battle/hero/check_attack.c				\
+				battle/hero/check_deplacement.c				\
+				battle/hero/hero_attack.c				\
+				battle/hero/hero_deplacement.c				\
+				battle/hero/hero_set_deplacement_color.c		\
+				battle/ai_enemy/enemy_turn.c				\
+				battle/ai_enemy/enemy_attack.c				\
+				battle/ai_enemy/enemy_attack_anim.c			\
+				battle/ai_enemy/enemy_deplacement_left.c		\
+				battle/ai_enemy/enemy_deplacement_right.c		\
+				battle/ai_enemy/enemy_deplacement_up.c			\
+				battle/ai_enemy/enemy_deplacement_down.c		\
+				battle/init/configure_battle.c				\
+				battle/init/init_fight.c				\
+				battle/init/init_hero.c					\
+				battle/display/display_map.c				\
+				battle/display/display_interface.c			\
+				battle/display/display_enemy_stats.c			\
+				battle/display/display_current_target.c			\
+				battle/display/fill_map_state.c				\
+				util_function/create_text.c				\
+				util_function/my_itoa.c					\
+				free/free_all.c						\
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
