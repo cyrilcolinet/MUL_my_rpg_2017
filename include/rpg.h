@@ -17,7 +17,7 @@ bool 		debug;
 // rpg.c
 void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
-int			rpg_main(int, char **);
+int		rpg_main(int, char **);
 
 
 /*
@@ -60,7 +60,7 @@ int 		load_sounds(rpg_t *);
 
 // assets_manager.c
 int 		new_asset(rpg_t *, texture_t);
-int			create_texture(rpg_t *, char *, char *);
+int		create_texture(rpg_t *, char *, char *);
 void 		configure_assets(rpg_t *);
 int 		load_assets(rpg_t *);
 
