@@ -30,7 +30,7 @@ void init_hero(battle_t *battle)
 	battle->hero->form = sfSprite_create();
 	sfSprite_setPosition(battle->hero->form, battle->hero->pos);
 	battle->hero->img = sfTexture_createFromFile(
-		"src/battle/image/man_nu_knife.png", NULL);
+		"src/battle/image/man_fer_sword.png", NULL);
 	sfSprite_setTexture(battle->hero->form, battle->hero->img, true);
 	sfSprite_setTextureRect(battle->hero->form, battle->hero->rec);
 	sfSprite_setScale(battle->hero->form, scale);

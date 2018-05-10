@@ -17,6 +17,9 @@
 # include <SFML/Window.h>
 # include <SFML/System.h>
 
+# include <time.h>
+# include <math.h>
+# include <fcntl.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
@@ -102,18 +105,19 @@ typedef struct options_t {
 	float 		music_vol;
 } 	options_t;
 
-typedef struct rpg_t {
-	sfRenderWindow	*win;
-	sfFont 		*font;
-	state_e 	state;
-	sfSprite 	*capture;
-	state_e 	last_st;
-	sfClock		*clock;
-	sound_t 	*sounds;
-	options_t 	options;
-	assets_t 	*assets;
-	button_t 	*btn;
-	slider_t 	*slides;
-}	rpg_t;
+/* typedef struct rpg_t { */
+/* 	sfRenderWindow	*win; */
+/* 	sfFont 		*font; */
+/* 	state_e 	state; */
+/* 	sfSprite 	*capture; */
+/* 	state_e 	last_st; */
+/* 	sfClock		*clock; */
+/* 	sound_t 	*sounds; */
+/* 	options_t 	options; */
+/* 	assets_t 	*assets; */
+/* 	button_t 	*btn; */
+/* 	slider_t 	*slides; */
+/* 	battle_t	*battle; */
+/* }	rpg_t; */
 
 # endif

@@ -9,6 +9,7 @@
 
 void exit_game(rpg_t *rpg)
 {
+	free_all(rpg);
 	sfSound_stop(get_sound(rpg, "main")->sound);
 	destroy_assets(rpg);
 	destroy_buttons(rpg);
@@ -28,19 +29,21 @@ int rpg_game(rpg_t *rpg)
 
 	if (status != 0)
 		return (status);
-
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
-		display_view(rpg);
-		draw_buttons(rpg);
+		if (rpg->battle->run)
+			battle_management(rpg, rpg->battle);
+		else {
+			display_view(rpg);
+			draw_buttons(rpg);
+		}
 		sfRenderWindow_display(rpg->win);
 	}
 	info("Window closed. Exiting...");
 	exit_game(rpg);
-
 	return (status);
 }
 
@@ -53,6 +56,7 @@ int rpg_main(int ac, char **av)
 		return (status);
 
 	rpg = configure_struct();
+	configure_battle(rpg);
 	if (rpg == NULL)
 		return (84);
 
