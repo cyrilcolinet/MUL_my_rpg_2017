@@ -31,6 +31,7 @@ int rpg_game(rpg_t *rpg)
 
 	if (status != 0)
 		return (status);
+	configure_battle(rpg);
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 	while (sfRenderWindow_isOpen(rpg->win)) {
@@ -53,7 +54,6 @@ int rpg_main(int ac, char **av)
 		return (status);
 
 	rpg = configure_struct();
-	configure_battle(rpg);
 	if (rpg == NULL)
 		return (84);
 
