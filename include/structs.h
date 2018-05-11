@@ -136,6 +136,7 @@ typedef struct fight_t {
 	int 		number_enemy;
 	enemy_t 	**enemy;
 	bool 		enemy_turn;
+	int		curent;
 } fight_t;
 
 typedef struct hero_t {
