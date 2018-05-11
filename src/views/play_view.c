@@ -11,12 +11,7 @@ void play_view(rpg_t *rpg)
 {
 	sfSprite *sp = get_sprite(rpg, "map1");
 	sfTransform transform = {{0.75, 0, 0, 0, 0.75, 0, 0, 0, 1}};
-	sfRenderStates state;
-
-	state.blendMode = sfBlendAlpha;
-	state.texture = NULL;
-	state.transform = transform;
-	state.shader = NULL;
+	sfRenderStates state = {sfBlendAlpha, transform, NULL, NULL};
 
 	if (sp == NULL)
 		return;
