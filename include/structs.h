@@ -186,6 +186,7 @@ typedef struct player_t {
 typedef struct map_t {
 	sfSprite	*sprite;
 	int		**h_layer;
+	sfFloatRect	*interaction;
 }	map_t;
 
 typedef struct rpg_t {
