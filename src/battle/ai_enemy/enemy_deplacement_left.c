@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void display_other_enemy(rpg_t *rpg, battle_t *battle, int a)
+void display_other_enemy(rpg_t *rpg, battle_t *battle, int a)
 {
 	sfVector2f pos;
 	int id = battle->id;

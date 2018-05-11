@@ -38,16 +38,9 @@ static void attack_anim(rpg_t *rpg, battle_t *battle)
 		if (i == 6)
 			battle->hero->rec.left = 0;
 	}
-	sfRenderWindow_clear(rpg->win, sfBlack);
 	pos.x += 32;
 	pos.y += 32;
 	sfSprite_setPosition(battle->hero->form, pos);
-	battle->hero->rec.top = ((battle->hero->rec.top - (9 * 64)) / 128) * 64;
-	battle->hero->rec.left = 0;
-	battle->hero->rec.width = 64;
-	battle->hero->rec.height = 64;
-	sfSprite_setTextureRect(
-		battle->hero->form, battle->hero->rec);
 }
 
 static bool can_attack(battle_t *battle)
@@ -61,6 +54,22 @@ static bool can_attack(battle_t *battle)
 	(y + 1 <= 9 && battle->map[y + 1][x] == 2))
 		return (true);
 	return (false);
+}
+
+static void do_damage_attack(battle_t *battle, int i)
+{
+	battle->hero->rec.top = (
+		(battle->hero->rec.top - (9 * 64)) / 128) * 64;
+	battle->hero->rec.left = 0;
+	battle->hero->rec.width = 64;
+	battle->hero->rec.height = 64;
+	sfSprite_setTextureRect(
+		battle->hero->form, battle->hero->rec);
+	battle->hero->attack = true;
+	battle->fight[battle->id]->enemy[i]->hp -= battle->hero->dmg;
+	battle->hero->target = -1;
+	if (battle->fight[battle->id]->enemy[i]->hp <= 0)
+		battle->fight[battle->id]->enemy[i]->alive = false;
 }
 
 void hero_attack(rpg_t *rpg, battle_t *battle)
@@ -78,10 +87,6 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 		pos = battle->fight[battle->id]->enemy[i]->pos;
 		set_attack_orientation(battle, pos);
 		attack_anim(rpg, battle);
-		battle->hero->attack = true;
-		battle->fight[battle->id]->enemy[i]->hp -= battle->hero->dmg;
-		battle->hero->target = -1;
-		if (battle->fight[battle->id]->enemy[i]->hp <= 0)
-			battle->fight[battle->id]->enemy[i]->alive = false;
+		do_damage_attack(battle, i);
 	}
 }

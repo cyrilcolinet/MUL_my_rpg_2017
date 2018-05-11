@@ -7,25 +7,6 @@
 
 #include "rpg.h"
 
-static void display_other_enemy(rpg_t *rpg, battle_t *battle, int x)
-{
-	sfVector2f pos;
-	int id = battle->id;
-
-	for (int i = 0; i < battle->fight[id]->number_enemy; i++) {
-		if (i != x && battle->fight[id]->enemy[i]->alive) {
-			pos.x = MAP_X + battle->fight[id]->enemy[i]->
-				pos.x * B_X + 15;
-			pos.y = MAP_Y + battle->fight[id]->enemy[i]->
-				pos.y * B_Y - 5;
-			sfSprite_setPosition
-				(battle->fight[id]->enemy[i]->form, pos);
-			sfRenderWindow_drawSprite(rpg->win,
-				battle->fight[id]->enemy[i]->form, NULL);
-		}
-	}
-}
-
 static void draw_anim(rpg_t *rpg, battle_t *battle, int x)
 {
 	sfRenderWindow_clear(rpg->win, sfBlack);

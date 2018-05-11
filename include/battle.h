@@ -29,6 +29,7 @@ void 		fill_map_state(battle_t *, int);
 void 		draw_all(rpg_t *);
 void 		display_hero(rpg_t *, battle_t *);
 void 		display_enemy(rpg_t *, battle_t *);
+void		display_other_enemy(rpg_t *, battle_t *, int);
 
 /* HERO */
 void 		check_deplacement(battle_t *);
@@ -41,7 +42,7 @@ void 		set_color(battle_t *, int, sfColor);
 /* AI_ENEMY */
 void 		enemy_turn(rpg_t *, battle_t *);
 bool 		check_enemy_attack(rpg_t *, battle_t *, int, sfVector2f);
-void 		enemy_attack_anim(rpg_t *, battle_t *, sfVector2f);
+void 		enemy_attack_anim(rpg_t *, battle_t *, sfVector2f, int);
 bool 		enemy_go_left(rpg_t *, battle_t *, int, sfVector2f);
 bool 		enemy_go_right(rpg_t *, battle_t *, int, sfVector2f);
 bool 		enemy_go_up(rpg_t *, battle_t *, int, sfVector2f);
