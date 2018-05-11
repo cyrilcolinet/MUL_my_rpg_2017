@@ -43,6 +43,13 @@ void 		views_events(rpg_t *, sfEvent *);
 // events/views/play/events.c
 void 		ev_run(rpg_t *, sfEvent *);
 
+/*
+** Play manager
+** Function that change the state of the player
+*/
+
+//player_manager.c
+void update_direction(player_t *player, direction_e direction);
 
 /*
 ** Sounds manager

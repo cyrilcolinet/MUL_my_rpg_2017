@@ -18,5 +18,6 @@ void configure_player(rpg_t *rpg)
 	rpg->player->rect.left = 0;
 	rpg->player->rect.width = 64;
 	rpg->player->rect.height = 64;
+	rpg->player->time_0 = sfSeconds(0);
 	info("Player base settings loaded");
 }

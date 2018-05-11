@@ -39,13 +39,16 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 		}
 		if (event->key.code == sfKeyP) {
 			sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);
+			battle->hero->sword = false;
 		}
 		if (event->key.code == sfKeyO) {
 			sfSprite_setTexture(battle->hero->form, battle->hero->img, false);
+			battle->hero->sword = true;
 		}
 		if (event->key.code == sfKeyA) {
 			battle->run = false;
 			sfSprite_setPosition(*rpg->player->sprite, rpg->player->pos);
+			sfSprite_setTextureRect(*rpg->player->sprite, rpg->player->rect);
 		}
 	}
 }

@@ -78,6 +78,7 @@ static enemy_t *create_enemy(int nb, int n)
 	enemy_form(enemy);
 	enemy->played = false;
 	enemy->alive = true;
+	enemy->sword = false;
 	enemy->hp = 20;
 	enemy->dmg = 5;
 	enemy->armor = 1;

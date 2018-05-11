@@ -19,6 +19,7 @@ void init_hero(battle_t *battle)
 	battle->hero->select = false;
 	battle->hero->move = false;
 	battle->hero->attack = false;
+	battle->hero->sword = true;
 	battle->hero->target = -1;
 	battle->hero->hp = 120;
 	battle->hero->dmg = 67;

@@ -68,6 +68,7 @@ SRC_FILES		= 	main.c 							\
 				battle/hero/check_attack.c				\
 				battle/hero/check_deplacement.c				\
 				battle/hero/hero_attack.c				\
+				battle/hero/hero_set_attack.c				\
 				battle/hero/hero_deplacement.c				\
 				battle/hero/hero_set_deplacement_color.c		\
 				battle/ai_enemy/enemy_turn.c				\
@@ -88,6 +89,7 @@ SRC_FILES		= 	main.c 							\
 				util_function/create_text.c				\
 				free/free_all.c						\
 				configurations/player_configuration.c			\
+				managers/player_manager.c				\
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

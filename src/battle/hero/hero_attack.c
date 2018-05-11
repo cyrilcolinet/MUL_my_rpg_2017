@@ -63,31 +63,6 @@ static bool can_attack(battle_t *battle)
 	return (false);
 }
 
-static void set_attack_orientation(battle_t *battle, sfVector2f pos)
-{
-	sfVector2f hero = sfSprite_getPosition(battle->hero->form);
-
-	if (battle->hero->pos.x > pos.x) {
-		hero.x -= 64;
-		hero.y -= 48;
-		battle->hero->rec.top = 11 * 64;
-	} else if (battle->hero->pos.x < pos.x) {
-		hero.x -= 12;
-		hero.y -= 48;
-		battle->hero->rec.top = 15 * 64;
-	}
-	if (battle->hero->pos.y > pos.y) {
-		hero.x -= 44;
-		hero.y -= 44;
-		battle->hero->rec.top = 9 * 64;
-	} else if (battle->hero->pos.y < pos.y) {
-		hero.x -= 44;
-		hero.y -= 44;
-		battle->hero->rec.top = 13 * 64;
-	}
-	sfSprite_setPosition(battle->hero->form, hero);
-}
-
 void hero_attack(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos;

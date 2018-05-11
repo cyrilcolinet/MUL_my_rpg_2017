@@ -54,10 +54,10 @@ typedef enum state_e {
 }	state_e;
 
 typedef enum direction_e {
-	up,
 	left,
-	down,
-	right
+	right,
+	up,
+	down
 }	direction_e;
 
 // Structs declarations
@@ -125,6 +125,7 @@ typedef struct enemy_t {
 	sfVector2f 	pos;
 	bool 		alive;
 	bool 		played;
+	bool		sword;
 	int 		hp;
 	int 		dmg;
 	int 		armor;
@@ -150,6 +151,7 @@ typedef struct hero_t {
 	bool 		played;
 	bool 		move;
 	bool 		attack;
+	bool		sword;
 	int 		target;
 	int 		hp;
 	int 		dmg;
@@ -178,7 +180,13 @@ typedef struct player_t {
 	sfIntRect	rect;
 	direction_e	direction;
 	sfVector2f	pos;
+	sfTime		time_0;
 }	player_t;
+
+typedef struct map_t {
+	sfSprite	*sprite;
+	int		**h_layer;
+}	map_t;
 
 typedef struct rpg_t {
 	sfRenderWindow	*win;
@@ -194,6 +202,8 @@ typedef struct rpg_t {
 	slider_t	*slides;
 	battle_t	*battle;
 	player_t	*player;
+	int		map_id;
+	map_t		**map;
 }	rpg_t;
 
 // Configuration striucts
