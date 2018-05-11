@@ -20,7 +20,7 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 	mouse_coord(battle, event);
 	if (!battle->fight[battle->id]->enemy_turn)
 		interaction(battle, event);
-	if (event->type == sfEvtKeyPressed) {
+	if (event->type == sfEvtKeyReleased) {
 		if (event->key.code == sfKeyN) {
 			reset_map_state(battle);
 			battle->fight[battle->id]->enemy_turn = true;
