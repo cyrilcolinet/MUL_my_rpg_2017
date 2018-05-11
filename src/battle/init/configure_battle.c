@@ -17,10 +17,10 @@ static void init_texture(battle_t *battle, sfVector2f pos)
 	pos.y = 20;
 	sfRectangleShape_setSize(battle->icone, pos);
 	battle->texture = malloc(sizeof(sfTexture *) * 4);
-	battle->texture[0] = sfTexture_createFromFile("assets/icone/hp.png", NULL);
-	battle->texture[1] = sfTexture_createFromFile("assets/icone/dmg.png", NULL);
+	battle->texture[0] = sfTexture_createFromFile("assets/icons/hp.png", NULL);
+	battle->texture[1] = sfTexture_createFromFile("assets/icons/dmg.png", NULL);
 	battle->texture[2] = sfTexture_createFromFile
-		("assets/icone/armor.png", NULL);
+		("assets/icons/armor.png", NULL);
 	battle->texture[3] = sfTexture_createFromFile("assets/map/fight_3.png", NULL);
 	battle->background = sfRectangleShape_create();
 	pos.x = 0;
