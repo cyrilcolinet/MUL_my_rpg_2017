@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "rpg.h"
+# include "rpg.h"
 
 static void init_texture(battle_t *battle, sfVector2f pos)
 {
@@ -38,6 +38,7 @@ void configure_battle(rpg_t *rpg)
 
 	rpg->battle = malloc(sizeof(battle_t));
 	rpg->battle->map = malloc(sizeof(int *) * 10);
+	rpg->battle->fight = NULL;
 	for (int i = 0; i < 10; i++) {
 		rpg->battle->map[i] = malloc(sizeof(int) * 12);
 		for (int n = 0; n < 12; n++)
@@ -45,7 +46,8 @@ void configure_battle(rpg_t *rpg)
 	}
 	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
 	rpg->battle->clock = sfClock_create();
-	init_fight(rpg->battle);
+	if (configure_battle_values(rpg) != 0)
+		write(2, "Error during battle parsing.\n", 29);
 	init_hero(rpg->battle);
 	init_texture(rpg->battle, pos);
 	rpg->battle->id = 0;

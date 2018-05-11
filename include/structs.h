@@ -122,6 +122,7 @@ typedef struct enemy_t {
 	sfSprite 	*form;
 	sfRectangleShape *frame;
 	sfTexture 	*img;
+	char 		*stuff;
 	sfVector2f 	pos;
 	bool 		alive;
 	bool 		played;

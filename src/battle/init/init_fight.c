@@ -5,9 +5,9 @@
 ** rpg
 */
 
-#include "rpg.h"
+# include "rpg.h"
 
-static void create_map(fight_t *fight)
+void create_map(fight_t *fight)
 {
 	sfVector2f size = {B_X, B_Y};
 	int n = 0;
@@ -31,7 +31,32 @@ static void create_map(fight_t *fight)
 	}
 }
 
-static void enemy_form(enemy_t *enemy)
+sfRectangleShape **create_battle_map(sfVector2f *pos)
+{
+	sfRectangleShape **map = malloc(sizeof(*map) * 120);
+	sfVector2f size = { B_X, B_Y };
+	sfColor color = sfColor_fromRGBA(125, 125, 135, 90);
+	int i = 0;
+
+	if (map == NULL)
+		return (NULL);
+	for (int row = 0; row < 10; row++) {
+		for (int col = 0; col < 12; col++) {
+			map[i] = sfRectangleShape_create();
+			sfRectangleShape_setPosition(map[i], *pos);
+			sfRectangleShape_setSize(map[i], size);
+			sfRectangleShape_setFillColor(map[i], sfTransparent);
+			sfRectangleShape_setOutlineColor(map[i], color);
+			sfRectangleShape_setOutlineThickness(map[i++], 1);
+			(*pos).x += B_X;
+		}
+		(*pos).x = MAP_X - 1;
+		(*pos).y += B_Y;
+	}
+	return (map);
+}
+
+/*static void enemy_form(enemy_t *enemy)
 {
 	sfVector2f size = {60, 60};
 	sfVector2f scale = {1.25, 1.25};
@@ -108,4 +133,117 @@ void init_fight(battle_t *battle)
 				battle->fight[i]->enemy[j] = create_enemy(j, 0);
 		}
 	}
+}*/
+
+void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy)
+{
+	sfVector2f size = { 60, 60 };
+	sfVector2f scale = { 1.25, 1.25 };
+
+	(*enemy)->rec.top = 64;
+	(*enemy)->rec.left = 0;
+	(*enemy)->rec.width = 64;
+	(*enemy)->rec.height = 64;
+	(*enemy)->img = get_texture(rpg, (*enemy)->stuff);
+	if ((*enemy)->img == NULL)
+		return;
+	(*enemy)->form = sfSprite_create();
+	sfSprite_setTexture((*enemy)->form, (*enemy)->img, sfFalse);
+	sfSprite_setPosition((*enemy)->form, (*enemy)->pos);
+	sfSprite_setTextureRect((*enemy)->form, (*enemy)->rec);
+	sfSprite_setScale((*enemy)->form, scale);
+	(*enemy)->frame = sfRectangleShape_create();
+	sfRectangleShape_setSize((*enemy)->frame, size);
+	sfRectangleShape_setFillColor((*enemy)->frame, sfRed);
+	sfRectangleShape_setOutlineColor((*enemy)->frame, sfBlack);
+	sfRectangleShape_setOutlineThickness((*enemy)->frame, 3);
+}
+
+bool configure_fight(fight_t **fight)
+{
+	(*fight)->pos.x = MAP_X - 1;
+	(*fight)->pos.y = MAP_Y - 1;
+	(*fight)->curent = 0;
+	(*fight)->enemy_turn = false;
+	(*fight)->map = create_battle_map(&(*fight)->pos);
+
+	if ((*fight)->map == NULL)
+		return (false);
+	return (true);
+}
+
+void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
+{
+	char *texture = NULL;
+	int heal = 0;
+	int damage = 0;
+	int armor = 0;
+	bool sword = false;
+
+	rpg->battle->fight[fight]->enemy[id] = malloc(sizeof(enemy_t));
+	config_setting_lookup_string(set, "texture", ((const char **)&texture));
+	config_setting_lookup_int(set, "damage", &damage);
+	config_setting_lookup_int(set, "armor", &armor);
+	config_setting_lookup_bool(set, "sword", ((int *)&sword));
+	config_setting_lookup_int(set, "heal", &heal);
+	rpg->battle->fight[fight]->enemy[id]->stuff = texture;
+	rpg->battle->fight[fight]->enemy[id]->played = false;
+	rpg->battle->fight[fight]->enemy[id]->alive = true;
+	rpg->battle->fight[fight]->enemy[id]->sword = sword;
+	rpg->battle->fight[fight]->enemy[id]->hp = heal;
+	rpg->battle->fight[fight]->enemy[id]->armor = armor;
+	rpg->battle->fight[fight]->enemy[id]->dmg = damage;
+	configure_enemy_texture(rpg, &rpg->battle->fight[fight]->enemy[id]);
+
+	// tmp
+	rpg->battle->fight[fight]->enemy[id]->pos.x = 10;
+	rpg->battle->fight[fight]->enemy[id]->pos.y = 3;
+}
+
+void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)
+{
+	config_setting_t *set_enemy = config_setting_lookup(set, "enemies");
+	config_setting_t *enemy = NULL;
+	int count = 0;
+
+	if (set_enemy == NULL)
+		return;
+	rpg->battle->fight[key] = malloc(sizeof(fight_t));
+	if (rpg->battle->fight[key] == NULL)
+		return;
+	if (!configure_fight(&rpg->battle->fight[key]))
+		return;
+	count = config_setting_length(set_enemy);
+	rpg->battle->fight[key]->number_enemy = count;
+	rpg->battle->fight[key]->enemy = malloc(sizeof(enemy_t *) * count);
+	if (rpg->battle->fight[key]->enemy != NULL)
+		for (int id = 0; count > 0 && id < count; id++) {
+			enemy = config_setting_get_elem(set_enemy, id);
+			if (enemy != NULL)
+				parse_enemy_values(rpg, enemy, id, key);
+		}
+}
+
+int configure_battle_values(rpg_t *rpg)
+{
+	config_setting_t *set = parse_file("battle.cfg", "battle.fights");
+	config_setting_t *fight = NULL;
+	int count = 0;
+
+	if (set == NULL)
+		return (-1);
+
+	count = config_setting_length(set);
+	rpg->battle->number_fight = count;
+	if (rpg->battle->fight == NULL) {
+		rpg->battle->fight = malloc(sizeof(fight_t *) * count);
+		if (rpg->battle->fight == NULL)
+			return (-1);
+	}
+	for (int key = 0; count > 0 && key < count; key++) {
+		fight = config_setting_get_elem(set, key);
+		if (fight != NULL)
+			parse_fight_values(rpg, fight, key);
+	}
+	return (0);
 }

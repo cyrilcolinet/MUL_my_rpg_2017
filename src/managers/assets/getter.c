@@ -26,6 +26,7 @@ sfTexture *get_texture(rpg_t *rpg, char *name)
 
 	while (tmp != NULL) {
 		if (my_strequ(tmp->name, name)) {
+			printf("%s\n", name);
 			return (tmp->texture);
 		}
 		tmp = tmp->next;

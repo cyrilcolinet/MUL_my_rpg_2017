@@ -68,6 +68,9 @@ void 		configure_battle(rpg_t *);
 void 		init_fight(battle_t *);
 void 		init_hero(battle_t *);
 
+// init_fight.c
+int		configure_battle_values(rpg_t *);
+
 sfText 		*create_text(sfFont *, char *, sfVector2f , sfColor);
 
 # endif
