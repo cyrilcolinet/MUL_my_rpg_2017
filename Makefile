@@ -52,6 +52,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/pause/buttons.c 			\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
+				parser/parser.c 					\
 				views/menu_views.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
@@ -102,7 +103,7 @@ LIBRARY_DIR		= 	lib/
 
 CC			=	gcc
 
-CFLAGS			= 	-Wall -Wextra -I $(INCLUDE) ##-lefence
+CFLAGS			= 	-Wall -Wextra -I $(INCLUDE) -g3 ##-lefence
 
 LFLAGS			= 	-L $(LIBRARY_DIR) -lmy -lm -lc_graph_prog -lconfig
 

@@ -206,4 +206,10 @@ typedef struct rpg_t {
 	map_t		**map;
 }	rpg_t;
 
+// Configuration striucts
+typedef struct conf_ress_t {
+	char 		*name;
+	char 		*path;
+}	conf_ress_t;
+
 # endif
