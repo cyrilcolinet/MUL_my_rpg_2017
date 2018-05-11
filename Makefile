@@ -67,6 +67,7 @@ SRC_FILES		= 	main.c 							\
 				battle/hero/check_attack.c				\
 				battle/hero/check_deplacement.c				\
 				battle/hero/hero_attack.c				\
+				battle/hero/hero_set_attack.c				\
 				battle/hero/hero_deplacement.c				\
 				battle/hero/hero_set_deplacement_color.c		\
 				battle/ai_enemy/enemy_turn.c				\

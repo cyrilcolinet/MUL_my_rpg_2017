@@ -17,7 +17,7 @@ static bool check_hero_position(sfVector2f pos, sfVector2f hero)
 	return (false);
 }
 
-static void check_enemy_deplacement(rpg_t *rpg, battle_t *battle
+static sfVector2f check_enemy_deplacement(rpg_t *rpg, battle_t *battle
 		, int x, sfVector2f pos)
 {
 	sfVector2f hero = {battle->hero->pos.x, battle->hero->pos.y};
@@ -34,6 +34,8 @@ static void check_enemy_deplacement(rpg_t *rpg, battle_t *battle
 			break;
 	}
 	battle->fight[battle->id]->enemy[x]->played = true;
+	reset_map_state(battle);
+	return (pos);
 }
 
 void enemy_turn(rpg_t *rpg, battle_t *battle)
@@ -47,10 +49,7 @@ void enemy_turn(rpg_t *rpg, battle_t *battle)
 		if (battle->fight[battle->id]->enemy[i]->alive
 		&& !battle->fight[battle->id]->enemy[i]->played
 		&& !check_enemy_attack(rpg, battle, i, pos)) {
-			check_enemy_deplacement(rpg, battle, i, pos);
-			reset_map_state(battle);
-			pos.x = battle->fight[battle->id]->enemy[i]->pos.x;
-			pos.y = battle->fight[battle->id]->enemy[i]->pos.y;
+			pos = check_enemy_deplacement(rpg, battle, i, pos);
 			check_enemy_attack(rpg, battle, i, pos);
 		}
 	}

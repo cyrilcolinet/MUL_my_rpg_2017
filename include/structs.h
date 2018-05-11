@@ -125,6 +125,7 @@ typedef struct enemy_t {
 	sfVector2f 	pos;
 	bool 		alive;
 	bool 		played;
+	bool		sword;
 	int 		hp;
 	int 		dmg;
 	int 		armor;
@@ -150,6 +151,7 @@ typedef struct hero_t {
 	bool 		played;
 	bool 		move;
 	bool 		attack;
+	bool		sword;
 	int 		target;
 	int 		hp;
 	int 		dmg;
