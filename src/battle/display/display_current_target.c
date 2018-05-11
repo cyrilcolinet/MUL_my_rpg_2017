@@ -23,8 +23,8 @@ static bool is_enemy_form(battle_t *battle, sfVector2f pos,
 {
 	pos = sfSprite_getPosition(
 		battle->fight[battle->id]->enemy[i]->form);
-	size.x = 48 * 1.25;
-	size.y = 60 * 1.25;
+	size.x = 64;
+	size.y = 64;
 	if (is_in_form(battle, pos, size))
 		return (true);
 	return (false);
@@ -52,8 +52,8 @@ static void is_he_dead(battle_t *battle, int i)
 
 void display_current_target(battle_t *battle)
 {
-	sfVector2f pos;
-	sfVector2f size;
+	sfVector2f pos = {0, 0};
+	sfVector2f size = {0, 0};
 
 	for (int i = 0; i < battle->fight[battle->id]->number_enemy; i++) {
 		if (is_enemy_form(battle, pos, size, i)

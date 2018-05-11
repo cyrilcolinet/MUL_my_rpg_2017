@@ -5,7 +5,7 @@
 ** rpg
 */
 
-#include "rpg.h"
+# include "rpg.h"
 
 static void free_fight(battle_t *battle, int n)
 {
@@ -15,6 +15,7 @@ static void free_fight(battle_t *battle, int n)
 	free(battle->fight[n]->map);
 	for (int i = 0; i < battle->fight[n]->number_enemy; i++) {
 		sfSprite_destroy(battle->fight[n]->enemy[i]->form);
+		sfTexture_destroy(battle->fight[n]->enemy[i]->img);
 		sfRectangleShape_destroy(battle->fight[n]->enemy[i]->frame);
 		free(battle->fight[n]->enemy[i]);
 	}
