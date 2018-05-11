@@ -15,4 +15,8 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
 		rpg->battle->run = true;
+	if (event->type == sfEvtKeyPressed && event->key.code == sfKeyLeft &&
+		event->key.code == sfKeyDown) {
+		// change_direction(rpg->player, event->key.code - sfKeyLeft);
+	}
 }

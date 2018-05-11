@@ -121,6 +121,9 @@ void 		configure_settings_view(rpg_t *);
 void 		configure_credits_view(rpg_t *);
 void 		configure_pause_view(rpg_t *);
 
+// player_configuration.c
+void		configure_player(rpg_t *rpg);
+
 // views/main/buttons.c
 void 		configure_main_play_button(rpg_t *);
 void 		configure_main_settings_button(rpg_t *);
@@ -155,7 +158,6 @@ void 		configure_select_male_button(rpg_t *);
 void 		configure_select_female_button(rpg_t *);
 void 		configure_select_return_button(rpg_t *);
 void 		configure_select_play_button(rpg_t *);
-
 
 /*
 ** Views gesture
