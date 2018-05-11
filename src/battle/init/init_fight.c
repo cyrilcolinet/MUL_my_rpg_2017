@@ -63,6 +63,7 @@ static fight_t *create_fight(void)
 	fight->pos.y = MAP_Y - 1;
 	create_map(fight);
 	fight->number_enemy = 5;
+	fight->curent = 0;
 	fight->enemy_turn = false;
 	return (fight);
 }

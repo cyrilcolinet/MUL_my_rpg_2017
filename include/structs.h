@@ -53,6 +53,13 @@ typedef enum state_e {
 	gameQuitWSave
 }	state_e;
 
+typedef enum direction_e {
+	up,
+	left,
+	down,
+	right
+}	direction_e;
+
 // Structs declarations
 typedef struct texture_t {
 	char 		*name;
@@ -134,6 +141,7 @@ typedef struct fight_t {
 	int 		number_enemy;
 	enemy_t 	**enemy;
 	bool 		enemy_turn;
+	int		curent;
 } fight_t;
 
 typedef struct hero_t {
@@ -170,6 +178,13 @@ typedef struct battle_t {
 } battle_t;
 // END BATTLE STRUCT
 
+typedef struct player_t {
+	void		**sprite;
+	sfIntRect	rect;
+	direction_e	direction;
+	sfVector2f	pos;
+}	player_t;
+
 typedef struct rpg_t {
 	sfRenderWindow	*win;
 	sfFont		*font;
@@ -183,6 +198,7 @@ typedef struct rpg_t {
 	button_t	*btn;
 	slider_t	*slides;
 	battle_t	*battle;
+	player_t	*player;
 }	rpg_t;
 
 # endif

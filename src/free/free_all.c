@@ -42,4 +42,5 @@ void free_all(rpg_t *rpg)
 	for (int i = 0; i < 4; i++)
 		sfTexture_destroy(rpg->battle->texture[i]);
 	free(rpg->battle->texture);
+	free(rpg->player);
 }

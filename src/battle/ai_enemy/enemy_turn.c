@@ -39,8 +39,9 @@ static void check_enemy_deplacement(rpg_t *rpg, battle_t *battle
 void enemy_turn(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos;
-
-	for (int i = 0; i < battle->fight[battle->id]->number_enemy; i++) {
+	int i = battle->fight[battle->id]->curent;
+	
+	if (i < battle->fight[battle->id]->number_enemy) {
 		pos.x = battle->fight[battle->id]->enemy[i]->pos.x;
 		pos.y = battle->fight[battle->id]->enemy[i]->pos.y;
 		if (battle->fight[battle->id]->enemy[i]->alive
@@ -53,5 +54,10 @@ void enemy_turn(rpg_t *rpg, battle_t *battle)
 			check_enemy_attack(rpg, battle, i, pos);
 		}
 	}
-	battle->fight[battle->id]->enemy_turn = false;
+	battle->fight[battle->id]->curent++;
+	i++;
+	if ( i == battle->fight[battle->id]->number_enemy) {
+		battle->fight[battle->id]->curent = 0;
+		battle->fight[battle->id]->enemy_turn = false;
+	}
 }

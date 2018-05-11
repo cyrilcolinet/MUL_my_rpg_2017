@@ -87,6 +87,7 @@ SRC_FILES		= 	main.c 							\
 				battle/display/fill_map_state.c				\
 				util_function/create_text.c				\
 				free/free_all.c						\
+				configurations/player_configuration.c			\
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
