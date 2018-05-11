@@ -26,7 +26,7 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 			next_state(rpg->player);
 			sfSprite_move(*rpg->player->sprite, movement[rpg->player->direction]);
 		}
-	} else {
+	} else if (!rpg->battle->run) {
 		state_reset(rpg->player);
 		rpg->player->time_0 = sfSeconds(0);
 	}
