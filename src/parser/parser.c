@@ -43,7 +43,7 @@ cf_assets_t **get_assets_creation(config_t *cf, config_setting_t *setting)
 		config_setting_lookup_string(asset, "file", &path);
 		loader[i]->path = ((char *)path);
 	}
-
+	config_destroy(cf);
 	return (loader);
 }
 
