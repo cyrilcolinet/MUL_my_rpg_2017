@@ -5,68 +5,67 @@
 ** rpg
 */
 
-#ifndef BATTLE
-#define BATTLE
+# ifndef RPG_BATTLE_H
+# define RPG_BATTLE_H
 
-#define MAP_X 225
-#define MAP_Y 180
-#define B_X 114
-#define B_Y 72
+# define MAP_X 		(225)
+# define MAP_Y 		(180)
+# define B_X 		(114)
+# define B_Y 		(72)
 
 # include "structs.h"
 
-void battle_management(rpg_t *rpg, battle_t *battle);
+void 		battle_management(rpg_t *, battle_t *);
 
 /* FREE */
-void free_all(rpg_t *rpg);
+void 		free_all(rpg_t *);
 
 /* DISPLAY */
-void display_map(rpg_t *rpg, battle_t *battle, int id);
-void display_interface(rpg_t *rpg, battle_t *battle);
-void display_enemy_stats(rpg_t *rpg, sfVector2f coord);
-void display_current_target(battle_t *battle);
-void fill_map_state(battle_t *battle, int id);
-void draw_all(rpg_t *rpg);
-void display_hero(rpg_t *rpg, battle_t *battle);
-void display_enemy(rpg_t *rpg, battle_t *battle);
+void 		display_map(rpg_t *, battle_t *, int);
+void 		display_interface(rpg_t *, battle_t *);
+void 		display_enemy_stats(rpg_t *, sfVector2f);
+void 		display_current_target(battle_t *);
+void 		fill_map_state(battle_t *, int);
+void 		draw_all(rpg_t *);
+void 		display_hero(rpg_t *, battle_t *);
+void 		display_enemy(rpg_t *, battle_t *);
 
 /* HERO */
-void check_deplacement(battle_t *battle);
-void check_attack(battle_t *battle);
-void hero_deplacement(rpg_t *rpg, battle_t *battle);
-void hero_attack(rpg_t *rpg, battle_t *battle);
-void set_color(battle_t *battle, int nb, sfColor color);
+void 		check_deplacement(battle_t *);
+void 		check_attack(battle_t *);
+void 		hero_deplacement(rpg_t *, battle_t *);
+void 		hero_attack(rpg_t *, battle_t *);
+void 		set_color(battle_t *, int, sfColor);
 
 /* AI_ENEMY */
-void enemy_turn(rpg_t *rpg, battle_t *battle);
-bool check_enemy_attack(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
-void enemy_attack_anim(rpg_t * rpg, battle_t *battle, sfVector2f pos);
-bool enemy_go_left(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
-bool enemy_go_right(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
-bool enemy_go_up(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
-bool enemy_go_down(rpg_t * rpg, battle_t *battle, int x, sfVector2f pos);
+void 		enemy_turn(rpg_t *, battle_t *);
+bool 		check_enemy_attack(rpg_t *, battle_t *, int, sfVector2f);
+void 		enemy_attack_anim(rpg_t *, battle_t *, sfVector2f);
+bool 		enemy_go_left(rpg_t *, battle_t *, int, sfVector2f);
+bool 		enemy_go_right(rpg_t *, battle_t *, int, sfVector2f);
+bool 		enemy_go_up(rpg_t *, battle_t *, int, sfVector2f);
+bool 		enemy_go_down(rpg_t *, battle_t *, int, sfVector2f);
 
 /* EVENT */
-void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event);
-void reset_map_state(battle_t *battle);
-void change_turn(battle_t *battle);
+void 		battle_event_management(rpg_t *, battle_t *, sfEvent *);
+void 		reset_map_state(battle_t *);
+void 		change_turn(battle_t *);
 
 /*EVENT->INTERACTION*/
-void interaction(battle_t *battle, sfEvent *event);
-void select_or_unselect(battle_t *battle, int i);
+void 		interaction(battle_t *, sfEvent *);
+void 		select_or_unselect(battle_t *, int);
 
 /*EVENT->DEPLACEMENT->HERO*/
-void deplacement(battle_t *battle);
+void 		deplacement(battle_t *);
 
 /*EVENT->ATTACK*/
-void attack(battle_t *battle);
+void 		attack(battle_t *);
 
 /* INIT */
-void configure_battle(rpg_t *rpg);
-void init_fight(battle_t *battle);
-void init_hero(battle_t *battle);
+void 		configure_battle(rpg_t *);
+void 		init_fight(battle_t *);
+void 		init_hero(battle_t *);
 
-sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color);
-char *my_itoa(int n);
+sfText 		*create_text(sfFont *, char *, sfVector2f , sfColor);
 
-#endif
+# endif

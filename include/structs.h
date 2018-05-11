@@ -108,57 +108,57 @@ typedef struct options_t {
 
 // BEGIN BATTLE STRUCTS
 typedef struct enemy {
-	sfIntRect rec;
-	sfSprite *form;
+	sfIntRect 	rec;
+	sfSprite 	*form;
 	sfRectangleShape *frame;
-	sfTexture *img;
-	sfVector2f pos;
-	bool alive;
-	bool played;
-	int hp;
-	int dmg;
-	int armor;
+	sfTexture 	*img;
+	sfVector2f 	pos;
+	bool 		alive;
+	bool 		played;
+	int 		hp;
+	int 		dmg;
+	int 		armor;
 } enemy_t;
 
 typedef struct fight {
 	sfRectangleShape **map;
-	sfVector2f pos;
-	int number_enemy;
-	enemy_t **enemy;
-	bool enemy_turn;
+	sfVector2f 	pos;
+	int 		number_enemy;
+	enemy_t 	**enemy;
+	bool 		enemy_turn;
 } fight_t;
 
 typedef struct hero {
-	sfIntRect rec;
-	sfSprite *form;
-	sfTexture *img;
-	sfVector2f pos;
-	sfVector2f new;
-	bool alive;
-	bool select;
-	bool played;
-	bool move;
-	bool attack;
-	int target;
-	int hp;
-	int dmg;
-	int armor;
+	sfIntRect 	rec;
+	sfSprite 	*form;
+	sfTexture 	*img;
+	sfVector2f 	pos;
+	sfVector2f 	new;
+	bool 		alive;
+	bool 		select;
+	bool 		played;
+	bool 		move;
+	bool 		attack;
+	int 		target;
+	int 		hp;
+	int 		dmg;
+	int 		armor;
 } hero_t;
 
 typedef struct battle {
-	bool run;
-	sfVector2f mouse;
-	int id;
-	int **map;
-	int number_fight;
-	hero_t *hero;
-	fight_t **fight;
+	bool 		run;
+	sfVector2f 	mouse;
+	int 		id;
+	int 		**map;
+	int 		number_fight;
+	hero_t 		*hero;
+	fight_t 	**fight;
 	sfRectangleShape *icone;
 	sfRectangleShape *background;
-	sfTexture **texture;
-	sfText *text;
-	sfTime time;
-	sfClock *clock;
+	sfTexture 	**texture;
+	sfText 		*text;
+	sfTime 		time;
+	sfClock 	*clock;
 } battle_t;
 // END BATTLE STRUCT
 
