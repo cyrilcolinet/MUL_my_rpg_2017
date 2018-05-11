@@ -18,7 +18,7 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
 		rpg->battle->run = true;
-	if (event->type == sfEvtKeyPressed && (event->key.code >= sfKeyLeft &&
+	if (!rpg->battle->run && event->type == sfEvtKeyPressed && (event->key.code >= sfKeyLeft &&
 		event->key.code <= sfKeyDown)) {
 		update_direction(rpg->player, event->key.code - sfKeyLeft);
 		if (sfTime_asMilliseconds(sfClock_getElapsedTime(rpg->clock)) - sfTime_asMilliseconds(rpg->player->time_0) > 50) {
