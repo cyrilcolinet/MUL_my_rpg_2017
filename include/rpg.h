@@ -11,6 +11,7 @@
 # include "my.h"
 # include "structs.h"
 # include "battle.h"
+# include "libconfig.h"
 
 // Debug global variable
 bool 		debug;
@@ -62,7 +63,7 @@ int 		load_sounds(rpg_t *);
 // assets_manager.c
 int 		new_asset(rpg_t *, texture_t);
 int		create_texture(rpg_t *, char *, char *);
-void 		configure_assets(rpg_t *);
+int 		configure_assets(rpg_t *);
 int 		load_assets(rpg_t *);
 
 // assets_loader_manager.c
@@ -214,6 +215,17 @@ rpg_t 		*configure_struct(void);
 
 // windows_tils.c
 void 		set_favicon(rpg_t *);
+
+
+/*
+** Parse utilities
+** Parse config file
+*/
+
+// parser.c
+config_t 	*parse_file(char *);
+cf_assets_t 	**get_assets_creation(config_t *, config_setting_t *);
+cf_assets_t 	**parse_assets(void);
 
 
 # endif

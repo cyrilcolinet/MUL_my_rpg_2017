@@ -87,6 +87,11 @@ typedef struct slider_t {
 	struct slider_t *next;
 } 	slider_t;
 
+typedef struct cf_assets_t {
+	char 		*name;
+	char 		*path;
+}	cf_assets_t;
+
 typedef struct assets_t {
 	char 		*name;
 	char 		*file;
