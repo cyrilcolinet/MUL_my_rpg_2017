@@ -38,15 +38,15 @@ void enemy_attack_anim(rpg_t *rpg, battle_t *battle,
 {
 	battle->fight[battle->id]->enemy[a]->rec.width = 128;
 	battle->fight[battle->id]->enemy[a]->rec.height = 128;
-	for (int i = 0; i < 11;) {
+	for (int i = 0; i < 10;) {
 		battle->time = sfTime_Zero;
 		sfClock_restart(battle->clock);
 		while (sfTime_asSeconds(battle->time)
-		< sfTime_asSeconds(sfSeconds(0.08)))
+		< sfTime_asSeconds(sfSeconds(0.1)))
 			battle->time = sfClock_getElapsedTime(battle->clock);
 		draw_anim(rpg, battle, a);
 		i++;
-		if (i == 6)
+		if (i == 5)
 			battle->fight[battle->id]->enemy[a]->rec.left = 0;
 	}
 	pos.x += 32;

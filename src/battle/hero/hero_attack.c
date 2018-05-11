@@ -26,16 +26,16 @@ static void attack_anim(rpg_t *rpg, battle_t *battle)
 
 	battle->hero->rec.width = 128;
 	battle->hero->rec.height = 128;
-	for (int i = 0; i < 11;) {
+	for (int i = 0; i < 10;) {
 		sfClock_restart(battle->clock);
 		battle->time = sfTime_Zero;
 		while (sfTime_asSeconds(battle->time)
-		< sfTime_asSeconds(sfSeconds(0.08)))
+		< sfTime_asSeconds(sfSeconds(0.1)))
 			battle->time = sfClock_getElapsedTime(
 				battle->clock);
 		draw_anim(rpg, battle);
 		i++;
-		if (i == 6)
+		if (i == 5)
 			battle->hero->rec.left = 0;
 	}
 	pos.x += 32;
@@ -88,5 +88,6 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 		set_attack_orientation(battle, pos);
 		attack_anim(rpg, battle);
 		do_damage_attack(battle, i);
+		reset_map_state(battle);
 	}
 }
