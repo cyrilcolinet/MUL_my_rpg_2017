@@ -94,11 +94,6 @@ typedef struct slider_t {
 	struct slider_t *next;
 } 	slider_t;
 
-typedef struct cf_assets_t {
-	char 		*name;
-	char 		*path;
-}	cf_assets_t;
-
 typedef struct assets_t {
 	char 		*name;
 	char 		*file;
@@ -200,5 +195,11 @@ typedef struct rpg_t {
 	battle_t	*battle;
 	player_t	*player;
 }	rpg_t;
+
+// Configuration striucts
+typedef struct conf_ress_t {
+	char 		*name;
+	char 		*path;
+}	conf_ress_t;
 
 # endif

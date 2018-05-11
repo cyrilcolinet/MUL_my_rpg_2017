@@ -225,9 +225,7 @@ void 		set_favicon(rpg_t *);
 */
 
 // parser.c
-config_t 	*parse_file(char *);
-cf_assets_t 	**get_assets_creation(config_t *, config_setting_t *);
-cf_assets_t 	**parse_assets(void);
+config_setting_t *parse_file(char *, char *);
 
 
 # endif

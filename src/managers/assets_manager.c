@@ -61,23 +61,24 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 
 int configure_assets(rpg_t *rpg)
 {
-	cf_assets_t **ass = parse_assets();
+	config_setting_t *set = parse_file("assets.cfg", "textures");
+	config_setting_t *asset = NULL;
+	const char *name = NULL;
+	const char *file = NULL;
+	int count = 0;
 
-	if (ass == NULL)
+	if (set == NULL)
 		return (-1);
-	for (int i = 0; ass[i]; i++) {
-		if (ass[i]->name && ass[i]->path) {
-			info("Loading asset named ");
-			if (debug) {
-				my_putstr(ass[i]->name);
-				my_putstr(" (");
-				my_putstr(ass[i]->path);
-				my_putstr(").\n");
-			}
-			create_texture(rpg, ass[i]->name, ass[i]->path);
-		} else {
-			warning("Unable to find a texture.\n");
+
+	count = config_setting_length(set);
+	for (int key = 0; count > 0 && key < count; key++) {
+		asset = config_setting_get_elem(set, key);
+		if (asset != NULL) {
+			config_setting_lookup_string(asset, "name", &name);
+			config_setting_lookup_string(asset, "file", &file);
 		}
+		if (file != NULL && name != NULL)
+			create_texture(rpg, ((char *)name), ((char *)file));
 	}
 	return (0);
 }

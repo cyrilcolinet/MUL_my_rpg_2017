@@ -60,7 +60,24 @@ void set_volume(rpg_t *rpg, float vol, bool music)
 
 int load_sounds(rpg_t *rpg)
 {
-	new_sound(rpg, "eff_hover1", "assets/sounds/hover1.ogg");
-	new_sound(rpg, "main", "assets/sounds/main.ogg");
+	config_setting_t *set = parse_file("assets.cfg", "sounds");
+	config_setting_t *sound = NULL;
+	const char *name = NULL;
+	const char *file = NULL;
+	int count = 0;
+
+	if (set == NULL)
+		return (-1);
+
+	count = config_setting_length(set);
+	for (int key = 0; count > 0 && key < count; key++) {
+		sound = config_setting_get_elem(set, key);
+		if (sound != NULL) {
+			config_setting_lookup_string(sound, "name", &name);
+			config_setting_lookup_string(sound, "file", &file);
+		}
+		if (file != NULL && name != NULL)
+			new_sound(rpg, ((char *)name), ((char *)file));
+	}
 	return (0);
 }

@@ -10,7 +10,7 @@
 void info(char *msg)
 {
 	if (debug) {
-		my_putstr(" [INF]  ");
+		my_putstr(" [INFO] ");
 		my_putstr(msg);
 		my_putchar('\n');
 	}
