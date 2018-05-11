@@ -32,8 +32,11 @@ struct 	button_t;
 struct 	slider_t;
 struct 	assets_t;
 struct 	options_t;
+struct	enemy_t;
+struct	fight_t;
+struct 	hero_t;
+struct 	battle_t;
 struct 	rpg_t;
-struct	battle;
 
 // Enumerations declarations
 typedef enum state_e {
@@ -107,7 +110,7 @@ typedef struct options_t {
 } 	options_t;
 
 // BEGIN BATTLE STRUCTS
-typedef struct enemy {
+typedef struct enemy_t {
 	sfIntRect 	rec;
 	sfSprite 	*form;
 	sfRectangleShape *frame;
@@ -120,7 +123,7 @@ typedef struct enemy {
 	int 		armor;
 } enemy_t;
 
-typedef struct fight {
+typedef struct fight_t {
 	sfRectangleShape **map;
 	sfVector2f 	pos;
 	int 		number_enemy;
@@ -128,7 +131,7 @@ typedef struct fight {
 	bool 		enemy_turn;
 } fight_t;
 
-typedef struct hero {
+typedef struct hero_t {
 	sfIntRect 	rec;
 	sfSprite 	*form;
 	sfTexture 	*img;
@@ -145,7 +148,7 @@ typedef struct hero {
 	int 		armor;
 } hero_t;
 
-typedef struct battle {
+typedef struct battle_t {
 	bool 		run;
 	sfVector2f 	mouse;
 	int 		id;
