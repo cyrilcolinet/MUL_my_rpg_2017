@@ -13,6 +13,8 @@ static void unselect_all(battle_t *battle, int i)
 	sfRectangleShape_setFillColor
 		(battle->fight[battle->id]->map[i], sfBlack);
 	battle->hero->select = false;
+	for (int a = 0; a < 4; a++)
+		battle->hero->spell[a]->select = false;
 	reset_map_state(battle);
 }
 

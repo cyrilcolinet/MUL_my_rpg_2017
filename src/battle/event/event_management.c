@@ -55,10 +55,22 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 		}
 		if (event->key.code == sfKeyP) {
 			sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);
+			battle->hero->spell[1]->cast = false;
+			battle->hero->spell[1]->select = false;
+			battle->hero->spell[1]->unlock = false;
+			battle->hero->spell[2]->cast = false;
+			battle->hero->spell[2]->select = false;
+			battle->hero->spell[2]->unlock = false;
 			battle->hero->sword = false;
 		}
 		if (event->key.code == sfKeyO) {
 			sfSprite_setTexture(battle->hero->form, battle->hero->img, false);
+			battle->hero->spell[1]->cast = false;
+			battle->hero->spell[1]->select = false;
+			battle->hero->spell[1]->unlock = false;
+			battle->hero->spell[2]->cast = false;
+			battle->hero->spell[2]->select = false;
+			battle->hero->spell[2]->unlock = false;
 			battle->hero->sword = true;
 		}
 		if (event->key.code == sfKeyA) {

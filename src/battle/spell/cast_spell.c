@@ -13,13 +13,7 @@ static void cast_simple_case_spell(rpg_t *rpg, battle_t *battle, int a)
 	sfVector2f size;
 
 	if (!battle->hero->spell[a]->cast) {
-		for (int i = 0; i < 120; i++) {
-			pos = sfRectangleShape_getPosition(
-				battle->fight[battle->id]->map[i]);
-			size = sfRectangleShape_getSize(
-				battle->fight[battle->id]->map[i]);
-			display_simple_case(battle, pos, size, i);
-		}
+		display_simple_case(battle, pos, size);
 	} else {
 		if (a == 0)
 			cast_heal(rpg, battle);
