@@ -10,8 +10,6 @@
 void play_view(rpg_t *rpg)
 {
 	sfSprite *sp = get_sprite(rpg, "map1");
-	sfTransform transform = {{0.75, 0, 0, 0, 0.75, 0, 0, 0, 1}};
-	sfRenderStates state = {sfBlendAlpha, transform, NULL, NULL};
 
 	if (sp == NULL)
 		return;
@@ -20,7 +18,8 @@ void play_view(rpg_t *rpg)
 		battle_management(rpg, rpg->battle);
 	else if (!rpg->battle->run) {
 		sfRenderWindow_drawSprite(rpg->win, sp, NULL);
-		sfRenderWindow_drawSprite(rpg->win, (sfSprite *)*rpg->player->sprite, &state);
+		sfRenderWindow_drawSprite(rpg->win, (sfSprite *)*rpg->player->
+			sprite, rpg->player->render_state);
 		sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek");
 	}
 }

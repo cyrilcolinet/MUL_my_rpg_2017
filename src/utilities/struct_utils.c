@@ -20,7 +20,7 @@ void configure_textures(rpg_t *rpg, battle_t *btl)
 		btl->texture[0] = get_texture(rpg, "hp");
 		btl->texture[1] = get_texture(rpg, "dmg");
 		btl->texture[2] = get_texture(rpg, "armor");
-		btl->texture[3] = get_texture(rpg, "fight");
+		btl->texture[3] = get_texture(rpg, "fight3");
 	}
 	btl->background = sfRectangleShape_create();
 	pos.x = pos.y = 0;
