@@ -70,6 +70,9 @@ void 		select_or_unselect(battle_t *, int);
 /*EVENT->DEPLACEMENT->HERO*/
 void 		deplacement(battle_t *);
 
+/*EVENT->SPELL*/
+void		cast_spell_attack(battle_t *);
+
 /*EVENT->ATTACK*/
 void 		attack(battle_t *);
 

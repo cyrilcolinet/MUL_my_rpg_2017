@@ -66,6 +66,7 @@ SRC_FILES		= 	main.c 							\
 				battle/event/change_turn.c				\
 				battle/event/reset_map_state.c				\
 				battle/event/deplacement/deplacement.c			\
+				battle/event/spell/cast_spell.c				\
 				battle/event/attack/attack.c				\
 				battle/event/select_or_unselect.c			\
 				battle/hero/check_attack.c				\

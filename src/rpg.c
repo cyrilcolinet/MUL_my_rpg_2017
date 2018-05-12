@@ -34,7 +34,13 @@ int rpg_game(rpg_t *rpg)
 	configure_player(rpg);
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
+
 	init_spell(rpg->battle);
+	rpg->battle->hero->spell[0]->form = get_texture(rpg, "heal");
+	rpg->battle->hero->spell[1]->form = get_texture(rpg, "fire");
+	rpg->battle->hero->spell[2]->form = get_texture(rpg, "ice");
+	rpg->battle->hero->spell[3]->form = get_texture(rpg, "storm");
+
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
