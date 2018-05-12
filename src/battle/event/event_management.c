@@ -38,39 +38,21 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			battle->id--;
 		}
 		if (event->key.code == sfKeyT) {
-			battle->hero->spell[1]->cast = false;
-			battle->hero->spell[1]->select = true;
-			battle->hero->spell[1]->unlock = true;
-			battle->hero->spell[2]->cast = false;
-			battle->hero->spell[2]->select = false;
-			battle->hero->spell[2]->unlock = false;
+			battle->hero->spell_id = 1;
+			battle->hero->spell[battle->hero->spell_id]->select = true;
 		}
 		if (event->key.code == sfKeyY) {
-			battle->hero->spell[1]->cast = false;
-			battle->hero->spell[1]->select = false;
-			battle->hero->spell[1]->unlock = false;
-			battle->hero->spell[2]->cast = false;
-			battle->hero->spell[2]->select = true;
-			battle->hero->spell[2]->unlock = true;
+			battle->hero->spell_id = 2;
+			battle->hero->spell[battle->hero->spell_id]->select = true;
 		}
 		if (event->key.code == sfKeyP) {
 			sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);
-			battle->hero->spell[1]->cast = false;
-			battle->hero->spell[1]->select = false;
-			battle->hero->spell[1]->unlock = false;
-			battle->hero->spell[2]->cast = false;
-			battle->hero->spell[2]->select = false;
-			battle->hero->spell[2]->unlock = false;
+			battle->hero->spell_id = -1;
 			battle->hero->sword = false;
 		}
 		if (event->key.code == sfKeyO) {
 			sfSprite_setTexture(battle->hero->form, battle->hero->img, false);
-			battle->hero->spell[1]->cast = false;
-			battle->hero->spell[1]->select = false;
-			battle->hero->spell[1]->unlock = false;
-			battle->hero->spell[2]->cast = false;
-			battle->hero->spell[2]->select = false;
-			battle->hero->spell[2]->unlock = false;
+			battle->hero->spell_id = -1;
 			battle->hero->sword = true;
 		}
 		if (event->key.code == sfKeyA) {
