@@ -42,6 +42,8 @@ void 		set_color(battle_t *, int, sfColor);
 /* SPELL */
 
 void		cast_spell(rpg_t *, battle_t *, int);
+void		display_simple_case(battle_t *, sfVector2f, sfVector2f, int);
+void		display_double_case(battle_t *, sfVector2f);
 
 /* AI_ENEMY */
 void 		enemy_turn(rpg_t *, battle_t *);

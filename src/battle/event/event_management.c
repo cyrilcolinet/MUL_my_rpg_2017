@@ -38,7 +38,7 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			battle->id--;
 		}
 		if (event->key.code == sfKeyT) {
-			if (battle->hero->spell_id < 3) {
+			if (battle->hero->spell_id <= 3) {
 				battle->hero->spell[battle->hero->spell_id]->cast = false;
 				battle->hero->spell[battle->hero->spell_id]->select = false;
 				battle->hero->spell[battle->hero->spell_id]->unlock = false;
@@ -49,7 +49,7 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			}
 		}
 		if (event->key.code == sfKeyY) {
-			if (battle->hero->spell_id > 1) {
+			if (battle->hero->spell_id >= 1) {
 				battle->hero->spell[battle->hero->spell_id]->cast = false;
 				battle->hero->spell[battle->hero->spell_id]->select = false;
 				battle->hero->spell[battle->hero->spell_id]->unlock = false;
