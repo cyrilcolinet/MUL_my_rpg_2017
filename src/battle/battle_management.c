@@ -18,12 +18,9 @@ void draw_all(rpg_t *rpg)
 
 static bool spell_select(rpg_t *rpg, battle_t *battle)
 {
-	for (int i = 0; i < 4; i++) {
-		if (battle->hero->spell[i]->unlock
-		&& battle->hero->spell[i]->select) {
-			cast_spell(rpg, battle, i);
-			return (true);
-		}
+	if (battle->hero->spell_id != -1) {
+		cast_spell(rpg, battle, battle->hero->spell_id);
+		return (true);
 	}
 	return (false);
 }

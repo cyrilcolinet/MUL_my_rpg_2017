@@ -10,8 +10,12 @@
 static void right_click(battle_t *battle)
 {
 	if (!battle->fight[battle->id]->enemy_turn && battle->hero->select) {
-		deplacement(battle);
-		attack(battle);
+		if (battle->hero->spell_id != -1)
+			cast_spell_attack(battle);
+		else {
+			deplacement(battle);
+			attack(battle);
+		}
 	}
 }
 
@@ -30,9 +34,6 @@ static void left_click(battle_t *battle)
 
 void interaction(battle_t *battle, sfEvent *event)
 {
-	if (event->type == sfEvtKeyPressed) {
-	}
-
 	if (event->type == sfEvtMouseButtonPressed) {
 		if (event->mouseButton.button == sfMouseLeft)
 			left_click(battle);

@@ -147,7 +147,7 @@ typedef struct spell_t {
 	sfSprite	*form;
 	sfSprite	*icone;
 	sfIntRect	rec;
-	char		*name;
+	sfVector2f	pos;
 	bool		unlock;
 	bool		select;
 	bool		cast;

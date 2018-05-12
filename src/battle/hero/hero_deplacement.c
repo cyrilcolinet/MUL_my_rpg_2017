@@ -24,6 +24,7 @@ static void anim(rpg_t *rpg, battle_t *battle, int a, int b)
 {
 	sfVector2f pos = sfSprite_getPosition(battle->hero->form);
 
+	battle->hero->rec.left = 0;
 	for (int i = 0; i < 9;) {
 		sfClock_restart(battle->clock);
 		battle->time = sfTime_Zero;
@@ -37,7 +38,6 @@ static void anim(rpg_t *rpg, battle_t *battle, int a, int b)
 		draw_anim(rpg, battle);
 		i++;
 	}
-	sfRenderWindow_clear(rpg->win, sfBlack);
 }
 
 static bool go_side(rpg_t *rpg, battle_t *battle)

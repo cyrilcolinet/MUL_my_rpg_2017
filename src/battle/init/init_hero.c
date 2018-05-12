@@ -9,7 +9,7 @@
 
 void init_spell(battle_t *battle)
 {
-	battle->hero->spell_id = 0;
+	battle->hero->spell_id = -1;
 	battle->hero->spell = malloc(sizeof(spell_t *) * 4);
 	for (int i = 0; i < 4; i++) {
 		battle->hero->spell[i] = malloc(sizeof(spell_t));
@@ -22,7 +22,13 @@ void init_spell(battle_t *battle)
 		battle->hero->spell[i]->unlock = false;
 		battle->hero->spell[i]->cast = false;
 		battle->hero->spell[i]->select = false;
+		battle->hero->spell[i]->pos.x = 0;
+		battle->hero->spell[i]->pos.y = 0;
 	}
+	battle->hero->spirte[0]->form = get_texture(rpg, "heal");
+	battle->hero->spirte[1]->form = get_texture(rpg, "fire");
+	battle->hero->spirte[2]->form = get_texture(rpg, "ice");
+	battle->hero->spirte[3]->form = get_texture(rpg, "storm");
 }
 
 void init_hero(battle_t *battle)
