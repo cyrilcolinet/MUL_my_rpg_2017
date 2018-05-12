@@ -7,6 +7,24 @@
 
 #include "rpg.h"
 
+static void init_spell(battle_t *battle)
+{
+	battle->hero->spell_id = 0;
+	battle->hero->spell = malloc(sizeof(spell_t *) * 4);
+	for (int i = 0; i < 4; i++) {
+		battle->hero->spell[i] = malloc(sizeof(spell_t));
+		battle->hero->spell[i]->form = sfSprite_create();
+		battle->hero->spell[i]->icone = sfSprite_create();
+		battle->hero->spell[i]->rec.top = 0;
+		battle->hero->spell[i]->rec.left = 0;
+		battle->hero->spell[i]->rec.width = 128;
+		battle->hero->spell[i]->rec.height = 128;
+		battle->hero->spell[i]->unlock = false;
+		battle->hero->spell[i]->cast = false;
+		battle->hero->spell[i]->select = false;
+	}
+}
+
 void init_hero(battle_t *battle)
 {
 	sfVector2f scale = {1.25, 1.25};
@@ -35,4 +53,5 @@ void init_hero(battle_t *battle)
 	sfSprite_setTexture(battle->hero->form, battle->hero->img, true);
 	sfSprite_setTextureRect(battle->hero->form, battle->hero->rec);
 	sfSprite_setScale(battle->hero->form, scale);
+	init_spell(battle);
 }

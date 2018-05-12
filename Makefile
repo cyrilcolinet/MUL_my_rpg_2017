@@ -71,6 +71,7 @@ SRC_FILES		= 	main.c 							\
 				battle/hero/hero_set_attack.c				\
 				battle/hero/hero_deplacement.c				\
 				battle/hero/hero_set_deplacement_color.c		\
+				battle/spell/cast_spell.c				\
 				battle/ai_enemy/enemy_turn.c				\
 				battle/ai_enemy/enemy_attack.c				\
 				battle/ai_enemy/enemy_attack_anim.c			\

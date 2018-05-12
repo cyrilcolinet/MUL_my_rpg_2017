@@ -39,6 +39,10 @@ void 		hero_attack(rpg_t *, battle_t *);
 void 		set_attack_orientation(battle_t *, sfVector2f);
 void 		set_color(battle_t *, int, sfColor);
 
+/* SPELL */
+
+void		cast_spell(rpg_t *, battle_t *, int);
+
 /* AI_ENEMY */
 void 		enemy_turn(rpg_t *, battle_t *);
 bool 		check_enemy_attack(rpg_t *, battle_t *, int, sfVector2f);

@@ -141,7 +141,18 @@ typedef struct fight_t {
 	int		curent;
 } fight_t;
 
+typedef struct spell_t {
+	sfSprite	*form;
+	sfSprite	*icone;
+	sfIntRect	rec;
+	char		*name;
+	bool		unlock;
+	bool		select;
+	bool		cast;
+} spell_t;
+
 typedef struct hero_t {
+	spell_t		**spell;
 	sfIntRect 	rec;
 	sfSprite 	*form;
 	sfTexture 	*img;
@@ -153,6 +164,7 @@ typedef struct hero_t {
 	bool 		move;
 	bool 		attack;
 	bool		sword;
+	int		spell_id;
 	int 		target;
 	int 		hp;
 	int 		dmg;
@@ -175,6 +187,9 @@ typedef struct battle_t {
 	sfClock 	*clock;
 } battle_t;
 // END BATTLE STRUCT
+
+typedef struct inventory_t {
+} inventory_t;
 
 typedef struct player_t {
 	void		**sprite;
