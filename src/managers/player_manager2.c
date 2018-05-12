@@ -10,7 +10,7 @@
 sfBool animate_player(player_t *player, sfClock *clock)
 {
 	return sfTime_asMilliseconds(sfClock_getElapsedTime(clock)) -
-		sfTime_asMilliseconds(player->time_0) > 50 ? sfTrue : sfFalse;
+		sfTime_asMilliseconds(player->time_0) > 35 ? sfTrue : sfFalse;
 }
 
 //TODO replace int **layer by map_t * with the layer in it (when done replace layer by map->layer)

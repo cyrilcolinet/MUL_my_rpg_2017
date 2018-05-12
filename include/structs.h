@@ -146,6 +146,7 @@ typedef struct fight_t {
 typedef struct spell_t {
 	sfSprite	*form;
 	sfSprite	*icone;
+	sfTexture	*texture;
 	sfIntRect	rec;
 	sfVector2f	pos;
 	bool		unlock;

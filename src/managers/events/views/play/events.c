@@ -13,12 +13,13 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 		cb_goto_pause_view(rpg, NULL);
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
-	else if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
-		rpg->battle->run = true;
-	if (!rpg->battle->run && event->type == sfEvtKeyPressed &&
-		(event->key.code >= sfKeyLeft && event->key.code <=
-		sfKeyDown))
-		player_displacement(rpg, event->key.code - sfKeyLeft);
-	else if (!rpg->battle->run)
-		state_reset(rpg->player);
+	else if (!rpg->battle->run) {
+		if (!rpg->battle->run && event->type == sfEvtKeyPressed &&
+		(event->key.code >= sfKeyLeft && event->key.code <= sfKeyDown))
+			player_displacement(rpg, event->key.code - sfKeyLeft);
+		else
+			state_reset(rpg->player);
+		if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
+			rpg->battle->run = true;
+	}
 }
