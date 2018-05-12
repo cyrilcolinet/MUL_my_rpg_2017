@@ -46,6 +46,7 @@ bool configure_internal_battle(rpg_t *rpg)
 	if (rpg->font == NULL)
 		return (false);
 	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
+	rpg->battle->run = false;
 	if (configure_battle_fights(rpg) != 0)
 		return (false);
 	configure_textures(rpg, rpg->battle);

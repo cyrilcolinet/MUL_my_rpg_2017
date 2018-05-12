@@ -98,6 +98,5 @@ int load_assets(rpg_t *rpg)
 		return (84);
 	if (configure_battle_characters(rpg) != 0)
 		return (84);
-
 	return (0);
 }

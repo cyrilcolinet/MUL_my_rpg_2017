@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void init_spell(battle_t *battle)
+void init_spell(battle_t *battle)
 {
 	battle->hero->spell_id = 0;
 	battle->hero->spell = malloc(sizeof(spell_t *) * 4);

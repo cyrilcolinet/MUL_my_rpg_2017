@@ -43,9 +43,9 @@ void battle_management(rpg_t *rpg, battle_t *battle)
 			check_attack(rpg->battle);
 			hero_attack(rpg, rpg->battle);
 		}
-		fill_map_state(rpg->battle, rpg->battle->id);
-		draw_all(rpg);
-		display_hero(rpg, rpg->battle);
-		display_enemy(rpg, rpg->battle);
 	}
+	fill_map_state(rpg->battle, rpg->battle->id);
+	draw_all(rpg);
+	display_hero(rpg, rpg->battle);
+	display_enemy(rpg, rpg->battle);
 }
