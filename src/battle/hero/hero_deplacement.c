@@ -93,8 +93,10 @@ void hero_deplacement(rpg_t *rpg, battle_t *battle)
 
 	while (battle->hero->pos.x != battle->hero->new.x ||
 	battle->hero->pos.y != battle->hero->new.y) {
-		if ((a >= b && (go_side(rpg, battle) || go_up_down(rpg, battle)))
-		|| (a < b && (go_up_down(rpg, battle) || go_side(rpg, battle)))) {
+		if ((a >= b && (go_side(rpg, battle)
+		|| go_up_down(rpg, battle)))
+		|| (a < b && (go_up_down(rpg, battle)
+		|| go_side(rpg, battle)))) {
 			battle->hero->rec.left = 0;
 			sfSprite_setTextureRect(
 			battle->hero->form, battle->hero->rec);

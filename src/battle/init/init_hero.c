@@ -21,7 +21,6 @@ void init_spell(rpg_t *rpg, battle_t *battle)
 		battle->hero->spell[i]->rec.height = 128;
 		battle->hero->spell[i]->unlock = false;
 		battle->hero->spell[i]->cast = false;
-		battle->hero->spell[i]->select = false;
 		battle->hero->spell[i]->pos.x = 0;
 		battle->hero->spell[i]->pos.y = 0;
 	}
@@ -33,6 +32,11 @@ void init_spell(rpg_t *rpg, battle_t *battle)
 	sfSprite_setTexture(battle->hero->spell[1]->form, battle->hero->spell[1]->texture, sfTrue);
 	sfSprite_setTexture(battle->hero->spell[2]->form, battle->hero->spell[2]->texture, sfTrue);
 	sfSprite_setTexture(battle->hero->spell[3]->form, battle->hero->spell[3]->texture, sfTrue);
+	sfSprite_setTextureRect(battle->hero->spell[0]->form, battle->hero->spell[0]->rec);
+	sfSprite_setTextureRect(battle->hero->spell[1]->form, battle->hero->spell[1]->rec);
+	sfSprite_setTextureRect(battle->hero->spell[2]->form, battle->hero->spell[2]->rec);
+	sfSprite_setTextureRect(battle->hero->spell[3]->form, battle->hero->spell[3]->rec);
+
 }
 
 void init_hero(battle_t *battle)
