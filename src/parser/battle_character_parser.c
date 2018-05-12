@@ -53,11 +53,12 @@ void configure_battle_spell(rpg_t *rpg, config_setting_t *set, int id)
 	config_setting_lookup_string(set, "name", ((const char **)&name));
 	config_setting_lookup_bool(set, "unlock", ((int *)&(*spell)->unlock));
 	config_setting_lookup_bool(set, "cast", ((int *)&(*spell)->cast));
+	configure_spell_default(spell);
 
 	(*spell)->texture = get_texture(rpg, name);
-	(*spell)->icone = sfSprite_create();
-	sfSprite_setTexture((*spell)->icone, (*spell)->texture, sfTrue);
-	configure_spell_default(spell);
+	(*spell)->form = sfSprite_create();
+	sfSprite_setTexture((*spell)->form, (*spell)->texture, sfTrue);
+	sfSprite_setTextureRect((*spell)->form, (*spell)->rec);
 }
 
 void parse_spell_values(rpg_t *rpg, config_setting_t *set)
@@ -100,6 +101,7 @@ int configure_battle_characters(rpg_t *rpg)
 	config_setting_lookup_int(set, "heal", &rpg->battle->hero->hp);
 	config_setting_lookup_int(set, "damage", &rpg->battle->hero->dmg);
 	config_setting_lookup_int(set, "armor", &rpg->battle->hero->armor);
+	rpg->battle->hero->spell_id = -1;
 	parse_spell_values(rpg, set);
 
 	return (configure_all_default(rpg, &rpg->battle->hero, texture));
