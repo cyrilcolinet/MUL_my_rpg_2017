@@ -14,9 +14,12 @@ int configure_all_default(rpg_t *rpg, hero_t **hero, char *texture)
 	sfVector2f pos = { 0, 5 };
 
 	(*hero)->pos = pos;
-	(*hero)->alive = (*hero)->sword = true;
-	(*hero)->played = (*hero)->select = false;
-	(*hero)->move = (*hero)->attack = false;
+	(*hero)->alive = true;
+	(*hero)->sword = true;
+	(*hero)->played = false;
+	(*hero)->select = false;
+	(*hero)->move = false;
+	(*hero)->attack = false;
 	(*hero)->target = -1;
 	(*hero)->form = sfSprite_create();
 	(*hero)->img = get_texture(rpg, texture);

@@ -27,7 +27,8 @@ void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy, int fight, int id)
 	sfVector2f scale = { 1.25, 1.25 };
 
 	(*enemy)->rec.left = 0;
-	(*enemy)->rec.width = (*enemy)->rec.height = 64;
+	(*enemy)->rec.width = 64;
+	(*enemy)->rec.height = 64;
 	(*enemy)->img = get_texture(rpg, (*enemy)->stuff);
 	if ((*enemy)->img == NULL)
 		return;
@@ -64,6 +65,7 @@ void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 	enemy->pos.y = posy;
 	enemy->played = false;
 	enemy->alive = true;
+	enemy->sword = false;
 	configure_enemy_texture(rpg, &enemy, fight, id);
 }
 
