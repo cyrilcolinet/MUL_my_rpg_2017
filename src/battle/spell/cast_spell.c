@@ -51,7 +51,6 @@ static void cast_double_case_spell(battle_t *battle, int a)
 
 void cast_spell(rpg_t *rpg, battle_t *battle, int a)
 {
-	printf ("SPELL ID %d\n", a);
 	if (a == 0 || a == 1)
 		cast_simple_case_spell(battle, a);
 	else if ( a == 2 || a == 3)
