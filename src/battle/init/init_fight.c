@@ -135,12 +135,24 @@ void init_fight(battle_t *battle)
 	}
 }*/
 
-void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy)
+bool configure_fight(fight_t **fight)
+{
+	(*fight)->pos.x = MAP_X - 1;
+	(*fight)->pos.y = MAP_Y - 1;
+	(*fight)->curent = 0;
+	(*fight)->enemy_turn = false;
+	(*fight)->map = create_battle_map(&(*fight)->pos);
+
+	if ((*fight)->map == NULL)
+		return (false);
+	return (true);
+}
+
+void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy, int fight, int id)
 {
 	sfVector2f size = { 60, 60 };
 	sfVector2f scale = { 1.25, 1.25 };
 
-	(*enemy)->rec.top = 64;
 	(*enemy)->rec.left = 0;
 	(*enemy)->rec.width = 64;
 	(*enemy)->rec.height = 64;
@@ -157,43 +169,31 @@ void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy)
 	sfRectangleShape_setFillColor((*enemy)->frame, sfRed);
 	sfRectangleShape_setOutlineColor((*enemy)->frame, sfBlack);
 	sfRectangleShape_setOutlineThickness((*enemy)->frame, 3);
-}
-
-bool configure_fight(fight_t **fight)
-{
-	(*fight)->pos.x = MAP_X - 1;
-	(*fight)->pos.y = MAP_Y - 1;
-	(*fight)->curent = 0;
-	(*fight)->enemy_turn = false;
-	(*fight)->map = create_battle_map(&(*fight)->pos);
-
-	if ((*fight)->map == NULL)
-		return (false);
-	return (true);
+	rpg->battle->fight[fight]->enemy[id] = *enemy;
 }
 
 void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 {
 	enemy_t *enemy = malloc(sizeof(enemy_t));
-	config_setting_t *set_pos = NULL;
+	double posx = 0;
 
 	if (enemy == NULL)
 		return;
+	config_setting_lookup_float(set, "pos_x", &posx);
 	config_setting_lookup_string(set, "texture", \
 	((const char **)&enemy->stuff));
 	config_setting_lookup_int(set, "damage", &enemy->dmg);
 	config_setting_lookup_int(set, "armor", &enemy->armor);
 	config_setting_lookup_bool(set, "sword", ((int *)&enemy->sword));
 	config_setting_lookup_int(set, "heal", &enemy->hp);
+	//config_setting_lookup_int(set, "pos_y", &enemy->pos.y);
+	config_setting_lookup_int(set, "rec_top", &enemy->rec.top);
+	printf("%f\n", enemy->pos.y);
+	printf("%f\n", posx);
+	printf("%d\n\n", enemy->rec.top);
 	enemy->played = false;
 	enemy->alive = true;
-	configure_enemy_texture(rpg, &rpg->battle->fight[fight]->enemy[id]);
-	set_pos = config_setting_lookup(set, "pos");
-	if (set_pos == NULL)
-		return;
-	config_setting_lookup_float(set, "x", ((double *)&enemy->pos.x));
-	config_setting_lookup_float(set, "y", ((double *)&enemy->pos.x));
-	config_setting_lookup_int(set, "top", &enemy->rec.top);
+	configure_enemy_texture(rpg, &enemy, fight, id);
 }
 
 void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)
