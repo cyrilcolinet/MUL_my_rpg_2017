@@ -75,7 +75,6 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 		}
 		if (event->key.code == sfKeyA) {
 			battle->run = false;
-			sfSprite_setPosition(*rpg->player->sprite, rpg->player->pos);
 			sfSprite_setTextureRect(*rpg->player->sprite, rpg->player->rect);
 		}
 	}
