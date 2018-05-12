@@ -94,5 +94,10 @@ int load_assets(rpg_t *rpg)
 	print_sliders(rpg);
 	load_sounds(rpg);
 
+	if (!configure_internal_struct(rpg))
+		return (84);
+	if (configure_battle_characters(rpg) != 0)
+		return (84);
+
 	return (0);
 }

@@ -222,6 +222,9 @@ void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
 
 // struct_utils.c
+void 		configure_textures(rpg_t *, battle_t *);
+bool 		configure_internal_battle(rpg_t *);
+bool 		configure_internal_struct(rpg_t *);
 rpg_t 		*configure_struct(void);
 
 // windows_tils.c

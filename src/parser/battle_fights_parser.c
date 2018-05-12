@@ -64,7 +64,6 @@ void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 	enemy->pos.y = posy;
 	enemy->played = false;
 	enemy->alive = true;
-	printf("set alive to enenmy %d in fight %d\n", id, fight);
 	configure_enemy_texture(rpg, &enemy, fight, id);
 }
 
@@ -103,11 +102,9 @@ int configure_battle_fights(rpg_t *rpg)
 
 	count = config_setting_length(set);
 	rpg->battle->number_fight = count;
-	if (rpg->battle->fight == NULL) {
-		rpg->battle->fight = malloc(sizeof(fight_t *) * count);
-		if (rpg->battle->fight == NULL)
-			return (-1);
-	}
+	rpg->battle->fight = malloc(sizeof(fight_t *) * count);
+	if (rpg->battle->fight == NULL)
+		return (-1);
 	for (int key = 0; count > 0 && key < count; key++) {
 		fight = config_setting_get_elem(set, key);
 		if (fight != NULL)
