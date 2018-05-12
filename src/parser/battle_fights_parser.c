@@ -93,7 +93,7 @@ void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)
 
 int configure_battle_fights(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file("battle.cfg", "battle.fights");
+	config_setting_t *set = parse_file(rpg, "battle.cfg", "battle.fights");
 	config_setting_t *fight = NULL;
 	int count = 0;
 
@@ -110,5 +110,6 @@ int configure_battle_fights(rpg_t *rpg)
 		if (fight != NULL)
 			parse_fight_values(rpg, fight, key);
 	}
+
 	return (0);
 }

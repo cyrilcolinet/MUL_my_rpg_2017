@@ -11,7 +11,6 @@
 # include "my.h"
 # include "structs.h"
 # include "battle.h"
-# include "libconfig.h"
 
 // Debug global variable
 bool 		debug;
@@ -237,7 +236,7 @@ void 		set_favicon(rpg_t *);
 */
 
 // parser.c
-config_setting_t *parse_file(char *, char *);
+config_setting_t *parse_file(rpg_t *, char *, char *);
 
 // battle_fights_parser.c
 bool		configure_fight(fight_t **);

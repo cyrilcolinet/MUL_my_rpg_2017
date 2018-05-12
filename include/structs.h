@@ -26,6 +26,8 @@
 # include <stdio.h>
 # include <dirent.h>
 
+# include "libconfig.h"
+
 // Struct prototypes
 struct 	texture_t;
 struct 	button_t;
@@ -212,6 +214,7 @@ typedef struct rpg_t {
 	sfSprite	*capture;
 	state_e		last_st;
 	sfClock		*clock;
+	config_t 	cfg;
 	sound_t		*sounds;
 	options_t	options;
 	assets_t	*assets;

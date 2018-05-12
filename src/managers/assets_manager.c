@@ -61,7 +61,7 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 
 int configure_assets(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file("assets.cfg", "textures");
+	config_setting_t *set = parse_file(rpg, "assets.cfg", "textures");
 	config_setting_t *asset = NULL;
 	const char *name = NULL;
 	const char *file = NULL;
@@ -69,7 +69,6 @@ int configure_assets(rpg_t *rpg)
 
 	if (set == NULL)
 		return (-1);
-
 	count = config_setting_length(set);
 	for (int key = 0; count > 0 && key < count; key++) {
 		asset = config_setting_get_elem(set, key);
