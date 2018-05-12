@@ -80,7 +80,7 @@ void 		attack(battle_t *);
 void 		configure_battle(rpg_t *);
 void 		init_fight(battle_t *);
 void 		init_hero(battle_t *);
-void 		init_spell(battle_t *);
+void 		init_spell(rpg_t*, battle_t *);
 
 // init_fight.c
 sfRectangleShape **create_battle_map(sfVector2f *);

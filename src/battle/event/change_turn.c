@@ -38,6 +38,11 @@ void change_turn(battle_t *battle)
 		battle->hero->played = false;
 		battle->hero->attack = false;
 		battle->hero->move = false;
+		battle->hero->spell_id = -1;
+		for (int i = 0; i < 4; i++) {
+			battle->hero->spell[i]->cast = false;
+			battle->hero->spell[i]->select = false;
+		}
 		battle->fight[battle->id]->enemy_turn = true;
 	}
 	change_enemy_turn(battle, n, nb);
