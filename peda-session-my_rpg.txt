@@ -1,0 +1,2 @@
+break *configure_internal_battle
+
