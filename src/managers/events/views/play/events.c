@@ -16,18 +16,23 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 		cb_goto_pause_view(rpg, NULL);
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
-	else if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
-		rpg->battle->run = true;
-	if (!rpg->battle->run && event->type == sfEvtKeyPressed && (event->key.code >= sfKeyLeft &&
-		event->key.code <= sfKeyDown)) {
-		update_direction(rpg->player, event->key.code - sfKeyLeft);
-		if (sfTime_asMilliseconds(sfClock_getElapsedTime(rpg->clock)) - sfTime_asMilliseconds(rpg->player->time_0) > 50) {
-			rpg->player->time_0 = sfClock_getElapsedTime(rpg->clock);
-			next_state(rpg->player);
-			sfSprite_move(*rpg->player->sprite, movement[rpg->player->direction]);
+	else if (!rpg->battle->run) {
+		if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
+			rpg->battle->run = true;
+		if (!rpg->battle->run && event->type ==
+		sfEvtKeyPressed && (event->key.code >= sfKeyLeft
+		&& event->key.code <= sfKeyDown)) {
+			update_direction(rpg->player, event->key.code - sfKeyLeft);
+			if (sfTime_asMilliseconds(
+			sfClock_getElapsedTime(rpg->clock)) -
+			sfTime_asMilliseconds(rpg->player->time_0) > 50) {
+				rpg->player->time_0 = sfClock_getElapsedTime(rpg->clock);
+				next_state(rpg->player);
+				sfSprite_move(*rpg->player->sprite, movement[rpg->player->direction]);
+			}
+		} else {
+			state_reset(rpg->player);
+			rpg->player->time_0 = sfSeconds(0);
 		}
-	} else if (!rpg->battle->run) {
-		state_reset(rpg->player);
-		rpg->player->time_0 = sfSeconds(0);
 	}
 }
