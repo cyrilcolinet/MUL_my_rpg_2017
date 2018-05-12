@@ -60,7 +60,7 @@ void set_volume(rpg_t *rpg, float vol, bool music)
 
 int load_sounds(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file("assets.cfg", "sounds");
+	config_setting_t *set = parse_file(rpg, "assets.cfg", "sounds");
 	config_setting_t *sound = NULL;
 	const char *name = NULL;
 	const char *file = NULL;
@@ -68,7 +68,6 @@ int load_sounds(rpg_t *rpg)
 
 	if (set == NULL)
 		return (-1);
-
 	count = config_setting_length(set);
 	for (int key = 0; count > 0 && key < count; key++) {
 		sound = config_setting_get_elem(set, key);

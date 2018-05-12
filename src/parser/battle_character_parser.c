@@ -36,7 +36,7 @@ int configure_all_default(rpg_t *rpg, hero_t **hero, char *texture)
 
 int configure_battle_characters(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file("heroes/demo.cfg", "hero");
+	config_setting_t *set = parse_file(rpg, "heroes/demo.cfg", "hero");
 	char *texture = NULL;
 
 	if (set == NULL)
@@ -50,5 +50,6 @@ int configure_battle_characters(rpg_t *rpg)
 	config_setting_lookup_int(set, "heal", &rpg->battle->hero->hp);
 	config_setting_lookup_int(set, "damage", &rpg->battle->hero->dmg);
 	config_setting_lookup_int(set, "armor", &rpg->battle->hero->armor);
+
 	return (configure_all_default(rpg, &rpg->battle->hero, texture));
 }

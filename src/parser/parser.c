@@ -7,12 +7,13 @@
 
 # include "rpg.h"
 
-config_setting_t *parse_file(char *file, char *cat)
+config_setting_t *parse_file(rpg_t *rpg, char *file, char *cat)
 {
 	config_t cfg;
 	config_setting_t *set = NULL;
 	char *path = my_strjoin("config/", file);
-
+	(void)rpg
+;
 	config_init(&cfg);
 	if (!path || !config_read_file(&cfg, path)) {
 		write(2, "Unable to parse configuration.\n", 31);
