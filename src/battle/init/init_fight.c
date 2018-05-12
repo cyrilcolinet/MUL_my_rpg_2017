@@ -174,30 +174,26 @@ bool configure_fight(fight_t **fight)
 
 void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 {
-	char *texture = NULL;
-	int heal = 0;
-	int damage = 0;
-	int armor = 0;
-	bool sword = false;
+	enemy_t *enemy = malloc(sizeof(enemy_t));
+	config_setting_t *set_pos = NULL;
 
-	rpg->battle->fight[fight]->enemy[id] = malloc(sizeof(enemy_t));
-	config_setting_lookup_string(set, "texture", ((const char **)&texture));
-	config_setting_lookup_int(set, "damage", &damage);
-	config_setting_lookup_int(set, "armor", &armor);
-	config_setting_lookup_bool(set, "sword", ((int *)&sword));
-	config_setting_lookup_int(set, "heal", &heal);
-	rpg->battle->fight[fight]->enemy[id]->stuff = texture;
-	rpg->battle->fight[fight]->enemy[id]->played = false;
-	rpg->battle->fight[fight]->enemy[id]->alive = true;
-	rpg->battle->fight[fight]->enemy[id]->sword = sword;
-	rpg->battle->fight[fight]->enemy[id]->hp = heal;
-	rpg->battle->fight[fight]->enemy[id]->armor = armor;
-	rpg->battle->fight[fight]->enemy[id]->dmg = damage;
+	if (enemy == NULL)
+		return;
+	config_setting_lookup_string(set, "texture", \
+	((const char **)&enemy->stuff));
+	config_setting_lookup_int(set, "damage", &enemy->dmg);
+	config_setting_lookup_int(set, "armor", &enemy->armor);
+	config_setting_lookup_bool(set, "sword", ((int *)&enemy->sword));
+	config_setting_lookup_int(set, "heal", &enemy->hp);
+	enemy->played = false;
+	enemy->alive = true;
 	configure_enemy_texture(rpg, &rpg->battle->fight[fight]->enemy[id]);
-
-	// tmp
-	rpg->battle->fight[fight]->enemy[id]->pos.x = 10;
-	rpg->battle->fight[fight]->enemy[id]->pos.y = 3;
+	set_pos = config_setting_lookup(set, "pos");
+	if (set_pos == NULL)
+		return;
+	config_setting_lookup_float(set, "x", ((double *)&enemy->pos.x));
+	config_setting_lookup_float(set, "y", ((double *)&enemy->pos.x));
+	config_setting_lookup_int(set, "top", &enemy->rec.top);
 }
 
 void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)

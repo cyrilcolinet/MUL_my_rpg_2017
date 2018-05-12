@@ -9,75 +9,66 @@
 
 void destroy_buttons(rpg_t *rpg)
 {
-	button_t **cpy = NULL;
-	button_t *tmp = rpg->btn;
+	button_t *tmp = NULL;
 
-	while (tmp != NULL) {
-		sfSprite_destroy(tmp->sprite);
-		cpy = &tmp;
-		tmp = tmp->next;
-		free(*cpy);
+	while (rpg->btn != NULL) {
+		tmp = rpg->btn;
+		rpg->btn = tmp->next;
+		if (tmp->sprite != NULL)
+			sfSprite_destroy(tmp->sprite);
+		free(tmp);
 	}
 
-	free(rpg->btn);
-	rpg->btn = NULL;
-	info("All buttons destroyed!");
+	info("All buttons destroyed.");
 }
 
 void destroy_assets(rpg_t *rpg)
 {
-	assets_t **cpy = NULL;
-	assets_t *tmp = rpg->assets;
+	assets_t *tmp = NULL;
 
-	while (tmp != NULL) {
+	while (rpg->assets != NULL) {
+		tmp = rpg->assets;
+		rpg->assets = tmp->next;
 		if (tmp->sp != NULL)
 			sfSprite_destroy(tmp->sp);
-		if (tmp->texture)
+		if (tmp->texture != NULL)
 			sfTexture_destroy(tmp->texture);
-		cpy = &tmp;
-		tmp = tmp->next;
-		free(*cpy);
-		cpy = NULL;
+		free(tmp);
 	}
 
-	free(rpg->assets);
-	rpg->assets = NULL;
-	info("All assets destroyed!");
+	info("All assets destroyed.");
 }
 
 void destroy_slides(rpg_t *rpg)
 {
-	slider_t **cpy = NULL;
-	slider_t *tmp = rpg->slides;
+	slider_t *tmp = NULL;
 
-	while (tmp != NULL) {
-		sfText_destroy(tmp->text);
-		cpy = &tmp;
-		tmp = tmp->next;
-		free(*cpy);
+	while (rpg->slides != NULL) {
+		tmp = rpg->slides;
+		rpg->slides = tmp->next;
+		if (tmp->text != NULL)
+			sfText_destroy(tmp->text);
+		free(tmp);
 	}
 
-	free(rpg->slides);
-	rpg->slides = NULL;
-	info("All sliders destroyed!");
+	info("All sliders destroyed.");
 }
 
 void destroy_sounds(rpg_t *rpg)
 {
-	sound_t **cpy = NULL;
-	sound_t *tmp = rpg->sounds;
+	sound_t *tmp = NULL;
 
-	while (tmp != NULL) {
-		sfSound_destroy(tmp->sound);
-		sfSoundBuffer_destroy(tmp->buffer);
-		cpy = &tmp;
-		tmp = tmp->next;
-		free(*cpy);
+	while (rpg->sounds != NULL) {
+		tmp = rpg->sounds;
+		rpg->sounds = tmp->next;
+		if (tmp->sound != NULL)
+			sfSound_destroy(tmp->sound);
+		if (tmp->buffer)
+			sfSoundBuffer_destroy(tmp->buffer);
+		free(tmp);
 	}
 
-	free(rpg->sounds);
-	rpg->sounds = NULL;
-	info("All sounds destroyed!");
+	info("All sounds destroyed.");
 }
 
 rpg_t *configure_struct(void)
