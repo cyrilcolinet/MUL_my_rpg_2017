@@ -38,12 +38,12 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			battle->id--;
 		}
 		if (event->key.code == sfKeyT) {
-			battle->hero->spell_id = 1;
-			battle->hero->spell[battle->hero->spell_id]->select = true;
+			if (battle->hero->spell_id < 3)
+				battle->hero->spell_id++;
 		}
 		if (event->key.code == sfKeyY) {
-			battle->hero->spell_id = 2;
-			battle->hero->spell[battle->hero->spell_id]->select = true;
+			if (battle->hero->spell_id > 0)
+				battle->hero->spell_id--;
 		}
 		if (event->key.code == sfKeyP) {
 			sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);

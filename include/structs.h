@@ -150,7 +150,6 @@ typedef struct spell_t {
 	sfIntRect	rec;
 	sfVector2f	pos;
 	bool		unlock;
-	bool		select;
 	bool		cast;
 } spell_t;
 
