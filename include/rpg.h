@@ -48,8 +48,13 @@ void 		ev_run(rpg_t *, sfEvent *);
 */
 
 //player_manager.c
-void update_direction(player_t *player, direction_e direction);
-
+void 	update_direction(player_t *player, direction_e direction);
+void 	next_state(player_t *player);
+void 	state_reset(player_t *player);
+void 	move_player(player_t *player, float factor);
+void 	player_displacement(rpg_t *rpg, direction_e direction);
+sfBool 	animate_player(player_t *player, sfClock *clock);
+sfBool player_collide(player_t *player, int **layer);
 /*
 ** Sounds manager
 ** Manage sounds, button click, and other noises
@@ -201,6 +206,7 @@ void 		warning(char *);
 void 		print_key_value_str(char *, char *);
 void 		print_key_value_int(char *, int);
 
+
 // views_utils.c
 void 		display_view(rpg_t *);
 
@@ -229,7 +235,11 @@ rpg_t 		*configure_struct(void);
 // windows_tils.c
 void 		set_favicon(rpg_t *);
 
-
+// vector_utils.c
+sfVector2f	 init_vector(float x, float y);
+sfVector2f	 add_vector(sfVector2f first, sfVector2f second);
+sfVector2f	 multiply_vector(sfVector2f first, sfVector2f second);
+sfVector2f	 multiply_vector_scalar(sfVector2f vector, float scalar);
 /*
 ** Parse utilities
 ** Parse config file

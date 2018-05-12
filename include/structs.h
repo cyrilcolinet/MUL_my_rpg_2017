@@ -197,8 +197,9 @@ typedef struct player_t {
 	void		**sprite;
 	sfIntRect	rect;
 	direction_e	direction;
-	sfVector2f	pos;
 	sfTime		time_0;
+	sfRenderStates	*render_state;
+	int		**layer;
 }	player_t;
 
 typedef struct map_t {

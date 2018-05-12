@@ -33,8 +33,34 @@ void next_state(player_t *player)
 	sfSprite_setTextureRect(*player->sprite, player->rect);
 }
 
+void move_player(player_t *player, float factor)
+{
+	sfVector2f movement[4] = {{-10, 0}, {10, 0}, {0, -10}, {0, 10}};
+
+	player->render_state->transform.matrix[2] += factor *
+		movement[player->direction].x;
+	player->render_state->transform.matrix[5] += factor *
+		movement[player->direction].y;
+}
+
 void state_reset(player_t *player)
 {
 	player->rect.left = 0;
 	sfSprite_setTextureRect(*player->sprite, player->rect);
+	player->time_0 = sfSeconds(0);
+}
+
+void player_displacement(rpg_t *rpg, direction_e direction)
+{
+	update_direction(rpg->player, direction);
+	if (animate_player(rpg->player, rpg->clock)) {
+		rpg->player->time_0 = sfClock_getElapsedTime(
+		rpg->clock);
+		next_state(rpg->player);
+		move_player(rpg->player, 1);
+		if (player_collide(rpg->player, rpg->player->layer)) {
+			move_player(rpg->player, -1);
+			state_reset(rpg->player);
+		}
+	}
 }
