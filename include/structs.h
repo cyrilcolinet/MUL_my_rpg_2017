@@ -118,12 +118,12 @@ typedef struct options_t {
 
 // BEGIN BATTLE STRUCTS
 typedef struct enemy_t {
+	sfVector2f 	pos;
 	sfIntRect 	rec;
 	sfSprite 	*form;
 	sfRectangleShape *frame;
 	sfTexture 	*img;
 	char 		*stuff;
-	sfVector2f 	pos;
 	bool 		alive;
 	bool 		played;
 	bool		sword;
