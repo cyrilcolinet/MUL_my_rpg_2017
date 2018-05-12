@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-void init_spell(battle_t *battle)
+void init_spell(rpg_t *rpg, battle_t *battle)
 {
 	battle->hero->spell_id = -1;
 	battle->hero->spell = malloc(sizeof(spell_t *) * 4);
@@ -25,6 +25,14 @@ void init_spell(battle_t *battle)
 		battle->hero->spell[i]->pos.x = 0;
 		battle->hero->spell[i]->pos.y = 0;
 	}
+	rpg->battle->hero->spell[0]->texture = get_texture(rpg, "heal");
+        rpg->battle->hero->spell[1]->texture = get_texture(rpg, "fire");
+        rpg->battle->hero->spell[2]->texture = get_texture(rpg, "ice");
+        rpg->battle->hero->spell[3]->texture = get_texture(rpg, "storm");
+	sfSprite_setTexture(battle->hero->spell[0]->form, battle->hero->spell[0]->texture, sfTrue);
+	sfSprite_setTexture(battle->hero->spell[1]->form, battle->hero->spell[1]->texture, sfTrue);
+	sfSprite_setTexture(battle->hero->spell[2]->form, battle->hero->spell[2]->texture, sfTrue);
+	sfSprite_setTexture(battle->hero->spell[3]->form, battle->hero->spell[3]->texture, sfTrue);
 }
 
 void init_hero(battle_t *battle)
@@ -55,5 +63,4 @@ void init_hero(battle_t *battle)
 	sfSprite_setTexture(battle->hero->form, battle->hero->img, true);
 	sfSprite_setTextureRect(battle->hero->form, battle->hero->rec);
 	sfSprite_setScale(battle->hero->form, scale);
-	init_spell(battle);
 }

@@ -38,11 +38,10 @@ void display_simple_case(battle_t *battle, sfVector2f pos, sfVector2f size)
 		size = sfRectangleShape_getSize(
 			battle->fight[battle->id]->map[i]);
 		if (x > pos.x && x < pos.x + size.x
-		&& y > pos.y && y < pos.y + size.y) {
-			if (abs(i % 12 - battle->hero->pos.x) +
-			abs(i / 12 - battle->hero->pos.y) <= 5)
-				display_color(battle, i);
-		}
+		&& y > pos.y && y < pos.y + size.y
+		&& (abs(i % 12 - battle->hero->pos.x)
+		+ abs(i / 12 - battle->hero->pos.y) <= 5))
+			display_color(battle, i);
 	}
 }
 
