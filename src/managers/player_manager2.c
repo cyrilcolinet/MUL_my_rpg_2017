@@ -22,13 +22,13 @@ sfBool player_collide(player_t *player, int **layer)
 	sfVector2i tiles[4];
 	sfVector2i to_check[4] = {{0, 1}, {2, 3}, {0, 2}, {1, 3}};
 
-	tiles[0].y = (int)floor(player_rect.top / 32); //left up
+	tiles[0].y = (int)floor(player_rect.top / 32);
 	tiles[0].x = (int)floor(player_rect.left / 32);
-	tiles[1].y = (int)floor(player_rect.top / 32) + 1; //left down
+	tiles[1].y = (int)floor(player_rect.top / 32) + 1;
 	tiles[1].x = (int)floor(player_rect.left / 32);
-	tiles[2].y = (int)floor(player_rect.top / 32); //right up
+	tiles[2].y = (int)floor(player_rect.top / 32);
 	tiles[2].x = (int)floor(player_rect.left / 32) + 1;
-	tiles[3].y = (int)floor(player_rect.top / 32) + 1; //right down
+	tiles[3].y = (int)floor(player_rect.top / 32) + 1;
 	tiles[3].x = (int)floor(player_rect.left / 32) + 1;
 	if (layer[tiles[to_check[player->direction].x].y][tiles
 		[to_check[player->direction].x].x] != 1 ||
