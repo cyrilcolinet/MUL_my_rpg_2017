@@ -73,7 +73,7 @@ void 		init_fight(battle_t *);
 void 		init_hero(battle_t *);
 
 // init_fight.c
-int		configure_battle_values(rpg_t *);
+sfRectangleShape **create_battle_map(sfVector2f *);
 
 sfText 		*create_text(sfFont *, char *, sfVector2f , sfColor);
 

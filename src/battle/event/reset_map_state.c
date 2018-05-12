@@ -17,6 +17,7 @@ void reset_map_state(battle_t *battle)
 		for (int j = 0; j < 12; j++)
 			battle->map[i][j] = 0;
 	for (int i = 0; i < battle->fight[id]->number_enemy; i++) {
+		printf("get alive to enenmy %d in fight %d\n", i, id);
 		if (battle->fight[id]->enemy[i]->alive) {
 			x = battle->fight[id]->enemy[i]->pos.x;
 			y = battle->fight[id]->enemy[i]->pos.y;

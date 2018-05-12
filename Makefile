@@ -19,6 +19,7 @@ SRC_FILES		= 	main.c 							\
 				rpg.c 							\
 				utilities/args_utils.c 					\
 				utilities/struct_utils.c 				\
+				utilities/destroy_utilities.c 				\
 				utilities/settings_utils.c 				\
 				utilities/views_utils.c					\
 				utilities/windows_utils.c 				\
@@ -53,6 +54,8 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				parser/parser.c 					\
+				parser/battle_fights_parser.c 				\
+				parser/battle_character_parser.c			\
 				views/menu_views.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
@@ -80,7 +83,6 @@ SRC_FILES		= 	main.c 							\
 				battle/ai_enemy/enemy_deplacement_up.c			\
 				battle/ai_enemy/enemy_deplacement_down.c		\
 				battle/init/configure_battle.c				\
-				battle/init/init_fight.c				\
 				battle/init/init_hero.c					\
 				battle/display/display_map.c				\
 				battle/display/display_interface.c			\

@@ -7,68 +7,43 @@
 
 # include "rpg.h"
 
-void destroy_buttons(rpg_t *rpg)
+bool configure_internal_battle(rpg_t *rpg)
 {
-	button_t *tmp = NULL;
-
-	while (rpg->btn != NULL) {
-		tmp = rpg->btn;
-		rpg->btn = tmp->next;
-		if (tmp->sprite != NULL)
-			sfSprite_destroy(tmp->sprite);
-		free(tmp);
+	for (int i = 0; i < 10; i++) {
+		rpg->battle->map[i] = malloc(sizeof(int) * 12);
+		if (rpg->battle->map[i] == NULL)
+			return (false);
+		for (int j = 0; j < 12; j++)
+			rpg->battle->map[i][j] = 0;
 	}
 
-	info("All buttons destroyed.");
+	if (configure_battle_fights(rpg) != 0)
+		return (false);
+
+	return (true);
 }
 
-void destroy_assets(rpg_t *rpg)
+bool configure_internal_struct(rpg_t *rpg)
 {
-	assets_t *tmp = NULL;
+	rpg->assets = NULL;
+	rpg->btn = NULL;
+	rpg->slides = NULL;
+	rpg->sounds = NULL;
+	rpg->battle = malloc(sizeof(battle_t));
+	if (rpg->battle == NULL)
+		return (false);
 
-	while (rpg->assets != NULL) {
-		tmp = rpg->assets;
-		rpg->assets = tmp->next;
-		if (tmp->sp != NULL)
-			sfSprite_destroy(tmp->sp);
-		if (tmp->texture != NULL)
-			sfTexture_destroy(tmp->texture);
-		free(tmp);
-	}
+	rpg->battle->fight = NULL;
+	rpg->battle->text = NULL;
+	rpg->battle->clock = sfClock_create();
+	rpg->battle->map = malloc(sizeof(int *) * 10);
+	if (rpg->battle->map == NULL)
+		return (false);
 
-	info("All assets destroyed.");
-}
+	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
+	rpg->battle->run = false;
 
-void destroy_slides(rpg_t *rpg)
-{
-	slider_t *tmp = NULL;
-
-	while (rpg->slides != NULL) {
-		tmp = rpg->slides;
-		rpg->slides = tmp->next;
-		if (tmp->text != NULL)
-			sfText_destroy(tmp->text);
-		free(tmp);
-	}
-
-	info("All sliders destroyed.");
-}
-
-void destroy_sounds(rpg_t *rpg)
-{
-	sound_t *tmp = NULL;
-
-	while (rpg->sounds != NULL) {
-		tmp = rpg->sounds;
-		rpg->sounds = tmp->next;
-		if (tmp->sound != NULL)
-			sfSound_destroy(tmp->sound);
-		if (tmp->buffer)
-			sfSoundBuffer_destroy(tmp->buffer);
-		free(tmp);
-	}
-
-	info("All sounds destroyed.");
+	return (configure_internal_battle(rpg));
 }
 
 rpg_t *configure_struct(void)
@@ -85,11 +60,8 @@ rpg_t *configure_struct(void)
 	if (rpg->win == NULL)
 		return (NULL);
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
-	rpg->assets = NULL;
-	rpg->btn = NULL;
-	rpg->slides = NULL;
-	rpg->sounds = NULL;
-	rpg->capture = NULL;
+	if (!configure_internal_struct(rpg))
+		return (NULL);
 	rpg->clock = sfClock_create();
 	rpg->options.music_vol = rpg->options.sound_vol = 67;
 	return (rpg);

@@ -215,11 +215,13 @@ char 		*get_sound_in_str(int);
 // sound_utils.c
 void 		configure_audio(rpg_t *);
 
-// struct_utils.c
+// destroy_utils.c
 void 		destroy_buttons(rpg_t *);
 void 		destroy_assets(rpg_t *);
 void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
+
+// struct_utils.c
 rpg_t 		*configure_struct(void);
 
 // windows_tils.c
@@ -233,6 +235,17 @@ void 		set_favicon(rpg_t *);
 
 // parser.c
 config_setting_t *parse_file(char *, char *);
+
+// battle_fights_parser.c
+bool		configure_fight(fight_t **);
+void 		configure_enemy_texture(rpg_t *, enemy_t **, int, int);
+void 		parse_enemy_values(rpg_t *, config_setting_t *, int, int);
+void 		parse_fight_values(rpg_t *, config_setting_t *, int);
+int		configure_battle_fights(rpg_t *);
+
+// battle_character_parser.c
+int 		configure_all_default(rpg_t *, hero_t **, char *);
+int 		configure_battle_characters(rpg_t *);
 
 
 # endif

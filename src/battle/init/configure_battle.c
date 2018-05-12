@@ -7,51 +7,27 @@
 
 # include "rpg.h"
 
-static void init_texture(battle_t *battle, sfVector2f pos)
+sfRectangleShape **create_battle_map(sfVector2f *pos)
 {
-	battle->icone = sfRectangleShape_create();
-	pos.x = 30;
-	pos.y = 10;
-	sfRectangleShape_setPosition(battle->icone, pos);
-	pos.x = 20;
-	pos.y = 20;
-	sfRectangleShape_setSize(battle->icone, pos);
-	battle->texture = malloc(sizeof(sfTexture *) * 4);
-	battle->texture[0] = sfTexture_createFromFile("assets/icons/hp.png", NULL);
-	battle->texture[1] = sfTexture_createFromFile("assets/icons/dmg.png", NULL);
-	battle->texture[2] = sfTexture_createFromFile
-		("assets/icons/armor.png", NULL);
-	battle->texture[3] = sfTexture_createFromFile("assets/map/fight_3.png", NULL);
-	battle->background = sfRectangleShape_create();
-	pos.x = 0;
-	pos.y = 0;
-	sfRectangleShape_setPosition(battle->background, pos);
-	pos.x = 1920;
-	pos.y = 1080;
-	sfRectangleShape_setSize(battle->background, pos);
-	sfRectangleShape_setTexture(battle->background, battle->texture[3], sfTrue);
-}
+	sfRectangleShape **map = malloc(sizeof(*map) * 120);
+	sfVector2f size = { B_X, B_Y };
+	sfColor color = sfColor_fromRGBA(125, 125, 135, 90);
+	int i = 0;
 
-void configure_battle(rpg_t *rpg)
-{
-	sfVector2f pos = {1600, 50};
-
-	rpg->battle = malloc(sizeof(battle_t));
-	rpg->battle->map = malloc(sizeof(int *) * 10);
-	rpg->battle->fight = NULL;
-	for (int i = 0; i < 10; i++) {
-		rpg->battle->map[i] = malloc(sizeof(int) * 12);
-		for (int n = 0; n < 12; n++)
-			rpg->battle->map[i][n] = 0;
+	if (map == NULL)
+		return (NULL);
+	for (int row = 0; row < 10; row++) {
+		for (int col = 0; col < 12; col++) {
+			map[i] = sfRectangleShape_create();
+			sfRectangleShape_setPosition(map[i], *pos);
+			sfRectangleShape_setSize(map[i], size);
+			sfRectangleShape_setFillColor(map[i], sfTransparent);
+			sfRectangleShape_setOutlineColor(map[i], color);
+			sfRectangleShape_setOutlineThickness(map[i++], 1);
+			(*pos).x += B_X;
+		}
+		(*pos).x = MAP_X - 1;
+		(*pos).y += B_Y;
 	}
-	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
-	rpg->battle->clock = sfClock_create();
-	if (configure_battle_values(rpg) != 0)
-		write(2, "Error during battle parsing.\n", 29);
-	init_hero(rpg->battle);
-	init_texture(rpg->battle, pos);
-	rpg->battle->id = 0;
-	rpg->battle->mouse.x = 0;
-	rpg->battle->mouse.y = 0;
-	rpg->battle->run = false;
+	return (map);
 }
