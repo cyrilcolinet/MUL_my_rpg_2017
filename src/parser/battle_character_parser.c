@@ -39,7 +39,7 @@ void configure_spell_default(spell_t **spell)
 	(*spell)->rec.height = 128;
 	(*spell)->pos.x = 0;
 	(*spell)->pos.y = 0;
-	(*spell)->val = 33;
+	(*spell)->val = 60;
 }
 
 void configure_battle_spell(rpg_t *rpg, config_setting_t *set, int id)

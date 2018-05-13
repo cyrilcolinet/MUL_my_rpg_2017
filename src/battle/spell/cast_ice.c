@@ -27,8 +27,15 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	sfRenderWindow_display(rpg->win);
 }
 
+<<<<<<< HEAD
+static void reset_spell(rpg_t *rpg, battle_t *battle)
+{
+	sfVector2f pos = battle->hero->spell[2]->pos;
+
+=======
 static void reset_spell(battle_t *battle)
 {
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 	battle->hero->rec.top -= 4 * 64;
 	battle->hero->rec.left = 0;
 	sfSprite_setTextureRect(battle->hero->form,
@@ -39,6 +46,11 @@ static void reset_spell(battle_t *battle)
 		battle->hero->spell[2]->rec);
 	battle->hero->attack = true;
 	sfSprite_setRotation(battle->hero->spell[2]->form, 0);
+<<<<<<< HEAD
+	hit_the_target(rpg, battle, pos.y * 12 + pos.x,
+			battle->hero->spell[2]->val);
+=======
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 }
 
 static void set_angle_coord_sprite2(battle_t *battle, sfVector2f pos)
@@ -97,5 +109,9 @@ void cast_ice(rpg_t *rpg, battle_t *battle)
 			battle->hero->spell[2]->rec.top += 128;
 		}
 	}
+<<<<<<< HEAD
+	reset_spell(rpg, battle);
+=======
 	reset_spell(battle);
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 }

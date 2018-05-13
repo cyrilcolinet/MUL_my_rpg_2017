@@ -30,6 +30,34 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	sfRenderWindow_display(rpg->win);
 }
 
+<<<<<<< HEAD
+static void burn_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
+{
+	int x = i % 12;
+	int y = i / 12;
+	int a = 0;
+	int b = 0;
+
+	if (battle->map[y][x] == 1)
+		battle->hero->hp -= val;
+	for (int j = 0; j < battle->fight[battle->id]->number_enemy; j++) {
+		a = battle->fight[battle->id]->enemy[j]->pos.x;
+		b = battle->fight[battle->id]->enemy[j]->pos.y;
+		if (!battle->fight[battle->id]->enemy[j]->alive
+		|| a != x || b != y || battle->map[y][x] != 2)
+			continue;
+		battle->fight[battle->id]->enemy[j]->hp -= val;
+		if (battle->fight[battle->id]->enemy[j]->hp <= 0) {
+			battle->fight[battle->id]->enemy[j]->alive = false;
+			display_enemy_dead_animation(rpg, battle, j);
+		}
+		break;
+	}
+}
+
+static void reset_spell(rpg_t *rpg, battle_t *battle)
+{
+=======
 static void burn_the_target(battle_t *battle, int i, int val)
 {
 	int x = i % 12;
@@ -52,6 +80,7 @@ static void burn_the_target(battle_t *battle, int i, int val)
 	
 static void reset_spell(battle_t *battle)
 {
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 	sfVector2f pos = battle->hero->spell[1]->pos;
 
 	battle->hero->rec.top -= 4 * 64;
@@ -63,17 +92,16 @@ static void reset_spell(battle_t *battle)
 	sfSprite_setTextureRect(battle->hero->spell[1]->form,
 		battle->hero->spell[1]->rec);
 	battle->hero->attack = true;
+<<<<<<< HEAD
+	burn_the_target(rpg, battle, pos.y * 12 + pos.x,
+=======
 	burn_the_target(battle, pos.y * 12 + pos.x,
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 		battle->hero->spell[1]->val);
 }
 
 void cast_fire(rpg_t *rpg, battle_t *battle)
 {
-	sfVector2f pos;
-
-	pos.x = battle->hero->spell[1]->pos.x * B_X + MAP_X - 8;
-	pos.y = battle->hero->spell[1]->pos.y * B_Y + MAP_Y - 32;
-	sfSprite_setPosition(battle->hero->spell[1]->form, pos);
 	for (int i = 0; i < 12;) {
 		sfClock_restart(battle->clock);
 		battle->time = sfTime_Zero;
@@ -88,5 +116,5 @@ void cast_fire(rpg_t *rpg, battle_t *battle)
 			battle->hero->spell[1]->rec.top += 128;
 		}
 	}
-	reset_spell(battle);
+	reset_spell(rpg, battle);
 }

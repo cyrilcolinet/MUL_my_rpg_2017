@@ -26,6 +26,29 @@ static void display_heal(rpg_t *rpg, battle_t *battle, int i, int heal)
 	sfText_setColor(battle->text, sfWhite);
 }
 
+<<<<<<< HEAD
+static void heal_the_target(battle_t *battle, int i, int a, int b)
+{
+	int x = i % 12;
+	int y = i / 12;
+	int val = battle->hero->spell[0]->val;
+
+	if (battle->map[y][x] == 1 && battle->hero->hp + val
+	>= battle->hero->hp_max)
+		battle->hero->hp = battle->hero->hp_max;
+	else if (battle->map[y][x] == 1)
+		battle->hero->hp += val;
+	for (int j = 0 ;j < battle->fight[battle->id]->number_enemy; j++) {
+		a = battle->fight[battle->id]->enemy[j]->pos.x;
+		b = battle->fight[battle->id]->enemy[j]->pos.y;
+		if (!battle->fight[battle->id]->enemy[j]->alive
+		|| x != a || y != b || battle->map[y][x] != 2)
+			continue;
+		battle->fight[battle->id]->enemy[j]->hp += val;
+		if (battle->hero->hp  >= battle->hero->hp_max)
+			battle->fight[battle->id]->enemy[j]->hp =
+			battle->fight[battle->id]->enemy[j]->hp_max;
+=======
 static void heal_the_target(battle_t *battle, int i, int val)
 {
 	int x = i % 12;
@@ -49,6 +72,7 @@ static void heal_the_target(battle_t *battle, int i, int val)
 			battle->fight[battle->id]->enemy[j]->hp_max;
 		else if (battle->map[y][x] == 2 && x == a && y == b)
 			battle->fight[battle->id]->enemy[j]->hp += val;
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 	}
 }
 
@@ -77,7 +101,11 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 
 static void reset_spell(battle_t *battle)
 {
+<<<<<<< HEAD
+	sfVector2f pos = battle->hero->spell[0]->pos;
+=======
 	sfVector2f pos = battle->hero->spell[1]->pos;
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 
 	battle->hero->rec.top -= 4 * 64;
 	battle->hero->rec.left = 0;
@@ -88,17 +116,24 @@ static void reset_spell(battle_t *battle)
 	sfSprite_setTextureRect(battle->hero->spell[0]->form,
 			battle->hero->spell[0]->rec);
 	battle->hero->attack = true;
+<<<<<<< HEAD
+	heal_the_target(battle, pos.y * 12 + pos.x, pos.x, pos.y);
+=======
 	heal_the_target(battle, pos.y * 12 + pos.x,
 			battle->hero->spell[0]->val);
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 }
 
 void cast_heal(rpg_t *rpg, battle_t *battle)
 {
+<<<<<<< HEAD
+=======
 	sfVector2f pos;
 
 	pos.x = battle->hero->spell[0]->pos.x * B_X + MAP_X - 8;
 	pos.y = battle->hero->spell[0]->pos.y * B_Y + MAP_Y - 32;
 	sfSprite_setPosition(battle->hero->spell[0]->form, pos);
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 	reset_map_state(battle);
 	for (int i = 0; i < 18;) {
 		sfClock_restart(battle->clock);
