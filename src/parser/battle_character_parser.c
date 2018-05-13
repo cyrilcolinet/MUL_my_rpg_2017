@@ -100,6 +100,7 @@ int configure_battle_characters(rpg_t *rpg)
 
 	config_setting_lookup_string(set, "texture", ((const char **)&texture));
 	config_setting_lookup_int(set, "heal", &rpg->battle->hero->hp);
+	rpg->battle->hero->hp_max = rpg->battle->hero->hp;
 	config_setting_lookup_int(set, "damage", &rpg->battle->hero->dmg);
 	config_setting_lookup_int(set, "armor", &rpg->battle->hero->armor);
 	rpg->battle->hero->spell_id = -1;
