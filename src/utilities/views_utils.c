@@ -18,7 +18,7 @@ void display_view(rpg_t *rpg)
 		settings_view,
 		credits_view,
 		history_view,
-		NULL, // for battle
+		NULL,
 		select_view,
 		NULL
 	};

@@ -47,7 +47,7 @@ static void display_turn(rpg_t *rpg, battle_t *battle)
 	if (battle->fight[battle->id]->enemy_turn)
 		sfText_setString(battle->text, "Enemy turn");
 	else
-		 sfText_setString(battle->text, "Player turn");
+		sfText_setString(battle->text, "Player turn");
 	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
 	sfText_setCharacterSize(battle->text, 14);
 	sfText_setColor(battle->text, sfWhite);
