@@ -7,12 +7,17 @@
 
 #include "rpg.h"
 
-static void draw_anim(rpg_t *rpg, battle_t *battle)
+static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 {
+	if (i % 6 == 5)
+		battle->hero->rec.left = 0;
 	sfRenderWindow_clear(rpg->win, sfBlack);
 	battle->hero->spell[3]->rec.left += 128;
 	sfSprite_setTextureRect(battle->hero->spell[3]->form,
 		battle->hero->spell[3]->rec);
+	battle->hero->rec.left += 64;
+	sfSprite_setTextureRect(battle->hero->form,
+			battle->hero->rec);
 	draw_all(rpg);
 	display_hero(rpg, rpg->battle);
 	display_enemy(rpg, rpg->battle);
@@ -23,6 +28,10 @@ static void draw_anim(rpg_t *rpg, battle_t *battle)
 
 static void reset_spell(battle_t *battle)
 {
+	battle->hero->rec.top -= 4 * 64;
+	battle->hero->rec.left = 0;
+	sfSprite_setTextureRect(battle->hero->form,
+			battle->hero->rec);
 	battle->hero->spell[3]->rec.left = 0;
 	battle->hero->spell[3]->rec.top = 0;
 	sfSprite_setTextureRect(battle->hero->spell[3]->form,
@@ -38,12 +47,14 @@ static void set_angle_coord_sprite2(battle_t *battle, sfVector2f pos)
 		pos.y = battle->hero->spell[3]->pos.y * B_Y + MAP_Y + 78;
 		sfSprite_setPosition(battle->hero->spell[3]->form, pos);
 		sfSprite_setRotation(battle->hero->spell[3]->form, 135);
+		battle->hero->rec.top = 6 * 64;
 	}
 	if (battle->hero->spell[3]->pos.y < battle->hero->pos.y) {
 		pos.x = battle->hero->spell[3]->pos.x * B_X + MAP_X - 35;
 		pos.y = battle->hero->spell[3]->pos.y * B_Y + MAP_Y - 12;
 		sfSprite_setPosition(battle->hero->spell[3]->form, pos);
 		sfSprite_setRotation(battle->hero->spell[3]->form, -45);
+		battle->hero->rec.top = 4 * 64;
 	}
 }
 
@@ -54,16 +65,17 @@ static void set_angle_coord_sprite(battle_t *battle, sfVector2f pos)
 		pos.y = battle->hero->spell[3]->pos.y * B_Y + MAP_Y - 52;
 		sfSprite_setPosition(battle->hero->spell[3]->form, pos);
 		sfSprite_setRotation(battle->hero->spell[3]->form, 45);
+		battle->hero->rec.top = 7 * 64;
 	}
 	if (battle->hero->spell[3]->pos.x < battle->hero->pos.x) {
 		pos.x = battle->hero->spell[3]->pos.x * B_X + MAP_X - 40;
 		pos.y = battle->hero->spell[3]->pos.y * B_Y + MAP_Y + 128;
 		sfSprite_setPosition(battle->hero->spell[3]->form, pos);
 		sfSprite_setRotation(battle->hero->spell[3]->form, -135);
+		battle->hero->rec.top = 5 * 64;
 	}
 	set_angle_coord_sprite2(battle, pos);
 }
-
 
 void cast_storm(rpg_t *rpg, battle_t *battle)
 {
@@ -77,7 +89,7 @@ void cast_storm(rpg_t *rpg, battle_t *battle)
 		< sfTime_asSeconds(sfSeconds(0.1)))
 			battle->time = sfClock_getElapsedTime(
 				battle->clock);
-		draw_anim(rpg, battle);
+		draw_anim(rpg, battle, i);
 		i++;
 		if (i % 5 == 4) {
 			battle->hero->spell[3]->rec.left = 0;

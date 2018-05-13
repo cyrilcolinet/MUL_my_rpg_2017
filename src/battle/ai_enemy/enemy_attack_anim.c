@@ -10,7 +10,7 @@
 static void draw_anim(rpg_t *rpg, battle_t *battle, int a)
 {
 	sfRenderWindow_clear(rpg->win, sfBlack);
-	battle->fight[battle->id]->enemy[a]->rec.left += 128;;
+	battle->fight[battle->id]->enemy[a]->rec.left += 128;
 	sfSprite_setTextureRect(
 		battle->fight[battle->id]->enemy[a]->form,
 		battle->fight[battle->id]->enemy[a]->rec);

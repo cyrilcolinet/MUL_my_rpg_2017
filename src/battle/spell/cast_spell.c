@@ -15,6 +15,7 @@ static void cast_simple_case_spell(rpg_t *rpg, battle_t *battle, int a)
 	if (!battle->hero->spell[a]->cast) {
 		display_simple_case(battle, pos, size);
 	} else {
+		battle->hero->rec.top += 4 * 64;
 		if (a == 0)
 			cast_heal(rpg, battle);
 		else if (a == 1)

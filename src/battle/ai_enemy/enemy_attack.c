@@ -18,7 +18,8 @@ static bool attack_up(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 		enemy.x -= 44;
 		enemy.y -= 44;
 		battle->fight[battle->id]->enemy[a]->rec.top = 9 * 64;
-		sfSprite_setPosition(battle->fight[battle->id]->enemy[a]->form, enemy);
+		sfSprite_setPosition(
+			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
 		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
 		return (true);
@@ -37,7 +38,8 @@ static bool attack_down(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 		enemy.x -= 44;
 		enemy.y -= 44;
 		battle->fight[battle->id]->enemy[a]->rec.top = 13 * 64;
-		sfSprite_setPosition(battle->fight[battle->id]->enemy[a]->form, enemy);
+		sfSprite_setPosition(
+			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
 		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
 		return (true);
@@ -53,15 +55,15 @@ static bool attack_left(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 	int y = pos.y;
 
 	if (x > 0 && battle->map[y][x - 1] == 1) {
+		enemy.x -= 44;
+		enemy.y -= 44;
 		if (battle->fight[battle->id]->enemy[a]->sword) {
-			enemy.x -= 64;
-			enemy.y -= 48;
-		} else {
-			enemy.x -= 44;
-			enemy.y -= 44;
+			enemy.x -= 20;
+			enemy.y -= 4;
 		}
 		battle->fight[battle->id]->enemy[a]->rec.top = 11 * 64;
-		sfSprite_setPosition(battle->fight[battle->id]->enemy[a]->form, enemy);
+		sfSprite_setPosition(
+			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
 		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
 		return (true);
@@ -77,15 +79,15 @@ static bool attack_right(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 	int y = pos.y;
 
 	if (x < 11 && battle->map[y][x + 1] == 1) {
+		enemy.x -= 44;
+		enemy.y -= 44;
 		if (battle->fight[battle->id]->enemy[a]->sword) {
-			enemy.x -= 12;
-			enemy.y -= 48;
-		} else {
-			enemy.x -= 44;
-			enemy.y -= 44;
+			enemy.x += 32;
+			enemy.y -= 4;
 		}
 		battle->fight[battle->id]->enemy[a]->rec.top = 15 * 64;
-		sfSprite_setPosition(battle->fight[battle->id]->enemy[a]->form, enemy);
+		sfSprite_setPosition(
+			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
 		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
 		return (true);
