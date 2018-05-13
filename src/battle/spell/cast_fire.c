@@ -30,7 +30,6 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	sfRenderWindow_display(rpg->win);
 }
 
-<<<<<<< HEAD
 static void burn_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
 {
 	int x = i % 12;
@@ -57,30 +56,6 @@ static void burn_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
 
 static void reset_spell(rpg_t *rpg, battle_t *battle)
 {
-=======
-static void burn_the_target(battle_t *battle, int i, int val)
-{
-	int x = i % 12;
-	int y = i / 12;
-	int a = 0;
-	int b = 0;
-
-	if (battle->map[y][x] == 1) {
-		battle->hero->hp -= val;
-	}
-	for (int j = 0 ;j < battle->fight[
-	battle->id]->number_enemy; j++) {
-		a = battle->fight[battle->id]->enemy[j]->pos.x;
-		b = battle->fight[battle->id]->enemy[j]->pos.y;
-		if (battle->map[y][x] == 2 && x == a && y == b) {
-			battle->fight[battle->id]->enemy[j]->hp -= val;
-		}
-	}
-}
-	
-static void reset_spell(battle_t *battle)
-{
->>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 	sfVector2f pos = battle->hero->spell[1]->pos;
 
 	battle->hero->rec.top -= 4 * 64;
@@ -92,11 +67,7 @@ static void reset_spell(battle_t *battle)
 	sfSprite_setTextureRect(battle->hero->spell[1]->form,
 		battle->hero->spell[1]->rec);
 	battle->hero->attack = true;
-<<<<<<< HEAD
 	burn_the_target(rpg, battle, pos.y * 12 + pos.x,
-=======
-	burn_the_target(battle, pos.y * 12 + pos.x,
->>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 		battle->hero->spell[1]->val);
 }
 
