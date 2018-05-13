@@ -23,7 +23,6 @@ void cb_slider_volume_music(rpg_t *rpg, slider_t *slider)
 		set_volume(rpg, rpg->options.music_vol, true);
 		sfSprite_setPosition(slider->btn->sprite, slider->btn->pos);
 		sfText_setString(slider->text, vol);
-		printf("%s\n", vol);
 		free(vol);
 	}
 }

@@ -57,6 +57,7 @@ SRC_FILES		= 	main.c 							\
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
+				parser/map_parser.c 					\
 				views/menu_views.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
@@ -107,6 +108,7 @@ SRC_FILES		= 	main.c 							\
 				managers/player_manager1.c				\
 				managers/player_manager2.c				\
 				utilities/vector_utils.c				\
+				utilities/get_next_line.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
@@ -180,7 +182,7 @@ $(BUILD_DIR)%.o:	$(SRC_DIR)%.c
 			$(CC) $(CFLAGS)   -c -o $@ $<
 
 $(NAME):		$(BUILD_OBJ) assets_decompress
-			$(CC) $(CFLAGS)   -o $(NAME) $(BUILD_OBJ) $(LFLAGS)
+			@$(CC) $(CFLAGS)   -o $(NAME) $(BUILD_OBJ) $(LFLAGS)
 
 tests_run:		fclean library $(UNITS)
 			find $(BUILD_TESTS_DIR) -name '*.gc*' -exec mv -t ./ {} +
