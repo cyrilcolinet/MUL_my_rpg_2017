@@ -198,7 +198,7 @@ typedef struct inventory_t {
 } inventory_t;
 
 typedef struct player_t {
-	void		**sprite;
+	sfSprite	*sprite;
 	sfIntRect	rect;
 	direction_e	direction;
 	sfTime		time_0;

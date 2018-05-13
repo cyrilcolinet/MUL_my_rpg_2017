@@ -37,6 +37,22 @@ void display_enemy(rpg_t *rpg, battle_t *battle)
 	}
 }
 
+static void display_turn(rpg_t *rpg, battle_t *battle)
+{
+	sfVector2f pos = {700, 60};
+
+	sfText_setPosition(battle->text, pos);
+	sfText_setCharacterSize(battle->text, 48);
+	sfText_setColor(battle->text, sfColor_fromRGB(167, 167, 167));
+	if (battle->fight[battle->id]->enemy_turn)
+		sfText_setString(battle->text, "Enemy turn");
+	else
+		 sfText_setString(battle->text, "Player turn");
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+	sfText_setCharacterSize(battle->text, 14);
+	sfText_setColor(battle->text, sfWhite);
+}
+
 void display_map(rpg_t *rpg, battle_t *battle, int id)
 {
 	sfVector2f pos =  {200, 950};
@@ -57,4 +73,5 @@ void display_map(rpg_t *rpg, battle_t *battle, int id)
 		sfRenderWindow_drawRectangleShape(
 			rpg->win, battle->hero->spell[i]->icone, NULL);
 	}
+	display_turn(rpg, battle);
 }
