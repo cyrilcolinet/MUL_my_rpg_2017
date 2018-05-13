@@ -63,9 +63,9 @@ void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 	config_setting_lookup_int(set, "rec_top", &enemy->rec.top);
 	enemy->pos.x = posx;
 	enemy->pos.y = posy;
-	enemy->played = false;
+	enemy->played = enemy->sword = false;;
 	enemy->alive = true;
-	enemy->sword = false;
+	enemy->hp_max = enemy->hp;
 	configure_enemy_texture(rpg, &enemy, fight, id);
 }
 
