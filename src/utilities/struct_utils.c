@@ -15,12 +15,15 @@ void configure_textures(rpg_t *rpg, battle_t *btl)
 	sfRectangleShape_setPosition(btl->icone, pos);
 	pos.x = pos.y = 20;
 	sfRectangleShape_setSize(btl->icone, pos);
-	btl->texture = malloc(sizeof(sfTexture *) * 4);
+	btl->texture = malloc(sizeof(sfTexture *) * 7);
 	if (btl->texture != NULL) {
 		btl->texture[0] = get_texture(rpg, "hp");
 		btl->texture[1] = get_texture(rpg, "dmg");
 		btl->texture[2] = get_texture(rpg, "armor");
-		btl->texture[3] = get_texture(rpg, "fight3");
+		btl->texture[3] = get_texture(rpg, "arrow");
+		btl->texture[4] = get_texture(rpg, "fight1");
+		btl->texture[5] = get_texture(rpg, "fight2");
+		btl->texture[6] = get_texture(rpg, "fight3");
 	}
 	btl->background = sfRectangleShape_create();
 	pos.x = pos.y = 0;
@@ -28,7 +31,7 @@ void configure_textures(rpg_t *rpg, battle_t *btl)
 	pos.x = 1920;
 	pos.y = 1080;
 	sfRectangleShape_setSize(btl->background, pos);
-	sfRectangleShape_setTexture(btl->background, btl->texture[3], sfTrue);
+	sfRectangleShape_setTexture(btl->background, btl->texture[4], sfTrue);
 }
 
 bool configure_internal_battle(rpg_t *rpg)

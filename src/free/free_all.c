@@ -45,7 +45,7 @@ void free_all(rpg_t *rpg)
 
 	for (int i = 0; i < 10; i++)
 		free(rpg->battle->map[i]);
-
+	
 	free(rpg->battle->map);
 	sfRectangleShape_destroy(rpg->battle->icone);
 	sfRectangleShape_destroy(rpg->battle->background);

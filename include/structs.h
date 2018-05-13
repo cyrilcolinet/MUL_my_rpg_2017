@@ -146,7 +146,7 @@ typedef struct fight_t {
 
 typedef struct spell_t {
 	sfSprite	*form;
-	sfSprite	*icone;
+	sfRectangleShape *icone;
 	sfTexture	*texture;
 	sfIntRect	rec;
 	sfVector2f	pos;
