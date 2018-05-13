@@ -88,13 +88,13 @@ bool enemy_go_left(rpg_t *rpg, battle_t *battle, int x,
 
 	if (pos.x >= 1 && battle->map[c][d - 1] == 0) {
 		if (abs(b) > a && ((c >= 1 && battle->map[c - 1][d] == 0)
-			|| (c <= 8 && battle->map[c + 1][d] == 0)))
+		|| (c <= 8 && battle->map[c + 1][d] == 0)))
 			return (false);
 		if (a > 0) {
 			go_left(rpg, battle, x, pos);
 			return (true);
 		} else if (a == 0 && ((c >= 1 && battle->map[c - 1][d] != 0)
-			|| (c <= 8 && battle->map[c + 1][d] != 0))) {
+		|| (c <= 8 && battle->map[c + 1][d] != 0))) {
 			go_left(rpg, battle, x, pos);
 			return (true);
 		}

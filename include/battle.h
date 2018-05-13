@@ -53,6 +53,10 @@ void		cast_storm(rpg_t *, battle_t *);
 void		display_spell_damage(rpg_t *, battle_t *, int , int);
 void		display_strom_damage(rpg_t *, battle_t *);
 void		display_ice_damage(rpg_t *, battle_t *);
+<<<<<<< HEAD
+void		hit_the_target(rpg_t *, battle_t *, int, int);
+=======
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 
 /* AI_ENEMY */
 void		enemy_turn(rpg_t *, battle_t *);
