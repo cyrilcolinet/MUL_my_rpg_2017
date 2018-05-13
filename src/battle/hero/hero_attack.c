@@ -76,6 +76,7 @@ static bool can_attack(battle_t *battle)
 void hero_attack(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos;
+	int i = battle->hero->target;
 	int a = 0;
 
 	for (; a < 4; a++)
@@ -85,14 +86,14 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 		battle->hero->attack = true;
 		return;
 	}
-	if (battle->target != -1) {
+	if (i != -1) {
 		reset_map_state(battle);
-		pos = battle->fight[battle->id]->enemy[battle->target]->pos;
+		pos = battle->fight[battle->id]->enemy[i]->pos;
 		set_attack_orientation(battle, pos);
-		attack_anim(rpg, battle, battle->target);
-		do_damage_attack(battle, battle->target);
-		if (!battle->fight[battle->id]->enemy[battle->target]->alive)
-			display_enemy_dead_animation(rpg, battle, battle->target);
+		attack_anim(rpg, battle, i);
+		do_damage_attack(battle, i);
+		if (!battle->fight[battle->id]->enemy[i]->alive)
+			display_enemy_dead_animation(rpg, battle, i);
 		reset_map_state(battle);
 	}
 }
