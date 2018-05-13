@@ -2,24 +2,24 @@
 ** EPITECH PROJECT, 2018
 ** my_rpg_2017
 ** File description:
-** credits_buttons configuration
+** play_buttons functions configuration
 */
 
 # include "rpg.h"
 
-void configure_credits_return_button(rpg_t *rpg)
+void configure_play_pause_button(rpg_t *rpg)
 {
 	button_t conf;
-	sfIntRect rec = { 265, 0, 265, 80 };
+	sfIntRect rec = { 530, 480, 130, 80 };
 	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.name = "btn_return";
-	conf.pos.x = 320;
-	conf.pos.y = 885;
+	conf.name = "btn_pause";
+	conf.pos.x = 1785;
+	conf.pos.y = 25;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
-	conf.onStart = cb_return_action;
-	conf.state = gameOnCredits;
+	conf.onStart = cb_goto_pause_view;
+	conf.state = gameRun;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
 	sfSprite_setTextureRect(conf.sprite, rec);
@@ -27,5 +27,4 @@ void configure_credits_return_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured return button for setting view!");
 }

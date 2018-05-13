@@ -31,6 +31,28 @@ void configure_settings_volume_button(rpg_t *rpg)
 	info("Configured volume button for settings view!");
 }
 
+void configure_settings_volume_mute_music_button(rpg_t *rpg)
+{
+	button_t conf;
+	sfIntRect rec = { 530, 240, 130, 80 };
+	sfTexture *texture = get_texture(rpg, "buttons");
+
+	conf.name = "btn_mute_music";
+	conf.pos.x = 810;
+	conf.pos.y = 640;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_void_action;
+	conf.state = gameOnSettings;
+	conf.sprite = sfSprite_create();
+	sfSprite_setTexture(conf.sprite, texture, sfFalse);
+	sfSprite_setTextureRect(conf.sprite, rec);
+	sfSprite_setPosition(conf.sprite, conf.pos);
+	conf.rect = rec;
+	conf.next = NULL;
+	add_button(rpg, conf);
+}
+
 void configure_settings_return_button(rpg_t *rpg)
 {
 	button_t conf;
