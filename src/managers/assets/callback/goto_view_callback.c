@@ -13,6 +13,13 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
+	if (rpg->state == gamePause) {
+		free_all(rpg);
+		configure_internal_struct(rpg);
+		configure_battle_characters(rpg);
+		configure_player(rpg);
+	}
+
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	reset_to_normal_rect(rpg);

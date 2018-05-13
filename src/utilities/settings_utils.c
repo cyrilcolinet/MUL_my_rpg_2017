@@ -34,9 +34,6 @@ char *get_sound_in_str(int nb)
 	char *ptr = NULL;
 	int len = 0;
 
-	if (nb <= 0)
-		return "0%";
-
 	number = my_itoa(nb);
 	len = my_strlen(number);
 	ret = my_strconfigure(len + 1);
