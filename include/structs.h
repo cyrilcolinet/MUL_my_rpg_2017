@@ -130,6 +130,7 @@ typedef struct enemy_t {
 	bool 		played;
 	bool		sword;
 	int 		hp;
+	int 		hp_max;
 	int 		dmg;
 	int 		armor;
 } enemy_t;
@@ -170,6 +171,7 @@ typedef struct hero_t {
 	int		spell_id;
 	int 		target;
 	int 		hp;
+	int 		hp_max;
 	int 		dmg;
 	int 		armor;
 } hero_t;
