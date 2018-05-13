@@ -9,6 +9,15 @@
 
 void draw_all(rpg_t *rpg)
 {
+	if (rpg->battle->id == 0)
+		sfRectangleShape_setTexture(rpg->battle->background,
+				rpg->battle->texture[4], sfTrue);
+	else if (rpg->battle->id == 1)
+		sfRectangleShape_setTexture(rpg->battle->background,
+				rpg->battle->texture[5], sfTrue);
+	else
+		sfRectangleShape_setTexture(rpg->battle->background,
+				rpg->battle->texture[6], sfTrue);
 	sfRenderWindow_drawRectangleShape
 		(rpg->win, rpg->battle->background, NULL);
 	display_map(rpg, rpg->battle, rpg->battle->id);

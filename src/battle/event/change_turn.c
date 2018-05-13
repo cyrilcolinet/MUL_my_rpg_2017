@@ -7,25 +7,27 @@
 
 #include "rpg.h"
 
-static void end_battle_display(rpg_t *rpg, battle_t *battle, int nb)
+static void end_battle_display(rpg_t *rpg, battle_t *battle)
 {
-	sfVector2f pos = {};
+	sfVector2f pos = {19 * 32, 32};
 
 	battle->run = false;
-	rpg->player->direction = down;
-//	sfSprite_setPosition()
+	sfSprite_setPosition(rpg->player->sprite, pos);
+	rpg->player->rect.top = 128;
+	rpg->player->rect.left = 0;
+	sfSprite_setTextureRect(rpg->player->sprite, rpg->player->rect);
 }
 
 void end_battle(rpg_t *rpg, battle_t *battle)
 {
 	if (!battle->hero->alive)
-		end_battle_display(rpg, battle, 2);
+		end_battle_display(rpg, battle);
 	for (int i = 0; i < battle->fight[
 		battle->id]->number_enemy; i++) {
 		if (battle->fight[battle->id]->enemy[i]->alive)
 			return;
 	}
-	end_battle_display(rpg, battle, 1);
+	end_battle_display(rpg, battle);
 }
 
 static void change_enemy_turn(battle_t *battle, int n, int nb)
