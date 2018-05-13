@@ -58,6 +58,7 @@ SRC_FILES		= 	main.c 							\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
 				parser/map_parser.c 					\
+				parser/parse_map_hitboxes.c 				\
 				views/menu_views.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\

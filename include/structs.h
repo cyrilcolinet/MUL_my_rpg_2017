@@ -215,8 +215,7 @@ typedef struct map_t {
 	char 		*texture;
 	sfSprite	*sprite;
 	int		**h_layer;
-//	sfFloatRect	*interaction;
-	interact_t	*interaction;
+	interact_t	*it;
 }	map_t;
 
 typedef struct rpg_t {
@@ -226,7 +225,8 @@ typedef struct rpg_t {
 	sfSprite	*capture;
 	state_e		last_st;
 	sfClock		*clock;
-	config_t 	cfg;
+	int		map_id;
+	map_t		**map;
 	sound_t		*sounds;
 	options_t	options;
 	assets_t	*assets;
@@ -234,8 +234,6 @@ typedef struct rpg_t {
 	slider_t	*slides;
 	battle_t	*battle;
 	player_t	*player;
-	int		map_id;
-	map_t		**map;
 }	rpg_t;
 
 // Configuration striucts
