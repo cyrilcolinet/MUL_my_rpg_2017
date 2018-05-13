@@ -87,6 +87,6 @@ int parse_map(rpg_t *rpg)
 
 	}
 
-	rpg->map[count] = NULL;
+	rpg->map[count - 1] = NULL;
 	return (0);
 }
