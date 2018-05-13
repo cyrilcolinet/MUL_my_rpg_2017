@@ -48,7 +48,7 @@ void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy, int fight, int id)
 void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 {
 	enemy_t *enemy = malloc(sizeof(enemy_t));
-	double posx = 0, posy = 0;;
+	double posx = 0, posy = 0;
 
 	if (enemy == NULL)
 		return;
@@ -63,7 +63,7 @@ void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 	config_setting_lookup_int(set, "rec_top", &enemy->rec.top);
 	enemy->pos.x = posx;
 	enemy->pos.y = posy;
-	enemy->played = enemy->sword = false;;
+	enemy->played = enemy->sword = false;
 	enemy->alive = true;
 	enemy->hp_max = enemy->hp;
 	configure_enemy_texture(rpg, &enemy, fight, id);

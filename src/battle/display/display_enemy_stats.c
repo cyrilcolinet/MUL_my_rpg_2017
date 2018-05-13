@@ -69,9 +69,9 @@ static void display_name_frame(rpg_t *rpg, sfVector2f coord, int i)
 	pos.x = coord.x;
 	pos.y += 20;
 	sfRectangleShape_setPosition(
-		rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, pos);
+	rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, pos);
 	sfRenderWindow_drawRectangleShape(rpg->win,
-		rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, NULL);
+	rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, NULL);
 }
 
 void display_enemy_stats(rpg_t *rpg, sfVector2f coord)
