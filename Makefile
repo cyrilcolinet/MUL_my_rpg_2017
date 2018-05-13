@@ -53,7 +53,11 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/pause/buttons.c 			\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
+<<<<<<< HEAD
 				configurations/views/play/buttons.c			\
+=======
+				configurations/views/play/buttons.c		\
+>>>>>>> 6e7b158f971221a5d70741143c37c6a2f8ef3a0e
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
