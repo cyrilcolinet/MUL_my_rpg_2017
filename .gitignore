@@ -64,6 +64,7 @@ include/libconfig.h
 my_rpg
 test
 /assets/
+/assets_perfect/
 extern_libs/tmp
 lucas/
 

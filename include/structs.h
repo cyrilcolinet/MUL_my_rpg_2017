@@ -205,16 +205,18 @@ typedef struct player_t {
 	int		**layer;
 }	player_t;
 
-typedef struct map_t {
-	sfSprite	*sprite;
-	int		**h_layer;
-	sfFloatRect	*interaction;
-}	map_t;
-
 typedef struct interact_t {
 	char 		*msg;
 	sfIntRect	rec;
 }	interact_t;
+
+typedef struct map_t {
+	char 		*texture;
+	sfSprite	*sprite;
+	int		**h_layer;
+//	sfFloatRect	*interaction;
+	interact_t	*interaction;
+}	map_t;
 
 typedef struct rpg_t {
 	sfRenderWindow	*win;
