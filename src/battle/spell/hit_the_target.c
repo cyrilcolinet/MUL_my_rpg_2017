@@ -55,7 +55,7 @@ void hit_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
 	for (;j < battle->fight[battle->id]->number_enemy; j++) {
 		a = battle->fight[battle->id]->enemy[j]->pos.x;
 		b = battle->fight[battle->id]->enemy[j]->pos.y;
-		if (battle->fight[battle->id]->enemy[j]->alive,
+		if (battle->fight[battle->id]->enemy[j]->alive &&
 		battle->map[y][x] == 2 && x == a && y == b) {
 			set_damage(rpg, battle, j, val);
 			break;
