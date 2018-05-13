@@ -40,6 +40,7 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 		if (event->key.code == sfKeyT) {
 			if (battle->hero->spell_id < 3)
 				battle->hero->spell_id++;
+			battle->hero->spell[battle->hero->spell_id]->unlock = true;
 		}
 		if (event->key.code == sfKeyY) {
 			if (battle->hero->spell_id > 0)

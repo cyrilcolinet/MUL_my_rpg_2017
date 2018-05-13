@@ -60,20 +60,39 @@ static void do_damage_attack(battle_t *battle, int i)
 		battle->fight[battle->id]->enemy[i]->alive = false;
 }
 
+static bool can_attack(battle_t *battle)
+{
+	int x = battle->hero->pos.x;
+	int y = battle->hero->pos.y;
+
+	if ((x - 1 >= 0 && battle->map[y][x - 1] == 2) ||
+	(x + 1 <= 11 && battle->map[y][x + 1] == 2) ||
+	(y - 1 >= 0 && battle->map[y - 1][x] == 2) ||
+	(y + 1 <= 9 && battle->map[y + 1][x] == 2))
+	 	return (true);
+	return (false);
+}
+
 void hero_attack(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos;
-	int i;
+	int a = 0;
 
-	if (battle->hero->target != -1) {
+	for (; a < 4; a++)
+		if (battle->hero->spell[a]->unlock)
+			break;
+	if (battle->hero->move && a > 3 && !can_attack(battle)) {
+		battle->hero->attack = true;
+		return;
+	}
+	if (battle->target != -1) {
 		reset_map_state(battle);
-		i = battle->hero->target;
-		pos = battle->fight[battle->id]->enemy[i]->pos;
+		pos = battle->fight[battle->id]->enemy[battle->target]->pos;
 		set_attack_orientation(battle, pos);
-		attack_anim(rpg, battle, i);
-		do_damage_attack(battle, i);
-		if (!battle->fight[battle->id]->enemy[i]->alive)
-			display_enemy_dead_animation(rpg, battle, i);
+		attack_anim(rpg, battle, battle->target);
+		do_damage_attack(battle, battle->target);
+		if (!battle->fight[battle->id]->enemy[battle->target]->alive)
+			display_enemy_dead_animation(rpg, battle, battle->target);
 		reset_map_state(battle);
 	}
 }
