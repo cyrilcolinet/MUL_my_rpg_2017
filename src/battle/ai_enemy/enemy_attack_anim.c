@@ -19,6 +19,7 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int a)
 	display_other_enemy(rpg, battle, a);
 	sfRenderWindow_drawSprite(rpg->win,
 		battle->fight[battle->id]->enemy[a]->form, NULL);
+	display_enemy_damage(rpg, battle, a);
 	sfRenderWindow_display(rpg->win);
 }
 

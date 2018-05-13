@@ -9,6 +9,8 @@
 
 static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 {
+	sfVector2f pos = battle->hero->spell[1]->pos;
+
 	if (i % 6 == 5)
 		battle->hero->rec.left = 0;
 	sfRenderWindow_clear(rpg->win, sfBlack);
@@ -23,6 +25,8 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	display_enemy(rpg, rpg->battle);
 	sfRenderWindow_drawSprite(rpg->win,
 			battle->hero->spell[1]->form, NULL);
+	display_spell_damage(rpg, battle, pos.y * 12 + pos.x,
+			battle->hero->spell[1]->val);
 	sfRenderWindow_display(rpg->win);
 }
 

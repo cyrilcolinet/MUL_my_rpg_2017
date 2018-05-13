@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static void draw_anim(rpg_t *rpg, battle_t *battle)
+static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 {
 	sfRenderWindow_clear(rpg->win, sfBlack);
 	battle->hero->rec.left += 128;
@@ -17,10 +17,11 @@ static void draw_anim(rpg_t *rpg, battle_t *battle)
 	display_enemy(rpg, battle);
 	sfRenderWindow_drawSprite
 		(rpg->win, battle->hero->form, NULL);
+	display_hero_damage(rpg, battle, i);
 	sfRenderWindow_display(rpg->win);
 }
 
-static void attack_anim(rpg_t *rpg, battle_t *battle)
+static void attack_anim(rpg_t *rpg, battle_t *battle, int x)
 {
 	sfVector2f pos = sfSprite_getPosition(battle->hero->form);
 
@@ -33,7 +34,7 @@ static void attack_anim(rpg_t *rpg, battle_t *battle)
 		< sfTime_asSeconds(sfSeconds(0.1)))
 			battle->time = sfClock_getElapsedTime(
 				battle->clock);
-		draw_anim(rpg, battle);
+		draw_anim(rpg, battle, x);
 		i++;
 		if (i == 5)
 			battle->hero->rec.left = 0;
@@ -86,8 +87,10 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 		i = battle->hero->target;
 		pos = battle->fight[battle->id]->enemy[i]->pos;
 		set_attack_orientation(battle, pos);
-		attack_anim(rpg, battle);
+		attack_anim(rpg, battle, i);
 		do_damage_attack(battle, i);
+		if (!battle->fight[battle->id]->enemy[i]->alive)
+			display_enemy_dead_animation(rpg, battle, i);
 		reset_map_state(battle);
 	}
 }
