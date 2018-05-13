@@ -153,6 +153,7 @@ void 		configure_pause_quit_button(rpg_t *);
 
 // views/settings/buttons.c
 void 		configure_settings_volume_button(rpg_t *);
+void 		configure_settings_volume_mute_music_button(rpg_t *);
 void 		configure_settings_return_button(rpg_t *);
 void 		configure_settings_fullscreen_button(rpg_t *);
 
@@ -170,6 +171,9 @@ void 		configure_select_male_button(rpg_t *);
 void 		configure_select_female_button(rpg_t *);
 void 		configure_select_return_button(rpg_t *);
 void 		configure_select_play_button(rpg_t *);
+
+// views/play/buttons.c
+void 		configure_play_pause_button(rpg_t *);
 
 /*
 ** Views gesture

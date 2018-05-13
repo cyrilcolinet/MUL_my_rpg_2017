@@ -7,18 +7,18 @@
 
 # include "rpg.h"
 
-static slider_t extra_config(rpg_t *rpg, slider_t conf)
+static void extra_config(rpg_t *rpg, slider_t *conf)
 {
-	slider_t c = conf;
-	sfVector2f ori = { conf.range.y + 43, conf.mid_axis - 25 };
+	sfVector2f ori = { conf->range.y + 43, conf->mid_axis - 25 };
+	char *vol = get_sound_in_str(rpg->options.music_vol);
 
-	sfSprite_setPosition(c.btn->sprite, c.btn->pos);
-	sfText_setPosition(c.text, ori);
-	sfText_setFont(c.text, rpg->font);
-	sfText_setCharacterSize(c.text, 40);
-	sfText_setString(c.text, "0%");
-
-	return (c);
+	sfSprite_setPosition(conf->btn->sprite, conf->btn->pos);
+	conf->text = sfText_create();
+	sfText_setPosition(conf->text, ori);
+	sfText_setFont(conf->text, rpg->font);
+	sfText_setCharacterSize(conf->text, 40);
+	sfText_setString(conf->text, vol);
+	free(vol);
 }
 
 void configure_settings_volume_slider(rpg_t *rpg)
@@ -32,9 +32,9 @@ void configure_settings_volume_slider(rpg_t *rpg)
 	conf.range.y = 694;
 	conf.state = gameOnSettings;
 	conf.onSlide = cb_slider_volume_music;
-	conf.btn = get_button(rpg, "btn_volume", gameOnSettings);
-	conf.text = sfText_create();
+	conf.btn = get_button(rpg, "btn_volume", conf.state);
 	conf.btn->pos = pos;
+	extra_config(rpg, &conf);
 
-	add_slider(rpg, extra_config(rpg, conf));
+	add_slider(rpg, conf);
 }

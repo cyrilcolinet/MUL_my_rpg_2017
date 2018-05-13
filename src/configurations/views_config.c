@@ -19,6 +19,7 @@ void configure_main_view(rpg_t *rpg)
 void configure_settings_view(rpg_t *rpg)
 {
 	configure_settings_volume_button(rpg);
+	configure_settings_volume_mute_music_button(rpg);
 	configure_settings_volume_slider(rpg);
 	configure_settings_return_button(rpg);
 	configure_settings_fullscreen_button(rpg);
@@ -40,4 +41,6 @@ void configure_pause_view(rpg_t *rpg)
 	configure_pause_save_button(rpg);
 	configure_pause_settings_button(rpg);
 	configure_pause_quit_button(rpg);
+
+	configure_play_pause_button(rpg);
 }
