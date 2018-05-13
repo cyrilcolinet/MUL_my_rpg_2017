@@ -148,6 +148,7 @@ typedef struct spell_t {
 	sfSprite	*form;
 	sfRectangleShape *icone;
 	sfTexture	*texture;
+	sfTexture	*img;
 	sfIntRect	rec;
 	sfVector2f	pos;
 	bool		unlock;

@@ -38,25 +38,23 @@ void display_interface(rpg_t *rpg, battle_t *battle)
 	sfVector2f coord = {1630, 200};
 
 	display_enemy_stats(rpg, coord);
-	if (battle->hero->select) {
-		pos.x = 10;
-		pos.y = 200;
-		sfText_setPosition(battle->text, pos);
-		sfText_setString(battle->text, "Hero");
-		sfRenderWindow_drawText(rpg->win, battle->text, NULL);
-		pos.y += 30;
-		display_icone(rpg, pos, 0);
-		pos.x += 30;
-		display_stat_hero(rpg, pos, 0);
-		pos.x = 10;
-		pos.y += 30;
-		display_icone(rpg, pos, 1);
-		pos.x += 30;
-		display_stat_hero(rpg, pos, 1);
-		pos.x = 10;
-		pos.y += 30;
-		display_icone(rpg, pos, 2);
-		pos.x += 30;
-		display_stat_hero(rpg, pos, 2);
-	}
+	pos.x = 10;
+	pos.y = 200;
+	sfText_setPosition(battle->text, pos);
+	sfText_setString(battle->text, "Hero");
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+	pos.y += 30;
+	display_icone(rpg, pos, 0);
+	pos.x += 30;
+	display_stat_hero(rpg, pos, 0);
+	pos.x = 10;
+	pos.y += 30;
+	display_icone(rpg, pos, 1);
+	pos.x += 30;
+	display_stat_hero(rpg, pos, 1);
+	pos.x = 10;
+	pos.y += 30;
+	display_icone(rpg, pos, 2);
+	pos.x += 30;
+	display_stat_hero(rpg, pos, 2);
 }
