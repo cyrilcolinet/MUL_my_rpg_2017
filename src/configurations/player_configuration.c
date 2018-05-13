@@ -53,7 +53,7 @@ static sfRenderStates *init_render_state(void)
 void configure_player(rpg_t *rpg)
 {
 	rpg->player = malloc(sizeof(player_t));
-	rpg->player->sprite = (void **)&rpg->battle->hero->form;
+	rpg->player->sprite = rpg->battle->hero->form;
 	rpg->player->direction = up;
 	rpg->player->rect.top = 0;
 	rpg->player->rect.left = 0;
