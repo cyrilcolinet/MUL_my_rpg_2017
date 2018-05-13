@@ -95,7 +95,6 @@ SRC_FILES		= 	main.c 							\
 				battle/ai_enemy/enemy_deplacement_down.c		\
 				battle/ai_enemy/display_enemy_damage.c			\
 				battle/init/configure_battle.c				\
-				battle/init/init_hero.c					\
 				battle/display/display_map.c				\
 				battle/display/display_interface.c			\
 				battle/display/display_enemy_stats.c			\
