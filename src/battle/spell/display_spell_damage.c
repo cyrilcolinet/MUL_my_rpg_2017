@@ -26,6 +26,26 @@ void display_spell_damage(rpg_t *rpg, battle_t *battle, int i, int dmg)
 	sfText_setColor(battle->text, sfWhite);
 }
 
+static void display_ice_damage2(rpg_t *rpg, battle_t *battle, int x, int y)
+{
+	if (y > battle->hero->pos.x) {
+		display_spell_damage(rpg, battle, y * 12 + x,
+			battle->hero->spell[2]->val);
+		if (y + 1 <= 9) {
+			display_spell_damage(rpg, battle, (y + 1) * 12 + x,
+					battle->hero->spell[2]->val);
+		}
+	}
+	if (y < battle->hero->pos.x) {
+		display_spell_damage(rpg, battle, y * 12 + x,
+			battle->hero->spell[2]->val);
+		if (y - 1 >= 0) {
+			display_spell_damage(rpg, battle, (y - 1) * 12 + x,
+					battle->hero->spell[2]->val);
+		}
+	}
+}
+
 void display_ice_damage(rpg_t *rpg, battle_t *battle)
 {
 	int x = battle->hero->spell[2]->pos.x;
@@ -34,18 +54,39 @@ void display_ice_damage(rpg_t *rpg, battle_t *battle)
 	if (x > battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
 			battle->hero->spell[2]->val);
+		if (x + 1 <= 11) {
+			display_spell_damage(rpg, battle, y * 12 + x + 1,
+					battle->hero->spell[2]->val);
+		}
 	}
 	if (x < battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
 			battle->hero->spell[2]->val);
+		if (x - 1 >= 0) {
+			display_spell_damage(rpg, battle, y * 12 + x - 1,
+					battle->hero->spell[2]->val);
+		}
 	}
+	display_ice_damage2(rpg, battle, x, y);
+}
+
+static void display_storm_damage2(rpg_t *rpg, battle_t *battle, int x, int y)
+{
 	if (y > battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
-			battle->hero->spell[2]->val);
+			battle->hero->spell[3]->val);
+		if (y + 1 <= 9) {
+			display_spell_damage(rpg, battle, (y + 1) * 12 + x,
+					battle->hero->spell[3]->val);
+		}
 	}
 	if (y < battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
-			battle->hero->spell[2]->val);
+			battle->hero->spell[3]->val);
+		if (y - 1 >= 0) {
+			display_spell_damage(rpg, battle, (y - 1) * 12 + x,
+					battle->hero->spell[3]->val);
+		}
 	}
 }
 
@@ -57,18 +98,18 @@ void display_strom_damage(rpg_t *rpg, battle_t *battle)
 	if (x > battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
 			battle->hero->spell[3]->val);
+		if (x + 1 <= 11) {
+			display_spell_damage(rpg, battle, y  * 12 + x + 1,
+					battle->hero->spell[3]->val);
+		}
 	}
 	if (x < battle->hero->pos.x) {
 		display_spell_damage(rpg, battle, y * 12 + x,
 			battle->hero->spell[3]->val);
+		if (x - 1 >= 0) {
+			display_spell_damage(rpg, battle, y * 12 + x - 1,
+					battle->hero->spell[3]->val);
+		}
 	}
-	if (y > battle->hero->pos.x) {
-		display_spell_damage(rpg, battle, y * 12 + x,
-			battle->hero->spell[3]->val);
-	}
-	if (y < battle->hero->pos.x) {
-		display_spell_damage(rpg, battle, y * 12 + x,
-			battle->hero->spell[3]->val);
-	}
-
+	display_storm_damage2(rpg, battle, x, y);
 }
