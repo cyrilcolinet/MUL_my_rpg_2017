@@ -12,7 +12,7 @@ void draw_all(rpg_t *rpg)
 	sfRenderWindow_drawRectangleShape
 		(rpg->win, rpg->battle->background, NULL);
 	display_map(rpg, rpg->battle, rpg->battle->id);
-	display_current_target(rpg->battle);
+	display_current_target(rpg, rpg->battle);
 	display_interface(rpg, rpg->battle);
 	draw_buttons(rpg);
 }

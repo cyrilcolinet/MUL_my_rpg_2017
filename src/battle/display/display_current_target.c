@@ -42,28 +42,37 @@ static bool is_enemy_frame(battle_t *battle, sfVector2f pos,
 	return (false);
 }
 
-static void is_he_dead(battle_t *battle, int i)
+static void display_arrow(rpg_t *rpg, battle_t *battle, int i, sfVector2f pos)
 {
-	if (!battle->fight[battle->id]->enemy[i]->alive) {
-		sfRectangleShape_setFillColor(
-		battle->fight[battle->id]->enemy[i]->frame, sfBlack);
-	}
+	sfRectangleShape_setTexture(
+		battle->icone, battle->texture[3], sfTrue);
+	pos = sfSprite_getPosition(
+		battle->fight[battle->id]->enemy[i]->form);
+	pos.x += 32;
+	pos.y -= 16;
+	sfRectangleShape_setPosition(battle->icone, pos);
+	sfRenderWindow_drawRectangleShape(rpg->win,
+			rpg->battle->icone, NULL);
+	sfRectangleShape_setFillColor(
+		battle->fight[battle->id]->enemy[i]->frame, sfYellow);
 }
 
-void display_current_target(battle_t *battle)
+void display_current_target(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos = {0, 0};
 	sfVector2f size = {0, 0};
 
-	for (int i = 0; i < battle->fight[battle->id]->number_enemy; i++) {
-		if (is_enemy_form(battle, pos, size, i)
-		|| is_enemy_frame(battle, pos, size, i)) {
+	for (int i = 0; i < battle->fight[
+		battle->id]->number_enemy; i++) {
+		sfRectangleShape_setFillColor(
+		battle->fight[battle->id]->enemy[i]->frame, sfRed);
+		if (battle->fight[battle->id]->enemy[i]->alive
+		&& (is_enemy_form(battle, pos, size, i)
+		|| is_enemy_frame(battle, pos, size, i)))
+			display_arrow(rpg, battle, i, pos);
+		if (!battle->fight[battle->id]->enemy[i]->alive)
 			sfRectangleShape_setFillColor(
-			battle->fight[battle->id]->enemy[i]->frame, sfYellow);
-		} else {
-			sfRectangleShape_setFillColor(
-			battle->fight[battle->id]->enemy[i]->frame, sfRed);
-		}
-		is_he_dead(battle, i);
+			battle->fight[battle->id]->
+			enemy[i]->frame, sfBlack);
 	}
 }

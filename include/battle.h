@@ -24,7 +24,7 @@ void		free_all(rpg_t *);
 void		display_map(rpg_t *, battle_t *, int);
 void		display_interface(rpg_t *, battle_t *);
 void		display_enemy_stats(rpg_t *, sfVector2f);
-void		display_current_target(battle_t *);
+void		display_current_target(rpg_t *, battle_t *);
 void		fill_map_state(battle_t *, int);
 void		draw_all(rpg_t *);
 void		display_hero(rpg_t *, battle_t *);
