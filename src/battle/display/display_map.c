@@ -39,8 +39,22 @@ void display_enemy(rpg_t *rpg, battle_t *battle)
 
 void display_map(rpg_t *rpg, battle_t *battle, int id)
 {
+	sfVector2f pos =  {200, 950};
+
 	for (int i = 0; i < 120; i++) {
 		sfRenderWindow_drawRectangleShape
 			(rpg->win, battle->fight[id]->map[i], NULL);
+	}
+	for (int i = 0; i < 4; i++) {
+		sfRectangleShape_setPosition(
+			battle->hero->spell[i]->icone, pos);
+		pos.x += 80;
+		sfRectangleShape_setOutlineColor(
+			battle->hero->spell[i]->icone, sfTransparent);
+		if (battle->hero->spell_id == i)
+			sfRectangleShape_setOutlineColor(
+				battle->hero->spell[i]->icone, sfRed);
+		sfRenderWindow_drawRectangleShape(
+			rpg->win, battle->hero->spell[i]->icone, NULL);
 	}
 }
