@@ -16,15 +16,37 @@ static void check_dead(rpg_t *rpg, battle_t *battle, int i, int val)
 	}
 }
 
-static void set_damage2(rpg_t *rpg, int i, int y, int val)
+static void damage_2_man(rpg_t *rpg, int x, int y)
 {
-	if (y > rpg->battle->hero->pos.x) {
-		check_dead(rpg, rpg->battle, i, val);
-		if (y + 1 <= 9);
+	int a = 0;
+	int b = 0;
+	int id = rpg->battle->hero->spell_id;
+
+	for (int j = 0; j < rpg->battle->fight
+		[rpg->battle->id]->number_enemy; j++) {
+		a = rpg->battle->fight[rpg->battle->id]->enemy[j]->pos.x;
+		b = rpg->battle->fight[rpg->battle->id]->enemy[j]->pos.y;
+		if (rpg->battle->fight[rpg->battle->id]->enemy[j]->alive
+		&& a == x && y == b)
+			check_dead(rpg, rpg->battle, j,
+			rpg->battle->hero->spell[id]->val);
 	}
-	if (y < rpg->battle->hero->pos.x) {
-		check_dead(rpg, rpg->battle, i, val);
-		if (y - 1 >= 0);
+}
+static void set_damage2(rpg_t *rpg, int i, int x , int y)
+{
+	int id = rpg->battle->hero->spell_id;
+
+	if (y > rpg->battle->hero->pos.y) {
+		check_dead(rpg, rpg->battle, i,
+		rpg->battle->hero->spell[id]->val);
+		if (y + 1 <= 9)
+			damage_2_man(rpg, x, y + 1);
+	}
+	if (y < rpg->battle->hero->pos.y) {
+		check_dead(rpg, rpg->battle, i,
+		rpg->battle->hero->spell[id]->val);
+		if (y - 1 >= 0)
+			damage_2_man(rpg, x, y - 1);
 	}
 }
 
@@ -35,13 +57,15 @@ static void set_damage(rpg_t *rpg, battle_t *battle, int i, int val)
 
 	if (x > battle->hero->pos.x) {
 		check_dead(rpg, battle, i, val);
-		if (x + 1 <= 11);
+		if (x + 1 <= 11)
+			damage_2_man(rpg, x + 1, y);
 	}
 	if (x < battle->hero->pos.x) {
 		check_dead(rpg, battle, i, val);
-		if (x - 1 >= 0);
+		if (x - 1 >= 0)
+			damage_2_man(rpg, x - 1, y);
 	}
-	set_damage2(rpg, i, y, val);
+	set_damage2(rpg, i, x, y);
 }
 
 void hit_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
@@ -52,7 +76,7 @@ void hit_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
 	int b = 0;
 	int j = 0;
 
-	for (;j < battle->fight[battle->id]->number_enemy; j++) {
+	for (; j < battle->fight[battle->id]->number_enemy; j++) {
 		a = battle->fight[battle->id]->enemy[j]->pos.x;
 		b = battle->fight[battle->id]->enemy[j]->pos.y;
 		if (battle->fight[battle->id]->enemy[j]->alive &&

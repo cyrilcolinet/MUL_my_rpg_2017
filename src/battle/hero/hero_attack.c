@@ -69,7 +69,7 @@ static bool can_attack(battle_t *battle)
 	(x + 1 <= 11 && battle->map[y][x + 1] == 2) ||
 	(y - 1 >= 0 && battle->map[y - 1][x] == 2) ||
 	(y + 1 <= 9 && battle->map[y + 1][x] == 2))
-	 	return (true);
+		return (true);
 	return (false);
 }
 
