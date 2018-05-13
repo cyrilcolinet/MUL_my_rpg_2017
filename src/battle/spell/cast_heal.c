@@ -7,8 +7,29 @@
 
 #include "rpg.h"
 
+static void display_heal(rpg_t *rpg, battle_t *battle, int i, int heal)
+{
+	sfVector2f pos = sfRectangleShape_getPosition(
+		battle->fight[battle->id]->map[i]);
+	char *str = my_itoa(heal);
+
+	if (battle->map[i / 12][i % 12] == 1
+	|| battle->map[i / 12][i % 12] == 2) {
+		sfText_setColor(battle->text, sfColor_fromRGB(0, 200, 0));
+		pos.x += 8;
+		pos.y += 2;
+		sfText_setPosition(battle->text, pos);
+		sfText_setString(battle->text, str);
+		sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+	}
+	free(str);
+	sfText_setColor(battle->text, sfWhite);
+}
+
 static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 {
+	sfVector2f pos = battle->hero->spell[0]->pos;
+
 	if (i % 6 == 5)
 		battle->hero->rec.left = 0;
 	sfRenderWindow_clear(rpg->win, sfBlack);
@@ -22,7 +43,9 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	display_hero(rpg, rpg->battle);
 	display_enemy(rpg, rpg->battle);
 	sfRenderWindow_drawSprite(rpg->win,
-			battle->hero->spell[0]->form, NULL);
+		battle->hero->spell[0]->form, NULL);
+	display_heal(rpg, battle, pos.y * 12 + pos.x,
+		battle->hero->spell[0]->val);
 	sfRenderWindow_display(rpg->win);
 }
 

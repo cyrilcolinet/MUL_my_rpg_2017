@@ -23,6 +23,7 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	display_enemy(rpg, rpg->battle);
 	sfRenderWindow_drawSprite(rpg->win,
 		battle->hero->spell[3]->form, NULL);
+	display_strom_damage(rpg, battle);
 	sfRenderWindow_display(rpg->win);
 }
 

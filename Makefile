@@ -74,9 +74,12 @@ SRC_FILES		= 	main.c 							\
 				battle/hero/hero_attack.c				\
 				battle/hero/hero_set_attack.c				\
 				battle/hero/hero_deplacement.c				\
+				battle/hero/display_enemy_dead_animation.c		\
+				battle/hero/display_hero_damage.c			\
 				battle/hero/hero_set_deplacement_color.c		\
 				battle/spell/cast_spell.c				\
 				battle/spell/display_case.c				\
+				battle/spell/display_spell_damage.c			\
 				battle/spell/cast_heal.c				\
 				battle/spell/cast_fire.c				\
 				battle/spell/cast_ice.c					\
@@ -88,6 +91,7 @@ SRC_FILES		= 	main.c 							\
 				battle/ai_enemy/enemy_deplacement_right.c		\
 				battle/ai_enemy/enemy_deplacement_up.c			\
 				battle/ai_enemy/enemy_deplacement_down.c		\
+				battle/ai_enemy/display_enemy_damage.c			\
 				battle/init/configure_battle.c				\
 				battle/init/init_hero.c					\
 				battle/display/display_map.c				\

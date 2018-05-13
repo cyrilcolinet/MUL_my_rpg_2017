@@ -151,6 +151,7 @@ typedef struct spell_t {
 	sfVector2f	pos;
 	bool		unlock;
 	bool		cast;
+	int		val;
 } spell_t;
 
 typedef struct hero_t {
