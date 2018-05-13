@@ -35,7 +35,7 @@ void settings_view(rpg_t *rpg)
 	char *name = ((rpg->last_st == gameWait) ? "bg_settings" \
 	: "bg_settings1");
 	sfSprite *sprite = get_sprite(rpg, name);
-	slider_t *vol = get_slider(rpg, "sld_volume");
+	slider_t *vol = get_slider(rpg, "sld_volume_music");
 
 	if (rpg->capture != NULL)
 		sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
