@@ -14,6 +14,7 @@ void draw_all(rpg_t *rpg)
 	display_map(rpg, rpg->battle, rpg->battle->id);
 	display_current_target(rpg->battle);
 	display_interface(rpg, rpg->battle);
+	draw_buttons(rpg);
 }
 
 static bool spell_select(rpg_t *rpg, battle_t *battle)

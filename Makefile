@@ -53,7 +53,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/pause/buttons.c 			\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
-				configurations/views/play/buttons.c		\
+				configurations/views/play/buttons.c			\
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
@@ -85,6 +85,7 @@ SRC_FILES		= 	main.c 							\
 				battle/spell/cast_fire.c				\
 				battle/spell/cast_ice.c					\
 				battle/spell/cast_storm.c				\
+				battle/spell/hit_the_target.c				\
 				battle/ai_enemy/enemy_turn.c				\
 				battle/ai_enemy/enemy_attack.c				\
 				battle/ai_enemy/enemy_attack_anim.c			\

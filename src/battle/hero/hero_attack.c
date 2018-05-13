@@ -44,19 +44,6 @@ static void attack_anim(rpg_t *rpg, battle_t *battle, int x)
 	sfSprite_setPosition(battle->hero->form, pos);
 }
 
-static bool can_attack(battle_t *battle)
-{
-	int x = battle->hero->pos.x;
-	int y = battle->hero->pos.y;
-
-	if ((x - 1 >= 0 && battle->map[y][x - 1] == 2) ||
-	(x + 1 <= 11 && battle->map[y][x + 1] == 2) ||
-	(y - 1 >= 0 && battle->map[y - 1][x] == 2) ||
-	(y + 1 <= 9 && battle->map[y + 1][x] == 2))
-		return (true);
-	return (false);
-}
-
 static void do_damage_attack(battle_t *battle, int i)
 {
 	battle->hero->rec.top = (
@@ -78,10 +65,6 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 	sfVector2f pos;
 	int i;
 
-	if (battle->hero->move && !can_attack(battle)) {
-		battle->hero->attack = true;
-		return;
-	}
 	if (battle->hero->target != -1) {
 		reset_map_state(battle);
 		i = battle->hero->target;
