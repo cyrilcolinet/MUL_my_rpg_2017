@@ -54,7 +54,7 @@ void 	state_reset(player_t *player);
 void 	move_player(player_t *player, float factor);
 void 	player_displacement(rpg_t *rpg, direction_e direction);
 sfBool 	animate_player(player_t *player, sfClock *clock);
-sfBool player_collide(player_t *player, int **layer);
+sfBool	player_collide(player_t *player, int **layer);
 /*
 ** Sounds manager
 ** Manage sounds, button click, and other noises
