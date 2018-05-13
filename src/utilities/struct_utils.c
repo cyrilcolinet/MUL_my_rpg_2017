@@ -7,6 +7,17 @@
 
 # include "rpg.h"
 
+static void configure_textures2(battle_t *btl, sfVector2f pos)
+{
+	btl->background = sfRectangleShape_create();
+	pos.x = pos.y = 0;
+	sfRectangleShape_setPosition(btl->background, pos);
+	pos.x = 1920;
+	pos.y = 1080;
+	sfRectangleShape_setSize(btl->background, pos);
+	sfRectangleShape_setTexture(btl->background, btl->texture[4], sfTrue);
+}
+
 void configure_textures(rpg_t *rpg, battle_t *btl)
 {
 	sfVector2f pos = { 30, 10 };
@@ -25,13 +36,7 @@ void configure_textures(rpg_t *rpg, battle_t *btl)
 		btl->texture[5] = get_texture(rpg, "fight2");
 		btl->texture[6] = get_texture(rpg, "fight3");
 	}
-	btl->background = sfRectangleShape_create();
-	pos.x = pos.y = 0;
-	sfRectangleShape_setPosition(btl->background, pos);
-	pos.x = 1920;
-	pos.y = 1080;
-	sfRectangleShape_setSize(btl->background, pos);
-	sfRectangleShape_setTexture(btl->background, btl->texture[4], sfTrue);
+	configure_textures2(btl, pos);
 }
 
 bool configure_internal_battle(rpg_t *rpg)

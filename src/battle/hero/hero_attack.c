@@ -54,10 +54,13 @@ static void do_damage_attack(battle_t *battle, int i)
 	sfSprite_setTextureRect(
 		battle->hero->form, battle->hero->rec);
 	battle->hero->attack = true;
-	battle->fight[battle->id]->enemy[i]->hp -= battle->hero->dmg;
+	battle->fight[battle->id]->enemy[i]->hp -=
+	(battle->hero->dmg - battle->fight[battle->id]->enemy[i]->armor);
 	battle->hero->target = -1;
-	if (battle->fight[battle->id]->enemy[i]->hp <= 0)
+	if (battle->fight[battle->id]->enemy[i]->hp <= 0) {
 		battle->fight[battle->id]->enemy[i]->alive = false;
+		battle->fight[battle->id]->enemy[i]->hp = 0;
+	}
 }
 
 static bool can_attack(battle_t *battle)

@@ -11,7 +11,8 @@ void display_hero_damage(rpg_t *rpg, battle_t *battle, int i)
 {
 	sfVector2f pos = sfSprite_getPosition(
 		battle->fight[battle->id]->enemy[i]->form);
-	char *str = my_itoa(battle->hero->dmg);
+	char *str = my_itoa(battle->hero->dmg -
+			battle->fight[battle->id]->enemy[i]->armor);
 
 	sfText_setColor(battle->text, sfColor_fromRGB(200, 0, 0));
 	pos.x -= 4;

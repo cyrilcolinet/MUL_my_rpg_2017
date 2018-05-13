@@ -37,25 +37,6 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			battle->hero->attack = false;
 			battle->id--;
 		}
-		if (event->key.code == sfKeyT) {
-			if (battle->hero->spell_id < 3)
-				battle->hero->spell_id++;
-			battle->hero->spell[battle->hero->spell_id]->unlock = true;
-		}
-		if (event->key.code == sfKeyY) {
-			if (battle->hero->spell_id > 0)
-				battle->hero->spell_id--;
-		}
-		if (event->key.code == sfKeyP) {
-			sfSprite_setTexture(battle->hero->form, battle->fight[battle->id]->enemy[0]->img, false);
-			battle->hero->spell_id = -1;
-			battle->hero->sword = false;
-		}
-		if (event->key.code == sfKeyO) {
-			sfSprite_setTexture(battle->hero->form, battle->hero->img, false);
-			battle->hero->spell_id = -1;
-			battle->hero->sword = true;
-		}
 		if (event->key.code == sfKeyA) {
 			battle->run = false;
 			sfSprite_setTextureRect(*rpg->player->sprite, rpg->player->rect);

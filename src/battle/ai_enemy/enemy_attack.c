@@ -21,7 +21,8 @@ static bool attack_up(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 		sfSprite_setPosition(
 			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
-		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
+		battle->hero->hp -= (battle->fight[battle->id]->enemy[a]->dmg
+			- battle->hero->armor);
 		return (true);
 	}
 	return (false);
@@ -41,7 +42,8 @@ static bool attack_down(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 		sfSprite_setPosition(
 			battle->fight[battle->id]->enemy[a]->form, enemy);
 		enemy_attack_anim(rpg, battle, pos, a);
-		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
+		battle->hero->hp -= (battle->fight[battle->id]->enemy[a]->dmg
+			- battle->hero->armor);
 		return (true);
 	}
 	return (false);
@@ -54,21 +56,21 @@ static bool attack_left(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 	int x = pos.x;
 	int y = pos.y;
 
-	if (x > 0 && battle->map[y][x - 1] == 1) {
-		enemy.x -= 44;
-		enemy.y -= 44;
-		if (battle->fight[battle->id]->enemy[a]->sword) {
-			enemy.x -= 20;
-			enemy.y -= 4;
-		}
-		battle->fight[battle->id]->enemy[a]->rec.top = 11 * 64;
-		sfSprite_setPosition(
-			battle->fight[battle->id]->enemy[a]->form, enemy);
-		enemy_attack_anim(rpg, battle, pos, a);
-		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
-		return (true);
+	if (x <= 0 || battle->map[y][x - 1] != 1)
+		return (false);
+	enemy.x -= 44;
+	enemy.y -= 44;
+	if (battle->fight[battle->id]->enemy[a]->sword) {
+		enemy.x -= 20;
+		enemy.y -= 4;
 	}
-	return (false);
+	battle->fight[battle->id]->enemy[a]->rec.top = 11 * 64;
+	sfSprite_setPosition(
+		battle->fight[battle->id]->enemy[a]->form, enemy);
+	enemy_attack_anim(rpg, battle, pos, a);
+	battle->hero->hp -= (battle->fight[battle->id]->enemy[a]->dmg
+		- battle->hero->armor);
+	return (true);
 }
 
 static bool attack_right(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
@@ -78,21 +80,21 @@ static bool attack_right(rpg_t *rpg, battle_t *battle, int a, sfVector2f pos)
 	int x = pos.x;
 	int y = pos.y;
 
-	if (x < 11 && battle->map[y][x + 1] == 1) {
-		enemy.x -= 44;
-		enemy.y -= 44;
-		if (battle->fight[battle->id]->enemy[a]->sword) {
-			enemy.x += 32;
-			enemy.y -= 4;
-		}
-		battle->fight[battle->id]->enemy[a]->rec.top = 15 * 64;
-		sfSprite_setPosition(
-			battle->fight[battle->id]->enemy[a]->form, enemy);
-		enemy_attack_anim(rpg, battle, pos, a);
-		battle->hero->hp -= battle->fight[battle->id]->enemy[a]->dmg;
-		return (true);
+	if (x >= 11 || battle->map[y][x + 1] != 1)
+		return (false);
+	enemy.x -= 44;
+	enemy.y -= 44;
+	if (battle->fight[battle->id]->enemy[a]->sword) {
+		enemy.x += 32;
+		enemy.y -= 4;
 	}
-	return (false);
+	battle->fight[battle->id]->enemy[a]->rec.top = 15 * 64;
+	sfSprite_setPosition(
+		battle->fight[battle->id]->enemy[a]->form, enemy);
+	enemy_attack_anim(rpg, battle, pos, a);
+	battle->hero->hp -= (battle->fight[battle->id]->enemy[a]->dmg
+		- battle->hero->armor);
+	return (true);
 }
 
 bool check_enemy_attack(rpg_t *rpg, battle_t *battle, int x, sfVector2f pos)
