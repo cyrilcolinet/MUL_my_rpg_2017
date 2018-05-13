@@ -211,6 +211,11 @@ typedef struct map_t {
 	sfFloatRect	*interaction;
 }	map_t;
 
+typedef struct interact_t {
+	char 		*msg;
+	sfIntRect	rec;
+}	interact_t;
+
 typedef struct rpg_t {
 	sfRenderWindow	*win;
 	sfFont		*font;
