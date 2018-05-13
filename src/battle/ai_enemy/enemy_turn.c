@@ -43,6 +43,8 @@ void enemy_turn(rpg_t *rpg, battle_t *battle)
 	sfVector2f pos;
 	int i = battle->fight[battle->id]->curent;
 	
+	battle->fight[battle->id]->enemy_turn = false;
+	return;
 	if (i < battle->fight[battle->id]->number_enemy) {
 		pos.x = battle->fight[battle->id]->enemy[i]->pos.x;
 		pos.y = battle->fight[battle->id]->enemy[i]->pos.y;
