@@ -231,6 +231,7 @@ void 		destroy_buttons(rpg_t *);
 void 		destroy_assets(rpg_t *);
 void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
+void 		destroy_content(rpg_t *);
 
 // struct_utils.c
 void 		configure_textures(rpg_t *, battle_t *);
@@ -246,6 +247,8 @@ sfVector2f	 init_vector(float x, float y);
 sfVector2f	 add_vector(sfVector2f first, sfVector2f second);
 sfVector2f	 multiply_vector(sfVector2f first, sfVector2f second);
 sfVector2f	 multiply_vector_scalar(sfVector2f vector, float scalar);
+
+
 /*
 ** Parse utilities
 ** Parse config file

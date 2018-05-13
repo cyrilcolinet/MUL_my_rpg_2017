@@ -70,3 +70,16 @@ void destroy_sounds(rpg_t *rpg)
 
 	info("All sounds destroyed.");
 }
+
+void destroy_content(rpg_t *rpg)
+{
+	for (int i = 0; rpg->map[i]; i++) {
+		sfSprite_destroy(rpg->map[i]->sprite);
+		for (int j = 0; rpg->map[i]->h_layer[j]; j++)
+			free(rpg->map[i]->h_layer[j]);
+		free(rpg->map[i]->h_layer);
+		free(rpg->map[i]->it);
+		free(rpg->map[i]);
+	}
+	free(rpg->map);
+}

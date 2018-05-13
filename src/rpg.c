@@ -10,6 +10,7 @@
 void exit_game(rpg_t *rpg)
 {
 	free_all(rpg);
+	//destroy_content(rpg);
 	sfSound_stop(get_sound(rpg, "main")->sound);
 	destroy_assets(rpg);
 	destroy_buttons(rpg);
