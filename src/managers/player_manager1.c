@@ -24,13 +24,13 @@ void update_direction(player_t *player, direction_e direction)
 		break;
 	}
 	player->direction = direction;
-	sfSprite_setTextureRect(*player->sprite, player->rect);
+	sfSprite_setTextureRect(player->sprite, player->rect);
 }
 
 void next_state(player_t *player)
 {
 	player->rect.left = (player->rect.left + 64) % 576;
-	sfSprite_setTextureRect(*player->sprite, player->rect);
+	sfSprite_setTextureRect(player->sprite, player->rect);
 }
 
 void move_player(player_t *player, float factor)
@@ -46,7 +46,7 @@ void move_player(player_t *player, float factor)
 void state_reset(player_t *player)
 {
 	player->rect.left = 0;
-	sfSprite_setTextureRect(*player->sprite, player->rect);
+	sfSprite_setTextureRect(player->sprite, player->rect);
 	player->time_0 = sfSeconds(0);
 }
 
