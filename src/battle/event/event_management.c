@@ -16,7 +16,7 @@ static void mouse_coord(battle_t *battle, sfEvent *event)
 }
 
 static void battle_event_management2(rpg_t *rpg, battle_t *battle
-				     , sfEvent *event)
+		, sfEvent *event)
 {
 	if (event->key.code == sfKeyX) {
 		battle->hero->played = false;
@@ -36,7 +36,7 @@ static void battle_event_management2(rpg_t *rpg, battle_t *battle
 		battle->run = false;
 		sfSprite_setTextureRect(
 			rpg->player->sprite, rpg->player->rect);
-	}	
+	}
 }
 
 void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
