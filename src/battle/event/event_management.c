@@ -15,6 +15,30 @@ static void mouse_coord(battle_t *battle, sfEvent *event)
 	}
 }
 
+static void battle_event_management2(rpg_t *rpg, battle_t *battle
+				     , sfEvent *event)
+{
+	if (event->key.code == sfKeyX) {
+		battle->hero->played = false;
+		battle->hero->move = false;
+		battle->hero->attack = false;
+		if (battle->id < 2)
+			battle->id++;
+	}
+	if (event->key.code == sfKeyW) {
+		battle->hero->played = false;
+		battle->hero->move = false;
+		battle->hero->attack = false;
+		if (battle->id > 0)
+			battle->id--;
+	}
+	if (event->key.code == sfKeyA) {
+		battle->run = false;
+		sfSprite_setTextureRect(
+			rpg->player->sprite, rpg->player->rect);
+	}	
+}
+
 void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 {
 	mouse_coord(battle, event);
@@ -25,21 +49,6 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			reset_map_state(battle);
 			battle->hero->played = true;
 		}
-		if (event->key.code == sfKeyX) {
-			battle->hero->played = false;
-			battle->hero->move = false;
-			battle->hero->attack = false;
-			battle->id++;
-		}
-		if (event->key.code == sfKeyW) {
-			battle->hero->played = false;
-			battle->hero->move = false;
-			battle->hero->attack = false;
-			battle->id--;
-		}
-		if (event->key.code == sfKeyA) {
-			battle->run = false;
-			sfSprite_setTextureRect(rpg->player->sprite, rpg->player->rect);
-		}
+		battle_event_management2(rpg, battle, event);
 	}
 }
