@@ -2,8 +2,6 @@
 
 [![Build Status](https://travis-ci.com/mrlizzard/MUL_my_rpg_2017.svg?token=pg99qoFBnTMuMcLyfT5p&branch=master)](https://travis-ci.com/mrlizzard/MUL_my_rpg_2017)
 
-> :exclamation: Warning: This project is an Epitech project. Follow the golden rule ... do not make a project recovered on github or you can get -42! :tongue:
-
 - **Binary name:** my_rpg
 - **Repository name:** my_rpg_2017
 - **Repository rights:** ramassage-tek, clement.tinarelli@epitech.eu, lucas.marcel@epitech.eu
@@ -13,6 +11,8 @@
 
 
 # Subject
+
+> :exclamation: Warning: This project is an Epitech project. Follow the golden rule ... do not make a project recovered on github or you can get -42! :tongue:
 
 This project is one of the freest project of your first year. Create your own [RPG].
 Your main challenge for this game will be to create a complete product using everything that you and your team know.
