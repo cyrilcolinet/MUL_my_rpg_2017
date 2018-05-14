@@ -69,6 +69,7 @@ int configure_assets(rpg_t *rpg)
 
 	if (set == NULL)
 		return (-1);
+
 	count = config_setting_length(set);
 	for (int key = 0; count > 0 && key < count; key++) {
 		asset = config_setting_get_elem(set, key);

@@ -8,12 +8,12 @@
 # ifndef RPG_BATTLE_H
 # define RPG_BATTLE_H
 
-# define MAP_X 		(225)
-# define MAP_Y 		(180)
-# define B_X 		(114)
-# define B_Y 		(72)
-
 # include "structs.h"
+
+# define 	MAP_X 		(225)
+# define 	MAP_Y 		(180)
+# define 	B_X 		(114)
+# define 	B_Y 		(72)
 
 void		battle_management(rpg_t *, battle_t *);
 
@@ -90,6 +90,6 @@ void		configure_battle(rpg_t *);
 
 sfRectangleShape **create_battle_map(sfVector2f *);
 
-sfText *create_text(sfFont *, char *, sfVector2f , sfColor);
+sfText 		*create_text(sfFont *, char *, sfVector2f , sfColor);
 
 # endif
