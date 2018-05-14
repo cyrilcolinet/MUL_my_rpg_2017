@@ -12,6 +12,8 @@
 # include "structs.h"
 # include "battle.h"
 
+# define 	READ_SIZE		(128)
+
 // Debug global variable
 bool 		debug;
 
@@ -48,13 +50,13 @@ void 		ev_run(rpg_t *, sfEvent *);
 */
 
 //player_manager.c
-void 	update_direction(player_t *player, direction_e direction);
-void 	next_state(player_t *player);
-void 	state_reset(player_t *player);
-void 	move_player(player_t *player, float factor);
-void 	player_displacement(rpg_t *rpg, direction_e direction);
-sfBool 	animate_player(player_t *player, sfClock *clock);
-sfBool	player_collide(player_t *player, int **layer);
+void 		update_direction(player_t *, direction_e);
+void 		next_state(player_t *);
+void 		state_reset(player_t *);
+void 		move_player(player_t *, float);
+void 		player_displacement(rpg_t *, direction_e);
+sfBool 		animate_player(player_t *, sfClock *);
+sfBool		player_collide(player_t *, int **);
 /*
 ** Sounds manager
 ** Manage sounds, button click, and other noises

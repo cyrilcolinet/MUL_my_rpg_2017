@@ -33,12 +33,19 @@ struct 	texture_t;
 struct 	button_t;
 struct 	slider_t;
 struct 	assets_t;
+struct	sound_t;
 struct 	options_t;
 struct	enemy_t;
 struct	fight_t;
+struct	spell_t;
 struct 	hero_t;
 struct 	battle_t;
+struct	inventory_t;
+struct	player_t;
+struct 	interact_t;
+struct	map_t;
 struct 	rpg_t;
+struct	conf_res_t;
 
 // Enumerations declarations
 typedef enum state_e {
