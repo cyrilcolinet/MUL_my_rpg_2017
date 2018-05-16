@@ -25,7 +25,7 @@ void exit_game(rpg_t *rpg)
 	info("Window destroyed!");
 }
 
-static void init_icone_spell(battle_t *battle)
+void init_icone_spell(battle_t *battle)
 {
 	sfVector2f size = {50, 50};
 
