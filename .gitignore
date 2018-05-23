@@ -77,6 +77,7 @@ fabric.properties
 *.a
 *.la
 *.lo
+*.so
 
 # Shared objects (inc. Windows DLLs)
 *.dll
