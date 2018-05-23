@@ -17,11 +17,11 @@ $(NAME):
 	cd libconfig && ./configure --prefix=$(DIR)
 	make -C libconfig
 	make install -C libconfig
-	cp $(DIR)/lib/libconfig.a ../lib
+	ln -s $(DIR)/lib/libconfig.so.11.0.2 ../lib/libconfig.so
 	cp $(DIR)/include/libconfig.h ../include
 
 clean:
-	rm -rf ../lib/libconfig.a
+	rm -rf ../lib/libconfig.so*
 	rm -rf ../include/libconfig.h
 	rm -rf libconfig
 
