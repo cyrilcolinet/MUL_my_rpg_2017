@@ -12,6 +12,8 @@
 
 # Subject
 
+> :exclamation: Warning: This project is an Epitech project. Follow the golden rule ... do not make a project recovered on github or you can get -42! :tongue:
+
 This project is one of the freest project of your first year. Create your own [RPG].
 Your main challenge for this game will be to create a complete product using everything that you and your team know.
 
