@@ -18,6 +18,7 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 		configure_internal_struct(rpg);
 		configure_battle_characters(rpg);
 		configure_player(rpg);
+		init_icone_spell(rpg->battle);
 	}
 
 	rpg->state = gameWait;

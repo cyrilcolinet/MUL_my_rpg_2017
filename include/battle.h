@@ -15,6 +15,8 @@
 
 # include "structs.h"
 
+void		init_icone_spell(battle_t *);
+
 void		battle_management(rpg_t *, battle_t *);
 
 /* FREE */
