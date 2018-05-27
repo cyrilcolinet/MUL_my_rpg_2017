@@ -10,15 +10,12 @@
 
 # include "structs.h"
 
-<<<<<<< HEAD
-void		init_icone_spell(battle_t *);
-=======
 # define 	MAP_X 		(225)
 # define 	MAP_Y 		(180)
 # define 	B_X 		(114)
 # define 	B_Y 		(72)
->>>>>>> 4f07f3e0abf0e5e4e6e5111e823a0b132524c180
 
+void		init_icone_spell(battle_t *);
 void		battle_management(rpg_t *, battle_t *);
 
 /* FREE */
