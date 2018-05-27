@@ -17,6 +17,7 @@ $(NAME):
 	cd libconfig && ./configure --prefix=$(DIR)
 	make -C libconfig
 	make install -C libconfig
+	make check -C libconfig
 	cp $(DIR)/lib/libconfig.a ../lib
 	cp $(DIR)/include/libconfig.h ../include
 
