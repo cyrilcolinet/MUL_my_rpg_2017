@@ -15,7 +15,6 @@ sfBool animate_player(player_t *player, sfClock *clock)
 
 //TODO replace int **layer by map_t * with the layer in it (when done replace layer by map->layer)
 //sfVector2f tile represent the two tile id to be used for the given direction
-
 sfBool player_collide(player_t *player, int **layer)
 {
 	sfFloatRect player_rect = {player->render_state->transform.matrix[2] +
