@@ -5,7 +5,7 @@
 ## extern_libs Makefile
 ##
 
-NAME 	= 	../lib/libconfig.a
+NAME 	= 	../lib/libconfig.so
 
 DIR	:=	$(CURDIR)/tmp
 
@@ -18,8 +18,7 @@ $(NAME):
 	make -C libconfig
 	make install -C libconfig
 	make check -C libconfig
-	cp $(DIR)/lib/libconfig.a ../lib
-	ln -s $(DIR)/lib/libconfig.so.11.0.2 ../lib/libconfig.so
+	cp $(DIR)/lib/libconfig.so* ../lib/
 	cp $(DIR)/include/libconfig.h ../include
 
 clean:

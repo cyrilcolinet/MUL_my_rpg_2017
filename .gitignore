@@ -119,6 +119,6 @@ test
 /assets/
 /assets_perfect/
 extern_libs/tmp
-lucas/
+lib/libconfig.*
 
 extern_libs/libconfig/
