@@ -45,14 +45,14 @@ static bool go_side(rpg_t *rpg, battle_t *battle)
 	int x = battle->hero->pos.x;
 	int y = battle->hero->pos.y;
 
-	if (x < battle->hero->new.x) {
+	if (x < battle->hero->nw.x) {
 		if (battle->map[y][x + 1] == 2)
 			return (false);
 		battle->hero->pos.x += 1;
 		battle->hero->rec.top = 192;
 		anim(rpg, battle, 1, 0);
 		return (true);
-	} else if (x > battle->hero->new.x) {
+	} else if (x > battle->hero->nw.x) {
 		if (battle->map[y][x - 1] == 2)
 			return (false);
 		battle->hero->pos.x -= 1;
@@ -68,14 +68,14 @@ static bool go_up_down(rpg_t *rpg, battle_t *battle)
 	int x = battle->hero->pos.x;
 	int y = battle->hero->pos.y;
 
-	if (y < battle->hero->new.y) {
+	if (y < battle->hero->nw.y) {
 		if (battle->map[y + 1][x] == 2)
 			return (false);
 		battle->hero->pos.y += 1;
 		battle->hero->rec.top = 128;
 		anim(rpg, battle, 0, 1);
 		return (true);
-	} else if (y > battle->hero->new.y) {
+	} else if (y > battle->hero->nw.y) {
 		if (battle->map[y - 1][x] == 2)
 			return (false);
 		battle->hero->pos.y -= 1;
@@ -88,11 +88,11 @@ static bool go_up_down(rpg_t *rpg, battle_t *battle)
 
 void hero_deplacement(rpg_t *rpg, battle_t *battle)
 {
-	int a = abs(battle->hero->new.x - battle->hero->pos.x);
-	int b = abs(battle->hero->new.y - battle->hero->pos.y);
+	int a = fabsf(battle->hero->nw.x - battle->hero->pos.x);
+	int b = fabsf(battle->hero->nw.y - battle->hero->pos.y);
 
-	while (battle->hero->pos.x != battle->hero->new.x ||
-	battle->hero->pos.y != battle->hero->new.y) {
+	while (battle->hero->pos.x != battle->hero->nw.x ||
+	battle->hero->pos.y != battle->hero->nw.y) {
 		if ((a >= b && (go_side(rpg, battle)
 		|| go_up_down(rpg, battle)))
 		|| (a < b && (go_up_down(rpg, battle)

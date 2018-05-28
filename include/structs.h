@@ -169,7 +169,7 @@ typedef struct hero_t {
 	sfSprite 	*form;
 	sfTexture 	*img;
 	sfVector2f 	pos;
-	sfVector2f 	new;
+	sfVector2f 	nw;
 	bool 		alive;
 	bool 		select;
 	bool 		played;
