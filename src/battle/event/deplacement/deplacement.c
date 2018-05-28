@@ -13,8 +13,8 @@ static void set_new_hero_pos(battle_t *battle, int i, sfVector2f pos)
 	(battle->mouse.y > pos.y && battle->mouse.y < pos.y + B_Y))
 		if (battle->map[i / 12][i % 12] == 3) {
 			battle->hero->move = true;
-			battle->hero->new.x = i % 12;
-			battle->hero->new.y = i / 12;
+			battle->hero->nw.x = i % 12;
+			battle->hero->nw.y = i / 12;
 			reset_map_state(battle);
 		}
 }
