@@ -18,8 +18,6 @@ void play_view(rpg_t *rpg)
 		battle_management(rpg, rpg->battle);
 	else if (!rpg->battle->run) {
 		sfRenderWindow_drawSprite(rpg->win, sp, NULL);
-		sfRenderWindow_drawSprite(rpg->win,
-			rpg->player->sprite, rpg->player->render_state);
 		sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek");
 	}
 }

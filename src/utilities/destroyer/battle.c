@@ -47,7 +47,4 @@ void free_battle(rpg_t *rpg)
 	sfRectangleShape_destroy(rpg->battle->icone);
 	sfRectangleShape_destroy(rpg->battle->background);
 	free(rpg->battle->texture);
-	free(rpg->player->render_state);
-	free_layer(rpg->player->layer);
-	free(rpg->player);
 }

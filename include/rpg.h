@@ -248,7 +248,7 @@ int 		configure_battle_characters(rpg_t *);
 
 // map_parser.c
 int		parse_map_hitboxes(char *, map_t *);
-int 		parse_arena_rectangle_values(config_setting_t *, map_t **);
+int 		parse_arena_rectangle_values(config_setting_t *, interact_t **);
 int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);

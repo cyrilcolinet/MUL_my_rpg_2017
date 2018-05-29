@@ -34,8 +34,6 @@ static void battle_event_management2(rpg_t *rpg, battle_t *battle
 	}
 	if (event->key.code == sfKeyA) {
 		battle->run = false;
-		sfSprite_setTextureRect(
-			rpg->player->sprite, rpg->player->rect);
 	}
 }
 
