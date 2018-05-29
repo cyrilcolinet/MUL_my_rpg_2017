@@ -22,7 +22,6 @@ void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
 int		rpg_main(int, char **);
 
-
 /*
 ** Events manager
 ** Management of events (mouse, keyboard, etc...)
@@ -66,7 +65,6 @@ sfBool		player_collide(player_t *, int **);
 int 		new_sound(rpg_t *, char *, char *);
 void 		set_volume(rpg_t *, float, bool);
 int 		load_sounds(rpg_t *);
-
 
 /*
 ** Assets manager
@@ -197,7 +195,6 @@ void 		animate_book_sprite(rpg_t *, assets_t *);
 void 		draw_history_button(rpg_t *);
 void 		main_view(rpg_t *);
 
-
 /*
 ** Utilities
 ** Struct utils, pointers utils and more...
@@ -213,7 +210,6 @@ void 		info(char *);
 void 		warning(char *);
 void 		print_key_value_str(char *, char *);
 void 		print_key_value_int(char *, int);
-
 
 // views_utils.c
 void 		display_view(rpg_t *);
@@ -249,7 +245,6 @@ sfVector2f	 init_vector(float x, float y);
 sfVector2f	 add_vector(sfVector2f first, sfVector2f second);
 sfVector2f	 multiply_vector(sfVector2f first, sfVector2f second);
 sfVector2f	 multiply_vector_scalar(sfVector2f vector, float scalar);
-
 
 /*
 ** Parse utilities
