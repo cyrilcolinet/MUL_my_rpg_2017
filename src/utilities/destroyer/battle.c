@@ -1,21 +1,20 @@
 /*
 ** EPITECH PROJECT, 2018
-** free
+** my_rpg_2017
 ** File description:
-** rpg
+** battle destroyer
 */
 
 # include "rpg.h"
 
-//will be removed when map_t will be used
-static void free_layer(int **layer)
+void free_layer(int **layer)
 {
 	for (int i = 0; i < 34; i++)
 		free(layer[i]);
 	free(layer);
 }
 
-static void free_fight(battle_t *battle, int n)
+void free_fight(battle_t *battle, int n)
 {
 	for (int i = 0; i < 120; i++)
 		sfRectangleShape_destroy(battle->fight[n]->map[i]);
@@ -32,7 +31,7 @@ static void free_fight(battle_t *battle, int n)
 	free(battle->fight[n]);
 }
 
-void free_all(rpg_t *rpg)
+void free_battle(rpg_t *rpg)
 {
 	for (int i = 0; i < rpg->battle->number_fight; i++)
 		free_fight(rpg->battle, i);
