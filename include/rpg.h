@@ -40,8 +40,11 @@ void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 // events/views_events.c
 void 		views_events(rpg_t *, sfEvent *);
 
-// events/views/play/events.c
+// events/play/events.c
 void 		ev_run(rpg_t *, sfEvent *);
+
+// events/selection/events.c
+void 		ev_selection(rpg_t *, sfEvent *);
 
 /*
 ** Sounds manager

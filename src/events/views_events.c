@@ -19,7 +19,7 @@ void views_events(rpg_t *rpg, sfEvent *event)
 		NULL,
 		NULL,
 		NULL,
-		NULL,
+		ev_selection,
 		NULL
 	};
 
