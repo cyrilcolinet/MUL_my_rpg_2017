@@ -35,5 +35,4 @@ void configure_settings_volume_slider(rpg_t *rpg)
 	conf.btn->pos = pos;
 	extra_config(rpg, &conf);
 	add_slider(rpg, conf);
-	sfText_setFont(rpg->slides->text, rpg->font);
 }
