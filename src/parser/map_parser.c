@@ -67,9 +67,9 @@ int parse_map_values(rpg_t *rpg, config_setting_t *set, int key)
 		return (-1);
 
 	config_setting_lookup_string(set, "hitboxes", ((const char **)&hit));
-	config_setting_lookup_string(set, "map", \
+	config_setting_lookup_string(set, "texture", \
 	((const char **)&rpg->map[key]->texture));
-	if (parse_map_hitboxes(hit, rpg->map[key]) != 0)
+	if (parse_map_hitboxes(hit, &rpg->map[key]) != 0)
 		return (-1);
 	if (parse_arenas_values(&rpg->map[key], set) != 0)
 		return (-1);
@@ -95,6 +95,6 @@ int parse_map(rpg_t *rpg)
 
 	}
 
-	rpg->map[count - 1] = NULL;
+	rpg->map[count] = NULL;
 	return (0);
 }

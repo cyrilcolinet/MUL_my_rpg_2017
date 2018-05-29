@@ -216,7 +216,7 @@ void 		destroy_buttons(rpg_t *);
 void 		destroy_assets(rpg_t *);
 void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
-void 		destroy_content(rpg_t *);
+void 		destroy_map(rpg_t *);
 
 // struct_utils.c
 void 		configure_textures(rpg_t *, battle_t *);
@@ -247,7 +247,7 @@ int 		configure_all_default(rpg_t *, hero_t **, char *);
 int 		configure_battle_characters(rpg_t *);
 
 // map_parser.c
-int		parse_map_hitboxes(char *, map_t *);
+int		parse_map_hitboxes(char *, map_t **);
 int 		parse_arena_rectangle_values(config_setting_t *, interact_t **);
 int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);

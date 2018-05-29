@@ -7,13 +7,6 @@
 
 # include "rpg.h"
 
-void free_layer(int **layer)
-{
-	for (int i = 0; i < 34; i++)
-		free(layer[i]);
-	free(layer);
-}
-
 void free_fight(battle_t *battle, int n)
 {
 	for (int i = 0; i < 120; i++)
