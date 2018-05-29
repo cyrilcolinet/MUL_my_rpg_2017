@@ -209,8 +209,7 @@ typedef struct player_t {
 	sfIntRect	rect;
 	direction_e	direction;
 	sfTime		time_0;
-	sfRenderStates	*render_state;
-	int		**layer;
+	int		**map;
 }	player_t;
 
 typedef struct interact_t {
