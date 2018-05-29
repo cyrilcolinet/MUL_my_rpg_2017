@@ -17,22 +17,22 @@ TEST_DIR		= 	tests/
 
 SRC_FILES		= 	main.c 							\
 				rpg.c 							\
-				sound/sounds_manager.c 				\
-				assets/assets_manager.c		 		\
-				assets/assets_loader_manager.c 			\
-				assets/buttons_manager.c 			\
-				assets/sliders_manager.c 			\
-				assets/getter.c 				\
-				assets/callback/actions_callback.c 		\
-				assets/callback/goto_view_callback.c 		\
-				assets/callback/goto_view_callback2.c 		\
-				assets/callback/play_callback.c 		\
-				assets/callback/sliders/volume_callback.c 	\
+				sound/sounds_manager.c 					\
+				assets/assets_manager.c		 			\
+				assets/assets_loader_manager.c 				\
+				assets/buttons_manager.c 				\
+				assets/sliders_manager.c 				\
+				assets/getter.c 					\
+				assets/callback/actions_callback.c 			\
+				assets/callback/goto_view_callback.c 			\
+				assets/callback/goto_view_callback2.c 			\
+				assets/callback/play_callback.c 			\
+				assets/callback/sliders/volume_callback.c 		\
 				events/events_manager.c 				\
-				events/mouse_events.c				\
-				events/views_events.c				\
-				events/views/play/events.c 			\
-				events/views/battle/events.c 			\
+				events/mouse_events.c					\
+				events/views_events.c					\
+				events/views/play/events.c 				\
+				events/views/battle/events.c 				\
 				configurations/views_config.c 				\
 				configurations/views/credits/buttons.c 			\
 				configurations/views/main/buttons.c 			\
@@ -53,6 +53,7 @@ SRC_FILES		= 	main.c 							\
 				views/play_view.c 					\
 				views/main_view.c 					\
 				views/battle_view.c					\
+				views/display_view.c 					\
 				battle/battle_management.c				\
 				battle/event/event_management.c				\
 				battle/event/interaction.c				\
@@ -92,23 +93,25 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_enemy_stats.c			\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
-				util_function/create_text.c				\
 				free/free_all.c						\
 				player/player_manager1.c				\
 				player/player_manager2.c				\
-				utilities/vector_utils.c				\
-				utilities/get_next_line.c 				\
-				utilities/args_utils.c 					\
+				debug/debugger.c					\
+				debug/buttons_debugger.c 				\
+				debug/assets_debugger.c 				\
+				debug/sliders_debugger.c				\
 				utilities/struct_utils.c 				\
-				utilities/destroy_utilities.c 				\
-				utilities/settings_utils.c 				\
-				utilities/views_utils.c					\
-				utilities/windows_utils.c 				\
-				utilities/rect_utils.c 					\
-				utilities/debug_utils.c 				\
-				utilities/debug/buttons_debugger.c 			\
-				utilities/debug/assets_debugger.c 			\
-				utilities/debug/sliders_debugger.c
+				utilities/destroyer/assets.c 				\
+				utilities/destroyer/battle.c 				\
+				utilities/destroyer/general.c 				\
+				utilities/csfml/text.c 					\
+				utilities/csfml/animations.c 				\
+				utilities/csfml/vector.c 				\
+				utilities/csfml/rectangle.c 				\
+				utilities/csfml/sound.c					\
+				utilities/csfml/windows.c				\
+				utilities/parsing/get_next_line.c 			\
+				utilities/parsing/arguments.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
