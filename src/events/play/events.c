@@ -14,11 +14,6 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (!rpg->battle->run) {
-		if (event->type == sfEvtKeyPressed &&
-		(event->key.code >= sfKeyLeft && event->key.code <= sfKeyDown))
-			player_displacement(rpg, event->key.code - sfKeyLeft);
-		else
-			state_reset(rpg->player);
 		if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA)
 			rpg->battle->run = true;
 	}

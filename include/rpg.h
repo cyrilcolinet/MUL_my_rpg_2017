@@ -44,19 +44,6 @@ void 		views_events(rpg_t *, sfEvent *);
 void 		ev_run(rpg_t *, sfEvent *);
 
 /*
-** Play manager
-** Function that change the state of the player
-*/
-
-//player_manager.c
-void 		update_direction(player_t *, direction_e);
-void 		next_state(player_t *);
-void 		state_reset(player_t *);
-void 		move_player(player_t *, float);
-void 		player_displacement(rpg_t *, direction_e);
-sfBool 		animate_player(player_t *, sfClock *);
-sfBool		player_collide(player_t *, int **);
-/*
 ** Sounds manager
 ** Manage sounds, button click, and other noises
 */
@@ -132,9 +119,6 @@ void 		configure_main_view(rpg_t *);
 void 		configure_settings_view(rpg_t *);
 void 		configure_credits_view(rpg_t *);
 void 		configure_pause_view(rpg_t *);
-
-// player_configuration.c
-void		configure_player(rpg_t *rpg);
 
 // views/main/buttons.c
 void 		configure_main_play_button(rpg_t *);
@@ -239,12 +223,6 @@ rpg_t 		*configure_struct(void);
 
 // windows_tils.c
 void 		set_favicon(rpg_t *);
-
-// vector_utils.c
-sfVector2f	 init_vector(float x, float y);
-sfVector2f	 add_vector(sfVector2f first, sfVector2f second);
-sfVector2f	 multiply_vector(sfVector2f first, sfVector2f second);
-sfVector2f	 multiply_vector_scalar(sfVector2f vector, float scalar);
 
 /*
 ** Parse utilities
