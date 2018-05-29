@@ -122,7 +122,7 @@ LIBRARY_DIR		= 	lib/
 
 CC			=	gcc
 
-CFLAGS			= 	-Wall -Wextra -I $(INCLUDE) ##-lefence
+CFLAGS			= 	-g3 -Wall -Wextra -I $(INCLUDE) ##-lefence
 
 LFLAGS			= 	-L $(LIBRARY_DIR) -lmy -lm -lc_graph_prog -Wl,-rpath=$(LIBRARY_DIR) -lconfig
 

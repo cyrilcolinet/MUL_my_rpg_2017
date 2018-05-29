@@ -12,9 +12,6 @@
 # define READ_SIZE (128)
 # endif
 
-# undef CHECK_DO
-# define CHECK_DO(to_check, to_do) if (to_check) {to_do}
-
 # include <stdbool.h>
 # include <string.h>
 # include <unistd.h>
@@ -354,13 +351,6 @@ void my_printf(char *format, ...);
 ** @param (void) *ptr
 **/
 void my_free(void **ptr);
-
-/**
-** Calloc function recoded
-** @param (size_t) size
-** @return (void *) ptr
-**/
-void *my_calloc(size_t size);
 
 char *my_strconfigure(unsigned int size);
 

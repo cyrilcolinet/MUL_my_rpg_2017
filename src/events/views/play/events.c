@@ -14,7 +14,7 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (!rpg->battle->run) {
-		if (!rpg->battle->run && event->type == sfEvtKeyPressed &&
+		if (event->type == sfEvtKeyPressed &&
 		(event->key.code >= sfKeyLeft && event->key.code <= sfKeyDown))
 			player_displacement(rpg, event->key.code - sfKeyLeft);
 		else
