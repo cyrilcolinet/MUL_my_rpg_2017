@@ -100,5 +100,6 @@ int load_assets(rpg_t *rpg)
 		return (84);
 	if (parse_map(rpg) != 0)
 		return (84);
+	sfText_setFont(rpg->slides->text, rpg->font);
 	return (0);
 }
