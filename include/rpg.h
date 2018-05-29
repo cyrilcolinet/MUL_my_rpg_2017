@@ -243,6 +243,7 @@ void 		parse_fight_values(rpg_t *, config_setting_t *, int);
 int		configure_battle_fights(rpg_t *);
 
 // battle_character_parser.c
+void		parse_player(rpg_t *);
 int 		configure_all_default(rpg_t *, hero_t **, char *);
 int 		configure_battle_characters(rpg_t *);
 

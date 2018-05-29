@@ -44,6 +44,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
 				parser/parser.c 					\
+				parser/parse_player.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
 				parser/map_parser.c 					\

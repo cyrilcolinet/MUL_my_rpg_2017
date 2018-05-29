@@ -206,8 +206,6 @@ typedef struct map_t {
 	char 		*texture;
 	int		**layer;
 	interact_t	**it;
-	sfSprite	*player;
-	sfIntRect	rect;
 }	map_t;
 
 typedef struct rpg_t {
@@ -217,6 +215,8 @@ typedef struct rpg_t {
 	sfSprite	*capture;
 	state_e		last_st;
 	sfClock		*clock;
+	sfSprite	*player;
+	sfIntRect	player_rect;
 	int		map_id;
 	map_t		**map;
 	sound_t		*sounds;
