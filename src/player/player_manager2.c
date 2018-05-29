@@ -18,18 +18,18 @@ sfBool animate_player(player_t *player, sfClock *clock)
 sfBool player_collide(player_t *player, int **layer)
 {
 	sfFloatRect player_rect = {player->render_state->transform.matrix[2] +
-		16, player->render_state->transform.matrix[5] + 32, 32, 32};
+		16, player->render_state->transform.matrix[5] + 8, 8, 8};
 	sfVector2i tiles[4];
 	sfVector2i to_check[4] = {{0, 1}, {2, 3}, {0, 2}, {1, 3}};
 
-	tiles[0].y = (int)floor(player_rect.top / 32);
-	tiles[0].x = (int)floor(player_rect.left / 32);
-	tiles[1].y = (int)floor(player_rect.top / 32) + 1;
-	tiles[1].x = (int)floor(player_rect.left / 32);
-	tiles[2].y = (int)floor(player_rect.top / 32);
-	tiles[2].x = (int)floor(player_rect.left / 32) + 1;
-	tiles[3].y = (int)floor(player_rect.top / 32) + 1;
-	tiles[3].x = (int)floor(player_rect.left / 32) + 1;
+	tiles[0].y = (int)floor(player_rect.top / 8);
+	tiles[0].x = (int)floor(player_rect.left / 8);
+	tiles[1].y = (int)floor(player_rect.top / 8) + 1;
+	tiles[1].x = (int)floor(player_rect.left / 8);
+	tiles[2].y = (int)floor(player_rect.top / 8);
+	tiles[2].x = (int)floor(player_rect.left / 8) + 1;
+	tiles[3].y = (int)floor(player_rect.top / 8) + 1;
+	tiles[3].x = (int)floor(player_rect.left / 8) + 1;
 	if (layer[tiles[to_check[player->direction].x].y][tiles
 		[to_check[player->direction].x].x] != 1 ||
 		layer[tiles[to_check[player->direction].y].y][tiles[to_check
