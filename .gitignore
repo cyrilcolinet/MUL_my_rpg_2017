@@ -122,3 +122,4 @@ extern_libs/tmp
 lib/libconfig.*
 
 extern_libs/libconfig/
+vgcore.*
