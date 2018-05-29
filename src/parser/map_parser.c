@@ -69,7 +69,8 @@ int parse_map_values(rpg_t *rpg, config_setting_t *set, int key)
 	config_setting_lookup_string(set, "hitboxes", ((const char **)&hit));
 	config_setting_lookup_string(set, "texture", \
 	((const char **)&rpg->map[key]->texture));
-	if (parse_map_hitboxes(hit, &rpg->map[key]) != 0)
+	rpg->map[key]->layer = parse_map_hitboxes(hit);
+	if (rpg->map[key]->layer == NULL)
 		return (-1);
 	if (parse_arenas_values(&rpg->map[key], set) != 0)
 		return (-1);

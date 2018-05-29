@@ -7,41 +7,41 @@
 
 # include "rpg.h"
 
-void fill_int_array(map_t **map, int fd)
+void fill_int_array(int **layer, int fd)
 {
 	int i = -1;
 	char *line = NULL;
 
 	while ((line = get_next_line(fd)) != NULL) {
-		(*map)->layer[++i] = malloc(sizeof(int) * 240);
-		if ((*map)->layer[i] == NULL)
+		layer[++i] = malloc(sizeof(int) * 240);
+		if (layer[i] == NULL)
 			return;
 
 		for (int id = 0; id < 240; id++) {
-			(*map)->layer[i][id] = line[id] - '0';
+			layer[i][id] = line[id] - '0';
 		}
 		free(line);
 	}
 }
 
-int parse_map_hitboxes(char *file, map_t **map)
+int **parse_map_hitboxes(char *file)
 {
 	int fd = -1;
+	int **layer = NULL;
 
 	if (file == NULL)
-		return (-1);
-
+		return NULL;
 	fd = open(file, O_RDONLY);
 	if (fd < 0)
-		return (-1);
+		return NULL;
 
-	(*map)->layer = malloc(sizeof(int *) * 137);
-	if ((*map)->layer == NULL)
-		return (-1);
+	layer = malloc(sizeof(int *) * 137);
+	if (layer == NULL)
+		return NULL;
 
-	fill_int_array(map, fd);
-	(*map)->layer[136] = NULL;
+	fill_int_array(layer, fd);
+	layer[136] = NULL;
 	close(fd);
 
-	return (0);
+	return layer;
 }
