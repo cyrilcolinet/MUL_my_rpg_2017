@@ -43,6 +43,13 @@ int rpg_game(rpg_t *rpg)
 
 	init_icone_spell(rpg->battle);
 
+	for (int i = 0; rpg->map[i]; i++)
+		for (int i = 0; rpg->map[i]->layer[i]; i++) {
+			for (int j = 0; j < 240; j++)
+				printf("%d", rpg->map[i]->layer[i][j]);
+			printf("\n");
+		}
+
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);

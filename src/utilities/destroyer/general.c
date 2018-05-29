@@ -9,8 +9,8 @@
 
 void exit_game(rpg_t *rpg)
 {
+	destroy_map(rpg);
 	free_battle(rpg);
-	//destroy_content(rpg);
 	sfSound_stop(get_sound(rpg, "main")->sound);
 	destroy_assets(rpg);
 	destroy_buttons(rpg);

@@ -204,7 +204,6 @@ typedef struct interact_t {
 
 typedef struct map_t {
 	char 		*texture;
-	sfSprite	*sprite;
 	int		**layer;
 	interact_t	**it;
 	sfSprite	*player;

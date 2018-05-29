@@ -101,5 +101,6 @@ rpg_t *configure_struct(void)
 	rpg->btn = NULL;
 	rpg->slides = NULL;
 	rpg->sounds = NULL;
+	rpg->map_id = 1;
 	return (rpg);
 }

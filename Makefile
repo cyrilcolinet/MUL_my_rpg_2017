@@ -100,7 +100,7 @@ SRC_FILES		= 	main.c 							\
 				utilities/destroyer/assets.c 				\
 				utilities/destroyer/battle.c 				\
 				utilities/destroyer/general.c 				\
-				utilities/destroyer/player.c 				\
+				utilities/destroyer/map.c 				\
 				utilities/csfml/text.c 					\
 				utilities/csfml/animations.c 				\
 				utilities/csfml/rectangle.c 				\
