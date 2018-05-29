@@ -42,7 +42,6 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
-				configurations/player_configuration.c			\
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
@@ -92,8 +91,6 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_enemy_stats.c			\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
-				player/player_manager1.c				\
-				player/player_manager2.c				\
 				debug/debugger.c					\
 				debug/buttons_debugger.c 				\
 				debug/assets_debugger.c 				\
@@ -105,7 +102,6 @@ SRC_FILES		= 	main.c 							\
 				utilities/destroyer/player.c 				\
 				utilities/csfml/text.c 					\
 				utilities/csfml/animations.c 				\
-				utilities/csfml/vector.c 				\
 				utilities/csfml/rectangle.c 				\
 				utilities/csfml/sound.c					\
 				utilities/csfml/windows.c				\
