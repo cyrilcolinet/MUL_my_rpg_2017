@@ -93,7 +93,6 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_enemy_stats.c			\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
-				free/free_all.c						\
 				player/player_manager1.c				\
 				player/player_manager2.c				\
 				debug/debugger.c					\
@@ -104,6 +103,7 @@ SRC_FILES		= 	main.c 							\
 				utilities/destroyer/assets.c 				\
 				utilities/destroyer/battle.c 				\
 				utilities/destroyer/general.c 				\
+				utilities/destroyer/player.c 				\
 				utilities/csfml/text.c 					\
 				utilities/csfml/animations.c 				\
 				utilities/csfml/vector.c 				\
