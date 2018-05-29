@@ -1,11 +1,11 @@
 /*
 ** EPITECH PROJECT, 2018
-** create_text
+** my_rpg_2017
 ** File description:
-** create text function
+** text_utils functions
 */
 
-#include "rpg.h"
+# include "rpg.h"
 
 sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 {

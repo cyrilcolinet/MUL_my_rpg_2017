@@ -7,24 +7,6 @@
 
 # include "rpg.h"
 
-void exit_game(rpg_t *rpg)
-{
-	free_all(rpg);
-	//destroy_content(rpg);
-	sfSound_stop(get_sound(rpg, "main")->sound);
-	destroy_assets(rpg);
-	destroy_buttons(rpg);
-	destroy_slides(rpg);
-	destroy_sounds(rpg);
-	sfRenderWindow_destroy(rpg->win);
-	info("Window closed. Exiting...");
-	sfClock_destroy(rpg->clock);
-	sfFont_destroy(rpg->font);
-	if (rpg->capture != NULL)
-		sfSprite_destroy(rpg->capture);
-	info("Window destroyed!");
-}
-
 void init_icone_spell(battle_t *battle)
 {
 	sfVector2f size = {50, 50};
