@@ -35,7 +35,7 @@ int rpg_game(rpg_t *rpg)
 {
 	sfEvent event;
 	int status = load_assets(rpg);
-
+	sfText_setFont(rpg->slides->text, rpg->font);
 	if (status != 0)
 		return (status);
 	sfSound_play(get_sound(rpg, "main")->sound);

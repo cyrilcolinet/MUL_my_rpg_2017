@@ -22,5 +22,6 @@ void exit_game(rpg_t *rpg)
 	sfFont_destroy(rpg->font);
 	if (rpg->capture != NULL)
 		sfSprite_destroy(rpg->capture);
+	sfSprite_destroy(rpg->player);
 	info("Window destroyed!");
 }
