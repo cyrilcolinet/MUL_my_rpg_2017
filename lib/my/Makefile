@@ -12,7 +12,6 @@
 NAME 				= libmy.a
 
 SRCNAMES			= my_atoi.c 					\
-					my_calloc.c 					\
 					my_countwords.c 				\
 					my_freetab.c 					\
 					my_put_nbr.c 					\

@@ -18,7 +18,7 @@ sfBool animate_player(player_t *player, sfClock *clock)
 sfBool player_collide(player_t *player, int **layer)
 {
 	sfFloatRect player_rect = {player->render_state->transform.matrix[2] +
-		16, player->render_state->transform.matrix[5] + 8, 8, 8};
+		8, player->render_state->transform.matrix[5] + 8, 8, 8};
 	sfVector2i tiles[4];
 	sfVector2i to_check[4] = {{0, 1}, {2, 3}, {0, 2}, {1, 3}};
 
