@@ -17,33 +17,22 @@ TEST_DIR		= 	tests/
 
 SRC_FILES		= 	main.c 							\
 				rpg.c 							\
-				utilities/args_utils.c 					\
-				utilities/struct_utils.c 				\
-				utilities/destroy_utilities.c 				\
-				utilities/settings_utils.c 				\
-				utilities/views_utils.c					\
-				utilities/windows_utils.c 				\
-				utilities/rect_utils.c 					\
-				utilities/debug_utils.c 				\
-				utilities/debug/buttons_debugger.c 			\
-				utilities/debug/assets_debugger.c 			\
-				utilities/debug/sliders_debugger.c			\
-				managers/sounds_manager.c 				\
-				managers/assets_manager.c		 		\
-				managers/assets_loader_manager.c 			\
-				managers/assets/buttons_manager.c 			\
-				managers/assets/sliders_manager.c 			\
-				managers/assets/getter.c 				\
-				managers/assets/callback/actions_callback.c 		\
-				managers/assets/callback/goto_view_callback.c 		\
-				managers/assets/callback/goto_view_callback2.c 		\
-				managers/assets/callback/play_callback.c 		\
-				managers/assets/callback/sliders/volume_callback.c 	\
-				managers/events_manager.c 				\
-				managers/events/mouse_events.c				\
-				managers/events/views_events.c				\
-				managers/events/views/play/events.c 			\
-				managers/events/views/battle/events.c 			\
+				sound/sounds_manager.c 				\
+				assets/assets_manager.c		 		\
+				assets/assets_loader_manager.c 			\
+				assets/buttons_manager.c 			\
+				assets/sliders_manager.c 			\
+				assets/getter.c 				\
+				assets/callback/actions_callback.c 		\
+				assets/callback/goto_view_callback.c 		\
+				assets/callback/goto_view_callback2.c 		\
+				assets/callback/play_callback.c 		\
+				assets/callback/sliders/volume_callback.c 	\
+				events/events_manager.c 				\
+				events/mouse_events.c				\
+				events/views_events.c				\
+				events/views/play/events.c 			\
+				events/views/battle/events.c 			\
 				configurations/views_config.c 				\
 				configurations/views/credits/buttons.c 			\
 				configurations/views/main/buttons.c 			\
@@ -54,6 +43,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
+				configurations/player_configuration.c			\
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
 				parser/battle_character_parser.c			\
@@ -104,11 +94,21 @@ SRC_FILES		= 	main.c 							\
 				battle/display/fill_map_state.c				\
 				util_function/create_text.c				\
 				free/free_all.c						\
-				configurations/player_configuration.c			\
-				managers/player_manager1.c				\
-				managers/player_manager2.c				\
+				player/player_manager1.c				\
+				player/player_manager2.c				\
 				utilities/vector_utils.c				\
-				utilities/get_next_line.c
+				utilities/get_next_line.c 				\
+				utilities/args_utils.c 					\
+				utilities/struct_utils.c 				\
+				utilities/destroy_utilities.c 				\
+				utilities/settings_utils.c 				\
+				utilities/views_utils.c					\
+				utilities/windows_utils.c 				\
+				utilities/rect_utils.c 					\
+				utilities/debug_utils.c 				\
+				utilities/debug/buttons_debugger.c 			\
+				utilities/debug/assets_debugger.c 			\
+				utilities/debug/sliders_debugger.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
