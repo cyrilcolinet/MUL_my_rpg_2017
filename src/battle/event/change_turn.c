@@ -12,10 +12,6 @@ static void end_battle_display(rpg_t *rpg, battle_t *battle)
 	sfVector2f pos = {19 * 32, 32};
 
 	battle->run = false;
-	sfSprite_setPosition(rpg->player->sprite, pos);
-	rpg->player->rect.top = 128;
-	rpg->player->rect.left = 0;
-	sfSprite_setTextureRect(rpg->player->sprite, rpg->player->rect);
 }
 
 void end_battle(rpg_t *rpg, battle_t *battle)

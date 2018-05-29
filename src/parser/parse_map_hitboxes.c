@@ -13,12 +13,12 @@ void fill_int_array(map_t *map, int fd)
 	char *line = NULL;
 
 	while ((line = get_next_line(fd)) != NULL) {
-		map->h_layer[++i] = malloc(sizeof(int) * 240);
-		if (map->h_layer[i] == NULL)
+		map->layer[++i] = malloc(sizeof(int) * 240);
+		if (map->layer[i] == NULL)
 			return;
 
 		for (int id = 0; id < 240; id++) {
-			map->h_layer[i][id] = line[id] - '0';
+			map->layer[i][id] = line[id] - '0';
 		}
 		free(line);
 	}
@@ -35,12 +35,12 @@ int parse_map_hitboxes(char *file, map_t *map)
 	if (fd < 0)
 		return (-1);
 
-	map->h_layer = malloc(sizeof(int *) * 137);
-	if (map->h_layer == NULL)
+	map->layer = malloc(sizeof(int *) * 137);
+	if (map->layer == NULL)
 		return (-1);
 
 	fill_int_array(map, fd);
-	map->h_layer[136] = NULL;
+	map->layer[136] = NULL;
 	close(fd);
 
 	return (0);

@@ -32,6 +32,7 @@ SRC_FILES		= 	main.c 							\
 				events/mouse_events.c					\
 				events/views_events.c					\
 				events/play/events.c	 				\
+				events/selection/events.c				\
 				configurations/views_config.c 				\
 				configurations/views/credits/buttons.c 			\
 				configurations/views/main/buttons.c 			\

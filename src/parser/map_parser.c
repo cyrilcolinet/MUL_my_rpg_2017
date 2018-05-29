@@ -7,17 +7,27 @@
 
 # include "rpg.h"
 
-int parse_arena_rectangle_values(config_setting_t *arena, map_t **map)
+int parse_arena_rectangle_values(config_setting_t *arena, interact_t **it)
 {
 	config_setting_t *rec = config_setting_lookup(arena, "rec");
 
 	if (rec == NULL)
 		return (-1);
 
-	config_setting_lookup_int(rec, "top", &(*map)->it->rec.top);
-	config_setting_lookup_int(rec, "left", &(*map)->it->rec.left);
-	config_setting_lookup_int(rec, "width", &(*map)->it->rec.width);
-	config_setting_lookup_int(rec, "height", &(*map)->it->rec.height);
+	config_setting_lookup_int(rec, "top", &(*it)->rec.top);
+	config_setting_lookup_int(rec, "left", &(*it)->rec.left);
+	config_setting_lookup_int(rec, "width", &(*it)->rec.width);
+	config_setting_lookup_int(rec, "height", &(*it)->rec.height);
+
+	return (0);
+}
+
+int parse_arenas_interactions(interact_t **it, config_setting_t *set)
+{
+	config_setting_lookup_string(set, "message", \
+	((const char **)&(*it)->msg));
+	if (parse_arena_rectangle_values(set, it) != 0)
+		return (-1);
 
 	return (0);
 }
@@ -30,18 +40,19 @@ int parse_arenas_values(map_t **map, config_setting_t *set)
 
 	if (arenas == NULL)
 		return (-1);
-
 	count = config_setting_length(arenas);
+	if (((*map)->it = malloc(sizeof(interact_t *) * (count + 1))) == NULL)
+		return (-1);
 	for (int i = 0; count > 0 && i < count; i++) {
 		arena = config_setting_get_elem(arenas, i);
 		if (arena == NULL)
 			return (-1);
-		config_setting_lookup_string(arena, "message", \
-		((const char **)&(*map)->it->msg));
-		if (parse_arena_rectangle_values(arena, map) != 0)
+		if (((*map)->it[i] = malloc(sizeof(interact_t))) == NULL)
+			return (-1);
+		if (parse_arenas_interactions(&(*map)->it[i], arena) != 0)
 			return (-1);
 	}
-
+	(*map)->it[count] = NULL;
 	return (0);
 }
 
@@ -53,9 +64,6 @@ int parse_map_values(rpg_t *rpg, config_setting_t *set, int key)
 		return (-1);
 	rpg->map[key] = malloc(sizeof(map_t));
 	if (rpg->map[key] == NULL)
-		return (-1);
-	rpg->map[key]->it = malloc(sizeof(interact_t));
-	if (rpg->map[key]->it == NULL)
 		return (-1);
 
 	config_setting_lookup_string(set, "hitboxes", ((const char **)&hit));
