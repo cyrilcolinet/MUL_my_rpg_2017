@@ -7,25 +7,26 @@
 
 # include "rpg.h"
 
-config_setting_t *parse_file(rpg_t *rpg, char *file, char *cat)
+conf_sett_t parse_file(rpg_t *rpg, char *file, char *cat)
 {
-	config_t cfg;
-	config_setting_t *set = NULL;
+	conf_sett_t conf;
 	char *path = my_strjoin("config/", file);
 
-	config_init(&cfg);
-	if (!path || !config_read_file(&cfg, path)) {
+	config_init(&conf.cfg);
+	conf.error = false;
+	if (!path || !config_read_file(&conf.cfg, path)) {
 		write(2, "Unable to parse configuration.\n", 31);
-		config_destroy(&cfg);
+		config_destroy(&conf.cfg);
 		free(path);
-		return (NULL);
+		conf.error = true;
+		return conf;
 	}
 	free(path);
-	set = config_lookup(&cfg, cat);
-	if (set == NULL) {
-		config_destroy(&cfg);
-		return (NULL);
+	conf.set = config_lookup(&conf.cfg, cat);
+	if (conf.set == NULL) {
+		config_destroy(&conf.cfg);
+		conf.error = true;
+		return conf;
 	}
-
-	return (set);
+	return (conf);
 }

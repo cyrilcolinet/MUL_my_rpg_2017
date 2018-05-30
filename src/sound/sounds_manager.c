@@ -60,23 +60,24 @@ void set_volume(rpg_t *rpg, float vol, bool music)
 
 int load_sounds(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file(rpg, "assets.cfg", "sounds");
+	conf_sett_t conf = parse_file(rpg, "assets.cfg", "sounds");
 	config_setting_t *sound = NULL;
-	const char *name = NULL;
-	const char *file = NULL;
+	const char *name = NULL, *file = NULL;
 	int count = 0;
 
-	if (set == NULL)
+	if (conf.error || conf.set == NULL)
 		return (-1);
-	count = config_setting_length(set);
+	count = config_setting_length(conf.set);
 	for (int key = 0; count > 0 && key < count; key++) {
-		sound = config_setting_get_elem(set, key);
+		sound = config_setting_get_elem(conf.set, key);
 		if (sound != NULL) {
 			config_setting_lookup_string(sound, "name", &name);
 			config_setting_lookup_string(sound, "file", &file);
 		}
 		if (file != NULL && name != NULL)
-			new_sound(rpg, ((char *)name), ((char *)file));
+			new_sound(rpg, my_strdup(((char *)name)),
+			my_strdup(((char *)file)));
 	}
+	config_destroy(&conf.cfg);
 	return (0);
 }

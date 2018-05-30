@@ -62,6 +62,18 @@ typedef enum state_e {
 	gameQuitWSave
 }	state_e;
 
+// Configuration striucts
+typedef struct conf_ress_t {
+	char 		*name;
+	char 		*path;
+}	conf_ress_t;
+
+typedef struct conf_sett_t {
+	config_t 	cfg;
+	config_setting_t *set;
+	bool 		error;
+}	conf_sett_t;
+
 // Structs declarations
 typedef struct texture_t {
 	char 		*name;
@@ -218,6 +230,7 @@ typedef struct rpg_t {
 	sfTime 		timer;
 	sfSprite	*player;
 	sfIntRect	player_rect;
+	char 		*player_name;
 	int		map_id;
 	map_t		**map;
 	sound_t		*sounds;
@@ -226,12 +239,7 @@ typedef struct rpg_t {
 	button_t	*btn;
 	slider_t	*slides;
 	battle_t	*battle;
+	conf_sett_t 	**configs;
 }	rpg_t;
-
-// Configuration striucts
-typedef struct conf_ress_t {
-	char 		*name;
-	char 		*path;
-}	conf_ress_t;
 
 # endif

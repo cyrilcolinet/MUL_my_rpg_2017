@@ -33,6 +33,8 @@ void destroy_assets(rpg_t *rpg)
 			sfSprite_destroy(tmp->sp);
 		if (tmp->texture != NULL)
 			sfTexture_destroy(tmp->texture);
+		free(tmp->name);
+		free(tmp->file);
 		free(tmp);
 	}
 
@@ -65,6 +67,8 @@ void destroy_sounds(rpg_t *rpg)
 			sfSound_destroy(tmp->sound);
 		if (tmp->buffer)
 			sfSoundBuffer_destroy(tmp->buffer);
+		free(tmp->name);
+		free(tmp->file);
 		free(tmp);
 	}
 

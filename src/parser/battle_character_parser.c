@@ -88,23 +88,24 @@ void parse_spell_values(rpg_t *rpg, config_setting_t *set)
 
 int configure_battle_characters(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file(rpg, "heroes/demo.cfg", "hero");
-	char *texture = NULL;
+	conf_sett_t conf = parse_file(rpg, "heroes/demo.cfg", "hero");
+	char *tmp = NULL, *texture = NULL;
 
-	if (set == NULL)
+	if (conf.error || conf.set == NULL)
 		return (-1);
 
 	rpg->battle->hero = malloc(sizeof(hero_t));
 	if (rpg->battle->hero == NULL)
 		return (-1);
-
-	config_setting_lookup_string(set, "texture", ((const char **)&texture));
-	config_setting_lookup_int(set, "heal", &rpg->battle->hero->hp);
+	config_setting_lookup_string(conf.set, "texture",
+	((const char **)&tmp));
+	config_setting_lookup_int(conf.set, "heal", &rpg->battle->hero->hp);
 	rpg->battle->hero->hp_max = rpg->battle->hero->hp;
-	config_setting_lookup_int(set, "damage", &rpg->battle->hero->dmg);
-	config_setting_lookup_int(set, "armor", &rpg->battle->hero->armor);
+	config_setting_lookup_int(conf.set, "damage", &rpg->battle->hero->dmg);
+	config_setting_lookup_int(conf.set, "armor", &rpg->battle->hero->armor);
 	rpg->battle->hero->spell_id = -1;
-	parse_spell_values(rpg, set);
-
+	parse_spell_values(rpg, conf.set);
+	texture = my_strdup(tmp);
+	config_destroy(&conf.cfg);
 	return (configure_all_default(rpg, &rpg->battle->hero, texture));
 }

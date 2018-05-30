@@ -95,23 +95,22 @@ void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)
 
 int configure_battle_fights(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file(rpg, "battle.cfg", "battle.fights");
+	conf_sett_t conf = parse_file(rpg, "battle.cfg", "battle.fights");
 	config_setting_t *fight = NULL;
 	int count = 0;
 
-	if (set == NULL)
+	if (conf.error || conf.set == NULL)
 		return (-1);
-
-	count = config_setting_length(set);
+	count = config_setting_length(conf.set);
 	rpg->battle->number_fight = count;
 	rpg->battle->fight = malloc(sizeof(fight_t *) * count);
 	if (rpg->battle->fight == NULL)
 		return (-1);
 	for (int key = 0; count > 0 && key < count; key++) {
-		fight = config_setting_get_elem(set, key);
+		fight = config_setting_get_elem(conf.set, key);
 		if (fight != NULL)
 			parse_fight_values(rpg, fight, key);
 	}
-
+	config_destroy(&conf.cfg);
 	return (0);
 }
