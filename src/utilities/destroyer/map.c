@@ -18,9 +18,9 @@ void free_iterations(interact_t **it)
 
 void destroy_map(rpg_t *rpg)
 {
-	for (int i = 0; rpg->map[i]; i++) {
-		for (int j = 0; rpg->map[i]->layer[j]; j++)
-		 	free(rpg->map[i]->layer[j]);
+	for (int i = 0; i < 2; i++) {
+		for (int j = 0; j < 136; j++)
+			free(rpg->map[i]->layer[j]);
 		free(rpg->map[i]->layer);
 		free_iterations(rpg->map[i]->it);
 		free(rpg->map[i]);
