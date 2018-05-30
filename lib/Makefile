@@ -5,7 +5,7 @@
 ## Makefile for lib
 ##
 
-all:		libmy.a
+all:			libmy.a
 
 libmy.a:
 			make -C ./my
