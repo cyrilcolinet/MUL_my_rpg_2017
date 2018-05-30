@@ -52,3 +52,16 @@ void mouse_moved(rpg_t *rpg, sfMouseMoveEvent mouse)
 	}
 	reset_to_normal_rect(rpg);
 }
+
+void mouse_events(rpg_t *rpg, sfEvent *event)
+{
+	sfEventType type = event->type;
+
+	if (type == sfEvtMouseButtonPressed) {
+		mouse_button_pressed(rpg, event->mouseButton);
+	} else if (type == sfEvtMouseButtonReleased) {
+		mouse_button_released(rpg, event->mouseButton);
+	} else if (type == sfEvtMouseMoved) {
+		mouse_moved(rpg, event->mouseMove);
+	}
+}

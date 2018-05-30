@@ -30,9 +30,11 @@ SRC_FILES		= 	main.c 							\
 				assets/callback/sliders/volume_callback.c 		\
 				events/events_manager.c 				\
 				events/mouse_events.c					\
+				events/keyboard_events.c				\
 				events/views_events.c					\
 				events/play/events.c	 				\
 				events/play/player_deplacement.c			\
+				events/play/check_valid_deplacement.c			\
 				events/selection/events.c				\
 				events/selection/text.c 				\
 				configurations/views_config.c 				\

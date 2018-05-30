@@ -7,10 +7,11 @@
 
 #include "rpg.h"
 
-static void player_deplacement_side(rpg_t *rpg, sfEvent *event
+static void player_deplacement_left(rpg_t *rpg, sfEvent *event
 		, sfVector2f pos)
 {
-	if (event->key.code == sfKeyLeft) {
+	if (event->key.code == sfKeyLeft
+	&& check_valid_deplacement(rpg, pos, -8, 0)) {
 		pos = sfSprite_getPosition(rpg->player);
 		pos.x -= 8;
 		sfSprite_setPosition(rpg->player, pos);
@@ -20,7 +21,13 @@ static void player_deplacement_side(rpg_t *rpg, sfEvent *event
 			rpg->player_rect.left = 0;
 		sfSprite_setTextureRect(rpg->player, rpg->player_rect);
 	}
-	if (event->key.code == sfKeyRight) {
+}
+
+static void player_deplacement_right(rpg_t *rpg, sfEvent *event
+		, sfVector2f pos)
+{
+	if (event->key.code == sfKeyRight
+	&& check_valid_deplacement(rpg, pos, 8, 0)) {
 		pos = sfSprite_getPosition(rpg->player);
 		pos.x += 8;
 		sfSprite_setPosition(rpg->player, pos);
@@ -32,10 +39,11 @@ static void player_deplacement_side(rpg_t *rpg, sfEvent *event
 	}
 }
 
-static void player_deplacement_up_down(rpg_t *rpg, sfEvent *event
+static void player_deplacement_up(rpg_t *rpg, sfEvent *event
 		, sfVector2f pos)
 {
-	if (event->key.code == sfKeyUp) {
+	if (event->key.code == sfKeyUp
+	&& check_valid_deplacement(rpg, pos, 0, -8)) {
 		pos = sfSprite_getPosition(rpg->player);
 		pos.y -= 8;
 		sfSprite_setPosition(rpg->player, pos);
@@ -45,7 +53,13 @@ static void player_deplacement_up_down(rpg_t *rpg, sfEvent *event
 			rpg->player_rect.left = 0;
 		sfSprite_setTextureRect(rpg->player, rpg->player_rect);
 	}
-	if (event->key.code == sfKeyDown) {
+}
+
+static void player_deplacement_down(rpg_t *rpg, sfEvent *event
+		, sfVector2f pos)
+{
+	if (event->key.code == sfKeyDown
+	&& check_valid_deplacement(rpg, pos, 0, 8)) {
 		pos = sfSprite_getPosition(rpg->player);
 		pos.y += 8;
 		sfSprite_setPosition(rpg->player, pos);
@@ -61,18 +75,14 @@ void player_deplacement(rpg_t *rpg, sfEvent *event)
 {
 	sfVector2f pos;
 
+	if (event->type == sfEvtMouseMoved)
+		return;
 	if (event->type == sfEvtKeyPressed) {
-		/* rpg->timer = sfClock_getElapsedTime(rpg->clock); */
-		/* if (sfTime_asSeconds(rpg->timer) < sfTime_asSeconds(sfSeconds(0.2))) { */
-		player_deplacement_side(rpg, event, pos);
-		player_deplacement_up_down(rpg, event, pos);
-		/* } else { */
-		/* 	sfClock_restart(rpg->clock); */
-		/* 	rpg->timer = sfTime_Zero; */
-		/* } */
+		player_deplacement_left(rpg, event, pos);
+		player_deplacement_right(rpg, event, pos);
+		player_deplacement_up(rpg, event, pos);
+		player_deplacement_down(rpg, event, pos);
 	} else {
-		sfClock_restart(rpg->clock);
-		rpg->timer = sfTime_Zero;
 		rpg->player_rect.left = 0;
 		sfSprite_setTextureRect(rpg->player, rpg->player_rect);
 	}
