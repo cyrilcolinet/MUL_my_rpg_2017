@@ -46,8 +46,8 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 	texture_t texture;
 	int res = 84;
 
-	texture.name = name;
-	texture.file = file;
+	texture.name = my_strdup(name);
+	texture.file = my_strdup(file);
 	texture.texture = sfTexture_createFromFile(texture.file, NULL);
 	if (texture.texture == NULL)
 		return (84);
@@ -61,18 +61,17 @@ int create_texture(rpg_t *rpg, char *name, char *file)
 
 int configure_assets(rpg_t *rpg)
 {
-	config_setting_t *set = parse_file(rpg, "assets.cfg", "textures");
+	conf_sett_t conf = parse_file(rpg, "assets.cfg", "textures");
 	config_setting_t *asset = NULL;
 	const char *name = NULL;
 	const char *file = NULL;
 	int count = 0;
 
-	if (set == NULL)
+	if (conf.error || conf.set == NULL)
 		return (-1);
-
-	count = config_setting_length(set);
+	count = config_setting_length(conf.set);
 	for (int key = 0; count > 0 && key < count; key++) {
-		asset = config_setting_get_elem(set, key);
+		asset = config_setting_get_elem(conf.set, key);
 		if (asset != NULL) {
 			config_setting_lookup_string(asset, "name", &name);
 			config_setting_lookup_string(asset, "file", &file);
@@ -80,6 +79,7 @@ int configure_assets(rpg_t *rpg)
 		if (file != NULL && name != NULL)
 			create_texture(rpg, ((char *)name), ((char *)file));
 	}
+	config_destroy(&conf.cfg);
 	return (0);
 }
 

@@ -24,6 +24,18 @@ void free_fight(battle_t *battle, int n)
 	free(battle->fight[n]);
 }
 
+void free_hero_spells(rpg_t *rpg)
+{
+	for (int i = 0; rpg->battle->hero->spell[i]; i++) {
+		if (rpg->battle->hero->spell[i]->form != NULL)
+			sfSprite_destroy(rpg->battle->hero->spell[i]->form);
+		if (rpg->battle->hero->spell[i]->texture != NULL)
+			sfTexture_destroy(rpg->battle->hero->spell[i]->texture);
+		free(rpg->battle->hero->spell[i]);
+	}
+	free(rpg->battle->hero->spell);
+}
+
 void free_battle(rpg_t *rpg)
 {
 	for (int i = 0; i < rpg->battle->number_fight; i++)
@@ -33,6 +45,7 @@ void free_battle(rpg_t *rpg)
 	sfSprite_destroy(rpg->battle->hero->form);
 	sfText_destroy(rpg->battle->text);
 	sfClock_destroy(rpg->battle->clock);
+	//free_hero_spells(rpg);
 	free(rpg->battle->hero);
 	for (int i = 0; i < 10; i++)
 		free(rpg->battle->map[i]);

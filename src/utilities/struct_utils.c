@@ -77,6 +77,9 @@ bool configure_internal_struct(rpg_t *rpg)
 
 	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
+	rpg->player_name = my_strconfigure(128);
+	if (rpg->player_name == NULL)
+		return (false);
 
 	return (configure_internal_battle(rpg));
 }

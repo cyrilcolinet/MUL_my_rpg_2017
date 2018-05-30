@@ -236,7 +236,7 @@ void 		set_favicon(rpg_t *);
 */
 
 // parser.c
-config_setting_t *parse_file(rpg_t *, char *, char *);
+conf_sett_t	parse_file(rpg_t *, char *, char *);
 
 // battle_fights_parser.c
 bool		configure_fight(fight_t **);
