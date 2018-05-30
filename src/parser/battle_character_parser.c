@@ -10,7 +10,7 @@
 int configure_all_default(rpg_t *rpg, hero_t **hero, char *texture)
 {
 	sfVector2f scale = { 1.25, 1.25 };
-	sfIntRect rec = { 192, 0, 64, 64 };
+	sfIntRect rec = { 0, 0, 64, 64 };
 	sfVector2f pos = { 0, 5 };
 
 	(*hero)->pos = pos;

@@ -88,8 +88,9 @@ void hit_the_target(rpg_t *rpg, battle_t *battle, int i, int val)
 		a = battle->fight[battle->id]->enemy[j]->pos.x;
 		b = battle->fight[battle->id]->enemy[j]->pos.y;
 		if (battle->fight[battle->id]->enemy[j]->alive &&
-		((x == a && y == b) || (abs(x - a) == 1 && y == b)
-		|| (abs(y - b) == 1 && a == x))) {
+		    ((x == a && y == b)))/*  || (abs(x - a) == 1 && y == b) */
+		/* || (abs(y - b) == 1 && a == x))) */ {
+			printf("POS %d  %d \n", a, b);
 			set_damage(rpg, battle, j, val);
 		}
 	}

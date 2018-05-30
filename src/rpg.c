@@ -43,7 +43,7 @@ int rpg_game(rpg_t *rpg)
 
 	parse_player(rpg);
 	init_icone_spell(rpg->battle);
-
+	
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
