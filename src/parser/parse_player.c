@@ -10,7 +10,7 @@
 void parse_player(rpg_t *rpg)
 {
 //	sfVector2f pos = {48, 672};
-	sfVector2f pos = {48, 296};
+	sfVector2f pos = {1330, 296};
 
 	rpg->player = sfSprite_create();
 	rpg->player_rect.top = 192;
