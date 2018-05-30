@@ -40,9 +40,13 @@ void cb_goto_play_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
+	reset_to_normal_rect(rpg);
+	if (my_strlen(rpg->player_name) <= 1 || rpg->sex == 0) {
+		cb_void_action(rpg, btn);
+		return;
+	}
 	rpg->state = gameRun;
 	rpg->last_st = gameUnknown;
-	reset_to_normal_rect(rpg);
 }
 
 void cb_goto_settings_view(rpg_t *rpg, button_t *btn)

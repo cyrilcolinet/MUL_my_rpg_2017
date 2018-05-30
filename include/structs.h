@@ -232,6 +232,7 @@ typedef struct rpg_t {
 	sfIntRect	player_rect;
 	sfText		*text;
 	char 		*player_name;
+	int 		sex;
 	int		map_id;
 	map_t		**map;
 	sound_t		*sounds;

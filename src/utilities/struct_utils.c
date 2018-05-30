@@ -81,6 +81,7 @@ bool configure_internal_struct(rpg_t *rpg)
 	if (rpg->player_name == NULL)
 		return (false);
 	rpg->text = sfText_create();
+	rpg->sex = 1;
 	return (configure_internal_battle(rpg));
 }
 

@@ -49,7 +49,7 @@ static void display_turn(rpg_t *rpg, battle_t *battle)
 	else
 		sfText_setString(battle->text, "Player turn");
 	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
-	sfText_setCharacterSize(battle->text, 14);
+	sfText_setCharacterSize(battle->text, 25);
 	sfText_setColor(battle->text, sfWhite);
 }
 
