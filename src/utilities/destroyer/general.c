@@ -16,6 +16,7 @@ void exit_game(rpg_t *rpg)
 	destroy_buttons(rpg);
 	destroy_slides(rpg);
 	destroy_sounds(rpg);
+	sfText_destroy(rpg->text);
 	sfRenderWindow_destroy(rpg->win);
 	info("Window closed. Exiting...");
 	sfClock_destroy(rpg->clock);

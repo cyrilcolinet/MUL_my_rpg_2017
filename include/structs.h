@@ -230,6 +230,7 @@ typedef struct rpg_t {
 	sfTime 		timer;
 	sfSprite	*player;
 	sfIntRect	player_rect;
+	sfText		*text;
 	char 		*player_name;
 	int		map_id;
 	map_t		**map;

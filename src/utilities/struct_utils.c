@@ -50,7 +50,7 @@ bool configure_internal_battle(rpg_t *rpg)
 		for (int j = 0; j < 12; j++)
 			rpg->battle->map[i][j] = 0;
 	}
-	rpg->font = sfFont_createFromFile("assets/fonts/Cyberspace.otf");
+	rpg->font = sfFont_createFromFile("assets/fonts/Vecna.otf");
 	if (rpg->font == NULL)
 		return (false);
 	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
@@ -77,10 +77,10 @@ bool configure_internal_struct(rpg_t *rpg)
 
 	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
-	rpg->player_name = my_strconfigure(128);
+	rpg->player_name = my_strconfigure(19);
 	if (rpg->player_name == NULL)
 		return (false);
-
+	rpg->text = sfText_create();
 	return (configure_internal_battle(rpg));
 }
 

@@ -9,8 +9,20 @@
 
 void perform_text_entered(rpg_t *rpg, sfEvent *event, sfTextEvent type)
 {
-	if (type.unicode < 128) {
-		my_putchar(type.unicode);
+	int i = 0;
+	sfVector2f pos = { 670, 692 };
+
+	if ((type.unicode > 47 && type.unicode < 128)) {
+		while (rpg->player_name[i])
+			i++;
+		if (i < 18) {
+			rpg->player_name[i] = ((char)type.unicode);
+			sfText_setFont(rpg->text, rpg->font);
+			sfText_setCharacterSize(rpg->text, 50);
+			sfText_setColor(rpg->text, sfBlack);
+			sfText_setPosition(rpg->text, pos);
+			sfText_setString(rpg->text, rpg->player_name);
+		}
 	}
 }
 
