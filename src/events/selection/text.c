@@ -9,7 +9,8 @@
 
 void perform_text_entered(rpg_t *rpg, sfEvent *event, sfTextEvent type)
 {
-	
+	if (type.unicode < 128)
+		my_putchar(type.unicode);
 }
 
 bool ev_selection_text(rpg_t *rpg, sfEvent *event)
