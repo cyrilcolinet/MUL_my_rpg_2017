@@ -215,6 +215,7 @@ typedef struct rpg_t {
 	sfSprite	*capture;
 	state_e		last_st;
 	sfClock		*clock;
+	sfTime 		timer;
 	sfSprite	*player;
 	sfIntRect	player_rect;
 	int		map_id;

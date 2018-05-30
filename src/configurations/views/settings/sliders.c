@@ -15,7 +15,6 @@ static void extra_config(rpg_t *rpg, slider_t *conf)
 	sfSprite_setPosition(conf->btn->sprite, conf->btn->pos);
 	conf->text = sfText_create();
 	sfText_setPosition(conf->text, ori);
-	sfText_setFont(conf->text, rpg->font);
 	sfText_setCharacterSize(conf->text, 40);
 	sfText_setString(conf->text, vol);
 	free(vol);
@@ -35,6 +34,5 @@ void configure_settings_volume_slider(rpg_t *rpg)
 	conf.btn = get_button(rpg, "btn_volume", conf.state);
 	conf.btn->pos = pos;
 	extra_config(rpg, &conf);
-
 	add_slider(rpg, conf);
 }

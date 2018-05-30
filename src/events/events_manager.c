@@ -40,9 +40,9 @@ void poll_event(rpg_t *rpg, sfEvent *event)
 		if (event->type == sfEvtClosed)
 			sfRenderWindow_close(rpg->win);
 		else {
+			views_events(rpg, event);
 			mouse_events(rpg, event);
 			keyboard_events(rpg, event);
-			views_events(rpg, event);
 		}
 	}
 }
