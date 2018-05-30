@@ -9,5 +9,13 @@
 
 void ev_selection(rpg_t *rpg, sfEvent *event)
 {
-	
+	int i = -1;
+	bool reloop = false;
+	bool (*evt[])(rpg_t *, sfEvent *) = { ev_selection_text, NULL };
+
+	while (evt[++i]) {
+		reloop = evt[i](rpg, event);
+		if (!reloop)
+			return;
+	}
 }

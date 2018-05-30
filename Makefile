@@ -34,6 +34,7 @@ SRC_FILES		= 	main.c 							\
 				events/play/events.c	 				\
 				events/play/player_deplacement.c			\
 				events/selection/events.c				\
+				events/selection/text.c 				\
 				configurations/views_config.c 				\
 				configurations/views/credits/buttons.c 			\
 				configurations/views/main/buttons.c 			\

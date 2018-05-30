@@ -44,7 +44,8 @@ void 		views_events(rpg_t *, sfEvent *);
 void 		ev_run(rpg_t *, sfEvent *);
 void 		player_deplacement(rpg_t *, sfEvent *);
 
-// events/selection/events.c
+// events/selection
+bool 		ev_selection_text(rpg_t *, sfEvent *);
 void 		ev_selection(rpg_t *, sfEvent *);
 
 /*
