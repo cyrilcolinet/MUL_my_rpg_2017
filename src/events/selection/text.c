@@ -7,7 +7,7 @@
 
 # include "rpg.h"
 
-void perform_text_entered(rpg_t *rpg, sfEvent *event, sfTextEvent type)
+void perform_text_entered(rpg_t *rpg, sfTextEvent type)
 {
 	int i = 0;
 	sfVector2f pos = { 670, 692 };
@@ -26,13 +26,26 @@ void perform_text_entered(rpg_t *rpg, sfEvent *event, sfTextEvent type)
 	}
 }
 
+void perform_backspace(rpg_t *rpg, sfTextEvent type)
+{
+	int i = 18;
+
+	if (type.unicode == 8) {
+		while (!rpg->player_name[i])
+			i--;
+		rpg->player_name[i] = 0;
+		sfText_setString(rpg->text, rpg->player_name);
+	}
+}
+
 bool ev_selection_text(rpg_t *rpg, sfEvent *event)
 {
 	sfTextEvent type;
 
 	if (event->type == sfEvtTextEntered) {
 		type = event->text;
-		perform_text_entered(rpg, event, type);
+		perform_text_entered(rpg, type);
+		perform_backspace(rpg, type);
 	}
 
 	return (true);
