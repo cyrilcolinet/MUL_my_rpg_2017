@@ -114,7 +114,7 @@ SRC_FILES		= 	main.c 							\
 				utilities/csfml/windows.c				\
 				utilities/parsing/get_next_line.c 			\
 				utilities/parsing/arguments.c 				\
-				save/save_loader.c
+				saves/save_loader.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 
