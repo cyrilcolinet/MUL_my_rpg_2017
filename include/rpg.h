@@ -12,6 +12,8 @@
 # include "structs.h"
 # include "battle.h"
 
+typedef struct dirent dir_t;
+
 # define 	READ_SIZE		(128)
 
 // Debug global variable
@@ -101,6 +103,7 @@ void 		cb_goto_history_view(rpg_t *, button_t *);
 // callback/goto_view_callback2.c
 void 		cb_goto_pause_view(rpg_t *, button_t *);
 void 		cb_goto_select_view(rpg_t *, button_t *);
+void 		cb_goto_loader_view(rpg_t *, button_t *);
 
 // callback/actions_callback.c
 void 		cb_quit_action(rpg_t *, button_t *);
@@ -176,6 +179,7 @@ void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
 void 		history_view(rpg_t *);
 void 		select_view(rpg_t *);
+void 		game_load_view(rpg_t *);
 
 // play_view.c
 void 		play_view(rpg_t *);
@@ -237,6 +241,7 @@ void 		set_favicon(rpg_t *);
 
 // parser.c
 conf_sett_t	parse_file(rpg_t *, char *, char *);
+conf_sett_t	parse_save_file(rpg_t *, char *, char *);
 
 // battle_fights_parser.c
 bool		configure_fight(fight_t **);

@@ -20,6 +20,8 @@ void display_view(rpg_t *rpg)
 		history_view,
 		NULL,
 		select_view,
+		NULL,
+		game_load_view,
 		NULL
 	};
 

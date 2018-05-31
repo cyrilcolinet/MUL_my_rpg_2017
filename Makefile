@@ -54,6 +54,7 @@ SRC_FILES		= 	main.c 							\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
 				views/menu_views.c 					\
+				views/menu_views2.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
 				views/battle_view.c					\
@@ -112,7 +113,8 @@ SRC_FILES		= 	main.c 							\
 				utilities/csfml/sound.c					\
 				utilities/csfml/windows.c				\
 				utilities/parsing/get_next_line.c 			\
-				utilities/parsing/arguments.c
+				utilities/parsing/arguments.c 				\
+				save/save_loader.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

@@ -66,11 +66,3 @@ void cb_goto_history_view(rpg_t *rpg, button_t *btn)
 	rpg->last_st = rpg->state;
 	rpg->state = gameHistory;
 }
-
-void *cb_redirect_to(rpg_t *rpg, state_e view)
-{
-	rpg->last_st = rpg->state;
-	rpg->state = view;
-
-	return (NULL);
-}
