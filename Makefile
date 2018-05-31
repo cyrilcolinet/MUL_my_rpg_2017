@@ -45,6 +45,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
+				configurations/views/load/buttons.c 			\
 				player/player_deplacement.c				\
 				player/player_interaction.c				\
 				player/check_valid_deplacement.c			\
@@ -55,6 +56,7 @@ SRC_FILES		= 	main.c 							\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
 				views/menu_views.c 					\
+				views/menu_views2.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
 				views/battle_view.c					\
@@ -113,7 +115,8 @@ SRC_FILES		= 	main.c 							\
 				utilities/csfml/sound.c					\
 				utilities/csfml/windows.c				\
 				utilities/parsing/get_next_line.c 			\
-				utilities/parsing/arguments.c
+				utilities/parsing/arguments.c 				\
+				saves/save_loader.c
 
 SRC			= 	$(addprefix $(SRC_DIR), $(SRC_FILES))
 

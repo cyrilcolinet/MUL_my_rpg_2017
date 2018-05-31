@@ -12,6 +12,8 @@
 # include "structs.h"
 # include "battle.h"
 
+typedef struct dirent dir_t;
+
 # define 	READ_SIZE		(128)
 
 // Debug global variable
@@ -102,6 +104,7 @@ void 		cb_goto_history_view(rpg_t *, button_t *);
 // callback/goto_view_callback2.c
 void 		cb_goto_pause_view(rpg_t *, button_t *);
 void 		cb_goto_select_view(rpg_t *, button_t *);
+void 		cb_goto_loader_view(rpg_t *, button_t *);
 
 // callback/actions_callback.c
 void 		cb_quit_action(rpg_t *, button_t *);
@@ -121,50 +124,33 @@ void 		cb_slider_volume_music(rpg_t *, slider_t *);
 ** All configurations for sprites, audio, etc...
 */
 
-// views_config.c
 void 		configure_main_view(rpg_t *);
 void 		configure_settings_view(rpg_t *);
 void 		configure_credits_view(rpg_t *);
 void 		configure_pause_view(rpg_t *);
-
-// views/main/buttons.c
 void 		configure_main_play_button(rpg_t *);
 void 		configure_main_settings_button(rpg_t *);
 void 		configure_main_credits_button(rpg_t *);
 void 		configure_main_quit_button(rpg_t *);
-
-// views/main/history_button.c
 void 		configure_main_history_button(rpg_t *);
-
-// views/pause/buttons.c
 void 		configure_pause_resume_button(rpg_t *);
 void 		configure_pause_save_button(rpg_t *);
 void 		configure_pause_settings_button(rpg_t *);
 void 		configure_pause_quit_button(rpg_t *);
-
-// views/settings/buttons.c
 void 		configure_settings_volume_button(rpg_t *);
 void 		configure_settings_volume_mute_music_button(rpg_t *);
 void 		configure_settings_return_button(rpg_t *);
 void 		configure_settings_fullscreen_button(rpg_t *);
-
-// views/settings/sliders.c
 void 		configure_settings_volume_slider(rpg_t *);
-
-// views/settings/buttons.c
 void 		configure_credits_return_button(rpg_t *);
-
-// views/history/buttons.c
 void 		configure_history_return_button(rpg_t *);
-
-// views/select/buttons.c
 void 		configure_select_male_button(rpg_t *);
 void 		configure_select_female_button(rpg_t *);
 void 		configure_select_return_button(rpg_t *);
 void 		configure_select_play_button(rpg_t *);
-
-// views/play/buttons.c
 void 		configure_play_pause_button(rpg_t *);
+void 		configure_load_return_button(rpg_t *);
+void 		configure_load_new_game_button(rpg_t *);
 
 /*
 ** Views gesture
@@ -177,6 +163,7 @@ void 		credits_view(rpg_t *);
 void 		settings_view(rpg_t *);
 void 		history_view(rpg_t *);
 void 		select_view(rpg_t *);
+void 		game_load_view(rpg_t *);
 
 // play_view.c
 void 		play_view(rpg_t *);
@@ -238,6 +225,7 @@ void 		set_favicon(rpg_t *);
 
 // parser.c
 conf_sett_t	parse_file(rpg_t *, char *, char *);
+conf_sett_t	parse_save_file(rpg_t *, char *, char *);
 
 // battle_fights_parser.c
 bool		configure_fight(fight_t **);

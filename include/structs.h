@@ -59,7 +59,9 @@ typedef enum state_e {
 	gameHistory,
 	gameBattle,
 	gameSelect,
-	gameQuitWSave
+	gameQuitWSave,
+	gameLoadSave,
+	gameTutorial
 }	state_e;
 
 // Configuration striucts
@@ -243,5 +245,12 @@ typedef struct rpg_t {
 	battle_t	*battle;
 	conf_sett_t 	**configs;
 }	rpg_t;
+
+typedef struct save_t {
+	char 		*name;
+	char 		*player_name;
+	int 		level;
+	struct save_t 	*next;
+}	save_t;
 
 # endif

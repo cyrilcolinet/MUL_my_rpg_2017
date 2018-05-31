@@ -10,16 +10,18 @@
 void perform_text_entered(rpg_t *rpg, sfTextEvent type)
 {
 	int i = 0;
-	sfVector2f pos = { 670, 692 };
+	sfVector2f pos = { 610, 732 };
+	sfColor color = sfBlack;
 
 	if ((type.unicode > 47 && type.unicode < 128)) {
 		while (rpg->player_name[i])
 			i++;
 		if (i < 18) {
+			color = sfColor_fromRGB(16, 17, 16);
 			rpg->player_name[i] = ((char)type.unicode);
 			sfText_setFont(rpg->text, rpg->font);
-			sfText_setCharacterSize(rpg->text, 50);
-			sfText_setColor(rpg->text, sfBlack);
+			sfText_setCharacterSize(rpg->text, 60);
+			sfText_setColor(rpg->text, color);
 			sfText_setPosition(rpg->text, pos);
 			sfText_setString(rpg->text, rpg->player_name);
 		}

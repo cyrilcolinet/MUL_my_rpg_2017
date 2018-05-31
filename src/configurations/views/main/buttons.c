@@ -14,11 +14,11 @@ void configure_main_play_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_play";
-	conf.pos.x = 460;
-	conf.pos.y = 745;
+	conf.pos.x = 365;
+	conf.pos.y = 675;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
-	conf.onStart = cb_goto_select_view;
+	conf.onStart = cb_goto_loader_view;
 	conf.state = gameWait;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -38,8 +38,8 @@ void configure_main_settings_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_settings";
-	conf.pos.x = 1185;
-	conf.pos.y = 745;
+	conf.pos.x = 1285;
+	conf.pos.y = 675;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_settings_view;
@@ -62,8 +62,8 @@ void configure_main_credits_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_credits";
-	conf.pos.x = 565;
-	conf.pos.y = 910;
+	conf.pos.x = 525;
+	conf.pos.y = 840;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_credits_view;
@@ -86,8 +86,8 @@ void configure_main_quit_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_quit";
-	conf.pos.x = 1095;
-	conf.pos.y = 910;
+	conf.pos.x = 1125;
+	conf.pos.y = 840;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_quit_action;
