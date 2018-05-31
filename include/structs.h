@@ -208,7 +208,17 @@ typedef struct battle_t {
 } battle_t;
 // END BATTLE STRUCT
 
+typedef struct equipement_t {
+	bool	equiped;
+	bool	unlock;
+	int	dmg;
+	int	armor;
+	int	hp;
+	int	magic;
+} equipement_t;
+
 typedef struct inventory_t {
+	equipement_t	**obj;
 } inventory_t;
 
 typedef struct interact_t {
@@ -258,6 +268,7 @@ typedef struct rpg_t {
 	assets_t	*assets;
 	button_t	*btn;
 	player_t	*player;
+	inventory_t	*inventory;
 	slider_t	*slides;
 	battle_t	*battle;
 	save_t 		*saves;
