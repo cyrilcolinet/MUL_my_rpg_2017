@@ -260,7 +260,6 @@ typedef struct rpg_t {
 	player_t	*player;
 	slider_t	*slides;
 	battle_t	*battle;
-	conf_sett_t 	**configs;
 	save_t 		*saves;
 }	rpg_t;
 

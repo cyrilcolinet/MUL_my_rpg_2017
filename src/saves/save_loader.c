@@ -75,8 +75,7 @@ void get_saves_infos(rpg_t *rpg, dir_t *dir)
 
 	n = dir->d_name;
 	if (!my_strstartswith(n, ".") && my_strendswith(n, ".save"))
-		if (!new_slot(rpg, n))
-			return;
+		new_slot(rpg, n);
 	tmp->next = NULL;
 }
 
@@ -93,11 +92,10 @@ bool save_loader(rpg_t *rpg, int start)
 	o_dir = opendir("./saves/");
 	if (o_dir == NULL)
 		return (false);
-	while (key < max && (dir = readdir(o_dir)) != NULL) {
+	while (++key <= max && (dir = readdir(o_dir)) != NULL) {
 		if (key < start)
 			continue;
 		get_saves_infos(rpg, dir);
-		key++;
 	}
 
 	return (true);
