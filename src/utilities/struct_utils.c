@@ -82,6 +82,7 @@ bool configure_internal_struct(rpg_t *rpg)
 		return (false);
 	rpg->text = sfText_create();
 	rpg->sex = 1;
+	rpg->saves = NULL;
 	return (configure_internal_battle(rpg));
 }
 
