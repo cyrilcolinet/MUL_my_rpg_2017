@@ -224,6 +224,16 @@ typedef struct map_t {
 	interact_t	**it;
 }	map_t;
 
+typedef struct save_t {
+	char 		*name;
+	char 		*player_name;
+	int 		level;
+	sfText		*name_text;
+	sfText		*lvl_text;
+	sfText		*pname_text;
+	struct save_t 	*next;
+}	save_t;
+
 typedef struct rpg_t {
 	sfRenderWindow	*win;
 	sfFont		*font;
@@ -246,13 +256,7 @@ typedef struct rpg_t {
 	slider_t	*slides;
 	battle_t	*battle;
 	conf_sett_t 	**configs;
+	save_t 		*saves;
 }	rpg_t;
-
-typedef struct save_t {
-	char 		*name;
-	char 		*player_name;
-	int 		level;
-	struct save_t 	*next;
-}	save_t;
 
 # endif
