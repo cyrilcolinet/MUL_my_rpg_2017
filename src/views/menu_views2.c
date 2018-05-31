@@ -51,7 +51,7 @@ void display_saves_slots(rpg_t *rpg)
 	free_slot = (4 - unavailable);
 	if (free_slot != 0) {
 		while (free_slot > 0) {
-			printf("slot %d: disponible\n", free_slot);
+			//printf("slot %d: disponible\n", free_slot);
 			free_slot--;
 		}
 	}
