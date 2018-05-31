@@ -226,6 +226,9 @@ typedef struct save_t {
 	char 		*name;
 	char 		*player_name;
 	int 		level;
+	sfText		*name_text;
+	sfText		*lvl_text;
+	sfText		*pname_text;
 	struct save_t 	*next;
 }	save_t;
 

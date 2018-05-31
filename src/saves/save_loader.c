@@ -7,6 +7,15 @@
 
 # include "rpg.h"
 
+void extra_text_config(sfText *text, sfFont *font, int size)
+{
+	sfColor color = sfColor_fromRGB(16, 17, 16);
+
+	sfText_setCharacterSize(text, size);
+	sfText_setColor(text, color);
+	sfText_setFont(text, font);
+}
+
 void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 {
 	const char *pname = NULL;
@@ -15,12 +24,18 @@ void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 	if (conf.error || conf.set == NULL)
 		return;
 
-	printf("%s\n", "get on the poto");
-
 	config_setting_lookup_int(conf.set, "level", &node->level);
 	config_setting_lookup_string(conf.set, "player_name", &pname);
 
 	node->player_name = my_strdup(((char *)pname));
+	node->lvl_text = sfText_create();
+	extra_text_config(node->lvl_text, rpg->font, 40);
+	node->pname_text = sfText_create();
+	extra_text_config(node->pname_text, rpg->font, 40);
+	node->name_text = sfText_create();
+	extra_text_config(node->name_text, rpg->font, 25);
+	node->next = NULL;
+	config_destroy(&conf.cfg);
 }
 
 bool new_slot(rpg_t *rpg, char *file)
@@ -31,20 +46,20 @@ bool new_slot(rpg_t *rpg, char *file)
 	if (rpg->saves == NULL) {
 		node = malloc(sizeof(save_t));
 		if (node == NULL)
-			return (-1);
+			return (false);
 		parse_save_infos(rpg, node, file);
 		node->next = *saves;
 		*saves = node;
-		return (0);
+		return (true);
 	}
 	node = rpg->saves;
 	while (node->next != NULL)
 		node = node->next;
 	node->next = malloc(sizeof(save_t));
 	if (node->next == NULL)
-		return (-1);
+		return (false);
 	parse_save_infos(rpg, node->next, file);
-	return (0);
+	return (true);
 }
 
 void get_saves_infos(rpg_t *rpg, dir_t *dir)
