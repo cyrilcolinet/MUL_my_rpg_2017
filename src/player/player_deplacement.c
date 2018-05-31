@@ -17,7 +17,7 @@ static bool player_deplacement_left(rpg_t *rpg
 		sfSprite_setPosition(rpg->player->sprite, pos);
 		rpg->player->rec.top = 64;
 		rpg->player->rec.left += 64;
-if (rpg->player->rec.left > 192)
+		if (rpg->player->rec.left > 192)
 			rpg->player->rec.left = 0;
 		sfSprite_setTextureRect(rpg->player->sprite, rpg->player->rec);
 		return (true);
