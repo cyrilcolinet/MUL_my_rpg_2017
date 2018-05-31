@@ -17,6 +17,7 @@ void display_map_content(rpg_t *rpg)
 		if (sprite)
 			sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	}
+	player_interaction(rpg);
 	sfRenderWindow_drawSprite(rpg->win, rpg->player, NULL);
 }
 

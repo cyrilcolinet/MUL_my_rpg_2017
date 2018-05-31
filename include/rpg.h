@@ -38,6 +38,7 @@ void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 void 		views_events(rpg_t *, sfEvent *);
 void 		ev_run(rpg_t *, sfEvent *);
 void 		player_deplacement(rpg_t *);
+void 		player_interaction(rpg_t *);
 bool 		check_valid_deplacement(rpg_t *, sfVector2f, int, int);
 bool 		ev_selection_text(rpg_t *, sfEvent *);
 void 		ev_selection(rpg_t *, sfEvent *);
