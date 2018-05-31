@@ -14,11 +14,11 @@ void configure_select_return_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_return";
-	conf.pos.x = 675;
-	conf.pos.y = 770;
+	conf.pos.x = 655;
+	conf.pos.y = 910;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
-	conf.onStart = cb_goto_main_view;
+	conf.onStart = cb_return_action;
 	conf.state = gameSelect;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
@@ -37,8 +37,8 @@ void configure_select_play_button(rpg_t *rpg)
 	sfTexture *texture = get_texture(rpg, "buttons");
 
 	conf.name = "btn_play";
-	conf.pos.x = 990;
-	conf.pos.y = 770;
+	conf.pos.x = 1010;
+	conf.pos.y = 910;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
 	conf.onStart = cb_goto_play_view;

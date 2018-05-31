@@ -33,6 +33,9 @@ void configure_credits_view(rpg_t *rpg)
 
 	configure_select_return_button(rpg);
 	configure_select_play_button(rpg);
+
+	configure_load_return_button(rpg);
+	configure_load_new_game_button(rpg);
 }
 
 void configure_pause_view(rpg_t *rpg)

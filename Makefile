@@ -45,6 +45,7 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
+				configurations/views/load/buttons.c 			\
 				player/player_deplacement.c				\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
