@@ -13,6 +13,10 @@ static void call_map_0_interaction(rpg_t *rpg, int id)
 		go_to_spawn, start_fight_2, start_fight_3, start_fight_1,
 		talk_to_paysan, go_to_city, talk_to_totem
 	};
+	for (int i = 0; rpg->map[id]->it[i]; i++) {
+		if (rpg->map[id]->it[i]->active == true)
+			inter[i](rpg, i);
+	}
 }
 
 static void call_map_1_interaction(rpg_t *rpg, int id)
@@ -21,6 +25,10 @@ static void call_map_1_interaction(rpg_t *rpg, int id)
 		go_to_campagne, go_in_city, go_out_city,
 		go_to_castle, talk_to_trader, talk_to_soldier
 	};
+	for (int i = 0; rpg->map[id]->it[i]; i++) {
+		if (rpg->map[id]->it[i]->active == true)
+			inter[i](rpg, i);
+	}
 }
 
 void call_interaction(rpg_t *rpg)
