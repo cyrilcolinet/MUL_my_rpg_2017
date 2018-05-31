@@ -14,16 +14,16 @@ void perform_text_entered(rpg_t *rpg, sfTextEvent type)
 	sfColor color = sfBlack;
 
 	if ((type.unicode > 47 && type.unicode < 128)) {
-		while (rpg->player_name[i])
+		while (rpg->player->name[i])
 			i++;
 		if (i < 18) {
 			color = sfColor_fromRGB(16, 17, 16);
-			rpg->player_name[i] = ((char)type.unicode);
+			rpg->player->name[i] = ((char)type.unicode);
 			sfText_setFont(rpg->text, rpg->font);
 			sfText_setCharacterSize(rpg->text, 60);
 			sfText_setColor(rpg->text, color);
 			sfText_setPosition(rpg->text, pos);
-			sfText_setString(rpg->text, rpg->player_name);
+			sfText_setString(rpg->text, rpg->player->name);
 		}
 	}
 }
@@ -33,10 +33,10 @@ void perform_backspace(rpg_t *rpg, sfTextEvent type)
 	int i = 18;
 
 	if (type.unicode == 8) {
-		while (!rpg->player_name[i])
+		while (!rpg->player->name[i])
 			i--;
-		rpg->player_name[i] = 0;
-		sfText_setString(rpg->text, rpg->player_name);
+		rpg->player->name[i] = 0;
+		sfText_setString(rpg->text, rpg->player->name);
 	}
 }
 

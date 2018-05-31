@@ -45,7 +45,7 @@ void player_interaction(rpg_t *rpg)
 	sfVector2i curr;
 
 	reset_in_zone(rpg);
-	pos = sfSprite_getPosition(rpg->player);
+	pos = sfSprite_getPosition(rpg->player->sprite);
 	curr.x = pos.x + 32;
 	curr.y = pos.y + 32;
 	set_up_text(rpg, pos);

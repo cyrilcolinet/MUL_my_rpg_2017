@@ -218,6 +218,15 @@ typedef struct interact_t {
 	bool		in_zone;
 }	interact_t;
 
+typedef struct player_t {
+	sfClock		*clock;
+	sfTime 		timer;
+	sfSprite	*sprite;
+	sfIntRect	rec;
+	char 		*name;
+	int 		sex;
+}	player_t;
+
 typedef struct map_t {
 	char 		*texture;
 	int		**layer;
@@ -240,19 +249,15 @@ typedef struct rpg_t {
 	state_e		state;
 	sfSprite	*capture;
 	state_e		last_st;
-	sfClock		*clock;
-	sfTime 		timer;
-	sfSprite	*player;
-	sfIntRect	player_rect;
 	sfText		*text;
-	char 		*player_name;
-	int 		sex;
+	sfClock		*clock;
 	int		map_id;
 	map_t		**map;
 	sound_t		*sounds;
 	options_t	options;
 	assets_t	*assets;
 	button_t	*btn;
+	player_t	*player;
 	slider_t	*slides;
 	battle_t	*battle;
 	conf_sett_t 	**configs;

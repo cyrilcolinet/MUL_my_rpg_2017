@@ -13,7 +13,7 @@ bool check_valid_deplacement(rpg_t *rpg, sfVector2f pos, int x, int y)
 	int a = 0;
 	int b = 0;
 
-	pos = sfSprite_getPosition(rpg->player);
+	pos = sfSprite_getPosition(rpg->player->sprite);
 	pos.x += (32 + x);
 	pos.y += (32 + y);
 	a = pos.y / 8;

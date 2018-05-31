@@ -181,6 +181,7 @@ void 		destroy_assets(rpg_t *);
 void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
 void 		destroy_map(rpg_t *);
+void 		destroy_player(rpg_t *);
 void 		configure_textures(rpg_t *, battle_t *);
 bool 		configure_internal_battle(rpg_t *);
 bool 		configure_internal_struct(rpg_t *);
