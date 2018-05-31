@@ -44,7 +44,7 @@ void 		views_events(rpg_t *, sfEvent *);
 
 // events/play/events.c
 void 		ev_run(rpg_t *, sfEvent *);
-void 		player_deplacement(rpg_t *, sfEvent *);
+void 		player_deplacement(rpg_t *);
 bool 		check_valid_deplacement(rpg_t *, sfVector2f, int, int);
 
 // events/selection

@@ -33,8 +33,6 @@ SRC_FILES		= 	main.c 							\
 				events/keyboard_events.c				\
 				events/views_events.c					\
 				events/play/events.c	 				\
-				events/play/player_deplacement.c			\
-				events/play/check_valid_deplacement.c			\
 				events/selection/events.c				\
 				events/selection/text.c 				\
 				configurations/views_config.c 				\
@@ -47,6 +45,8 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/history/buttons.c 			\
 				configurations/views/selection/buttons.c		\
 				configurations/views/play/buttons.c			\
+				player/player_deplacement.c				\
+				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
 				parser/parse_player.c 					\
 				parser/battle_fights_parser.c 				\

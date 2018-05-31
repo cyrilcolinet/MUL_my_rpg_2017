@@ -25,6 +25,7 @@ void play_view(rpg_t *rpg)
 	if (rpg->battle->run)
 		battle_management(rpg, rpg->battle);
 	else if (!rpg->battle->run) {
+		player_deplacement(rpg);
 		display_map_content(rpg);
 		sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek");
 	}

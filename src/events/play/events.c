@@ -14,7 +14,6 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (!rpg->battle->run) {
-		player_deplacement(rpg, event);
 		if (event->type == sfEvtKeyReleased && event->key.code == sfKeyA) {
 			rpg->battle->run = true;
 			rpg->battle->hero->rec.top = 192;

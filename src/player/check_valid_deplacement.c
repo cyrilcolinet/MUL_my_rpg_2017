@@ -18,7 +18,8 @@ bool check_valid_deplacement(rpg_t *rpg, sfVector2f pos, int x, int y)
 	pos.y += (32 + y);
 	a = pos.y / 8;
 	b = pos.x / 8;
-	if (rpg->map[id]->layer[a][b] == 1)
+	if (rpg->map[id]->layer[a][b] == 1
+	|| rpg->map[id]->layer[a][b] == 2)
 		return (true);
 	return (false);
 }
