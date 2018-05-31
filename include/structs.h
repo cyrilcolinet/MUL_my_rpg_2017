@@ -225,6 +225,7 @@ typedef struct player_t {
 	sfIntRect	rec;
 	char 		*name;
 	int 		sex;
+	int 		level;
 }	player_t;
 
 typedef struct map_t {
