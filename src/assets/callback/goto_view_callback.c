@@ -41,7 +41,7 @@ void cb_goto_play_view(rpg_t *rpg, button_t *btn)
 	(void)btn;
 
 	reset_to_normal_rect(rpg);
-	if (my_strlen(rpg->player->name) <= 1 || rpg->player->sex == 0) {
+	if (my_strlen(rpg->player->name) <= 1 || rpg->player->sexe == 0) {
 		cb_void_action(rpg, btn);
 		return;
 	}

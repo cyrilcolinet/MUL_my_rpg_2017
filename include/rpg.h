@@ -187,6 +187,7 @@ bool 		configure_internal_battle(rpg_t *);
 bool 		configure_internal_struct(rpg_t *);
 rpg_t 		*configure_struct(void);
 void 		set_favicon(rpg_t *);
+void 		extra_text_config(sfText *, sfFont *, int);
 
 /*
 ** Parse utilities
@@ -209,5 +210,6 @@ int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);
 bool		save_loader(rpg_t *, int);
+bool		player_parser(rpg_t *, char *name);
 
 # endif

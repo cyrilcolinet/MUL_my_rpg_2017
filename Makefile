@@ -70,6 +70,7 @@ SRC_FILES		= 	main.c 							\
 				parser/battle_character_parser.c			\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
+				parser/player/player_parser.c				\
 				views/menu_views.c 					\
 				views/menu_views2.c 					\
 				views/play_view.c 					\

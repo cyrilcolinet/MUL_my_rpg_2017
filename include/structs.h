@@ -209,12 +209,14 @@ typedef struct battle_t {
 // END BATTLE STRUCT
 
 typedef struct equipement_t {
-	bool	equiped;
-	bool	unlock;
-	int	dmg;
-	int	armor;
-	int	hp;
-	int	magic;
+	char 		*name;
+	bool		equiped;
+	bool		unlock;
+	int		dmg;
+	int		armor;
+	int		hp;
+	int		magic;
+	sfVector2f	pos;
 } equipement_t;
 
 typedef struct inventory_t {
@@ -232,10 +234,14 @@ typedef struct player_t {
 	sfClock		*clock;
 	sfTime 		timer;
 	sfSprite	*sprite;
+	sfTexture 	*texture;
 	sfIntRect	rec;
+	sfVector2f	pos;
 	char 		*name;
-	int 		sex;
+	int 		sexe;
 	int 		level;
+	int 		skills;
+	inventory_t	*inventory;
 }	player_t;
 
 typedef struct map_t {
@@ -246,6 +252,7 @@ typedef struct map_t {
 
 typedef struct save_t {
 	char 		*name;
+	char 		*texture;
 	char 		*player_name;
 	int 		level;
 	sfText		*name_text;
@@ -269,7 +276,6 @@ typedef struct rpg_t {
 	assets_t	*assets;
 	button_t	*btn;
 	player_t	*player;
-	inventory_t	*inventory;
 	slider_t	*slides;
 	battle_t	*battle;
 	save_t 		*saves;
