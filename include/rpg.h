@@ -44,9 +44,7 @@ void 		views_events(rpg_t *, sfEvent *);
 
 // events/play/events.c
 void 		ev_run(rpg_t *, sfEvent *);
-void 		player_deplacement(rpg_t *);
-void 		player_interaction(rpg_t *);
-bool 		check_valid_deplacement(rpg_t *, sfVector2f, int, int);
+void		event_player_interaction(rpg_t *, sfEvent *);
 
 // events/selection
 bool 		ev_selection_text(rpg_t *, sfEvent *);
@@ -166,7 +164,24 @@ void 		select_view(rpg_t *);
 void 		game_load_view(rpg_t *);
 
 // play_view.c
-void 		play_view(rpg_t *);
+void		play_view(rpg_t *);
+void		player_deplacement(rpg_t *);
+void		player_interaction(rpg_t *);
+bool		check_valid_deplacement(rpg_t *, sfVector2f, int, int);
+void		call_interaction(rpg_t *);
+void		go_to_spawn(rpg_t *, int);
+void		start_fight_2(rpg_t *, int);
+void		start_fight_3(rpg_t *, int);
+void		start_fight_1(rpg_t *, int);
+void		talk_to_paysan(rpg_t *, int);
+void		go_to_city(rpg_t *, int);
+void		talk_to_totem(rpg_t *, int);
+void		go_to_campagne(rpg_t *, int);
+void		go_in_city(rpg_t *, int);
+void		go_out_city(rpg_t *, int);
+void		go_to_castle(rpg_t *, int);
+void		talk_to_trader(rpg_t *, int);
+void		talk_to_soldier(rpg_t *, int);
 
 // main_view.c
 void 		animate_book_sprite(rpg_t *, assets_t *);

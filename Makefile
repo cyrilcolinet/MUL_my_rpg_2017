@@ -33,6 +33,7 @@ SRC_FILES		= 	main.c 							\
 				events/keyboard_events.c				\
 				events/views_events.c					\
 				events/play/events.c	 				\
+				events/play/event_interaction.c				\
 				events/selection/events.c				\
 				events/selection/text.c 				\
 				configurations/views_config.c 				\
@@ -48,6 +49,20 @@ SRC_FILES		= 	main.c 							\
 				configurations/views/load/buttons.c 			\
 				player/player_deplacement.c				\
 				player/player_interaction.c				\
+				player/call_interaction.c				\
+				player/go_in_city.c					\
+				player/go_out_city.c					\
+				player/go_to_city.c					\
+				player/go_to_castle.c					\
+				player/go_to_campagne.c					\
+				player/go_to_spawn.c					\
+				player/start_fight_1.c					\
+				player/start_fight_2.c					\
+				player/start_fight_3.c					\
+				player/talk_to_paysan.c					\
+				player/talk_to_soldier.c				\
+				player/talk_to_totem.c					\
+				player/talk_to_trader.c					\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
 				parser/parse_player.c 					\

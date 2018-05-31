@@ -214,6 +214,8 @@ typedef struct inventory_t {
 typedef struct interact_t {
 	char 		*msg;
 	sfIntRect	rec;
+	bool		active;
+	bool		in_zone;
 }	interact_t;
 
 typedef struct map_t {

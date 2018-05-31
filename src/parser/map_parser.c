@@ -36,7 +36,9 @@ int parse_arenas_interactions(interact_t **it, config_setting_t *set)
 	if (parse_arena_rectangle_values(set, it) != 0)
 		return (-1);
 	(*it)->msg = my_strdup(msg);
-
+	(*it)->in_zone = false;
+	(*it)->active = false;
+	
 	return (0);
 }
 
