@@ -252,7 +252,10 @@ typedef struct map_t {
 
 typedef struct save_t {
 	char 		*name;
-	char 		*texture;
+	sfIntRect	rec;
+	sfClock 	*clock;
+	sfSprite	*sprite;
+	sfTexture	*texture;
 	char 		*player_name;
 	int 		level;
 	sfText		*name_text;

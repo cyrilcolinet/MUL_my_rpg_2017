@@ -7,6 +7,17 @@
 
 # include "rpg.h"
 
+void configure_sprite_infos(save_t *node)
+{
+	sfIntRect rec = { 0, 192, 64, 64 };
+
+	node->rec = rec;
+	node->clock = sfClock_create();
+	node->sprite = sfSprite_create();
+	sfSprite_setTexture(node->sprite, node->texture, true);
+	sfSprite_setTextureRect(node->sprite, rec);
+}
+
 void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 {
 	const char *pname = NULL;
@@ -18,9 +29,8 @@ void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 	config_setting_lookup_int(conf.set, "level", &node->level);
 	config_setting_lookup_string(conf.set, "name", &pname);
 	config_setting_lookup_string(conf.set, "hero_texture", &texture);
-
 	node->player_name = my_strdup(((char *)pname));
-	node->texture = my_strdup(((char *)texture));
+	node->texture = get_texture(rpg, ((char *)texture));
 	node->lvl_text = sfText_create();
 	node->pname_text = sfText_create();
 	node->name_text = sfText_create();
@@ -29,6 +39,7 @@ void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 	extra_text_config(node->pname_text, rpg->font, 40);
 	extra_text_config(node->name_text, rpg->font, 25);
 	config_destroy(&conf.cfg);
+	configure_sprite_infos(node);
 }
 
 bool new_slot(rpg_t *rpg, char *file)

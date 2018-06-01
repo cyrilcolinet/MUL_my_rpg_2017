@@ -1,6 +1,6 @@
 save: {
-	name: "Demo";
-	hero_texture: "man_fer_no";
+	name: "Jean_Michel";
+	hero_texture: "orc1";
 	sexe: 1;
 	pos: {
 		map: 0;

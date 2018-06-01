@@ -19,3 +19,19 @@ void wait_second(float wait)
 		t = sfClock_getElapsedTime(clk);
 	sfClock_destroy(clk);
 }
+
+float get_slot_position(int slot_id)
+{
+	switch (slot_id) {
+		case 1:
+		return (464);
+
+		case 2:
+		return (588);
+
+		case 3:
+		return (729);
+	}
+
+	return (332);
+}
