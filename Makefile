@@ -17,12 +17,12 @@ TEST_DIR		= 	tests/
 
 SRC_FILES		= 	main.c 							\
 				rpg.c 							\
-				sound/sounds_manager.c 					\
+				initializer.c 						\
+				assets/sounds_manager.c 				\
 				assets/assets_manager.c		 			\
-				assets/assets_loader_manager.c 				\
 				assets/buttons_manager.c 				\
 				assets/sliders_manager.c 				\
-				assets/getter.c 					\
+				assets/assets_getter.c 					\
 				assets/callback/actions_callback.c 			\
 				assets/callback/redirections/cb_goto_credits.c 		\
 				assets/callback/redirections/cb_goto_custom.c 		\
@@ -129,7 +129,6 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_enemy_stats.c			\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
-				utilities/struct_utils.c 				\
 				utilities/destroyer/assets.c 				\
 				utilities/destroyer/battle.c 				\
 				utilities/destroyer/general.c 				\

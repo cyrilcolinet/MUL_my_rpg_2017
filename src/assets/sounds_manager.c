@@ -67,17 +67,16 @@ int load_sounds(rpg_t *rpg)
 
 	if (conf.error || conf.set == NULL)
 		return (-1);
+
 	count = config_setting_length(conf.set);
 	for (int key = 0; count > 0 && key < count; key++) {
 		sound = config_setting_get_elem(conf.set, key);
-		if (sound != NULL) {
-			config_setting_lookup_string(sound, "name", &name);
-			config_setting_lookup_string(sound, "file", &file);
-		}
-		if (file != NULL && name != NULL)
-			new_sound(rpg, my_strdup(((char *)name)),
-			my_strdup(((char *)file)));
+		config_setting_lookup_string(sound, "name", &name);
+		config_setting_lookup_string(sound, "file", &file);
+		new_sound(rpg, my_strdup(((char *)name)),
+		my_strdup(((char *)file)));
 	}
+
 	config_destroy(&conf.cfg);
 	return (0);
 }

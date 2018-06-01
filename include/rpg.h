@@ -101,10 +101,7 @@ void 		cb_slider_volume_music(rpg_t *, slider_t *);
 ** All configurations for sprites, audio, etc...
 */
 
-void 		configure_main_view(rpg_t *);
-void 		configure_settings_view(rpg_t *);
-void 		configure_credits_view(rpg_t *);
-void 		configure_pause_view(rpg_t *);
+void 		configure_views_actions(rpg_t *);
 void 		configure_main_play_button(rpg_t *);
 void 		configure_main_settings_button(rpg_t *);
 void 		configure_main_credits_button(rpg_t *);
@@ -196,9 +193,7 @@ void 		destroy_slides(rpg_t *);
 void 		destroy_sounds(rpg_t *);
 void 		destroy_map(rpg_t *);
 void 		destroy_player(rpg_t *);
-void 		configure_textures(rpg_t *, battle_t *);
-bool 		configure_internal_battle(rpg_t *);
-bool 		configure_internal_struct(rpg_t *);
+bool 		fill_struct_values(rpg_t *);
 rpg_t 		*configure_struct(void);
 void 		set_favicon(rpg_t *);
 void 		extra_text_config(sfText *, sfFont *, int);

@@ -15,7 +15,6 @@
 # define 	B_X 		(114)
 # define 	B_Y 		(72)
 
-void		init_icone_spell(battle_t *);
 void		battle_management(rpg_t *, battle_t *);
 
 /* FREE */

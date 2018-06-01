@@ -7,27 +7,24 @@
 
 # include "rpg.h"
 
-void init_icone_spell(battle_t *battle)
+void init_icone_spell(rpg_t *rpg)
 {
+	hero_t *hero = rpg->battle->hero;
 	sfVector2f size = {50, 50};
 
-	battle->hero->spell[0]->img = sfTexture_createFromFile(
-		"assets/icons/heal_icone.png", NULL);
-	battle->hero->spell[1]->img = sfTexture_createFromFile(
-		"assets/icons/fire_icone.png", NULL);
-	battle->hero->spell[2]->img = sfTexture_createFromFile(
-		"assets/icons/ice_icone.png", NULL);
-	battle->hero->spell[3]->img = sfTexture_createFromFile(
-		"assets/icons/storm_icone.png", NULL);
+	hero->spell[0]->img = get_texture(rpg, "heal_icon");
+	hero->spell[1]->img = get_texture(rpg, "fire_icon");
+	hero->spell[2]->img = get_texture(rpg, "ice_icon");
+	hero->spell[3]->img = get_texture(rpg, "storm_icon");
+
 	for (int i = 0; i < 4; i++) {
-		battle->hero->spell[i]->icone = sfRectangleShape_create();
-		sfRectangleShape_setSize(battle->hero->spell[i]->icone, size);
-		sfRectangleShape_setTexture(
-		battle->hero->spell[i]->icone, battle->hero->spell[i]->img, sfTrue);
-		sfRectangleShape_setOutlineThickness(
-			battle->hero->spell[i]->icone, 5);
-		sfRectangleShape_setOutlineColor(
-			battle->hero->spell[i]->icone, sfTransparent);
+		hero->spell[i]->icone = sfRectangleShape_create();
+		sfRectangleShape_setSize(hero->spell[i]->icone, size);
+		sfRectangleShape_setTexture(hero->spell[i]->icone,
+			hero->spell[i]->img, sfTrue);
+		sfRectangleShape_setOutlineThickness(hero->spell[i]->icone, 5);
+		sfRectangleShape_setOutlineColor(hero->spell[i]->icone,
+			sfTransparent);
 	}
 }
 
@@ -40,7 +37,7 @@ int rpg_game(rpg_t *rpg)
 		return (status);
 
 	player_parser(rpg, "demo.save"); // tmp
-	init_icone_spell(rpg->battle); // tmp
+	init_icone_spell(rpg); // tmp
 
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);

@@ -13,7 +13,6 @@ int check_arguments(int ac, char **av)
 		my_putstr("USAGE:\n\t./my_rpg [-h, -d]\n\n");
 		my_putstr("DESCRIPTION:\n\t[-h]\t");
 		my_putstr("Display help page (this page).\n");
-		my_putstr("\t[-d]\tActivate debug mode.\n");
 		return (0);
 	} else if (ac == 2 && my_strequ(av[1], "-d")) {
 		write(2, "Debug mode unavailable.\n", 24);

@@ -69,16 +69,15 @@ int configure_assets(rpg_t *rpg)
 
 	if (conf.error || conf.set == NULL)
 		return (-1);
+
 	count = config_setting_length(conf.set);
 	for (int key = 0; count > 0 && key < count; key++) {
 		asset = config_setting_get_elem(conf.set, key);
-		if (asset != NULL) {
-			config_setting_lookup_string(asset, "name", &name);
-			config_setting_lookup_string(asset, "file", &file);
-		}
-		if (file != NULL && name != NULL)
-			create_texture(rpg, ((char *)name), ((char *)file));
+		config_setting_lookup_string(asset, "name", &name);
+		config_setting_lookup_string(asset, "file", &file);
+		create_texture(rpg, ((char *)name), ((char *)file));
 	}
+
 	config_destroy(&conf.cfg);
 	return (0);
 }
@@ -88,10 +87,14 @@ int load_assets(rpg_t *rpg)
 	if (configure_assets(rpg) != 0)
 		return (84);
 
-	start_loader(rpg);
+	configure_views_actions(rpg);
 	load_sounds(rpg);
 
-	if (!configure_internal_struct(rpg) || parse_map(rpg) != 0)
+	if (parse_map(rpg) != 0)
 		return (84);
+
+	sfSound_play(get_sound(rpg, "main")->sound);
+	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
+
 	return (0);
 }
