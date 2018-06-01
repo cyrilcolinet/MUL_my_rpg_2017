@@ -21,6 +21,7 @@ void exit_game(rpg_t *rpg)
 	sfRenderWindow_destroy(rpg->win);
 	sfClock_destroy(rpg->clock);
 	sfFont_destroy(rpg->font);
+	sfTexture_destroy(rpg->texture);
 	if (rpg->capture != NULL)
 		sfSprite_destroy(rpg->capture);
 }
