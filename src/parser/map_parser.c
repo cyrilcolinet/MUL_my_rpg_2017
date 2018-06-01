@@ -38,7 +38,6 @@ int parse_arenas_interactions(interact_t **it, config_setting_t *set)
 	(*it)->msg = my_strdup(msg);
 	(*it)->in_zone = false;
 	(*it)->active = false;
-	
 	return (0);
 }
 

@@ -75,9 +75,6 @@ bool configure_internal_struct(rpg_t *rpg)
 		return (false);
 	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
-	// rpg->player->name = my_strconfigure(19);
-	// if (rpg->player->name == NULL)
-	// 	return (false);
 	rpg->text = sfText_create();
 	rpg->saves = NULL;
 	return (configure_internal_battle(rpg));

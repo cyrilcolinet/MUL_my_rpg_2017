@@ -41,7 +41,6 @@ int rpg_game(rpg_t *rpg)
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 
-	//parse_player(rpg);
 	player_parser(rpg, "demo.save");
 	init_icone_spell(rpg->battle);
 

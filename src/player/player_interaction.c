@@ -16,7 +16,7 @@ static void check_map(rpg_t *rpg, int id, sfVector2i pos)
 	for (int i = 0; rpg->map[id]->it[i]; i++) {
 		rec = rpg->map[id]->it[i]->rec;
 		if ((x > rec.left && x < rec.left + rec.width)
-		    && (y > rec.top && y < rec.top + rec.height)) {
+		&& (y > rec.top && y < rec.top + rec.height)) {
 			sfText_setString(rpg->text, rpg->map[id]->it[i]->msg);
 			rpg->map[id]->it[i]->in_zone = true;
 			sfRenderWindow_drawText(rpg->win, rpg->text, NULL);

@@ -24,7 +24,6 @@ static void end_battle_display(rpg_t *rpg, battle_t *battle)
 bool end_battle(rpg_t *rpg, battle_t *battle)
 {
 	if (!battle->hero->alive) {
-		printf("YOU LOSE\n");
 		end_battle_display(rpg, battle);
 		return (true);
 	}
@@ -32,7 +31,6 @@ bool end_battle(rpg_t *rpg, battle_t *battle)
 		if (battle->fight[battle->id]->enemy[i]->alive)
 			return (false);
 	}
-	printf("YOU WIN\n");
 	end_battle_display(rpg, battle);
 	return (true);
 }

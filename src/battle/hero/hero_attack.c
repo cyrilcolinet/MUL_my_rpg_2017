@@ -61,6 +61,7 @@ static void do_damage_attack(battle_t *battle, int i)
 		battle->fight[battle->id]->enemy[i]->alive = false;
 		battle->fight[battle->id]->enemy[i]->hp = 0;
 	}
+	do_damage_attack(battle, i);
 }
 
 static bool can_attack(battle_t *battle)
@@ -94,7 +95,6 @@ void hero_attack(rpg_t *rpg, battle_t *battle)
 		pos = battle->fight[battle->id]->enemy[i]->pos;
 		set_attack_orientation(battle, pos);
 		attack_anim(rpg, battle, i);
-		do_damage_attack(battle, i);
 		if (!battle->fight[battle->id]->enemy[i]->alive)
 			display_enemy_dead_animation(rpg, battle, i);
 		reset_map_state(battle);
