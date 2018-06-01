@@ -20,3 +20,12 @@ sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 	sfText_setString(text, str);
 	return (text);
 }
+
+void extra_text_config(sfText *text, sfFont *font, int size)
+{
+	sfColor color = sfColor_fromRGB(16, 17, 16);
+
+	sfText_setCharacterSize(text, size);
+	sfText_setColor(text, color);
+	sfText_setFont(text, font);
+}

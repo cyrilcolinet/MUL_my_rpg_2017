@@ -96,8 +96,8 @@ int load_assets(rpg_t *rpg)
 
 	if (!configure_internal_struct(rpg))
 		return (84);
-	if (configure_battle_characters(rpg) != 0)
-		return (84);
+	// if (configure_battle_characters(rpg) != 0)
+	// 	return (84);
 	if (parse_map(rpg) != 0)
 		return (84);
 	sfText_setFont(rpg->slides->text, rpg->font);

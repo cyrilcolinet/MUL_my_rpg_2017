@@ -65,11 +65,12 @@ SRC_FILES		= 	main.c 							\
 				player/talk_to_trader.c					\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
-				parser/parse_player.c 					\
 				parser/battle_fights_parser.c 				\
-				parser/battle_character_parser.c			\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
+				parser/player/player_parser.c				\
+				parser/player/load_player_datas.c 			\
+				parser/player/load_hero_datas.c 			\
 				views/menu_views.c 					\
 				views/menu_views2.c 					\
 				views/play_view.c 					\

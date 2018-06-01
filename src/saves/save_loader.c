@@ -7,34 +7,27 @@
 
 # include "rpg.h"
 
-void extra_text_config(sfText *text, sfFont *font, int size)
-{
-	sfColor color = sfColor_fromRGB(16, 17, 16);
-
-	sfText_setCharacterSize(text, size);
-	sfText_setColor(text, color);
-	sfText_setFont(text, font);
-}
-
 void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 {
 	const char *pname = NULL;
+	const char *texture = NULL;
 	conf_sett_t conf = parse_save_file(rpg, name, "save");
 
 	if (conf.error || conf.set == NULL)
 		return;
-
 	config_setting_lookup_int(conf.set, "level", &node->level);
-	config_setting_lookup_string(conf.set, "player_name", &pname);
+	config_setting_lookup_string(conf.set, "name", &pname);
+	config_setting_lookup_string(conf.set, "hero_texture", &texture);
 
 	node->player_name = my_strdup(((char *)pname));
+	node->texture = my_strdup(((char *)texture));
 	node->lvl_text = sfText_create();
-	extra_text_config(node->lvl_text, rpg->font, 40);
 	node->pname_text = sfText_create();
-	extra_text_config(node->pname_text, rpg->font, 40);
 	node->name_text = sfText_create();
-	extra_text_config(node->name_text, rpg->font, 25);
 	node->next = NULL;
+	extra_text_config(node->lvl_text, rpg->font, 40);
+	extra_text_config(node->pname_text, rpg->font, 40);
+	extra_text_config(node->name_text, rpg->font, 25);
 	config_destroy(&conf.cfg);
 }
 
@@ -64,19 +57,11 @@ bool new_slot(rpg_t *rpg, char *file)
 
 void get_saves_infos(rpg_t *rpg, dir_t *dir)
 {
-	save_t *tmp = rpg->saves;
 	char *n = NULL;
-
-	while (tmp)
-		tmp = tmp->next;
-	tmp = malloc(sizeof(*tmp));
-	if (tmp == NULL)
-		return;
 
 	n = dir->d_name;
 	if (!my_strstartswith(n, ".") && my_strendswith(n, ".save"))
 		new_slot(rpg, n);
-	tmp->next = NULL;
 }
 
 bool save_loader(rpg_t *rpg, int start)

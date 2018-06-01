@@ -65,8 +65,7 @@ bool configure_internal_battle(rpg_t *rpg)
 bool configure_internal_struct(rpg_t *rpg)
 {
 	rpg->battle = malloc(sizeof(battle_t));
-	rpg->player = malloc(sizeof(player_t));
-	if (rpg->battle == NULL || rpg->player == NULL)
+	if (rpg->battle == NULL)
 		return (false);
 	rpg->capture = NULL;
 	rpg->battle->fight = NULL;
@@ -76,11 +75,10 @@ bool configure_internal_struct(rpg_t *rpg)
 		return (false);
 	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
-	rpg->player->name = my_strconfigure(19);
-	if (rpg->player->name == NULL)
-		return (false);
+	// rpg->player->name = my_strconfigure(19);
+	// if (rpg->player->name == NULL)
+	// 	return (false);
 	rpg->text = sfText_create();
-	rpg->player->sex = 1;
 	rpg->saves = NULL;
 	return (configure_internal_battle(rpg));
 }
