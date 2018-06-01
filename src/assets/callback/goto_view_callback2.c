@@ -43,3 +43,10 @@ void cb_goto_loader_view(rpg_t *rpg, button_t *btn)
 	rpg->last_st = gameWait;
 	rpg->state = gameLoadSave;
 }
+
+void cb_goto_custom_view(rpg_t *rpg, state_e state)
+{
+	reset_to_normal_rect(rpg);
+	rpg->last_st = rpg->state;
+	rpg->state = state;
+}
