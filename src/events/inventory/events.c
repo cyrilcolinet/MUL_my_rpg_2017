@@ -9,5 +9,4 @@
 
 void ev_inventory(rpg_t *rpg, sfEvent *event)
 {
-	
 }

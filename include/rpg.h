@@ -85,6 +85,7 @@ void 		cb_goto_history_view(rpg_t *, button_t *);
 void 		cb_goto_pause_view(rpg_t *, button_t *);
 void 		cb_goto_select_view(rpg_t *, button_t *);
 void 		cb_goto_loader_view(rpg_t *, button_t *);
+void 		cb_goto_custom_view(rpg_t *, state_e);
 void 		cb_quit_action(rpg_t *, button_t *);
 void 		cb_return_action(rpg_t *, button_t *);
 void 		cb_void_action(rpg_t *, button_t *);
@@ -140,6 +141,15 @@ void 		game_load_view(rpg_t *);
 void 		skills_view(rpg_t *);
 void 		quests_view(rpg_t *);
 void 		inventory_view(rpg_t *);
+
+//quests_view.c
+void		quests_view(rpg_t *);
+
+//skills_view.c
+void		skills_view(rpg_t *);
+
+//inventory_view.c
+void		inventory_view(rpg_t *);
 
 // play_view.c
 void		player_deplacement(rpg_t *);

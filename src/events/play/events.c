@@ -9,8 +9,12 @@
 
 void ev_run(rpg_t *rpg, sfEvent *event)
 {
-	if (event->type == sfEvtKeyReleased && event->key.code == sfKeyEscape)
-		cb_goto_pause_view(rpg, NULL);
+	if (event->type == sfEvtKeyReleased) {
+		if (event->key.code == sfKeyEscape)
+			cb_goto_pause_view(rpg, NULL);
+		if (event->key.code == sfKeyI)
+			cb_goto_custom_view(rpg, gameInventory);
+	}
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
 	else if (!rpg->battle->run) {

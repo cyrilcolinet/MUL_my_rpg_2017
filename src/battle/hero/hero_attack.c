@@ -21,6 +21,25 @@ static void draw_anim(rpg_t *rpg, battle_t *battle, int i)
 	sfRenderWindow_display(rpg->win);
 }
 
+static void do_damage_attack(battle_t *battle, int i)
+{
+	battle->hero->rec.top = (
+		(battle->hero->rec.top - (9 * 64)) / 128) * 64;
+	battle->hero->rec.left = 0;
+	battle->hero->rec.width = 64;
+	battle->hero->rec.height = 64;
+	sfSprite_setTextureRect(
+		battle->hero->form, battle->hero->rec);
+	battle->hero->attack = true;
+	battle->fight[battle->id]->enemy[i]->hp -=
+	(battle->hero->dmg - battle->fight[battle->id]->enemy[i]->armor);
+	battle->hero->target = -1;
+	if (battle->fight[battle->id]->enemy[i]->hp <= 0) {
+		battle->fight[battle->id]->enemy[i]->alive = false;
+		battle->fight[battle->id]->enemy[i]->hp = 0;
+	}
+}
+
 static void attack_anim(rpg_t *rpg, battle_t *battle, int x)
 {
 	sfVector2f pos = sfSprite_getPosition(battle->hero->form);
@@ -42,26 +61,7 @@ static void attack_anim(rpg_t *rpg, battle_t *battle, int x)
 	pos.x += 32;
 	pos.y += 32;
 	sfSprite_setPosition(battle->hero->form, pos);
-}
-
-static void do_damage_attack(battle_t *battle, int i)
-{
-	battle->hero->rec.top = (
-		(battle->hero->rec.top - (9 * 64)) / 128) * 64;
-	battle->hero->rec.left = 0;
-	battle->hero->rec.width = 64;
-	battle->hero->rec.height = 64;
-	sfSprite_setTextureRect(
-		battle->hero->form, battle->hero->rec);
-	battle->hero->attack = true;
-	battle->fight[battle->id]->enemy[i]->hp -=
-	(battle->hero->dmg - battle->fight[battle->id]->enemy[i]->armor);
-	battle->hero->target = -1;
-	if (battle->fight[battle->id]->enemy[i]->hp <= 0) {
-		battle->fight[battle->id]->enemy[i]->alive = false;
-		battle->fight[battle->id]->enemy[i]->hp = 0;
-	}
-	do_damage_attack(battle, i);
+	do_damage_attack(battle, x);
 }
 
 static bool can_attack(battle_t *battle)
