@@ -50,9 +50,6 @@ bool configure_internal_battle(rpg_t *rpg)
 		for (int j = 0; j < 12; j++)
 			rpg->battle->map[i][j] = 0;
 	}
-	rpg->font = sfFont_createFromFile("assets/fonts/Vecna.otf");
-	if (rpg->font == NULL)
-		return (false);
 	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
 	rpg->battle->run = false;
 	if (configure_battle_fights(rpg) != 0)
@@ -75,7 +72,9 @@ bool configure_internal_struct(rpg_t *rpg)
 		return (false);
 	rpg->battle->id = rpg->battle->mouse.x = rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
+	rpg->font = sfFont_createFromFile("assets/fonts/Vecna.otf");
 	rpg->text = sfText_create();
+	sfText_setFont(rpg->text, rpg->font);
 	rpg->saves = NULL;
 	return (configure_internal_battle(rpg));
 }

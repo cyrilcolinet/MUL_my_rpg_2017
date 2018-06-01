@@ -19,7 +19,6 @@ void perform_text_entered(rpg_t *rpg, sfTextEvent type)
 		if (i < 18) {
 			color = sfColor_fromRGB(16, 17, 16);
 			rpg->player->name[i] = ((char)type.unicode);
-			sfText_setFont(rpg->text, rpg->font);
 			sfText_setCharacterSize(rpg->text, 60);
 			sfText_setColor(rpg->text, color);
 			sfText_setPosition(rpg->text, pos);
