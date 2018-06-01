@@ -1,11 +1,11 @@
 save: {
 	name: "Demo";
-	hero_texture: "orc1";
+	hero_texture: "man_nu_no";
 	sexe: 1;
 	pos: {
 		map: 0;
-		pos_x: 34;
-		pos_y: 678;
+		pos_x: 48;
+		pos_y: 672;
 	};
 	level: 34;
 	heal: 120;

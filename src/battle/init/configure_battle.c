@@ -26,8 +26,7 @@ sfRectangleShape **create_battle_map(sfVector2f *pos)
 			sfRectangleShape_setOutlineThickness(map[i++], 1);
 			(*pos).x += B_X;
 		}
-		(*pos).x = MAP_X - 1;
-		(*pos).y += B_Y;
+		(*pos).x = MAP_X - 1, (*pos).y += B_Y;
 	}
 	return (map);
 }
