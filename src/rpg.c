@@ -38,11 +38,9 @@ int rpg_game(rpg_t *rpg)
 
 	if (status != 0)
 		return (status);
-	sfSound_play(get_sound(rpg, "main")->sound);
-	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 
-	player_parser(rpg, "demo.save");
-	init_icone_spell(rpg->battle);
+	player_parser(rpg, "demo.save"); // tmp
+	init_icone_spell(rpg->battle); // tmp
 
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
@@ -51,7 +49,7 @@ int rpg_game(rpg_t *rpg)
 		draw_buttons(rpg);
 		sfRenderWindow_display(rpg->win);
 	}
-	exit_game(rpg);
+
 	return (status);
 }
 
@@ -67,7 +65,11 @@ int rpg_main(int ac, char **av)
 	if (rpg == NULL)
 		return (84);
 
+	if (!fill_struct_values(rpg))
+		return (84);
+
 	status = rpg_game(rpg);
+	exit_game(rpg);
 	free(rpg);
 
 	return (status);
