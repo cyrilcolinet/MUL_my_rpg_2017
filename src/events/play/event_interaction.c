@@ -9,6 +9,14 @@
 
 static void check_activation(rpg_t *rpg, int id, int i, sfEvent *event)
 {
+	if (rpg->map_id == 0 && i == 5) {
+		rpg->map[id]->it[i]->active = true;
+		return;
+	}
+	else if (rpg->map_id == 1 && i >= 0 && i <= 2) {
+		rpg->map[id]->it[i]->active = true;
+		return;
+	}
 	if (event->type == sfEvtKeyReleased)
 		if (event->key.code == sfKeyE) {
 			rpg->map[id]->it[i]->active = true;

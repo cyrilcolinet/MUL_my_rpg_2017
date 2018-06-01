@@ -56,10 +56,10 @@ button_t *is_button(rpg_t *rpg, int x, int y)
 		pos = tmp->pos;
 		rec = tmp->rect;
 
-		if (rpg->state == tmp->state)
-			if (x >= pos.x && x <= (pos.x + rec.width))
-				if (y >= pos.y && y <= (pos.y + rec.height))
-					return (tmp);
+		if (rpg->state == tmp->state && (x >= pos.x
+		&& x <= (pos.x + rec.width)) && (y >= pos.y
+		&& y <= (pos.y + rec.height)))
+			return (tmp);
 		tmp = tmp->next;
 	}
 
@@ -72,10 +72,9 @@ void draw_buttons(rpg_t *rpg)
 	sfSprite *sprite = NULL;
 
 	while (tmp != NULL) {
-		if (tmp->state == rpg->state) {
+		if (tmp->state == rpg->state && tmp->sprite != NULL) {
 			sprite = tmp->sprite;
-			if (sprite != NULL)
-				sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
+			sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 		}
 		tmp = tmp->next;
 	}
@@ -86,9 +85,8 @@ button_t *get_button(rpg_t *rpg, char *name, state_e state)
 	button_t *tmp = rpg->btn;
 
 	while (tmp != NULL) {
-		if (state == tmp->state)
-			if (my_strequ(tmp->name, name))
-				return (tmp);
+		if (state == tmp->state && my_strequ(tmp->name, name))
+			return (tmp);
 		tmp = tmp->next;
 	}
 

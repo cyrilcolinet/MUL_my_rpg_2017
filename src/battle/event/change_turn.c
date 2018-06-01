@@ -9,20 +9,18 @@
 
 static void change_enemy_turn(battle_t *battle, int n, int nb)
 {
-	if (battle->fight[battle->id]->enemy_turn) {
-		for (int i = 0; i < nb; i++) {
-			if (battle->fight[battle->id]->enemy[i]->played)
-				n++;
-		}
-		if (n == nb) {
-			battle->hero->move = false;
-			battle->hero->played = false;
-			battle->hero->attack = false;
-			battle->fight[battle->id]->enemy_turn = false;
-		}
-		for (int i = 0; i < nb; i++)
-			battle->fight[battle->id]->enemy[i]->played = false;
+	for (int i = 0; i < nb; i++) {
+		if (battle->fight[battle->id]->enemy[i]->played)
+			n++;
 	}
+	if (n == nb) {
+		battle->hero->move = false;
+		battle->hero->played = false;
+		battle->hero->attack = false;
+		battle->fight[battle->id]->enemy_turn = false;
+	}
+	for (int i = 0; i < nb; i++)
+		battle->fight[battle->id]->enemy[i]->played = false;
 }
 
 void change_turn(battle_t *battle)
@@ -43,5 +41,6 @@ void change_turn(battle_t *battle)
 			battle->hero->spell[i]->cast = false;
 		battle->fight[battle->id]->enemy_turn = true;
 	}
-	change_enemy_turn(battle, n, nb);
+	if (battle->fight[battle->id]->enemy_turn)
+		change_enemy_turn(battle, n, nb);
 }
