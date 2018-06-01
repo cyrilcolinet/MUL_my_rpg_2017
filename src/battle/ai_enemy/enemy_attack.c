@@ -104,5 +104,7 @@ bool check_enemy_attack(rpg_t *rpg, battle_t *battle, int x, sfVector2f pos)
 	&& !attack_left(rpg, battle, x, pos)
 	&& !attack_right(rpg, battle, x, pos))
 		return (false);
+	if (battle->hero->hp <= 0)
+		battle->hero->alive = false;
 	return (true);
 }

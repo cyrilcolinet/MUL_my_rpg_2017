@@ -11,13 +11,13 @@ void draw_all(rpg_t *rpg)
 {
 	if (rpg->battle->id == 0)
 		sfRectangleShape_setTexture(rpg->battle->background,
-				rpg->battle->texture[4], sfTrue);
+			rpg->battle->texture[4], sfTrue);
 	else if (rpg->battle->id == 1)
 		sfRectangleShape_setTexture(rpg->battle->background,
-				rpg->battle->texture[5], sfTrue);
+			rpg->battle->texture[5], sfTrue);
 	else
 		sfRectangleShape_setTexture(rpg->battle->background,
-				rpg->battle->texture[6], sfTrue);
+			rpg->battle->texture[6], sfTrue);
 	sfRenderWindow_drawRectangleShape
 		(rpg->win, rpg->battle->background, NULL);
 	display_map(rpg, rpg->battle, rpg->battle->id);
@@ -50,6 +50,8 @@ static void hero_selected(rpg_t *rpg, battle_t *battle)
 void battle_management(rpg_t *rpg, battle_t *battle)
 {
 	reset_map_state(battle);
+	if (end_battle(rpg, battle))
+		return;
 	change_turn(battle);
 	if (rpg->battle->fight[rpg->battle->id]->enemy_turn)
 		enemy_turn(rpg, rpg->battle);

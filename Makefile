@@ -80,6 +80,7 @@ SRC_FILES		= 	main.c 							\
 				battle/event/event_management.c				\
 				battle/event/interaction.c				\
 				battle/event/change_turn.c				\
+				battle/event/end_battle.c				\
 				battle/event/reset_map_state.c				\
 				battle/event/deplacement/deplacement.c			\
 				battle/event/spell/cast_spell.c				\

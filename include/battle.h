@@ -70,6 +70,7 @@ void		display_enemy_damage(rpg_t *, battle_t *, int);
 void		battle_event_management(rpg_t *, battle_t *, sfEvent *);
 void		reset_map_state(battle_t *);
 void		change_turn(battle_t *);
+bool		end_battle(rpg_t *, battle_t *);
 
 /*EVENT->INTERACTION*/
 void		interaction(battle_t *, sfEvent *);

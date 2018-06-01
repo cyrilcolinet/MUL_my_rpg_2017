@@ -7,25 +7,6 @@
 
 #include "rpg.h"
 
-static void end_battle_display(rpg_t *rpg, battle_t *battle)
-{
-	sfVector2f pos = {19 * 32, 32};
-
-	battle->run = false;
-}
-
-void end_battle(rpg_t *rpg, battle_t *battle)
-{
-	if (!battle->hero->alive)
-		end_battle_display(rpg, battle);
-	for (int i = 0; i < battle->fight[
-		battle->id]->number_enemy; i++) {
-		if (battle->fight[battle->id]->enemy[i]->alive)
-			return;
-	}
-	end_battle_display(rpg, battle);
-}
-
 static void change_enemy_turn(battle_t *battle, int n, int nb)
 {
 	if (battle->fight[battle->id]->enemy_turn) {
