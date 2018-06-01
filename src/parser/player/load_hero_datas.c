@@ -73,7 +73,7 @@ void load_hero_datas(config_setting_t *set, rpg_t *rpg)
 	config_setting_lookup_int(set, "damage", &rpg->battle->hero->dmg);
 	config_setting_lookup_int(set, "armor", &rpg->battle->hero->armor);
 	config_setting_lookup_bool(set, "sword",
-	(int *)rpg->battle->hero->sword);
+	(int *)&rpg->battle->hero->sword);
 	load_hero_default_values(rpg->battle->hero, rpg->player);
 	load_hero_spells(set, rpg);
 
