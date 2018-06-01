@@ -94,12 +94,7 @@ int load_assets(rpg_t *rpg)
 	print_sliders(rpg);
 	load_sounds(rpg);
 
-	if (!configure_internal_struct(rpg))
+	if (!configure_internal_struct(rpg) || parse_map(rpg) != 0)
 		return (84);
-	// if (configure_battle_characters(rpg) != 0)
-	// 	return (84);
-	if (parse_map(rpg) != 0)
-		return (84);
-	sfText_setFont(rpg->slides->text, rpg->font);
 	return (0);
 }

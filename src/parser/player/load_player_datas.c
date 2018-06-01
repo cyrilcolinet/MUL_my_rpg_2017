@@ -10,8 +10,8 @@
 sfVector2f load_saved_pos(config_setting_t *set, rpg_t *rpg, sfVector2f pos)
 {
 	config_setting_t *pos_conf = config_setting_lookup(set, "pos");
-	double posx = pos.x;
-	double posy = pos.y;
+	double posx = pos.x + 0;
+	double posy = pos.y + 0;
 	sfVector2f ret_pos;
 
 	if (pos_conf == NULL)

@@ -18,7 +18,7 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 		sfSprite_destroy(rpg->player->sprite);
 		configure_internal_struct(rpg);
 		//configure_battle_characters(rpg);
-		init_icone_spell(rpg->battle);
+		//init_icone_spell(rpg->battle);
 		//parse_player(rpg);
 	}
 
