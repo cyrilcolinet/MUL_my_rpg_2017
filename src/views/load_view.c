@@ -7,20 +7,23 @@
 
 # include "rpg.h"
 
-float get_slot_position(int slot_id)
+void display_animated_hero(rpg_t *rpg, save_t *save, sfVector2f pos)
 {
-	switch (slot_id) {
-		case 1:
-		return (464);
+	sfTime t = sfClock_getElapsedTime(save->clock);
+	sfVector2f scale = { 1.7, 1.7 };
 
-		case 2:
-		return (588);
-
-		case 3:
-		return (729);
+	if (sfTime_asSeconds(t) >= sfTime_asSeconds(sfSeconds(0.1))) {
+		sfClock_restart(save->clock);
+		save->rec.left += 64;
+		if (save->rec.left >= (64 * 9))
+			save->rec.left = 0;
+		sfSprite_setTextureRect(save->sprite, save->rec);
 	}
 
-	return (332);
+	pos.y -= 7;
+	sfSprite_setPosition(save->sprite, pos);
+	sfSprite_setScale(save->sprite, scale);
+	sfRenderWindow_drawSprite(rpg->win, save->sprite, NULL);
 }
 
 void display_slot(rpg_t *rpg, save_t *save, sfVector2f pos)
@@ -29,6 +32,7 @@ void display_slot(rpg_t *rpg, save_t *save, sfVector2f pos)
 	sfVector2f pname_pos = { pos.x + 120, pos.y + 0 };
 	sfVector2f lvl_pos = { pos.x + 0, pos.y + 0 };
 
+	display_animated_hero(rpg, save, pos);
 	sfText_setPosition(save->pname_text, pname_pos);
 	sfText_setString(save->pname_text, save->player_name);
 	sfRenderWindow_drawText(rpg->win, save->pname_text, NULL);

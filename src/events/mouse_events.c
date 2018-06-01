@@ -29,7 +29,8 @@ void mouse_button_released(rpg_t *rpg, sfMouseButtonEvent mouse)
 	reset_to_normal_rect(rpg);
 }
 
-static void is_btn_pressed(rpg_t *rpg, sfMouseMoveEvent mouse)
+static void is_btn_pressed(rpg_t *rpg, sfMouseMoveEvent mouse,
+	button_t *btn, slider_t *tmp)
 {
 	while (tmp != NULL) {
 		if (my_strequ(tmp->btn->name, btn->name)
@@ -50,7 +51,7 @@ void mouse_moved(rpg_t *rpg, sfMouseMoveEvent mouse)
 		tmp = rpg->slides;
 		btn->onHover(rpg, btn);
 		if (btn->pressed) {
-			is_btn_pressed(rpg, mouse);
+			is_btn_pressed(rpg, mouse, btn, tmp);
 		}
 		return;
 	}

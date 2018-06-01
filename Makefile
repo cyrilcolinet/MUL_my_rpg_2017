@@ -72,7 +72,7 @@ SRC_FILES		= 	main.c 							\
 				parser/player/load_player_datas.c 			\
 				parser/player/load_hero_datas.c 			\
 				views/menu_views.c 					\
-				views/menu_views2.c 					\
+				views/load_view.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
 				views/battle_view.c					\
