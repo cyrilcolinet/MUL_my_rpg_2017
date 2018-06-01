@@ -12,6 +12,7 @@ save: {
 	damage: 40;
 	armor: 8;
 	skills: 0;
+	sword: false;
 	spells: ({
 		name: "heal";
 		unlocked: true;
