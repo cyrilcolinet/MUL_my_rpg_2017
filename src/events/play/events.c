@@ -9,17 +9,16 @@
 
 static void inventory_capture_img(rpg_t *rpg)
 {
-	sfTexture *texture = NULL;
 	sfImage *img = sfRenderWindow_capture(rpg->win);
 
 	reset_to_normal_rect(rpg);
-	texture = sfTexture_createFromImage(img, NULL);
-	if (texture == NULL)
+	sfTexture_updateFromImage(rpg->texture, img, 0, 0);
+	if (rpg->texture == NULL)
 		return;
 	if (rpg->capture != NULL)
 		sfSprite_destroy(rpg->capture);
 	rpg->capture = sfSprite_create();
-	sfSprite_setTexture(rpg->capture, texture, sfFalse);
+	sfSprite_setTexture(rpg->capture, rpg->texture, sfFalse);
 	sfImage_destroy(img);
 }
 

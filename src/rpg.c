@@ -62,6 +62,7 @@ int rpg_main(int ac, char **av)
 		return (status);
 
 	rpg = configure_struct();
+	rpg->texture = sfTexture_create(1920, 1080);
 	if (rpg == NULL)
 		return (84);
 
