@@ -10,7 +10,7 @@
 void display_animated_hero(rpg_t *rpg, save_t *save, sfVector2f pos)
 {
 	sfTime t = sfClock_getElapsedTime(save->clock);
-	sfVector2f scale = { 1.5, 1.5 };
+	sfVector2f scale = { 1.7, 1.7 };
 
 	if (sfTime_asSeconds(t) >= sfTime_asSeconds(sfSeconds(0.1))) {
 		sfClock_restart(save->clock);
@@ -20,8 +20,7 @@ void display_animated_hero(rpg_t *rpg, save_t *save, sfVector2f pos)
 		sfSprite_setTextureRect(save->sprite, save->rec);
 	}
 
-	pos.x += 5;
-	pos.y -= 3;
+	pos.y -= 7;
 	sfSprite_setPosition(save->sprite, pos);
 	sfSprite_setScale(save->sprite, scale);
 	sfRenderWindow_drawSprite(rpg->win, save->sprite, NULL);
