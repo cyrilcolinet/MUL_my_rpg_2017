@@ -17,9 +17,9 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 		free_battle(rpg);
 		sfSprite_destroy(rpg->player->sprite);
 		configure_internal_struct(rpg);
-		configure_battle_characters(rpg);
+		//configure_battle_characters(rpg);
 		init_icone_spell(rpg->battle);
-		parse_player(rpg);
+		//parse_player(rpg);
 	}
 
 	rpg->state = gameWait;

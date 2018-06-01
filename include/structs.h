@@ -168,13 +168,13 @@ typedef struct spell_t {
 	bool		unlock;
 	bool		cast;
 	int		val;
+	int 		level;
 } spell_t;
 
 typedef struct hero_t {
 	spell_t		**spell;
 	sfIntRect 	rec;
 	sfSprite 	*form;
-	sfTexture 	*img;
 	sfVector2f 	pos;
 	sfVector2f 	nw;
 	bool 		alive;

@@ -211,5 +211,7 @@ int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);
 bool		save_loader(rpg_t *, int);
 bool		player_parser(rpg_t *, char *name);
+void 		load_player_datas(config_setting_t *, rpg_t *);
+void 		load_hero_datas(config_setting_t *, rpg_t *);
 
 # endif
