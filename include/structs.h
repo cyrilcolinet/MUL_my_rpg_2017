@@ -273,6 +273,7 @@ typedef struct save_t {
 typedef struct rpg_t {
 	sfRenderWindow	*win;
 	sfFont		*font;
+	sfTexture	*texture;
 	state_e		state;
 	sfSprite	*capture;
 	state_e		last_st;

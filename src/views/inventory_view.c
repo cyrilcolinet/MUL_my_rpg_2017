@@ -9,5 +9,4 @@
 
 void inventory_view(rpg_t *rpg)
 {
-
 }

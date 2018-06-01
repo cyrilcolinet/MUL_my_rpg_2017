@@ -7,13 +7,31 @@
 
 # include "rpg.h"
 
+static void inventory_capture_img(rpg_t *rpg)
+{
+	sfTexture *texture = NULL;
+	sfImage *img = sfRenderWindow_capture(rpg->win);
+
+	reset_to_normal_rect(rpg);
+	texture = sfTexture_createFromImage(img, NULL);
+	if (texture == NULL)
+		return;
+	if (rpg->capture != NULL)
+		sfSprite_destroy(rpg->capture);
+	rpg->capture = sfSprite_create();
+	sfSprite_setTexture(rpg->capture, texture, sfFalse);
+	sfImage_destroy(img);
+}
+
 void ev_run(rpg_t *rpg, sfEvent *event)
 {
 	if (event->type == sfEvtKeyReleased) {
 		if (event->key.code == sfKeyEscape)
 			cb_goto_pause_view(rpg, NULL);
-		if (event->key.code == sfKeyI)
+		if (event->key.code == sfKeyI) {
+			inventory_capture_img(rpg);
 			cb_goto_custom_view(rpg, gameInventory);
+		}
 	}
 	if (rpg->battle->run)
 		battle_event_management(rpg, rpg->battle, event);
