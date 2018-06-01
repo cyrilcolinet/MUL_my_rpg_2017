@@ -27,7 +27,6 @@ void configure_select_return_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured return button for seelect view!");
 }
 
 void configure_select_play_button(rpg_t *rpg)
@@ -50,5 +49,4 @@ void configure_select_play_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured play button for seelect view!");
 }

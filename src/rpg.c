@@ -67,10 +67,8 @@ int rpg_main(int ac, char **av)
 	if (rpg == NULL)
 		return (84);
 
-	info("Main rpg_t struct correctly configured.");
 	status = rpg_game(rpg);
 	free(rpg);
-	info("Project correctly exited. Bye!");
 
 	return (status);
 }

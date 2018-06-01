@@ -16,9 +16,6 @@ typedef struct dirent dir_t;
 
 # define 	READ_SIZE		(128)
 
-// Debug global variable
-bool 		debug;
-
 // rpg.c
 void 		exit_game(rpg_t *);
 int 		rpg_game(rpg_t *);
@@ -77,6 +74,11 @@ button_t	*is_button(rpg_t *, int, int);
 void 		draw_buttons(rpg_t *);
 button_t 	*get_button(rpg_t *, char *, state_e);
 void 		add_slider(rpg_t *, slider_t);
+
+/*
+** Callbacks
+* *Redirections and more
+*/
 void 		cb_goto_main_view(rpg_t *, button_t *);
 void 		cb_goto_credits_view(rpg_t *, button_t *);
 void 		cb_goto_play_view(rpg_t *, button_t *);
@@ -183,10 +185,6 @@ void 		main_view(rpg_t *);
 
 char 		*get_next_line(int);
 int 		check_arguments(int, char **);
-void 		info(char *);
-void 		warning(char *);
-void 		print_key_value_str(char *, char *);
-void 		print_key_value_int(char *, int);
 void 		display_view(rpg_t *);
 void 		reset_to_normal_rect(rpg_t *);
 char 		*my_itoa(int);

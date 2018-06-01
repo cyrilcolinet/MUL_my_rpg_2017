@@ -89,9 +89,6 @@ int load_assets(rpg_t *rpg)
 		return (84);
 
 	start_loader(rpg);
-	print_assets(rpg);
-	print_buttons(rpg);
-	print_sliders(rpg);
 	load_sounds(rpg);
 
 	if (!configure_internal_struct(rpg) || parse_map(rpg) != 0)

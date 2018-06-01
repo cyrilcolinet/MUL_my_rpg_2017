@@ -24,8 +24,15 @@ SRC_FILES		= 	main.c 							\
 				assets/sliders_manager.c 				\
 				assets/getter.c 					\
 				assets/callback/actions_callback.c 			\
-				assets/callback/goto_view_callback.c 			\
-				assets/callback/goto_view_callback2.c 			\
+				assets/callback/redirections/cb_goto_credits.c 		\
+				assets/callback/redirections/cb_goto_custom.c 		\
+				assets/callback/redirections/cb_goto_history.c 		\
+				assets/callback/redirections/cb_goto_loader.c 		\
+				assets/callback/redirections/cb_goto_main.c 		\
+				assets/callback/redirections/cb_goto_pause.c 		\
+				assets/callback/redirections/cb_goto_play.c 		\
+				assets/callback/redirections/cb_goto_select.c 		\
+				assets/callback/redirections/cb_goto_settings.c		\
 				assets/callback/play_callback.c 			\
 				assets/callback/sliders/volume_callback.c 		\
 				events/events_manager.c 				\
@@ -122,10 +129,6 @@ SRC_FILES		= 	main.c 							\
 				battle/display/display_enemy_stats.c			\
 				battle/display/display_current_target.c			\
 				battle/display/fill_map_state.c				\
-				debug/debugger.c					\
-				debug/buttons_debugger.c 				\
-				debug/assets_debugger.c 				\
-				debug/sliders_debugger.c				\
 				utilities/struct_utils.c 				\
 				utilities/destroyer/assets.c 				\
 				utilities/destroyer/battle.c 				\

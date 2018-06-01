@@ -18,8 +18,6 @@ void destroy_buttons(rpg_t *rpg)
 			sfSprite_destroy(tmp->sprite);
 		free(tmp);
 	}
-
-	info("All buttons destroyed.");
 }
 
 void destroy_assets(rpg_t *rpg)
@@ -37,8 +35,6 @@ void destroy_assets(rpg_t *rpg)
 		free(tmp->file);
 		free(tmp);
 	}
-
-	info("All assets destroyed.");
 }
 
 void destroy_slides(rpg_t *rpg)
@@ -52,8 +48,6 @@ void destroy_slides(rpg_t *rpg)
 			sfText_destroy(tmp->text);
 		free(tmp);
 	}
-
-	info("All sliders destroyed.");
 }
 
 void destroy_sounds(rpg_t *rpg)
@@ -71,6 +65,4 @@ void destroy_sounds(rpg_t *rpg)
 		free(tmp->file);
 		free(tmp);
 	}
-
-	info("All sounds destroyed.");
 }

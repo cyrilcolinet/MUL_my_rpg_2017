@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2018
 ** my_rpg_2017
 ** File description:
-** goto_view_callback2 functions
+** cb_goto_pause function
 */
 
 # include "rpg.h"
@@ -24,29 +24,4 @@ void cb_goto_pause_view(rpg_t *rpg, button_t *btn)
 	sfImage_destroy(img);
 	rpg->last_st = rpg->state;
 	rpg->state = gamePause;
-}
-
-void cb_goto_select_view(rpg_t *rpg, button_t *btn)
-{
-	(void)btn;
-
-	reset_to_normal_rect(rpg);
-	rpg->last_st = rpg->state;
-	rpg->state = gameSelect;
-}
-
-void cb_goto_loader_view(rpg_t *rpg, button_t *btn)
-{
-	(void)btn;
-
-	reset_to_normal_rect(rpg);
-	rpg->last_st = gameWait;
-	rpg->state = gameLoadSave;
-}
-
-void cb_goto_custom_view(rpg_t *rpg, state_e state)
-{
-	reset_to_normal_rect(rpg);
-	rpg->last_st = rpg->state;
-	rpg->state = state;
 }

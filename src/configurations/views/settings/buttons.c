@@ -28,7 +28,6 @@ void configure_settings_volume_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured volume button for settings view!");
 }
 
 void configure_settings_volume_mute_music_button(rpg_t *rpg)
@@ -73,7 +72,6 @@ void configure_settings_return_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured return button for setting view!");
 }
 
 void configure_settings_fullscreen_button(rpg_t *rpg)
@@ -97,5 +95,4 @@ void configure_settings_fullscreen_button(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured fullscreen button for setting view!");
 }

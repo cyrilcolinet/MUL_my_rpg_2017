@@ -27,5 +27,4 @@ void configure_history_return_button(rpg_t *rpg)
 	conf.rect = rec;
 	conf.next = NULL;
 	add_button(rpg, conf);
-	info("Configured return button for history view!");
 }

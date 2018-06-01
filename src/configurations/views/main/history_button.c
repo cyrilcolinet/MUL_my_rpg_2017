@@ -40,5 +40,4 @@ void configure_main_history_button(rpg_t *rpg)
 	conf.next = NULL;
 	sfSprite_setTextureRect(asset->sp, asset->rec);
 	add_button(rpg, conf);
-	info("Configured history button!");
 }

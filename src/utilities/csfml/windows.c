@@ -14,6 +14,5 @@ void set_favicon(rpg_t *rpg)
 	if (icon == NULL)
 		return;
 
-	info("Setting icon...");
 	sfRenderWindow_setIcon(rpg->win, 256, 256, sfImage_getPixelsPtr(icon));
 }

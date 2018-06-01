@@ -28,7 +28,6 @@ void configure_pause_resume_button(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured play button!");
 }
 
 void configure_pause_save_button(rpg_t *rpg)
@@ -52,7 +51,6 @@ void configure_pause_save_button(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured save button!");
 }
 
 void configure_pause_settings_button(rpg_t *rpg)
@@ -76,7 +74,6 @@ void configure_pause_settings_button(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured settings button!");
 }
 
 void configure_pause_quit_button(rpg_t *rpg)
@@ -100,5 +97,4 @@ void configure_pause_quit_button(rpg_t *rpg)
 	conf.next = NULL;
 
 	add_button(rpg, conf);
-	info("Configured main_menu button!");
 }
