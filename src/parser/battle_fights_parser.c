@@ -88,8 +88,7 @@ void parse_fight_values(rpg_t *rpg, config_setting_t *set, int key)
 	if (rpg->battle->fight[key]->enemy != NULL)
 		for (int id = 0; count > 0 && id < count; id++) {
 			enemy = config_setting_get_elem(set_enemy, id);
-			if (enemy != NULL)
-				parse_enemy_values(rpg, enemy, id, key);
+			parse_enemy_values(rpg, enemy, id, key);
 		}
 }
 
