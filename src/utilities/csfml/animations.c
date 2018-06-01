@@ -35,3 +35,19 @@ float get_slot_position(int slot_id)
 
 	return (332);
 }
+
+void display_icon(rpg_t *rpg, char *icon, int posx, int posy)
+{
+	sfRectangleShape *shape = sfRectangleShape_create();
+	sfTexture *texture = get_texture(rpg, icon);
+	sfVector2f pos = { posx, posy };
+	sfVector2f size = { 25, 25 };
+
+	if (texture == NULL)
+		return;
+
+	sfRectangleShape_setTexture(shape, texture, true);
+	sfRectangleShape_setSize(shape, size);
+	sfRectangleShape_setPosition(shape, pos);
+	sfRenderWindow_drawRectangleShape(rpg->win, shape, NULL);
+}

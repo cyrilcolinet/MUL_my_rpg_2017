@@ -33,6 +33,9 @@ void display_slot(rpg_t *rpg, save_t *save, sfVector2f pos)
 	sfVector2f lvl_pos = { pos.x + 0, pos.y + 0 };
 
 	display_animated_hero(rpg, save, pos);
+	display_icon(rpg, "hp", pos.x + 120, pos.y + 60);
+	display_icon(rpg, "dmg", pos.x + 280, pos.y + 60);
+	display_icon(rpg, "armor", pos.x + 460, pos.y + 60);
 	sfText_setPosition(save->pname_text, pname_pos);
 	sfText_setString(save->pname_text, save->player_name);
 	sfRenderWindow_drawText(rpg->win, save->pname_text, NULL);

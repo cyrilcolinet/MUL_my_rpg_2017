@@ -36,6 +36,9 @@ SRC_FILES		= 	main.c 							\
 				events/play/event_interaction.c				\
 				events/selection/events.c				\
 				events/selection/text.c 				\
+				events/inventory/events.c 				\
+				events/quests/events.c					\
+				events/skills/events.c 					\
 				configurations/views_config.c 				\
 				configurations/views/credits/buttons.c 			\
 				configurations/views/main/buttons.c 			\
@@ -75,7 +78,9 @@ SRC_FILES		= 	main.c 							\
 				views/load_view.c 					\
 				views/play_view.c 					\
 				views/main_view.c 					\
-				views/battle_view.c					\
+				views/quests_view.c					\
+				views/inventory_view.c 					\
+				views/skills_view.c 					\
 				views/display_view.c 					\
 				battle/battle_management.c				\
 				battle/event/event_management.c				\

@@ -36,12 +36,15 @@ void 		mouse_button_pressed(rpg_t *, sfMouseButtonEvent);
 void 		mouse_button_released(rpg_t *, sfMouseButtonEvent);
 void 		mouse_moved(rpg_t *, sfMouseMoveEvent);
 void 		views_events(rpg_t *, sfEvent *);
-void 		ev_run(rpg_t *, sfEvent *);
 void		event_player_interaction(rpg_t *, sfEvent *);
 
 // events/selection
 bool 		ev_selection_text(rpg_t *, sfEvent *);
+void 		ev_run(rpg_t *, sfEvent *);
 void 		ev_selection(rpg_t *, sfEvent *);
+void 		ev_inventory(rpg_t *, sfEvent *);
+void 		ev_skills(rpg_t *, sfEvent *);
+void 		ev_quests(rpg_t *, sfEvent *);
 
 /*
 ** Sounds manager
@@ -134,6 +137,9 @@ void 		settings_view(rpg_t *);
 void 		history_view(rpg_t *);
 void 		select_view(rpg_t *);
 void 		game_load_view(rpg_t *);
+void 		skills_view(rpg_t *);
+void 		quests_view(rpg_t *);
+void 		inventory_view(rpg_t *);
 
 // play_view.c
 void		player_deplacement(rpg_t *);
@@ -189,6 +195,7 @@ rpg_t 		*configure_struct(void);
 void 		set_favicon(rpg_t *);
 void 		extra_text_config(sfText *, sfFont *, int);
 float 		get_slot_position(int);
+void 		display_icon(rpg_t *,char *, int, int);
 
 /*
 ** Parse utilities

@@ -61,7 +61,10 @@ typedef enum state_e {
 	gameSelect,
 	gameQuitWSave,
 	gameLoadSave,
-	gameTutorial
+	gameTutorial,
+	gameInventory,
+	gameSkills,
+	gameQuests
 }	state_e;
 
 // Configuration striucts
@@ -256,11 +259,14 @@ typedef struct save_t {
 	sfClock 	*clock;
 	sfSprite	*sprite;
 	sfTexture	*texture;
-	char 		*player_name;
-	int 		level;
 	sfText		*name_text;
 	sfText		*lvl_text;
 	sfText		*pname_text;
+	char 		*player_name;
+	int 		heal;
+	int 		damage;
+	int 		armor;
+	int 		level;
 	struct save_t 	*next;
 }	save_t;
 

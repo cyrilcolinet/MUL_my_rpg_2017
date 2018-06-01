@@ -22,7 +22,10 @@ void display_view(rpg_t *rpg)
 		select_view,
 		NULL,
 		game_load_view,
-		NULL
+		NULL,
+		inventory_view,
+		skills_view,
+		quests_view
 	};
 
 	(*tab[rpg->state])(rpg);

@@ -29,3 +29,8 @@ void extra_text_config(sfText *text, sfFont *font, int size)
 	sfText_setColor(text, color);
 	sfText_setFont(text, font);
 }
+
+void display_icon_content()
+{
+	
+}
