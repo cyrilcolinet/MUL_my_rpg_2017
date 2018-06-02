@@ -15,7 +15,7 @@ save: {
 	sword: false;
 	spells: ({
 		name: "heal";
-		unlocked: true;
+		unlocked: false;
 		value: 16;
 		level: 3;
 	},
