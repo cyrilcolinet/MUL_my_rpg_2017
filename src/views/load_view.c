@@ -59,6 +59,17 @@ int display_saves_slots(rpg_t *rpg, int *occuped)
 	return (4 - *occuped);
 }
 
+void display_free_slot(rpg_t *rpg, int slot)
+{
+	sfVector2f pos = { 810, get_slot_position(slot) + 15 };
+
+	sfText_setString(rpg->text, "Slot Disponible");
+	sfText_setPosition(rpg->text, pos);
+	sfText_setCharacterSize(rpg->text, 45);
+	sfText_setColor(rpg->text, sfColor_fromRGB(17, 16, 17));
+	sfRenderWindow_drawText(rpg->win, rpg->text, NULL);
+}
+
 void game_load_view(rpg_t *rpg)
 {
 	int free_slots = 0;
@@ -68,14 +79,13 @@ void game_load_view(rpg_t *rpg)
 	save_loader(rpg, 0);
 	if (sprite == NULL)
 		return;
-
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Jouer");
 
 	free_slots = display_saves_slots(rpg, &occuped);
 	if (free_slots != 0) {
 		while (free_slots > 0) {
-			printf("slot %d: disponible\n", occuped + free_slots);
+			display_free_slot(rpg, occuped + free_slots - 1);
 			free_slots--;
 		}
 	}
