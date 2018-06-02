@@ -24,6 +24,8 @@ bool player_parser(rpg_t *rpg, char *save_name)
 
 	load_player_datas(conf.set, rpg);
 	load_hero_datas(conf.set, rpg);
+	load_hero_spells_icons(rpg);
+	load_player_inventory(rpg);
 	config_destroy(&conf.cfg);
 	return (true);
 }

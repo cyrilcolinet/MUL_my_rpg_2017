@@ -44,8 +44,9 @@ SRC_FILES		= 	main.c 							\
 				assets/callback/redirections/cb_goto_play.c 		\
 				assets/callback/redirections/cb_goto_select.c 		\
 				assets/callback/redirections/cb_goto_settings.c		\
-				assets/callback/play_callback.c 			\
 				assets/callback/sliders/volume_callback.c 		\
+				assets/callback/play_callback.c 			\
+				assets/callback/cb_load_save.c				\
 				events/events_manager.c 				\
 				events/mouse_events.c					\
 				events/keyboard_events.c				\
@@ -75,13 +76,14 @@ SRC_FILES		= 	main.c 							\
 				player/talk_to_trader.c					\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
-				parser/parse_inventory.c 				\
 				parser/battle_fights_parser.c 				\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
 				parser/player/player_parser.c				\
 				parser/player/load_player_datas.c 			\
+				parser/player/load_player_inventory.c 			\
 				parser/player/load_hero_datas.c 			\
+				parser/player/load_hero_spells_icons.c 			\
 				views/menu_views.c 					\
 				views/load_view.c 					\
 				views/play_view.c 					\

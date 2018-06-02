@@ -55,9 +55,9 @@ static void init_slot(inventory_t *inv)
 	}
 }
 
-void parse_inventory(rpg_t *rpg, player_t *player)
+void load_player_inventory(rpg_t *rpg)
 {
-	player->inventory = configure_inventory(player);
-	init_skin_win(player->inventory);
-	init_slot(player->inventory);
+	rpg->player->inventory = configure_inventory(rpg->player);
+	init_skin_win(rpg->player->inventory);
+	init_slot(rpg->player->inventory);
 }

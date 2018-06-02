@@ -7,30 +7,29 @@
 
 # include "rpg.h"
 
-void configure_load_button(rpg_t *rpg)
+void configure_load_button(rpg_t *rpg, char *name)
 {
 	button_t conf;
-	sfIntRect rec = { 660, 240, 130, 80 };
-	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
+	sfIntRect rec = { 660, 480, 130, 80 };
 	sfTexture *texture = get_texture(rpg, "buttons");
 
-	conf.name = "btn_load_party";
+	conf.name = name;
 	conf.pos.x = 0;
 	conf.pos.y = 0;
 	conf.onClick = cb_click_action;
 	conf.onHover = cb_hover_action;
-	conf.onStart = cb_void_action;
-	conf.state = gameOnSettings;
+	conf.onStart = cb_load_save;
+	conf.state = gameLoadSave;
 	conf.sprite = sfSprite_create();
 	sfSprite_setTexture(conf.sprite, texture, sfFalse);
 	sfSprite_setTextureRect(conf.sprite, rec);
-	sfSprite_setOrigin(conf.sprite, origin);
 	conf.rect = rec;
 	conf.next = NULL;
+
 	add_button(rpg, conf);
 }
 
-void configure_extra_infos(save_t *node)
+void configure_extra_infos(rpg_t *rpg, save_t *node)
 {
 	sfIntRect rec = { 0, 192, 64, 64 };
 
@@ -39,8 +38,11 @@ void configure_extra_infos(save_t *node)
 	node->sprite = sfSprite_create();
 	sfSprite_setTexture(node->sprite, node->texture, true);
 	sfSprite_setTextureRect(node->sprite, rec);
-
-
+	configure_load_button(rpg, node->name);
+	node->btn = get_button(rpg, node->name, gameLoadSave);
+	if (node->btn == NULL)
+		write(2, "Button is not configured.\n", 26);
+	node->next = NULL;
 }
 
 void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
@@ -59,11 +61,11 @@ void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 	node->lvl_text = sfText_create();
 	node->pname_text = sfText_create();
 	node->name_text = sfText_create();
-	node->next = NULL;
+	node->name = my_strdup(name);
 	extra_text_config(node->lvl_text, rpg->font, 40);
 	extra_text_config(node->pname_text, rpg->font, 40);
 	extra_text_config(node->name_text, rpg->font, 25);
-	configure_extra_infos(node);
+	configure_extra_infos(rpg, node);
 	config_destroy(&conf.cfg);
 }
 
@@ -110,5 +112,6 @@ bool save_loader(rpg_t *rpg, int start)
 		if (!my_strstartswith(n, ".") && my_strendswith(n, ".save"))
 			new_slot(rpg, n);
 	}
+	closedir(o_dir);
 	return (true);
 }

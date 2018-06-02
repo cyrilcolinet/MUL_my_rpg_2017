@@ -41,31 +41,28 @@ void display_slot(rpg_t *rpg, save_t *save, sfVector2f pos)
 	sfRenderWindow_drawText(rpg->win, save->pname_text, NULL);
 }
 
-void display_saves_slots(rpg_t *rpg)
+int display_saves_slots(rpg_t *rpg, int *occuped)
 {
-	int free_slot = 0;
-	int unavailable = 0;
 	sfVector2f pos = { 583, 332 };
 	save_t *tmp = rpg->saves;
 
 	while (tmp) {
-		pos.y = get_slot_position(unavailable);
+		pos.y = get_slot_position((*occuped)++);
 		display_slot(rpg, tmp, pos);
+		tmp->btn->pos = pos;
+		tmp->btn->pos.x += 640;
+		tmp->btn->pos.y += 5;
+		sfSprite_setPosition(tmp->btn->sprite, tmp->btn->pos);
 		tmp = tmp->next;
-		unavailable++;
 	}
 
-	free_slot = (4 - unavailable);
-	if (free_slot != 0) {
-		while (free_slot > 0) {
-			//printf("slot %d: disponible\n", free_slot);
-			free_slot--;
-		}
-	}
+	return (4 - *occuped);
 }
 
 void game_load_view(rpg_t *rpg)
 {
+	int free_slots = 0;
+	int occuped = 0;
 	sfSprite *sprite = get_sprite(rpg, "bg_load");
 
 	save_loader(rpg, 0);
@@ -74,5 +71,12 @@ void game_load_view(rpg_t *rpg)
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Jouer");
-	display_saves_slots(rpg);
+
+	free_slots = display_saves_slots(rpg, &occuped);
+	if (free_slots != 0) {
+		while (free_slots > 0) {
+			printf("slot %d: disponible\n", occuped + free_slots);
+			free_slots--;
+		}
+	}
 }
