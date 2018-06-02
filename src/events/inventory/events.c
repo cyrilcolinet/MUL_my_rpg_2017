@@ -9,4 +9,8 @@
 
 void ev_inventory(rpg_t *rpg, sfEvent *event)
 {
+	if (event->type == sfEvtKeyReleased) {
+		if (event->key.code == sfKeyEscape)
+			cb_goto_pause_view(rpg, NULL);
+	}
 }

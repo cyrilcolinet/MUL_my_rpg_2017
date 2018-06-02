@@ -213,6 +213,7 @@ typedef struct battle_t {
 
 typedef struct equipement_t {
 	char 		*name;
+	sfTexture	*texture;
 	bool		equiped;
 	bool		unlock;
 	int		dmg;
@@ -224,6 +225,10 @@ typedef struct equipement_t {
 
 typedef struct inventory_t {
 	equipement_t	**obj;
+	sfSprite	*skin;
+	sfRectangleShape *background;
+	sfRectangleShape *current;
+	sfRectangleShape **slot;
 } inventory_t;
 
 typedef struct interact_t {

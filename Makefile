@@ -75,6 +75,7 @@ SRC_FILES		= 	main.c 							\
 				player/talk_to_trader.c					\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
+				parser/parse_inventory.c 				\
 				parser/battle_fights_parser.c 				\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
