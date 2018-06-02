@@ -96,5 +96,8 @@ int load_assets(rpg_t *rpg)
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
 
+	if (!fill_struct_values(rpg))
+		return (84);
+
 	return (0);
 }
