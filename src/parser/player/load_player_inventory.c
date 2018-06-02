@@ -59,7 +59,6 @@ static void init_slot(inventory_t *inv)
 	}
 }
 
-<<<<<<< HEAD:src/parser/parse_inventory.c
 static void init_weapon_armor(inventory_t *inv)
 {
 	sfVector2f pos = {710, 340};
