@@ -226,9 +226,10 @@ typedef struct equipement_t {
 typedef struct inventory_t {
 	equipement_t	**obj;
 	sfSprite	*skin;
-	sfRectangleShape *background;
+	sfRectangleShape *win;
 	sfRectangleShape *current;
 	sfRectangleShape **slot;
+	sfVector2f	mouse;
 } inventory_t;
 
 typedef struct interact_t {

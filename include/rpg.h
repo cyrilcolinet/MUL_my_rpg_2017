@@ -205,7 +205,7 @@ void 		display_icon(rpg_t *,char *, int, int);
 ** Parse config file
 */
 
-void		parse_inventory(rpg_t *);
+void		parse_inventory(rpg_t *, player_t *);
 conf_sett_t	parse_file(rpg_t *, char *, char *);
 conf_sett_t	parse_save_file(rpg_t *, char *, char *);
 bool		configure_fight(fight_t **);

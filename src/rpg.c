@@ -38,7 +38,7 @@ int rpg_game(rpg_t *rpg)
 
 	player_parser(rpg, "demo.save"); // tmp
 	init_icone_spell(rpg); // tmp
-	parse_inventory(rpg); //tmp
+	parse_inventory(rpg, rpg->player); //tmp
 
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
