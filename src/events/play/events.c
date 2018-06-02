@@ -27,7 +27,7 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 	if (event->type == sfEvtKeyReleased) {
 		if (event->key.code == sfKeyEscape)
 			cb_goto_pause_view(rpg, NULL);
-		if (event->key.code == sfKeyI) {
+		if (event->key.code == sfKeyI && !rpg->battle->run) {
 			inventory_capture_img(rpg);
 			cb_goto_custom_view(rpg, gameInventory);
 		}

@@ -7,33 +7,26 @@
 
 #include "rpg.h"
 
+static void inventory_capture_img(rpg_t *rpg)
+{
+	sfImage *img = sfRenderWindow_capture(rpg->win);
+
+	reset_to_normal_rect(rpg);
+	sfTexture_updateFromImage(rpg->texture, img, 0, 0);
+	if (rpg->texture == NULL)
+		return;
+	if (rpg->capture != NULL)
+		sfSprite_destroy(rpg->capture);
+	rpg->capture = sfSprite_create();
+	sfSprite_setTexture(rpg->capture, rpg->texture, sfFalse);
+	sfImage_destroy(img);
+}
+
 static void mouse_coord(battle_t *battle, sfEvent *event)
 {
 	if (event->type == sfEvtMouseMoved) {
 		battle->mouse.x = event->mouseMove.x;
 		battle->mouse.y = event->mouseMove.y;
-	}
-}
-
-static void battle_event_management2(rpg_t *rpg, battle_t *battle
-		, sfEvent *event)
-{
-	if (event->key.code == sfKeyX) {
-		battle->hero->played = false;
-		battle->hero->move = false;
-		battle->hero->attack = false;
-		if (battle->id < 2)
-			battle->id++;
-	}
-	if (event->key.code == sfKeyW) {
-		battle->hero->played = false;
-		battle->hero->move = false;
-		battle->hero->attack = false;
-		if (battle->id > 0)
-			battle->id--;
-	}
-	if (event->key.code == sfKeyA) {
-		battle->run = false;
 	}
 }
 
@@ -47,6 +40,10 @@ void battle_event_management(rpg_t *rpg, battle_t *battle, sfEvent *event)
 			reset_map_state(battle);
 			battle->hero->played = true;
 		}
-		battle_event_management2(rpg, battle, event);
+		if (event->key.code == sfKeyI
+		&& !battle->fight[battle->id]->enemy_turn) {
+			inventory_capture_img(rpg);
+			cb_goto_custom_view(rpg, gameInventory);
+		}
 	}
 }

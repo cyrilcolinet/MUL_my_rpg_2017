@@ -142,7 +142,6 @@ typedef struct enemy_t {
 	sfSprite 	*form;
 	sfRectangleShape *frame;
 	sfTexture 	*img;
-	char 		*stuff;
 	bool 		alive;
 	bool 		played;
 	bool		sword;
@@ -204,6 +203,7 @@ typedef struct battle_t {
 	fight_t 	**fight;
 	sfRectangleShape *icone;
 	sfRectangleShape *background;
+	sfTexture 	*head;
 	sfTexture 	**texture;
 	sfText 		*text;
 	sfTime 		time;

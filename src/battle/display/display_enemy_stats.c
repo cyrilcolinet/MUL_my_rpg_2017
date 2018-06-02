@@ -39,7 +39,7 @@ static void display_stat(rpg_t *rpg, sfVector2f pos, int i, int id)
 
 static void display_info(rpg_t *rpg, sfVector2f coord, int i)
 {
-	sfVector2f pos = {coord.x, coord.y + 20};
+	sfVector2f pos = {coord.x, coord.y + 40};
 
 	pos.x = coord.x + 75;
 	display_icone(rpg, pos, 0);
@@ -67,7 +67,7 @@ static void display_name_frame(rpg_t *rpg, sfVector2f coord, int i)
 	pos.x += 70;
 	display_stat(rpg, pos, i, 4);
 	pos.x = coord.x;
-	pos.y += 20;
+	pos.y += 40;
 	sfRectangleShape_setPosition(
 	rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, pos);
 	sfRenderWindow_drawRectangleShape(rpg->win,
