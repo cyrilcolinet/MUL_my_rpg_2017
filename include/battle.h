@@ -18,7 +18,7 @@
 void		battle_management(rpg_t *, battle_t *);
 
 /* FREE */
-void		free_battle(rpg_t *);
+void		destroy_battle(rpg_t *);
 
 /* DISPLAY */
 void		display_map(rpg_t *, battle_t *, int);

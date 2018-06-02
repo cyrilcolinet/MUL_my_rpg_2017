@@ -35,7 +35,7 @@ void free_hero_spells(rpg_t *rpg)
 	free(rpg->battle->hero->spell);
 }
 
-void free_battle(rpg_t *rpg)
+void destroy_battle(rpg_t *rpg)
 {
 	for (int i = 0; i < rpg->battle->number_fight; i++)
 		free_fight(rpg->battle, i);

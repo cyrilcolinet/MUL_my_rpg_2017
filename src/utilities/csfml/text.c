@@ -23,13 +23,13 @@ sfText *create_text(sfFont *font, char *str, sfVector2f pos, sfColor color)
 
 void extra_text_config(sfText *text, sfFont *font, int size)
 {
-	sfColor color = sfColor_fromRGB(16, 17, 16);
+	sfColor color = sfColor_fromRGB(17, 16, 17);
 
 	sfText_setCharacterSize(text, size);
 	sfText_setColor(text, color);
 	sfText_setFont(text, font);
 }
 
-void display_icon_content()
+void display_icon_content(void)
 {
 }
