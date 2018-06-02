@@ -64,9 +64,6 @@ int rpg_main(int ac, char **av)
 	if (rpg == NULL)
 		return (84);
 
-	if (!fill_struct_values(rpg))
-		return (84);
-
 	status = rpg_game(rpg);
 	exit_game(rpg);
 	free(rpg);
