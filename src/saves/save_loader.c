@@ -7,7 +7,30 @@
 
 # include "rpg.h"
 
-void configure_sprite_infos(save_t *node)
+void configure_load_button(rpg_t *rpg)
+{
+	button_t conf;
+	sfIntRect rec = { 660, 240, 130, 80 };
+	sfVector2f origin = { (rec.width / 2), (rec.height / 2) };
+	sfTexture *texture = get_texture(rpg, "buttons");
+
+	conf.name = "btn_load_party";
+	conf.pos.x = 0;
+	conf.pos.y = 0;
+	conf.onClick = cb_click_action;
+	conf.onHover = cb_hover_action;
+	conf.onStart = cb_void_action;
+	conf.state = gameOnSettings;
+	conf.sprite = sfSprite_create();
+	sfSprite_setTexture(conf.sprite, texture, sfFalse);
+	sfSprite_setTextureRect(conf.sprite, rec);
+	sfSprite_setOrigin(conf.sprite, origin);
+	conf.rect = rec;
+	conf.next = NULL;
+	add_button(rpg, conf);
+}
+
+void configure_extra_infos(save_t *node)
 {
 	sfIntRect rec = { 0, 192, 64, 64 };
 
@@ -16,6 +39,8 @@ void configure_sprite_infos(save_t *node)
 	node->sprite = sfSprite_create();
 	sfSprite_setTexture(node->sprite, node->texture, true);
 	sfSprite_setTextureRect(node->sprite, rec);
+
+
 }
 
 void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
@@ -38,8 +63,8 @@ void parse_save_infos(rpg_t *rpg, save_t *node, char *name)
 	extra_text_config(node->lvl_text, rpg->font, 40);
 	extra_text_config(node->pname_text, rpg->font, 40);
 	extra_text_config(node->name_text, rpg->font, 25);
+	configure_extra_infos(node);
 	config_destroy(&conf.cfg);
-	configure_sprite_infos(node);
 }
 
 bool new_slot(rpg_t *rpg, char *file)

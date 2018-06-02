@@ -23,6 +23,17 @@ SRC_FILES		= 	main.c 							\
 				assets/buttons_manager.c 				\
 				assets/sliders_manager.c 				\
 				assets/assets_getter.c 					\
+				assets/loader/views_config.c 				\
+				assets/loader/views/credits/buttons.c 			\
+				assets/loader/views/main/buttons.c 			\
+				assets/loader/views/main/history_button.c 		\
+				assets/loader/views/settings/buttons.c 			\
+				assets/loader/views/settings/sliders.c			\
+				assets/loader/views/pause/buttons.c 			\
+				assets/loader/views/history/buttons.c 			\
+				assets/loader/views/selection/buttons.c			\
+				assets/loader/views/play/buttons.c			\
+				assets/loader/views/load/buttons.c 			\
 				assets/callback/actions_callback.c 			\
 				assets/callback/redirections/cb_goto_credits.c 		\
 				assets/callback/redirections/cb_goto_custom.c 		\
@@ -46,17 +57,6 @@ SRC_FILES		= 	main.c 							\
 				events/inventory/events.c 				\
 				events/quests/events.c					\
 				events/skills/events.c 					\
-				configurations/views_config.c 				\
-				configurations/views/credits/buttons.c 			\
-				configurations/views/main/buttons.c 			\
-				configurations/views/main/history_button.c 		\
-				configurations/views/settings/buttons.c 		\
-				configurations/views/settings/sliders.c			\
-				configurations/views/pause/buttons.c 			\
-				configurations/views/history/buttons.c 			\
-				configurations/views/selection/buttons.c		\
-				configurations/views/play/buttons.c			\
-				configurations/views/load/buttons.c 			\
 				player/player_deplacement.c				\
 				player/player_interaction.c				\
 				player/call_interaction.c				\
