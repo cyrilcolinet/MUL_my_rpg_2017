@@ -65,7 +65,7 @@ static void draw_stat_value(rpg_t *rpg, battle_t *battle, hero_t *hero)
 		str = my_itoa(hero->spell[i]->val);
 		sfText_setString(battle->text, str);
 		free(str);
-		sfrenderwindow_drawtext(
+		sfRenderWindow_drawText(
 			rpg->win, battle->text, NULL);
 		pos.y += 70;
 	}
