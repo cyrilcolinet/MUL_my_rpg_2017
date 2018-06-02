@@ -32,5 +32,4 @@ void extra_text_config(sfText *text, sfFont *font, int size)
 
 void display_icon_content()
 {
-	
 }

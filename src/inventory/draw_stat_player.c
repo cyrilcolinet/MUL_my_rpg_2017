@@ -94,7 +94,7 @@ static void draw_hero(rpg_t *rpg, player_t *player)
 void draw_stat_player(rpg_t *rpg, battle_t *battle, hero_t *hero)
 {
 	sfVector2f pos = {300, 260};
-	
+
 	draw_icone(rpg, battle, hero);
 	draw_stat_value(rpg, battle, hero);
 	draw_hero(rpg, rpg->player);

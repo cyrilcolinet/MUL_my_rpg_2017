@@ -65,7 +65,7 @@ void display_current_target(rpg_t *rpg, battle_t *battle)
 	for (int i = 0; i < battle->fight[
 		battle->id]->number_enemy; i++) {
 		sfRectangleShape_setFillColor(
-		battle->fight[battle->id]->enemy[i]->frame, sfRed);
+		battle->fight[battle->id]->enemy[i]->frame, sfGreen);
 		if (battle->fight[battle->id]->enemy[i]->alive
 		&& (is_enemy_form(battle, pos, size, i)
 		|| is_enemy_frame(battle, pos, size, i)))
@@ -73,6 +73,6 @@ void display_current_target(rpg_t *rpg, battle_t *battle)
 		if (!battle->fight[battle->id]->enemy[i]->alive)
 			sfRectangleShape_setFillColor(
 			battle->fight[battle->id]->
-			enemy[i]->frame, sfBlack);
+			enemy[i]->frame, sfRed);
 	}
 }

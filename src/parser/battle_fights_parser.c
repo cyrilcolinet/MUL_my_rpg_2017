@@ -39,7 +39,7 @@ void configure_enemy_texture(rpg_t *rpg, enemy_t **enemy, int fight, int id)
 	sfSprite_setScale((*enemy)->form, scale);
 	(*enemy)->frame = sfRectangleShape_create();
 	sfRectangleShape_setSize((*enemy)->frame, size);
-	sfRectangleShape_setFillColor((*enemy)->frame, sfRed);
+	sfRectangleShape_setFillColor((*enemy)->frame, sfTransparent);
 	sfRectangleShape_setOutlineColor((*enemy)->frame, sfBlack);
 	sfRectangleShape_setOutlineThickness((*enemy)->frame, 3);
 	rpg->battle->fight[fight]->enemy[id] = *enemy;
@@ -63,7 +63,7 @@ void parse_enemy_values(rpg_t *rpg, config_setting_t *set, int id, int fight)
 	config_setting_lookup_int(set, "rec_top", &enemy->rec.top);
 	enemy->pos.x = posx;
 	enemy->pos.y = posy;
-	enemy->played = enemy->sword = false;
+	enemy->played = false;
 	enemy->alive = true;
 	enemy->hp_max = enemy->hp;
 	configure_enemy_texture(rpg, &enemy, fight, id);

@@ -1,4 +1,4 @@
- /*
+/*
 ** EPITECH PROJECT, 2018
 ** end_battle
 ** File description:

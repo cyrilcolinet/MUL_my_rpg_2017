@@ -9,5 +9,4 @@
 
 void ev_skills(rpg_t *rpg, sfEvent *event)
 {
-	
 }

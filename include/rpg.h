@@ -200,7 +200,7 @@ rpg_t 		*configure_struct(void);
 void 		set_favicon(rpg_t *);
 void 		extra_text_config(sfText *, sfFont *, int);
 float 		get_slot_position(int);
-void 		display_icon(rpg_t *,char *, int, int);
+void 		display_icon(rpg_t *, char *, int, int);
 
 /*
 ** Parse utilities
@@ -218,7 +218,7 @@ void		parse_player(rpg_t *);
 int 		configure_all_default(rpg_t *, hero_t **, char *);
 int 		configure_battle_characters(rpg_t *);
 int		**parse_map_hitboxes(char *);
-int 		parse_arena_rectangle_values(config_setting_t *, interact_t **);
+int 	parse_arena_rectangle_values(config_setting_t *, interact_t **);
 int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);

@@ -204,7 +204,6 @@ typedef struct battle_t {
 	fight_t 	**fight;
 	sfRectangleShape *icone;
 	sfRectangleShape *background;
-	sfTexture 	*head;
 	sfTexture 	**texture;
 	sfText 		*text;
 	sfTime 		time;
