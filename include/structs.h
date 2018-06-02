@@ -273,6 +273,7 @@ typedef struct save_t {
 	int 		damage;
 	int 		armor;
 	int 		level;
+	button_t 	*btn;
 	struct save_t 	*next;
 }	save_t;
 

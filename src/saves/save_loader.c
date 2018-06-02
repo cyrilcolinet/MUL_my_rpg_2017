@@ -66,33 +66,24 @@ bool new_slot(rpg_t *rpg, char *file)
 	return (true);
 }
 
-void get_saves_infos(rpg_t *rpg, dir_t *dir)
-{
-	char *n = NULL;
-
-	n = dir->d_name;
-	if (!my_strstartswith(n, ".") && my_strendswith(n, ".save"))
-		new_slot(rpg, n);
-}
-
 bool save_loader(rpg_t *rpg, int start)
 {
 	DIR *o_dir = NULL;
 	dir_t *dir = NULL;
 	int key = 0;
 	int max = 4;
+	char *n = NULL;
 
 	if (rpg->saves)
 		return (false);
-
-	o_dir = opendir("./saves/");
-	if (o_dir == NULL)
+	if ((o_dir = opendir("./saves/")) == NULL)
 		return (false);
 	while (++key <= max && (dir = readdir(o_dir)) != NULL) {
 		if (key < start)
 			continue;
-		get_saves_infos(rpg, dir);
+		n = dir->d_name;
+		if (!my_strstartswith(n, ".") && my_strendswith(n, ".save"))
+			new_slot(rpg, n);
 	}
-
 	return (true);
 }
