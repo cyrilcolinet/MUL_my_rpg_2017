@@ -142,6 +142,7 @@ typedef struct enemy_t {
 	sfSprite 	*form;
 	sfRectangleShape *frame;
 	sfTexture 	*img;
+	char		*stuff;
 	bool 		alive;
 	bool 		played;
 	bool		sword;
