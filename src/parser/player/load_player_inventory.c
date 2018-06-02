@@ -74,17 +74,10 @@ static void init_weapon_armor(inventory_t *inv)
 	sfRectangleShape_setFillColor(inv->weapon, sfRed);
 }
 
-void parse_inventory(rpg_t *rpg, player_t *player)
-{
-	player->inventory = configure_inventory(player);
-	init_skin_win(player->inventory);
-	init_slot(player->inventory);
-	init_weapon_armor(player->inventory);
-=======
 void load_player_inventory(rpg_t *rpg)
 {
 	rpg->player->inventory = configure_inventory(rpg->player);
 	init_skin_win(rpg->player->inventory);
 	init_slot(rpg->player->inventory);
->>>>>>> 8cff256ee1baf8698ad0f16286e47c68526839be:src/parser/player/load_player_inventory.c
+	init_weapon_armor(player->inventory);
 }
