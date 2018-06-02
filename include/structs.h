@@ -228,6 +228,8 @@ typedef struct inventory_t {
 	sfSprite	*skin;
 	sfRectangleShape *win;
 	sfRectangleShape *current;
+	sfRectangleShape *armor;
+	sfRectangleShape *weapon;
 	sfRectangleShape **slot;
 	sfVector2f	mouse;
 } inventory_t;
