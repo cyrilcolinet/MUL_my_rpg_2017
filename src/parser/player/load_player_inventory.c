@@ -11,7 +11,6 @@ static inventory_t *configure_inventory(player_t *player)
 {
 	inventory_t *inventory = malloc(sizeof(inventory_t));
 
-	inventory->skin = sfSprite_create();
 	inventory->win = sfRectangleShape_create();
 	inventory->armor = sfRectangleShape_create();
 	inventory->weapon = sfRectangleShape_create();
@@ -61,7 +60,7 @@ static void init_slot(inventory_t *inv)
 
 static void init_weapon_armor(inventory_t *inv)
 {
-	sfVector2f pos = {710, 340};
+	sfVector2f pos = {610, 340};
 	sfVector2f size = {100, 100};
 
 	sfRectangleShape_setPosition(inv->armor, pos);

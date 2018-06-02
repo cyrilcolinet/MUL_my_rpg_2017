@@ -225,7 +225,6 @@ typedef struct equipement_t {
 
 typedef struct inventory_t {
 	equipement_t	**obj;
-	sfSprite	*skin;
 	sfRectangleShape *win;
 	sfRectangleShape *current;
 	sfRectangleShape *armor;

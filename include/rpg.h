@@ -150,6 +150,7 @@ void		skills_view(rpg_t *);
 
 //inventory_view.c
 void		inventory_view(rpg_t *);
+void		draw_stat_player(rpg_t *, battle_t*, hero_t*);
 
 // play_view.c
 void		player_deplacement(rpg_t *);

@@ -7,30 +7,6 @@
 
 # include "rpg.h"
 
-static void draw_stat_player(rpg_t *rpg, battle_t *battle, hero_t *hero)
-{
-	sfVector2f pos = {330, 380};
-
-	for (int i = 0; i < 3; i++) {
-		sfRectangleShape_setPosition(battle->icone, pos);
-		sfRectangleShape_setTexture(
-			battle->icone, battle->texture[i], sfTrue);
-		sfRenderWindow_drawRectangleShape(
-			rpg->win, battle->icone, NULL);
-		pos.y += 50;
-	}
-	pos.x = 310;
-	pos.y = 560;
-	for (int i = 0; i < 4; i++) {
-		sfRectangleShape_setPosition(hero->spell[i]->icone, pos);
-		sfRectangleShape_setOutlineColor(
-			hero->spell[i]->icone, sfTransparent);
-		sfRenderWindow_drawRectangleShape(
-			rpg->win, hero->spell[i]->icone, NULL);
-		pos.y += 70;
-	}
-}
-
 static void draw_inventory(rpg_t *rpg, inventory_t *inv)
 {
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->win, NULL);
