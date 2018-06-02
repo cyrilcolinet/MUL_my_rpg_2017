@@ -14,7 +14,6 @@ void free_fight(battle_t *battle, int n)
 	free(battle->fight[n]->map);
 	for (int i = 0; i < battle->fight[n]->number_enemy; i++) {
 		sfSprite_destroy(battle->fight[n]->enemy[i]->form);
-		sfTexture_destroy(battle->fight[n]->enemy[i]->img);
 		sfRectangleShape_destroy(battle->fight[n]->enemy[i]->frame);
 		free(battle->fight[n]->enemy[i]);
 	}
@@ -30,7 +29,6 @@ void free_hero_spells(rpg_t *rpg)
 			sfSprite_destroy(rpg->battle->hero->spell[i]->form);
 		if (rpg->battle->hero->spell[i]->texture != NULL)
 			sfTexture_destroy(rpg->battle->hero->spell[i]->texture);
-		sfTexture_destroy(rpg->battle->hero->spell[i]->img);
 		sfRectangleShape_destroy(rpg->battle->hero->spell[i]->icone);
 		free(rpg->battle->hero->spell[i]);
 	}
@@ -45,7 +43,7 @@ void free_battle(rpg_t *rpg)
 	sfSprite_destroy(rpg->battle->hero->form);
 	sfText_destroy(rpg->battle->text);
 	sfClock_destroy(rpg->battle->clock);
-	free_hero_spells(rpg);
+//	free_hero_spells(rpg);
 	free(rpg->battle->hero);
 	for (int i = 0; i < 10; i++)
 		free(rpg->battle->map[i]);
@@ -53,7 +51,5 @@ void free_battle(rpg_t *rpg)
 	sfTexture_destroy(rpg->battle->head);
 	sfRectangleShape_destroy(rpg->battle->icone);
 	sfRectangleShape_destroy(rpg->battle->background);
-	for (int i = 0; i < 8; i++)
-		sfTexture_destroy(rpg->battle->texture[i]);
 	free(rpg->battle->texture);
 }

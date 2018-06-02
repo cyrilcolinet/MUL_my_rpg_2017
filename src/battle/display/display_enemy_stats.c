@@ -68,6 +68,8 @@ static void display_name_frame(rpg_t *rpg, sfVector2f coord, int i)
 	display_stat(rpg, pos, i, 4);
 	pos.x = coord.x;
 	pos.y += 40;
+	sfRectangleShape_setTexture(
+		rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, 	rpg->battle->fight[rpg->battle->id]->enemy[i]->img, sfTrue);
 	sfRectangleShape_setPosition(
 	rpg->battle->fight[rpg->battle->id]->enemy[i]->frame, pos);
 	sfRenderWindow_drawRectangleShape(rpg->win,
