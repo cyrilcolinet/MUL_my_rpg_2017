@@ -95,6 +95,7 @@ void 		cb_click_action(rpg_t *, button_t *);
 void 		cb_hover_action(rpg_t *, button_t *);
 void 		cb_play_sound1(rpg_t *, button_t *);
 void 		cb_slider_volume_music(rpg_t *, slider_t *);
+void 		cb_load_save(rpg_t *, button_t *);
 
 /*
 ** Configurations
@@ -205,7 +206,6 @@ void 		display_icon(rpg_t *,char *, int, int);
 ** Parse config file
 */
 
-void		parse_inventory(rpg_t *, player_t *);
 conf_sett_t	parse_file(rpg_t *, char *, char *);
 conf_sett_t	parse_save_file(rpg_t *, char *, char *);
 bool		configure_fight(fight_t **);
@@ -224,6 +224,8 @@ int		parse_map(rpg_t *);
 bool		save_loader(rpg_t *, int);
 bool		player_parser(rpg_t *, char *name);
 void 		load_player_datas(config_setting_t *, rpg_t *);
+void		load_player_inventory(rpg_t *);
 void 		load_hero_datas(config_setting_t *, rpg_t *);
+void 		load_hero_spells_icons(rpg_t *rpg);
 
 # endif

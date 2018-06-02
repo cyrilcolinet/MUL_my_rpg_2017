@@ -23,6 +23,17 @@ SRC_FILES		= 	main.c 							\
 				assets/buttons_manager.c 				\
 				assets/sliders_manager.c 				\
 				assets/assets_getter.c 					\
+				assets/loader/views_config.c 				\
+				assets/loader/views/credits/buttons.c 			\
+				assets/loader/views/main/buttons.c 			\
+				assets/loader/views/main/history_button.c 		\
+				assets/loader/views/settings/buttons.c 			\
+				assets/loader/views/settings/sliders.c			\
+				assets/loader/views/pause/buttons.c 			\
+				assets/loader/views/history/buttons.c 			\
+				assets/loader/views/selection/buttons.c			\
+				assets/loader/views/play/buttons.c			\
+				assets/loader/views/load/buttons.c 			\
 				assets/callback/actions_callback.c 			\
 				assets/callback/redirections/cb_goto_credits.c 		\
 				assets/callback/redirections/cb_goto_custom.c 		\
@@ -33,8 +44,9 @@ SRC_FILES		= 	main.c 							\
 				assets/callback/redirections/cb_goto_play.c 		\
 				assets/callback/redirections/cb_goto_select.c 		\
 				assets/callback/redirections/cb_goto_settings.c		\
-				assets/callback/play_callback.c 			\
 				assets/callback/sliders/volume_callback.c 		\
+				assets/callback/play_callback.c 			\
+				assets/callback/cb_load_save.c				\
 				events/events_manager.c 				\
 				events/mouse_events.c					\
 				events/keyboard_events.c				\
@@ -46,17 +58,6 @@ SRC_FILES		= 	main.c 							\
 				events/inventory/events.c 				\
 				events/quests/events.c					\
 				events/skills/events.c 					\
-				configurations/views_config.c 				\
-				configurations/views/credits/buttons.c 			\
-				configurations/views/main/buttons.c 			\
-				configurations/views/main/history_button.c 		\
-				configurations/views/settings/buttons.c 		\
-				configurations/views/settings/sliders.c			\
-				configurations/views/pause/buttons.c 			\
-				configurations/views/history/buttons.c 			\
-				configurations/views/selection/buttons.c		\
-				configurations/views/play/buttons.c			\
-				configurations/views/load/buttons.c 			\
 				player/player_deplacement.c				\
 				player/player_interaction.c				\
 				player/call_interaction.c				\
@@ -75,13 +76,14 @@ SRC_FILES		= 	main.c 							\
 				player/talk_to_trader.c					\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
-				parser/parse_inventory.c 				\
 				parser/battle_fights_parser.c 				\
 				parser/map_parser.c 					\
 				parser/parse_map_hitboxes.c 				\
 				parser/player/player_parser.c				\
 				parser/player/load_player_datas.c 			\
+				parser/player/load_player_inventory.c 			\
 				parser/player/load_hero_datas.c 			\
+				parser/player/load_hero_spells_icons.c 			\
 				views/menu_views.c 					\
 				views/load_view.c 					\
 				views/play_view.c 					\

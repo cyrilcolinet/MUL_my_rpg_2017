@@ -100,7 +100,7 @@ rpg_t *configure_struct(void)
 	rpg->last_st = gameUnknown;
 	rpg->win = sfRenderWindow_create(mode, title, sfClose, NULL);
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
-
+	rpg->player = NULL;
 	rpg->clock = sfClock_create();
 	rpg->options.music_vol = 0;
 	rpg->options.sound_vol = 0;
