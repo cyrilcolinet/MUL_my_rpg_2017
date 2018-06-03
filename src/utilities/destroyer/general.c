@@ -20,7 +20,6 @@ void destroy_saves(rpg_t *rpg)
 		sfText_destroy(tmp->lvl_text);
 		sfClock_destroy(tmp->clock);
 		sfSprite_destroy(tmp->sprite);
-		sfSprite_destroy(tmp->btn->sprite);
 		free(tmp);
 	}
 }
