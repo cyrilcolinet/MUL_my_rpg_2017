@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2017
 ** my_strcmp
 ** File description:
-** Behavior of strcmp function
+** Behavior of my_strcmp function
 */
 
 # include "my.h"

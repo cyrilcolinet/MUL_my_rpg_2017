@@ -50,7 +50,7 @@ static void draw_slot(rpg_t *rpg, inventory_t *inv, int i, int j)
 	sfVector2f pos = sfRectangleShape_getPosition(inv->slot[i]);
 
 	if (inv->obj[j]->unlock
-	    && inv->obj[j]->pos.x + inv->obj[j]->pos.y * 4 == i) {
+	&& inv->obj[j]->pos.x + inv->obj[j]->pos.y * 4 == i) {
 		sfRectangleShape_setFillColor(inv->slot[i], sfYellow);
 		if (my_strlen(inv->obj[j]->name) > 8)
 			pos.x -= 20;
