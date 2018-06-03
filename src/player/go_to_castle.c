@@ -9,4 +9,5 @@
 
 void go_to_castle(rpg_t *rpg, int id)
 {
+	cb_goto_main_view(rpg, NULL);
 }

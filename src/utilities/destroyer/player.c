@@ -41,6 +41,9 @@ static void destroy_inventory(inventory_t *inv)
 
 void destroy_player(rpg_t *rpg)
 {
+	if (rpg->player == NULL)
+		return;
+
 	sfClock_destroy(rpg->player->clock);
 	free(rpg->player->name);
 	sfSprite_destroy(rpg->player->sprite);
