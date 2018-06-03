@@ -84,7 +84,7 @@ bool fill_struct_values(rpg_t *rpg)
 	rpg->battle->mouse.x = 0;
 	rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
-
+	rpg->select_hovered = false;
 	return (configure_internal_battle(rpg));
 }
 
@@ -108,5 +108,6 @@ rpg_t *configure_struct(void)
 	rpg->slides = NULL;
 	rpg->sounds = NULL;
 	rpg->map_id = 0;
+	rpg->shape = sfRectangleShape_create();
 	return (rpg);
 }

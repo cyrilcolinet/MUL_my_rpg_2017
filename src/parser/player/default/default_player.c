@@ -16,11 +16,10 @@ void default_player_datas(rpg_t *rpg)
 	rpg->player->skills = 0;
 	rpg->player->sexe = 0;
 	rpg->player->clock = sfClock_create();
-	rpg->player->texture = get_texture(rpg, "man_nu_no");
+	rpg->player->texture = NULL;
 	rpg->player->rec = rec;
 	rpg->player->sprite = sfSprite_create();
 	sfSprite_setPosition(rpg->player->sprite, pos);
-	sfSprite_setTexture(rpg->player->sprite, rpg->player->texture, true);
 	sfSprite_setTextureRect(rpg->player->sprite, rec);
 }
 
@@ -39,4 +38,9 @@ bool default_player(rpg_t *rpg)
 	default_player_datas(rpg);
 	default_hero_datas(rpg);
 	load_hero_spells_icons(rpg);
+	load_player_inventory(rpg);
+	load_player_equipment(rpg, rpg->player->inventory);
+	load_player_quest(rpg);
+
+	return (true);
 }
