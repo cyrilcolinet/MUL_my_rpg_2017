@@ -150,10 +150,11 @@ void		skills_view(rpg_t *);
 
 //inventory_view.c
 void		inventory_view(rpg_t *);
-void		draw_stat_player(rpg_t *, battle_t*);
+void		draw_stat_player(rpg_t *, battle_t *);
 void		draw_obj_stat(rpg_t *, inventory_t *);
 void		draw_unequip_message(rpg_t *, inventory_t *);
-char		*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
+char		*check_stat_hp_value(inventory_t *, battle_t *,
+			equipement_t *);
 char		*check_stat_dmg_value(inventory_t *, battle_t *,
 			equipement_t *);
 char		*check_stat_armor_value(inventory_t *, battle_t *,
@@ -161,12 +162,13 @@ char		*check_stat_armor_value(inventory_t *, battle_t *,
 char 		*check_stat_magic_value(inventory_t *, battle_t *,
 			equipement_t *, int);
 void		equip_obj_management(rpg_t *, inventory_t *);
-void		swap_armor_stat(rpg_t *, battle_t*, equipement_t *,
+void		swap_armor_stat(rpg_t *, battle_t *, equipement_t *,
 			inventory_t *);
-void		swap_weapon_stat(rpg_t *, battle_t*, equipement_t *,
+void		swap_weapon_stat(rpg_t *, battle_t *, equipement_t *,
 			inventory_t *);
-void		unequip_weapon_stat(rpg_t *, battle_t*, inventory_t *, int);
-void		unequip_armor_stat(rpg_t *, battle_t*, inventory_t *, int);
+void		unequip_weapon_stat(rpg_t *, battle_t *, inventory_t *,
+			int);
+void		unequip_armor_stat(rpg_t *, battle_t *, inventory_t *, int);
 sfVector2f	find_free_slot(inventory_t *);
 
 // play_view.c
@@ -187,7 +189,7 @@ void		go_out_city(rpg_t *, int);
 void		go_to_castle(rpg_t *, int);
 void		talk_to_trader(rpg_t *, int);
 void		talk_to_soldier(rpg_t *, int);
-void		display_message(rpg_t *, int, int, quest_t*);
+void		display_message(rpg_t *, int, int, quest_t *);
 
 // main_view.c
 void 		play_view(rpg_t *);
@@ -236,7 +238,8 @@ void		parse_player(rpg_t *);
 int 		configure_all_default(rpg_t *, hero_t **, char *);
 int 		configure_battle_characters(rpg_t *);
 int		**parse_map_hitboxes(char *);
-int 		parse_arena_rectangle_values(config_setting_t *, interact_t **);
+int 		parse_arena_rectangle_values(config_setting_t *,
+			interact_t **);
 int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);
