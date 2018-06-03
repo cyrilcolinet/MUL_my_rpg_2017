@@ -86,18 +86,13 @@ int load_assets(rpg_t *rpg)
 {
 	if (configure_assets(rpg) != 0)
 		return (84);
-
 	configure_views_actions(rpg);
 	load_sounds(rpg);
-
 	if (parse_map(rpg) != 0)
 		return (84);
-
 	sfSound_play(get_sound(rpg, "main")->sound);
 	sfSound_setLoop(get_sound(rpg, "main")->sound, sfTrue);
-
 	if (!fill_struct_values(rpg))
 		return (84);
-
 	return (0);
 }

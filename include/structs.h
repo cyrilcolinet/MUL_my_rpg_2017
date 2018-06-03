@@ -238,14 +238,11 @@ typedef struct pnj_t  {
 	sfSprite	*sprite;
 	sfTexture	*texture;
 	sfIntRect	rec;
-	char		**dialogue;
 } pnj_t;
 
 typedef struct quest_t  {
 	sfRectangleShape *win;
 	pnj_t		**pnj;
-	bool		*unlock;
-	bool		*done;
 	int		id;
 } quest_t;
 
