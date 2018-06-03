@@ -85,7 +85,7 @@ void player_deplacement(rpg_t *rpg)
 
 	rpg->player->timer = sfClock_getElapsedTime(rpg->player->clock);
 	if (sfTime_asSeconds(rpg->player->timer)
-	>= sfTime_asSeconds(sfSeconds(0.05))) {
+	>= sfTime_asSeconds(sfSeconds(0.03))) {
 		if (!player_deplacement_left(rpg, pos, sfKeyLeft) &&
 		!player_deplacement_right(rpg, pos, sfKeyRight) &&
 		!player_deplacement_up(rpg, pos, sfKeyUp) &&

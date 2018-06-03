@@ -16,5 +16,7 @@ void ev_quests(rpg_t *rpg, sfEvent *event)
 			cb_goto_play_view(rpg, NULL);
 		if (event->key.code == sfKeyM)
 			rpg->player->quest->id++;
+		if (event->key.code == sfKeyL)
+			rpg->player->quest->id--;
 	}
 }
