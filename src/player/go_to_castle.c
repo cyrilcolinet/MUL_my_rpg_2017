@@ -9,5 +9,10 @@
 
 void go_to_castle(rpg_t *rpg, int id)
 {
-	cb_goto_main_view(rpg, NULL);
+	rpg->map[rpg->map_id]->it[id]->active = false;
+	rpg->map[rpg->map_id]->it[id]->in_zone = false;
+
+	if (rpg->player->quest->id == 8) {
+		cb_goto_main_view(rpg, NULL);
+	}
 }

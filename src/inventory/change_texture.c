@@ -19,12 +19,12 @@ static char *check_armor(inventory_t *inv, char *str)
 		}
 	}
 	if (nb > -1 && my_strcmp(inv->obj[nb]->name, "iron_armor") == 0)
-		str = my_strcat(str, "fer_");
+		str = my_strjoin_clear(str, "fer_", 0);
 	else if (nb > -1
 		&& my_strcmp(inv->obj[nb]->name, "leather_armor") == 0)
-		str = my_strcat(str, "cuir_");
+		str = my_strjoin_clear(str, "cuir_", 0);
 	else
-		str = my_strcat(str, "nu_");
+		str = my_strjoin_clear(str, "nu_", 0);
 	return (str);
 }
 
@@ -40,13 +40,13 @@ static char *check_weapon(inventory_t *inv, char *str, hero_t *hero)
 		}
 	}
 	if (nb > -1 && my_strcmp(inv->obj[nb]->name, "sword") == 0) {
-		str = my_strcat(str, "sword");
+		str = my_strjoin_clear(str, "sword", 0);
 		hero->sword = true;
 	} else if (nb > -1
 		&& my_strcmp(inv->obj[nb]->name, "knife") == 0)
-		str = my_strcat(str, "knife");
+		str = my_strjoin_clear(str, "knife", 0);
 	else
-		str = my_strcat(str, "no");
+		str = my_strjoin_clear(str, "no", 0);
 	return (str);
 }
 
@@ -58,7 +58,7 @@ void change_texture(rpg_t *rpg, player_t *player,
 	hero->sword = false;
 	if (player->sexe == 1)
 		str = my_strdup("man_");
-	if (player->sexe == 2)
+	else if (player->sexe == 2)
 		str = my_strdup("women_");
 	str = check_armor(inv, str);
 	str = check_weapon(inv, str, hero);

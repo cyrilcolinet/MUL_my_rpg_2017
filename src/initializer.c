@@ -84,6 +84,7 @@ bool fill_struct_values(rpg_t *rpg)
 	rpg->battle->mouse.x = 0;
 	rpg->battle->mouse.y = 0;
 	rpg->battle->run = false;
+	rpg->battle->hero = NULL;
 	rpg->select_hovered = false;
 	return (configure_internal_battle(rpg));
 }

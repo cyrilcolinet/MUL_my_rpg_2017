@@ -37,8 +37,8 @@ void display_map_content(rpg_t *rpg)
 			sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	}
 	display_pnj(rpg, rpg->player->quest);
-	player_interaction(rpg);
 	sfRenderWindow_drawSprite(rpg->win, rpg->player->sprite, NULL);
+	player_interaction(rpg);
 }
 
 void play_view(rpg_t *rpg)
