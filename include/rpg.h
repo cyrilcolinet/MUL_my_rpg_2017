@@ -156,6 +156,10 @@ char	*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
 char	*check_stat_dmg_value(inventory_t *, battle_t *, equipement_t *);
 char	*check_stat_armor_value(inventory_t *, battle_t *, equipement_t *);
 char *check_stat_magic_value(inventory_t *, battle_t *, equipement_t *, int);
+void		equip_obj_management(rpg_t *, inventory_t *);
+void	swap_armor_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
+void	swap_weapon_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
+
 
 // play_view.c
 void		player_deplacement(rpg_t *);

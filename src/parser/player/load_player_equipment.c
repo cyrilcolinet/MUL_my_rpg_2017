@@ -40,10 +40,10 @@ void load_player_equipment(rpg_t *rpg, inventory_t *inventory)
 	inventory->obj[1]->unlock = true;
 	inventory->obj[1]->pos.x = 3;
 	inventory->obj[1]->pos.y = 2;
-	inventory->obj[1]->type = 0;
+	inventory->obj[1]->type = 1;
 	inventory->obj[1]->hp = -16;
 	inventory->obj[1]->dmg = 45;
 	inventory->obj[1]->armor = 85;
 	inventory->obj[1]->magic = -4;
-	inventory->obj[1]->name = "swordddd";
+	inventory->obj[1]->name = "sword";
 }

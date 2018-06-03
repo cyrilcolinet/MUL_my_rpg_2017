@@ -88,6 +88,9 @@ SRC_FILES		= 	main.c 							\
 				inventory/draw_stat_player.c				\
 				inventory/draw_obj_stat.c				\
 				inventory/check_stat_value.c				\
+				inventory/equip_obj_management.c			\
+				inventory/swap_armor_stat.c				\
+				inventory/swap_weapon_stat.c				\
 				views/menu_views.c 					\
 				views/load_view.c 					\
 				views/play_view.c 					\

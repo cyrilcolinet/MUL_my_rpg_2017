@@ -23,5 +23,7 @@ void ev_inventory(rpg_t *rpg, sfEvent *event)
 			cb_goto_pause_view(rpg, NULL);
 		if (event->key.code == sfKeyI)
 			cb_goto_play_view(rpg, NULL);
+		if (event->key.code == sfKeyE)
+			equip_obj_management(rpg, rpg->player->inventory);
 	}
 }
