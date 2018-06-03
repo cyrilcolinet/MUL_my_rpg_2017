@@ -156,9 +156,9 @@ typedef struct fight_t {
 	sfRectangleShape **map;
 	sfVector2f 	pos;
 	int 		number_enemy;
-	enemy_t 	**enemy;
 	bool 		enemy_turn;
 	int		curent;
+	enemy_t 	**enemy;
 } fight_t;
 
 typedef struct spell_t {
