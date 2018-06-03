@@ -13,9 +13,13 @@ static void swap_obj_stat(rpg_t *rpg, battle_t *battle,
 	if (obj->type == 0) {
 		obj->pos = sfRectangleShape_getPosition(inv->armor);
 		swap_armor_stat(rpg, battle, obj, inv);
+		obj->equiped = true;
 	} else if (obj->type == 1) {
 		obj->pos = sfRectangleShape_getPosition(inv->weapon);
 		swap_weapon_stat(rpg, battle, obj, inv);
+		if (my_strcmp(obj->name, "sword") == 0)
+			battle->hero->sword = true;
+		obj->equiped = true;
 	}
 }
 

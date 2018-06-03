@@ -85,6 +85,7 @@ static void draw_inventory(rpg_t *rpg, inventory_t *inv)
 		draw_slot(rpg, inv, i);
 	draw_stat_player(rpg, rpg->battle);
 	draw_obj_stat(rpg, inv);
+	draw_unequip_message(rpg, inv);
 }
 
 void inventory_view(rpg_t *rpg)

@@ -87,10 +87,12 @@ SRC_FILES		= 	main.c 							\
 				parser/player/load_hero_spells_icons.c 			\
 				inventory/draw_stat_player.c				\
 				inventory/draw_obj_stat.c				\
+				inventory/draw_unequip_message.c			\
 				inventory/check_stat_value.c				\
 				inventory/equip_obj_management.c			\
 				inventory/swap_armor_stat.c				\
 				inventory/swap_weapon_stat.c				\
+				inventory/find_free_slot.c				\
 				views/menu_views.c 					\
 				views/load_view.c 					\
 				views/play_view.c 					\

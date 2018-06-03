@@ -35,10 +35,9 @@ void swap_weapon_stat(rpg_t *rpg, battle_t *battle,
 		for (int i = 0; i < 4; i++)
 			battle->hero->spell[i]->val +=
 				(obj->magic - inv->obj[nb]->magic);
+		inv->obj[nb]->equiped = false;
+		inv->obj[nb]->pos = find_free_slot(inv);
 	}
-	if (my_strcmp(obj->name, "sword") == 0)
-		battle->hero->sword = true;
-	obj->equiped = true;
 }
 
 void unequip_weapon_stat(rpg_t *rpg, battle_t *battle,
@@ -50,8 +49,7 @@ void unequip_weapon_stat(rpg_t *rpg, battle_t *battle,
 	for (int i = 0; i < 4; i++)
 		battle->hero->spell[i]->val -= inv->obj[nb]->magic;
 	inv->obj[nb]->equiped = false;
-	inv->obj[nb]->pos.x = 2;
-	inv->obj[nb]->pos.y = 2;
+	inv->obj[nb]->pos = find_free_slot(inv);
 	if (my_strcmp(inv->obj[nb]->name, "sword") == 0)
 		battle->hero->sword = false;
 }

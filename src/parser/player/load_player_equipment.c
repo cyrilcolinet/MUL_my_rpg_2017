@@ -33,17 +33,26 @@ void load_player_equipment(rpg_t *rpg, inventory_t *inventory)
 		inventory->obj[i] = load_equipment();
 	/* test */
 	inventory->obj[0]->unlock = true;
-	inventory->obj[0]->pos.x = 0;
-	inventory->obj[0]->pos.y = 0;
+	inventory->obj[0]->pos.x = 2;
+	inventory->obj[0]->pos.y = 2;
 	inventory->obj[0]->type = 0;
 	inventory->obj[0]->name = "leather armor";
 	inventory->obj[1]->unlock = true;
 	inventory->obj[1]->pos.x = 3;
 	inventory->obj[1]->pos.y = 2;
-	inventory->obj[1]->type = 1;
+	inventory->obj[1]->type = 0;
 	inventory->obj[1]->hp = -16;
 	inventory->obj[1]->dmg = 45;
 	inventory->obj[1]->armor = 85;
 	inventory->obj[1]->magic = -4;
 	inventory->obj[1]->name = "sword";
+	inventory->obj[2]->unlock = true;
+	inventory->obj[2]->pos.x = 2;
+	inventory->obj[2]->pos.y = 1;
+	inventory->obj[2]->type = 0;
+	inventory->obj[2]->hp = 166;
+	inventory->obj[2]->dmg = 454;
+	inventory->obj[2]->armor = 75;
+	inventory->obj[2]->magic = 54;
+	inventory->obj[2]->name = "knife";
 }
