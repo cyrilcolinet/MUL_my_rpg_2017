@@ -10,6 +10,8 @@
 void free_iterations(interact_t **it)
 {
 	for (int i = 0; it[i] != NULL; i++) {
+		for (int j = 0; j < 3; j++)
+			free(it[i]->msg[j]);
 		free(it[i]->msg);
 		free(it[i]);
 	}

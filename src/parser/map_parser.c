@@ -31,11 +31,19 @@ int parse_arenas_interactions(interact_t **it, config_setting_t *set)
 {
 	char *msg = NULL;
 
-	config_setting_lookup_string(set, "message", \
-	((const char **)&msg));
+	(*it)->msg = malloc(sizeof(char *) * 4);
+	(*it)->msg[3] = NULL;
 	if (parse_arena_rectangle_values(set, it) != 0)
 		return (-1);
-	(*it)->msg = my_strdup(msg);
+	config_setting_lookup_string(set, "message1",
+	((const char **)&msg));
+	(*it)->msg[0] = my_strdup(msg);
+	config_setting_lookup_string(set, "message2",
+	((const char **)&msg));
+	(*it)->msg[1] = my_strdup(msg);
+	config_setting_lookup_string(set, "message3",
+	((const char **)&msg));
+	(*it)->msg[2] = my_strdup(msg);
 	(*it)->in_zone = false;
 	(*it)->active = false;
 	return (0);
@@ -103,7 +111,6 @@ int parse_map(rpg_t *rpg)
 			return (-1);
 
 	}
-
 	rpg->map[count] = NULL;
 	config_destroy(&conf.cfg);
 	return (0);

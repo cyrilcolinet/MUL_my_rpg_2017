@@ -216,7 +216,7 @@ typedef struct equipement_t {
 	sfTexture	*texture;
 	bool		equiped;
 	bool		unlock;
-	int		type;//0=armor/1=weapon
+	int		type;
 	int		dmg;
 	int		armor;
 	int		hp;
@@ -234,8 +234,23 @@ typedef struct inventory_t {
 	sfVector2f	mouse;
 } inventory_t;
 
+typedef struct pnj_t  {
+	sfSprite	*sprite;
+	sfTexture	*texture;
+	sfIntRect	rec;
+	char		**dialogue;
+} pnj_t;
+
+typedef struct quest_t  {
+	sfRectangleShape *win;
+	pnj_t		**pnj;
+	bool		*unlock;
+	bool		*done;
+	int		id;
+} quest_t;
+
 typedef struct interact_t {
-	char 		*msg;
+	char 		**msg;
 	sfIntRect	rec;
 	bool		active;
 	bool		in_zone;
@@ -253,6 +268,7 @@ typedef struct player_t {
 	int 		level;
 	int 		skills;
 	inventory_t	*inventory;
+	quest_t		*quest;
 }	player_t;
 
 typedef struct map_t {

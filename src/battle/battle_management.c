@@ -7,6 +7,17 @@
 
 #include "rpg.h"
 
+static void display_message_skip(rpg_t *rpg, battle_t *battle)
+{
+	sfVector2f pos = {1400, 950};
+
+	sfText_setPosition(battle->text, pos);
+	sfText_setCharacterSize(battle->text, 40);
+	sfText_setColor(battle->text, sfWhite);
+	sfText_setString(battle->text, "Press 'N' pour passer le tour");
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+}
+
 void draw_all(rpg_t *rpg)
 {
 	if (rpg->battle->id == 0)
@@ -61,4 +72,6 @@ void battle_management(rpg_t *rpg, battle_t *battle)
 	draw_all(rpg);
 	display_hero(rpg, rpg->battle);
 	display_enemy(rpg, rpg->battle);
+	if (!rpg->battle->fight[battle->id]->enemy_turn)
+		display_message_skip(rpg, rpg->battle);
 }
