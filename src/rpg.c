@@ -30,16 +30,19 @@ int rpg_main(int ac, char **av)
 {
 	int status = check_arguments(ac, av);
 	rpg_t *rpg = NULL;
+	sfVector2f size = { 218, 208 };
 
 	if (status != -1)
 		return (status);
-
 	rpg = configure_struct();
 	rpg->texture = sfTexture_create(1920, 1080);
 	if (rpg == NULL)
 		return (84);
-
 	sfRenderWindow_setFramerateLimit(rpg->win, 60);
+	sfRectangleShape_setSize(rpg->shape, size);
+	sfRectangleShape_setFillColor(rpg->shape, sfTransparent);
+	sfRectangleShape_setOutlineColor(rpg->shape, sfWhite);
+	sfRectangleShape_setOutlineThickness(rpg->shape, 5);
 	status = rpg_game(rpg);
 	exit_game(rpg);
 	free(rpg);

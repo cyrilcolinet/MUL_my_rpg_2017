@@ -304,6 +304,8 @@ typedef struct rpg_t {
 	state_e		last_st;
 	sfText		*text;
 	sfClock		*clock;
+	sfRectangleShape *shape;
+	bool 		select_hovered;
 	int		map_id;
 	map_t		**map;
 	sound_t		*sounds;

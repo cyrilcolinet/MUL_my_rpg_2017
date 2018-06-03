@@ -69,5 +69,7 @@ void select_view(rpg_t *rpg)
 
 	sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	sfRenderWindow_drawText(rpg->win, rpg->text, NULL);
+	if (rpg->select_hovered)
+		sfRenderWindow_drawRectangleShape(rpg->win, rpg->shape, NULL);
 	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Selection");
 }
