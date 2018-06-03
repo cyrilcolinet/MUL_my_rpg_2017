@@ -19,7 +19,10 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 		//init_icone_spell(rpg->battle);
 		//parse_player(rpg);
 	}*/
-	// TODO: Reparser 
+	// TODO: Reparser
+	destroy_battle(rpg);
+	fill_struct_values(rpg);
+	destroy_player(rpg);
 
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;

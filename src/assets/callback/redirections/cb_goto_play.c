@@ -18,9 +18,13 @@ void cb_goto_play_view(rpg_t *rpg, button_t *btn)
 		return;
 	}
 
-	texture = ((rpg->player->sexe == 1) ? "man_nu_no" : "women_nu_no");
-	rpg->player->texture = get_texture(rpg, texture);
-	sfSprite_setTexture(rpg->player->sprite, rpg->player->texture, true);
+	if (rpg->state == gameSelect) {
+		texture = ((rpg->player->sexe == 1) ? "man_nu_no" :
+		"women_nu_no");
+		rpg->player->texture = get_texture(rpg, texture);
+		sfSprite_setTexture(rpg->player->sprite, rpg->player->texture,
+			true);
+	}
 	rpg->state = gameRun;
 	rpg->last_st = gameUnknown;
 }
