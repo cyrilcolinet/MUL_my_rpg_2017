@@ -50,6 +50,4 @@ void unequip_weapon_stat(battle_t *battle,
 		battle->hero->spell[i]->val -= inv->obj[nb]->magic;
 	inv->obj[nb]->equiped = false;
 	inv->obj[nb]->pos = find_free_slot(inv);
-	if (my_strcmp(inv->obj[nb]->name, "sword") == 0)
-		battle->hero->sword = false;
 }

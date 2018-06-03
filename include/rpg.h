@@ -168,6 +168,8 @@ void		swap_weapon_stat(battle_t *, equipement_t *, inventory_t *);
 void		unequip_weapon_stat(battle_t *, inventory_t *, int);
 void		unequip_armor_stat(battle_t *, inventory_t *, int);
 sfVector2f	find_free_slot(inventory_t *);
+void		change_texture(rpg_t *, player_t *,
+			hero_t *, inventory_t *);
 
 // play_view.c
 void		player_deplacement(rpg_t *);

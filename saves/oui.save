@@ -1,41 +1,41 @@
 save: {
 	name: "Oui_Cest_Moi";
-	hero_texture: "orc2";
-	sexe: 1;
+	hero_texture: "women_nu_no";
+	sexe: 2;
 	pos: {
 		map: 0;
 		pos_x: 48;
 		pos_y: 672;
 	};
-	level: 34;
+	level: 3;
 	heal: 120;
-	damage: 40;
+	damage: 10;
 	armor: 8;
 	skills: 0;
 	sword: false;
 	spells: ({
 		name: "heal";
 		unlocked: true;
-		value: 100;
-		level: 3;
+		value: 60;
+		level: 1;
 	},
 	{
 		name: "fire";
-		unlocked: false;
-		value: 100;
-		level: 3;
+		unlocked: true;
+		value: 80;
+		level: 1;
 	},
 	{
 		name: "ice";
 		unlocked: true;
-		value: 100;
-		level: 3;
+		value: 50;
+		level: 1;
 	},
 	{
 		name: "storm";
 		unlocked: true;
-		value: 100;
-		level: 3;
+		value: 50;
+		level: 1;
 	});
 	amenities: ({
 		name: "sword";

@@ -97,6 +97,7 @@ SRC_FILES		= 	main.c 							\
 				inventory/equip_obj_management.c			\
 				inventory/swap_armor_stat.c				\
 				inventory/swap_weapon_stat.c				\
+				inventory/change_texture.c				\
 				inventory/find_free_slot.c				\
 				views/menu_views.c 					\
 				views/load_view.c 					\

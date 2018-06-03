@@ -92,6 +92,8 @@ void inventory_view(rpg_t *rpg)
 	if (rpg->capture == NULL)
 		return;
 
+	change_texture(
+	rpg, rpg->player, rpg->battle->hero, rpg->player->inventory);
 	sfRenderWindow_drawSprite(rpg->win, rpg->capture, NULL);
 	sfRenderWindow_setTitle(rpg->win, "Legacy Of The Kek | Iventory");
 	draw_inventory(rpg, rpg->player->inventory);

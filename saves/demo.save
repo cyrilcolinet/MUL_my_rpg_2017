@@ -1,41 +1,41 @@
 save: {
 	name: "Demo";
-	hero_texture: "man_fer_no";
+	hero_texture: "man_nu_no";
 	sexe: 1;
 	pos: {
 		map: 0;
 		pos_x: 48;
 		pos_y: 672;
 	};
-	level: 23;
+	level: 5;
 	heal: 120;
-	damage: 40;
+	damage: 10;
 	armor: 8;
 	skills: 0;
 	sword: false;
 	spells: ({
 		name: "heal";
-		unlocked: false;
-		value: 16;
-		level: 3;
+		unlocked: true;
+		value: 60;
+		level: 1;
 	},
 	{
 		name: "fire";
-		unlocked: false;
-		value: 16;
-		level: 3;
+		unlocked: true;
+		value: 80;
+		level: 1;
 	},
 	{
 		name: "ice";
 		unlocked: true;
-		value: 16;
-		level: 3;
+		value: 50;
+		level: 1;
 	},
 	{
 		name: "storm";
 		unlocked: true;
-		value: 16;
-		level: 3;
+		value: 50;
+		level: 1;
 	});
 	amenities: ({
 		name: "sword";
