@@ -12,7 +12,7 @@ void ev_selection(rpg_t *rpg, sfEvent *event)
 	int i = -1;
 	bool reloop = false;
 	bool (*evt[])(rpg_t *, sfEvent *) = {
-		ev_selection_text, ev_selection_sexe, NULL 
+		ev_selection_text, ev_selection_sexe, NULL
 	};
 
 	while (evt[++i]) {

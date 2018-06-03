@@ -62,7 +62,6 @@ void change_texture(rpg_t *rpg, player_t *player,
 		str = my_strdup("women_");
 	str = check_armor(inv, str);
 	str = check_weapon(inv, str, hero);
-	printf("%s\n", str);
 	player->texture = get_texture(rpg, str);
 	sfSprite_setTexture(player->sprite, player->texture, sfTrue);
 	sfSprite_setTexture(hero->form, player->texture, sfTrue);
