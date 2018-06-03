@@ -32,5 +32,6 @@ bool end_battle(rpg_t *rpg, battle_t *battle)
 			return (false);
 	}
 	end_battle_display(rpg, battle);
+	rpg->player->quest->id++;
 	return (true);
 }

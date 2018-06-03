@@ -63,8 +63,8 @@ void change_texture(rpg_t *rpg, player_t *player,
 	str = check_armor(inv, str);
 	str = check_weapon(inv, str, hero);
 	player->texture = get_texture(rpg, str);
-	sfSprite_setTexture(player->sprite, player->texture, sfTrue);
 	sfSprite_setTexture(hero->form, player->texture, sfTrue);
+	sfSprite_setTexture(player->sprite, player->texture, sfTrue);
 	sfSprite_setTextureRect(player->sprite, player->rec);
 	sfSprite_setTextureRect(hero->form, hero->rec);
 	free(str);
