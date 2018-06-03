@@ -159,6 +159,8 @@ char *check_stat_magic_value(inventory_t *, battle_t *, equipement_t *, int);
 void		equip_obj_management(rpg_t *, inventory_t *);
 void	swap_armor_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
 void	swap_weapon_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
+void	unequip_weapon_stat(rpg_t *, battle_t*, inventory_t *, int);
+void	unequip_armor_stat(rpg_t *, battle_t*, inventory_t *, int);
 
 
 // play_view.c
