@@ -151,6 +151,11 @@ void		skills_view(rpg_t *);
 //inventory_view.c
 void		inventory_view(rpg_t *);
 void		draw_stat_player(rpg_t *, battle_t*, hero_t*);
+void		draw_obj_stat(rpg_t *, inventory_t *);
+char	*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
+char	*check_stat_dmg_value(inventory_t *, battle_t *, equipement_t *);
+char	*check_stat_armor_value(inventory_t *, battle_t *, equipement_t *);
+char *check_stat_magic_value(inventory_t *, battle_t *, equipement_t *, int);
 
 // play_view.c
 void		player_deplacement(rpg_t *);

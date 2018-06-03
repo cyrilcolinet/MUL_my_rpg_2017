@@ -7,14 +7,27 @@
 
 # include "rpg.h"
 
+static void draw_slot(rpg_t *rpg, inventory_t *inv, int i)
+{
+	sfRectangleShape_setFillColor(inv->slot[i], sfBlue);
+	for (int j = 0; j < 4; j++) {
+		if (inv->obj[j]->unlock
+		&& inv->obj[j]->pos.x + inv->obj[j]->pos.y * 4 == i) {
+			sfRectangleShape_setFillColor(inv->slot[i], sfYellow);
+		}
+	}
+	sfRenderWindow_drawRectangleShape(rpg->win, inv->slot[i], NULL);
+}
+
 static void draw_inventory(rpg_t *rpg, inventory_t *inv)
 {
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->win, NULL);
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->armor, NULL);
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->weapon, NULL);
 	for (int i = 0; i < 12; i++)
-		sfRenderWindow_drawRectangleShape(rpg->win, inv->slot[i], NULL);
+		draw_slot(rpg, inv, i);
 	draw_stat_player(rpg, rpg->battle, rpg->battle->hero);
+	draw_obj_stat(rpg, inv);
 }
 
 void inventory_view(rpg_t *rpg)

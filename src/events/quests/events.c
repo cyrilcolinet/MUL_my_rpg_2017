@@ -9,5 +9,4 @@
 
 void ev_quests(rpg_t *rpg, sfEvent *event)
 {
-	
 }
