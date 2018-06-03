@@ -216,6 +216,7 @@ typedef struct equipement_t {
 	sfTexture	*texture;
 	bool		equiped;
 	bool		unlock;
+	int		type;//0=armor/1=weapon
 	int		dmg;
 	int		armor;
 	int		hp;

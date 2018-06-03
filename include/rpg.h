@@ -150,7 +150,12 @@ void		skills_view(rpg_t *);
 
 //inventory_view.c
 void		inventory_view(rpg_t *);
-void		draw_stat_player(rpg_t *, battle_t*, hero_t*);
+void		draw_stat_player(rpg_t *, battle_t*);
+void		draw_obj_stat(rpg_t *, inventory_t *);
+char	*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
+char	*check_stat_dmg_value(inventory_t *, battle_t *, equipement_t *);
+char	*check_stat_armor_value(inventory_t *, battle_t *, equipement_t *);
+char *check_stat_magic_value(inventory_t *, battle_t *, equipement_t *, int);
 
 // play_view.c
 void		player_deplacement(rpg_t *);
@@ -223,10 +228,11 @@ int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);
 bool		save_loader(rpg_t *, int);
-bool		player_parser(rpg_t *, char *name);
+bool		player_parser(rpg_t *, char *);
 void 		load_player_datas(config_setting_t *, rpg_t *);
 void		load_player_inventory(rpg_t *);
+void		load_player_equipment(rpg_t *, inventory_t *);
 void 		load_hero_datas(config_setting_t *, rpg_t *);
-void 		load_hero_spells_icons(rpg_t *rpg);
+void 		load_hero_spells_icons(rpg_t *);
 
 # endif

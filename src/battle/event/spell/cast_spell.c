@@ -25,8 +25,10 @@ static void select_simple_pos(battle_t *battle, int id)
 		+ abs(i / 12 - battle->hero->pos.y) <= 5)) {
 			battle->hero->spell[id]->pos.x = i % 12;
 			battle->hero->spell[id]->pos.y = i / 12;
+			return;
 		}
 	}
+	battle->hero->spell[id]->cast = false;
 }
 
 static void select_double_pos2(battle_t *battle, sfVector2f pos,
@@ -77,9 +79,10 @@ void cast_spell_attack(battle_t *battle)
 	int id = battle->hero->spell_id;
 
 	if (id == 0 || id == 1) {
+		battle->hero->spell[id]->cast = true;
 		select_simple_pos(battle, id);
 	} else if (id == 2 || id == 3) {
+		battle->hero->spell[id]->cast = true;
 		select_double_pos(battle, id);
 	}
-	battle->hero->spell[id]->cast = true;
 }

@@ -31,6 +31,8 @@ static void left_click(battle_t *battle)
 			select_or_unselect(battle, i);
 	}
 	for (int i = 0; i < 4; i++) {
+		if (!battle->hero->spell[i]->unlock)
+			continue;
 		pos = sfRectangleShape_getPosition
 			(battle->hero->spell[i]->icone);
 		if ((battle->mouse.x > pos.x && battle->mouse.x < pos.x + 50)

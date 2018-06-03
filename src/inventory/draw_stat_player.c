@@ -89,18 +89,28 @@ static void draw_hero(rpg_t *rpg, player_t *player)
 	sfSprite_setScale(player->sprite, scale);
 	sfSprite_setPosition(player->sprite, old_pos);
 	sfSprite_setTextureRect(player->sprite, player->rec);
+	draw_icone(rpg, rpg->battle, rpg->battle->hero);
+	draw_stat_value(rpg, rpg->battle, rpg->battle->hero);
 }
 
-void draw_stat_player(rpg_t *rpg, battle_t *battle, hero_t *hero)
+void draw_stat_player(rpg_t *rpg, battle_t *battle)
 {
 	sfVector2f pos = {300, 260};
+	char *str = NULL;
 
-	draw_icone(rpg, battle, hero);
-	draw_stat_value(rpg, battle, hero);
 	draw_hero(rpg, rpg->player);
 	sfText_setCharacterSize(battle->text, 40);
 	sfText_setPosition(battle->text, pos);
 	sfText_setString(battle->text, rpg->player->name);
-	sfRenderWindow_drawText(
-		rpg->win, battle->text, NULL);
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+	pos.x += 300;
+	sfText_setPosition(battle->text, pos);
+	sfText_setString(battle->text, "LVL:");
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
+	str = my_itoa(rpg->player->level);
+	sfText_setString(battle->text, str);
+	free(str);
+	pos.x += 100;
+	sfText_setPosition(battle->text, pos);
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
 }
