@@ -11,12 +11,14 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
-	destroy_battle(rpg);
-	fill_struct_values(rpg);
-	destroy_player(rpg);
+	if (rpg->state == gameRun || rpg->state == gamePause) {
+		destroy_battle(rpg);
+		fill_struct_values(rpg);
+		destroy_player(rpg);
+		rpg->player = NULL;
+		rpg->battle->hero = NULL;
+	}
 
-	rpg->player = NULL;
-	rpg->battle->hero = NULL;
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	reset_to_normal_rect(rpg);
