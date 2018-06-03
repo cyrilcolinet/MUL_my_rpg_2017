@@ -74,6 +74,7 @@ SRC_FILES		= 	main.c 							\
 				player/talk_to_soldier.c				\
 				player/talk_to_totem.c					\
 				player/talk_to_trader.c					\
+				player/display_message.c				\
 				player/check_valid_deplacement.c			\
 				parser/parser.c 					\
 				parser/battle_fights_parser.c 				\
@@ -81,6 +82,7 @@ SRC_FILES		= 	main.c 							\
 				parser/parse_map_hitboxes.c 				\
 				parser/player/player_parser.c				\
 				parser/player/load_player_datas.c 			\
+				parser/player/load_player_quest.c 			\
 				parser/player/load_player_inventory.c 			\
 				parser/player/load_player_equipment.c 			\
 				parser/player/load_hero_datas.c 			\

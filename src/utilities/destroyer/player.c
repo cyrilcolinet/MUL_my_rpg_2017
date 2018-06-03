@@ -7,6 +7,20 @@
 
 #include "rpg.h"
 
+static void destroy_quest(quest_t *quest)
+{
+	sfRectangleShape_destroy(quest->win);
+	free(quest->unlock);
+	free(quest->done);
+	for (int i = 0; i < 3; i++) {
+		my_freetab(quest->pnj[i]->dialogue);
+		sfSprite_destroy(quest->pnj[i]->sprite);
+		free(quest->pnj[i]);
+	}
+	free(quest->pnj);
+	free(quest);
+}
+
 static void destroy_equipement(inventory_t *inv)
 {
 	for (int i = 0; i < 4; i++) {
@@ -34,5 +48,6 @@ void destroy_player(rpg_t *rpg)
 	free(rpg->player->name);
 	sfSprite_destroy(rpg->player->sprite);
 	destroy_inventory(rpg->player->inventory);
+	destroy_quest(rpg->player->quest);
 	free(rpg->player);
 }

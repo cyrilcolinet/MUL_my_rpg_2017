@@ -13,7 +13,6 @@ bool player_parser(rpg_t *rpg, char *save_name)
 
 	if (conf.error || conf.set == NULL)
 		return (false);
-
 	rpg->player = malloc(sizeof(player_t));
 	rpg->battle->hero = malloc(sizeof(hero_t));
 	if (!rpg->player || !rpg->battle->hero)
@@ -21,12 +20,12 @@ bool player_parser(rpg_t *rpg, char *save_name)
 	rpg->player->name = my_strconfigure(19);
 	if (rpg->player->name == NULL)
 		return (false);
-
 	load_player_datas(conf.set, rpg);
 	load_hero_datas(conf.set, rpg);
 	load_hero_spells_icons(rpg);
 	load_player_inventory(rpg);
 	load_player_equipment(rpg, rpg->player->inventory);
+	load_player_quest(rpg);
 	config_destroy(&conf.cfg);
 	return (true);
 }
