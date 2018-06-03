@@ -17,7 +17,7 @@ static int is_armor_equiped(inventory_t *inv)
 	return (-1);
 }
 
-void swap_armor_stat(rpg_t *rpg, battle_t *battle,
+void swap_armor_stat(battle_t *battle,
 		equipement_t *obj, inventory_t *inv)
 {
 	int nb = is_armor_equiped(inv);
@@ -40,7 +40,7 @@ void swap_armor_stat(rpg_t *rpg, battle_t *battle,
 	}
 }
 
-void unequip_armor_stat(rpg_t *rpg, battle_t *battle,
+void unequip_armor_stat(battle_t *battle,
 	inventory_t *inv, int nb)
 {
 	battle->hero->hp -= inv->obj[nb]->hp;

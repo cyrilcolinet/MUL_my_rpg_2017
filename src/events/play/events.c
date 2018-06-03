@@ -7,7 +7,7 @@
 
 # include "rpg.h"
 
-static void inventory_capture_img(rpg_t *rpg)
+static void capture_img(rpg_t *rpg)
 {
 	sfImage *img = sfRenderWindow_capture(rpg->win);
 
@@ -28,8 +28,12 @@ void ev_run(rpg_t *rpg, sfEvent *event)
 		if (event->key.code == sfKeyEscape)
 			cb_goto_pause_view(rpg, NULL);
 		if (event->key.code == sfKeyI && !rpg->battle->run) {
-			inventory_capture_img(rpg);
+			capture_img(rpg);
 			cb_goto_custom_view(rpg, gameInventory);
+		}
+		if (event->key.code == sfKeyQ && !rpg->battle->run) {
+			capture_img(rpg);
+			cb_goto_custom_view(rpg, gameQuests);
 		}
 	}
 	if (rpg->battle->run)

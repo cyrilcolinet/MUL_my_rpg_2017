@@ -7,16 +7,16 @@
 
 #include "rpg.h"
 
-static void swap_obj_stat(rpg_t *rpg, battle_t *battle,
+static void swap_obj_stat(battle_t *battle,
 	equipement_t *obj, inventory_t *inv)
 {
 	if (obj->type == 0) {
 		obj->pos = sfRectangleShape_getPosition(inv->armor);
-		swap_armor_stat(rpg, battle, obj, inv);
+		swap_armor_stat(battle, obj, inv);
 		obj->equiped = true;
 	} else if (obj->type == 1) {
 		obj->pos = sfRectangleShape_getPosition(inv->weapon);
-		swap_weapon_stat(rpg, battle, obj, inv);
+		swap_weapon_stat(battle, obj, inv);
 		if (my_strcmp(obj->name, "sword") == 0)
 			battle->hero->sword = true;
 		obj->equiped = true;
@@ -27,14 +27,14 @@ static void check_weapon(rpg_t *rpg, inventory_t *inv, int j)
 {
 	if (inv->obj[j]->type == 1 && inv->obj[j]->unlock
 	&& inv->obj[j]->equiped)
-		unequip_weapon_stat(rpg, rpg->battle, inv, j);
+		unequip_weapon_stat(rpg->battle, inv, j);
 }
 
 static void check_armor(rpg_t *rpg, inventory_t *inv, int j)
 {
 	if (inv->obj[j]->type == 0 && inv->obj[j]->unlock
 	&& inv->obj[j]->equiped)
-		unequip_armor_stat(rpg, rpg->battle, inv, j);
+		unequip_armor_stat(rpg->battle, inv, j);
 }
 
 static void check_obj_slot(rpg_t *rpg, inventory_t *inv, int i)
@@ -42,7 +42,7 @@ static void check_obj_slot(rpg_t *rpg, inventory_t *inv, int i)
 	for (int j = 0; j < 4; j++) {
 		if (inv->obj[j]->unlock
 		&& inv->obj[j]->pos.x + inv->obj[j]->pos.y * 4 == i)
-			swap_obj_stat(rpg, rpg->battle, inv->obj[j], inv);
+			swap_obj_stat(rpg->battle, inv->obj[j], inv);
 	}
 }
 

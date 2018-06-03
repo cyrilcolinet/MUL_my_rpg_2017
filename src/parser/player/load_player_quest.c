@@ -70,7 +70,14 @@ static quest_t *configure_quest(void)
 
 void load_player_quest(rpg_t *rpg)
 {
+	sfVector2f pos = {210, 140};
+
 	rpg->player->quest = configure_quest();
 	configure_pnj_quest(rpg->player->quest);
 	rpg->player->quest->id = 0;
+	sfRectangleShape_setPosition(rpg->player->quest->win, pos);
+	pos.x = 1400;
+	pos.y = 800;
+	sfRectangleShape_setSize(rpg->player->quest->win, pos);
+	sfRectangleShape_setFillColor(rpg->player->quest->win, sfWhite);
 }
