@@ -85,6 +85,8 @@ SRC_FILES		= 	main.c 							\
 				parser/player/load_player_equipment.c 			\
 				parser/player/load_hero_datas.c 			\
 				parser/player/load_hero_spells_icons.c 			\
+				parser/player/default/default_player.c 			\
+				parser/player/default/default_hero_datas.c 		\
 				inventory/draw_stat_player.c				\
 				inventory/draw_obj_stat.c				\
 				inventory/draw_unequip_message.c			\
