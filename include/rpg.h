@@ -153,15 +153,20 @@ void		inventory_view(rpg_t *);
 void		draw_stat_player(rpg_t *, battle_t*);
 void		draw_obj_stat(rpg_t *, inventory_t *);
 void		draw_unequip_message(rpg_t *, inventory_t *);
-char	*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
-char	*check_stat_dmg_value(inventory_t *, battle_t *, equipement_t *);
-char	*check_stat_armor_value(inventory_t *, battle_t *, equipement_t *);
-char *check_stat_magic_value(inventory_t *, battle_t *, equipement_t *, int);
+char		*check_stat_hp_value(inventory_t *, battle_t *, equipement_t *);
+char		*check_stat_dmg_value(inventory_t *, battle_t *,
+			equipement_t *);
+char		*check_stat_armor_value(inventory_t *, battle_t *,
+			equipement_t *);
+char 		*check_stat_magic_value(inventory_t *, battle_t *,
+			equipement_t *, int);
 void		equip_obj_management(rpg_t *, inventory_t *);
-void	swap_armor_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
-void	swap_weapon_stat(rpg_t *, battle_t*, equipement_t *, inventory_t *);
-void	unequip_weapon_stat(rpg_t *, battle_t*, inventory_t *, int);
-void	unequip_armor_stat(rpg_t *, battle_t*, inventory_t *, int);
+void		swap_armor_stat(rpg_t *, battle_t*, equipement_t *,
+			inventory_t *);
+void		swap_weapon_stat(rpg_t *, battle_t*, equipement_t *,
+			inventory_t *);
+void		unequip_weapon_stat(rpg_t *, battle_t*, inventory_t *, int);
+void		unequip_armor_stat(rpg_t *, battle_t*, inventory_t *, int);
 sfVector2f	find_free_slot(inventory_t *);
 
 // play_view.c
