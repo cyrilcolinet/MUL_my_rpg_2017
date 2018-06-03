@@ -14,7 +14,6 @@ int rpg_game(rpg_t *rpg)
 
 	if (status != 0)
 		return (status);
-
 	while (sfRenderWindow_isOpen(rpg->win)) {
 		poll_event(rpg, &event);
 		sfRenderWindow_clear(rpg->win, sfBlack);
@@ -22,7 +21,6 @@ int rpg_game(rpg_t *rpg)
 		draw_buttons(rpg);
 		sfRenderWindow_display(rpg->win);
 	}
-
 	return (status);
 }
 

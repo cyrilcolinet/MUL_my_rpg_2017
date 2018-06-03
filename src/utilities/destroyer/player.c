@@ -10,10 +10,7 @@
 static void destroy_quest(quest_t *quest)
 {
 	sfRectangleShape_destroy(quest->win);
-	free(quest->unlock);
-	free(quest->done);
 	for (int i = 0; i < 3; i++) {
-		my_freetab(quest->pnj[i]->dialogue);
 		sfSprite_destroy(quest->pnj[i]->sprite);
 		free(quest->pnj[i]);
 	}

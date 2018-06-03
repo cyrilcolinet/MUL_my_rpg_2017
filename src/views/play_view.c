@@ -7,6 +7,25 @@
 
 # include "rpg.h"
 
+void display_pnj(rpg_t *rpg, quest_t *quest)
+{
+	for (int i = 0; i < 3; i++) {
+		sfSprite_setTexture(
+			quest->pnj[i]->sprite, quest->pnj[i]->texture, sfTrue);
+		sfSprite_setTextureRect(
+		quest->pnj[i]->sprite, quest->pnj[i]->rec);
+	}
+	if (rpg->map_id == 0) {
+		sfRenderWindow_drawSprite(
+		rpg->win, quest->pnj[0]->sprite, NULL);
+	} else if (rpg->map_id == 1) {
+		sfRenderWindow_drawSprite(
+		rpg->win, quest->pnj[1]->sprite, NULL);
+		sfRenderWindow_drawSprite(
+		rpg->win, quest->pnj[2]->sprite, NULL);
+	}
+}
+
 void display_map_content(rpg_t *rpg)
 {
 	map_t *map = rpg->map[rpg->map_id];
@@ -17,6 +36,7 @@ void display_map_content(rpg_t *rpg)
 		if (sprite)
 			sfRenderWindow_drawSprite(rpg->win, sprite, NULL);
 	}
+	display_pnj(rpg, rpg->player->quest);
 	player_interaction(rpg);
 	sfRenderWindow_drawSprite(rpg->win, rpg->player->sprite, NULL);
 }
