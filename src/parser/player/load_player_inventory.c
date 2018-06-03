@@ -25,14 +25,15 @@ static inventory_t *configure_inventory(void)
 	return (inventory);
 }
 
-static void init_skin_win(inventory_t *inv)
+static void init_skin_win(rpg_t *rpg, inventory_t *inv)
 {
-	sfVector2f pos = {260, 240};
-	sfVector2f size = {1500, 600};
+	sfVector2f pos = {240, 240};
+	sfVector2f size = {1500, 650};
+	sfTexture *texture = get_texture(rpg, "old_paper");
 
 	sfRectangleShape_setPosition(inv->win, pos);
 	sfRectangleShape_setSize(inv->win, size);
-	sfRectangleShape_setFillColor(inv->win, sfWhite);
+	sfRectangleShape_setTexture(inv->win, texture, true);
 	pos.x = 810;
 	pos.y = 340;
 	size.x = size.y = 100;
@@ -75,7 +76,7 @@ static void init_weapon_armor(inventory_t *inv)
 void load_player_inventory(rpg_t *rpg)
 {
 	rpg->player->inventory = configure_inventory();
-	init_skin_win(rpg->player->inventory);
+	init_skin_win(rpg, rpg->player->inventory);
 	init_slot(rpg->player->inventory);
 	init_weapon_armor(rpg->player->inventory);
 }

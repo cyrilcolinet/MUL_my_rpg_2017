@@ -47,16 +47,17 @@ static quest_t *configure_quest(void)
 
 void load_player_quest(rpg_t *rpg)
 {
-	sfVector2f pos = {210, 140};
+	sfVector2f pos = {190, 130};
+	sfTexture *texture = get_texture(rpg, "old_paper");
 
 	rpg->player->quest = configure_quest();
 	configure_pnj_quest(rpg->player->quest);
 	rpg->player->quest->id = 0;
 	sfRectangleShape_setPosition(rpg->player->quest->win, pos);
-	pos.x = 1400;
-	pos.y = 800;
+	pos.x = 1420;
+	pos.y = 850;
 	sfRectangleShape_setSize(rpg->player->quest->win, pos);
-	sfRectangleShape_setFillColor(rpg->player->quest->win, sfWhite);
+	sfRectangleShape_setTexture(rpg->player->quest->win, texture, true);
 	rpg->player->quest->pnj[0]->texture = get_texture(rpg, "paysan");
 	rpg->player->quest->pnj[1]->texture = get_texture(rpg, "soldat1");
 	rpg->player->quest->pnj[2]->texture = get_texture(rpg, "soldat2");

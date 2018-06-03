@@ -24,7 +24,7 @@ void perform_backspace(rpg_t *rpg, sfTextEvent type)
 {
 	int i = 18;
 
-	if (type.unicode == 8) {
+	if (type.unicode == 8 && my_strlen(rpg->player->name) > 0) {
 		while (!rpg->player->name[i])
 			i--;
 		rpg->player->name[i] = 0;

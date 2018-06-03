@@ -68,7 +68,7 @@ static void draw_quest_status(rpg_t *rpg, quest_t *quest)
 	if (quest->id < 9) {
 	sfText_setPosition(rpg->text, pos);
 	sfText_setColor(rpg->text, sfBlue);
-	sfText_setString(rpg->text, "En cour");
+	sfText_setString(rpg->text, "En cours");
 	sfRenderWindow_drawText(rpg->win, rpg->text, NULL);
 	}
 }
@@ -81,7 +81,7 @@ static void draw_quest(rpg_t *rpg, quest_t *quest)
 	sfText_setCharacterSize(rpg->text, 55);
 	sfText_setColor(rpg->text, sfBlack);
 	sfText_setPosition(rpg->text, pos);
-	sfText_setString(rpg->text, "Journal de quete");
+	sfText_setString(rpg->text, "Journal de quetes");
 	sfRenderWindow_drawText(rpg->win, rpg->text, NULL);
 	sfText_setCharacterSize(rpg->text, 32);
 	if (quest->id > 9)
