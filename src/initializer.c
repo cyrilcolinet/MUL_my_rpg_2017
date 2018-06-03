@@ -46,6 +46,7 @@ bool configure_internal_battle(rpg_t *rpg)
 {
 	sfVector2f pos = { 1600, 50 };
 
+	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
 	for (int i = 0; i < 10; i++) {
 		rpg->battle->map[i] = malloc(sizeof(int) * 12);
 		if (rpg->battle->map[i] == NULL)
@@ -55,7 +56,6 @@ bool configure_internal_battle(rpg_t *rpg)
 			rpg->battle->map[i][j] = 0;
 	}
 
-	rpg->battle->text = create_text(rpg->font, "Interface", pos, sfWhite);
 	rpg->battle->run = false;
 
 	if (configure_battle_fights(rpg) != 0)
@@ -99,7 +99,6 @@ rpg_t *configure_struct(void)
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	rpg->win = sfRenderWindow_create(mode, title, sfClose, NULL);
-	sfRenderWindow_setFramerateLimit(rpg->win, 60);
 	rpg->player = NULL;
 	rpg->clock = sfClock_create();
 	rpg->options.music_vol = 0;

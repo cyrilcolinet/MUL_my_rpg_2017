@@ -7,48 +7,56 @@
 
 # include "rpg.h"
 
-void free_fight(battle_t *battle, int n)
+void destroy_figth(fight_t *fight)
 {
 	for (int i = 0; i < 120; i++)
-		sfRectangleShape_destroy(battle->fight[n]->map[i]);
-	free(battle->fight[n]->map);
-	for (int i = 0; i < battle->fight[n]->number_enemy; i++) {
-		sfSprite_destroy(battle->fight[n]->enemy[i]->form);
-		sfRectangleShape_destroy(battle->fight[n]->enemy[i]->frame);
-		free(battle->fight[n]->enemy[i]);
+		sfRectangleShape_destroy(fight->map[i]);
+	free(fight->map);
+
+	for (int i = 0; i < fight->number_enemy; i++) {
+		if (fight->
+			enemy[i]->
+			form)
+			sfSprite_destroy(fight->enemy[i]->form);
+		sfRectangleShape_destroy(fight->enemy[i]->frame);
+		free(fight->enemy[i]);
 	}
 
-	free(battle->fight[n]->enemy);
-	free(battle->fight[n]);
+	free(fight->enemy);
+	free(fight);
 }
 
-void free_hero_spells(rpg_t *rpg)
+void destroy_hero_values(hero_t *hero)
 {
+	sfSprite_destroy(hero->form);
+
 	for (int i = 0; i < 4; i++) {
-		if (rpg->battle->hero->spell[i]->form != NULL)
-			sfSprite_destroy(rpg->battle->hero->spell[i]->form);
-		if (rpg->battle->hero->spell[i]->texture != NULL)
-			sfTexture_destroy(rpg->battle->hero->spell[i]->texture);
-		sfRectangleShape_destroy(rpg->battle->hero->spell[i]->icone);
-		free(rpg->battle->hero->spell[i]);
+		if (hero->spell[i]->form != NULL)
+			sfSprite_destroy(hero->spell[i]->form);
+		if (hero->spell[i]->texture != NULL)
+			sfTexture_destroy(hero->spell[i]->texture);
+		sfRectangleShape_destroy(hero->spell[i]->icone);
+		free(hero->spell[i]);
 	}
-	free(rpg->battle->hero->spell);
+
+	free(hero->spell);
+	free(hero);
 }
 
 void destroy_battle(rpg_t *rpg)
 {
 	for (int i = 0; i < rpg->battle->number_fight; i++)
-		free_fight(rpg->battle, i);
+		destroy_figth(rpg->battle->fight[i]);
 	free(rpg->battle->fight);
-	sfSprite_destroy(rpg->battle->hero->form);
+
+	if (!rpg->battle->hero)
+		destroy_hero_values(rpg->battle->hero);
 	sfText_destroy(rpg->battle->text);
 	sfClock_destroy(rpg->battle->clock);
-//	free_hero_spells(rpg);
-	free(rpg->battle->hero);
+
 	for (int i = 0; i < 10; i++)
 		free(rpg->battle->map[i]);
 	free(rpg->battle->map);
 	sfRectangleShape_destroy(rpg->battle->icone);
 	sfRectangleShape_destroy(rpg->battle->background);
-	free(rpg->battle->texture);
 }
