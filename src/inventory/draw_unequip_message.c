@@ -28,7 +28,8 @@ void draw_unequip_message(rpg_t *rpg, inventory_t *inv)
 	if (!is_in_zone(inv))
 		return;
 	sfText_setColor(rpg->battle->text, sfBlack);
-	sfText_setString(rpg->battle->text, "Press 'E' pour desequiper l'objet");
+	sfText_setString(
+	rpg->battle->text, "Press 'E' pour desequiper l'objet");
 	sfText_setCharacterSize(rpg->battle->text, 40);
 	sfText_setPosition(rpg->battle->text, pos);
 	sfRenderWindow_drawText(rpg->win, rpg->battle->text, NULL);
