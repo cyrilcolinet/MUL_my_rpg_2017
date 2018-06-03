@@ -11,19 +11,12 @@ void cb_goto_main_view(rpg_t *rpg, button_t *btn)
 {
 	(void)btn;
 
-	/*if (rpg->state == gamePause) {
-		free_battle(rpg);
-		sfSprite_destroy(rpg->player->sprite);
-		configure_internal_struct(rpg);
-		//configure_battle_characters(rpg);
-		//init_icone_spell(rpg->battle);
-		//parse_player(rpg);
-	}*/
-	// TODO: Reparser
 	destroy_battle(rpg);
 	fill_struct_values(rpg);
 	destroy_player(rpg);
 
+	rpg->player = NULL;
+	rpg->battle->hero = NULL;
 	rpg->state = gameWait;
 	rpg->last_st = gameUnknown;
 	reset_to_normal_rect(rpg);

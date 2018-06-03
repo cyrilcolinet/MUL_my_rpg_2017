@@ -33,8 +33,6 @@ void destroy_hero_values(hero_t *hero)
 	for (int i = 0; i < 4; i++) {
 		if (hero->spell[i]->form != NULL)
 			sfSprite_destroy(hero->spell[i]->form);
-		if (hero->spell[i]->texture != NULL)
-			sfTexture_destroy(hero->spell[i]->texture);
 		sfRectangleShape_destroy(hero->spell[i]->icone);
 		free(hero->spell[i]);
 	}
@@ -49,7 +47,7 @@ void destroy_battle(rpg_t *rpg)
 		destroy_figth(rpg->battle->fight[i]);
 	free(rpg->battle->fight);
 
-	if (!rpg->battle->hero)
+	if (rpg->battle->hero != NULL)
 		destroy_hero_values(rpg->battle->hero);
 	sfText_destroy(rpg->battle->text);
 	sfClock_destroy(rpg->battle->clock);
