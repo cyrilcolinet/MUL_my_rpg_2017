@@ -37,6 +37,7 @@ void		event_player_interaction(rpg_t *, sfEvent *);
 
 // events/selection
 bool 		ev_selection_text(rpg_t *, sfEvent *);
+bool 		ev_selection_sexe(rpg_t *, sfEvent *);
 void 		ev_run(rpg_t *, sfEvent *);
 void 		ev_selection(rpg_t *, sfEvent *);
 void 		ev_inventory(rpg_t *, sfEvent *);

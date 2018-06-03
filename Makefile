@@ -55,6 +55,7 @@ SRC_FILES		= 	main.c 							\
 				events/play/event_interaction.c				\
 				events/selection/events.c				\
 				events/selection/text.c 				\
+				events/selection/hover_player_sexe.c 			\
 				events/inventory/events.c 				\
 				events/quests/events.c					\
 				events/skills/events.c 					\
