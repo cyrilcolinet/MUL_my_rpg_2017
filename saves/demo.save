@@ -7,7 +7,7 @@ save: {
 		pos_x: 48;
 		pos_y: 672;
 	};
-	level: 34;
+	level: 23;
 	heal: 120;
 	damage: 40;
 	armor: 8;

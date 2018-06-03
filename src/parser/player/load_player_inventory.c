@@ -7,7 +7,7 @@
 
 #include "rpg.h"
 
-static inventory_t *configure_inventory(player_t *player)
+static inventory_t *configure_inventory(void)
 {
 	inventory_t *inventory = malloc(sizeof(inventory_t));
 
@@ -74,7 +74,7 @@ static void init_weapon_armor(inventory_t *inv)
 
 void load_player_inventory(rpg_t *rpg)
 {
-	rpg->player->inventory = configure_inventory(rpg->player);
+	rpg->player->inventory = configure_inventory();
 	init_skin_win(rpg->player->inventory);
 	init_slot(rpg->player->inventory);
 	init_weapon_armor(rpg->player->inventory);

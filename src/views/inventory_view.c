@@ -26,7 +26,7 @@ static void draw_inventory(rpg_t *rpg, inventory_t *inv)
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->weapon, NULL);
 	for (int i = 0; i < 12; i++)
 		draw_slot(rpg, inv, i);
-	draw_stat_player(rpg, rpg->battle, rpg->battle->hero);
+	draw_stat_player(rpg, rpg->battle);
 	draw_obj_stat(rpg, inv);
 }
 
