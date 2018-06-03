@@ -59,6 +59,13 @@ static void display_obj_stat(rpg_t *rpg, battle_t *battle,
 		pos.y += 50;
 	}
 	display_obj_stat_2(rpg, battle, obj);
+	sfText_setColor(battle->text, sfBlack);
+	sfText_setString(battle->text, "Press 'E' pour equiper l'objet");
+	pos.x = 1150;
+	pos.y = 260;
+	sfText_setCharacterSize(battle->text, 40);
+	sfText_setPosition(battle->text, pos);
+	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
 }
 
 static void check_obj_slot(rpg_t *rpg, inventory_t *inv, int i)

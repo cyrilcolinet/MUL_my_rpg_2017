@@ -36,6 +36,7 @@ void load_player_equipment(rpg_t *rpg, inventory_t *inventory)
 	inventory->obj[0]->pos.x = 0;
 	inventory->obj[0]->pos.y = 0;
 	inventory->obj[0]->type = 0;
+	inventory->obj[0]->name = "leather armor";
 	inventory->obj[1]->unlock = true;
 	inventory->obj[1]->pos.x = 3;
 	inventory->obj[1]->pos.y = 2;
@@ -44,4 +45,5 @@ void load_player_equipment(rpg_t *rpg, inventory_t *inventory)
 	inventory->obj[1]->dmg = 45;
 	inventory->obj[1]->armor = 85;
 	inventory->obj[1]->magic = -4;
+	inventory->obj[1]->name = "swordddd";
 }

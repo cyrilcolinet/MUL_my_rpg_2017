@@ -103,7 +103,7 @@ void draw_stat_player(rpg_t *rpg, battle_t *battle)
 	sfText_setPosition(battle->text, pos);
 	sfText_setString(battle->text, rpg->player->name);
 	sfRenderWindow_drawText(rpg->win, battle->text, NULL);
-	pos.x += 300;
+	pos.x += 550;
 	sfText_setPosition(battle->text, pos);
 	sfText_setString(battle->text, "LVL:");
 	sfRenderWindow_drawText(rpg->win, battle->text, NULL);

@@ -9,11 +9,22 @@
 
 static void draw_slot(rpg_t *rpg, inventory_t *inv, int i)
 {
+	sfVector2f pos = sfRectangleShape_getPosition(inv->slot[i]);
+
 	sfRectangleShape_setFillColor(inv->slot[i], sfBlue);
 	for (int j = 0; j < 4; j++) {
 		if (inv->obj[j]->unlock
 		&& inv->obj[j]->pos.x + inv->obj[j]->pos.y * 4 == i) {
 			sfRectangleShape_setFillColor(inv->slot[i], sfYellow);
+			if (my_strlen(inv->obj[j]->name) > 8)
+				pos.x -= 20;
+			pos.y += 100;
+			sfText_setCharacterSize(rpg->battle->text, 24);
+			sfText_setPosition(rpg->battle->text, pos);
+			sfText_setColor(rpg->battle->text, sfBlack);
+			sfText_setString(rpg->battle->text, inv->obj[j]->name);
+			sfRenderWindow_drawText(
+				rpg->win, rpg->battle->text, NULL);
 		}
 	}
 	sfRenderWindow_drawRectangleShape(rpg->win, inv->slot[i], NULL);
