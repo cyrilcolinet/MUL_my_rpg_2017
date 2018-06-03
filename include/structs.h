@@ -246,6 +246,7 @@ typedef struct quest_t  {
 	pnj_t		**pnj;
 	bool		*unlock;
 	bool		*done;
+	char		**quete;
 	int		id;
 } quest_t;
 

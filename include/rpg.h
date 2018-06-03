@@ -182,6 +182,7 @@ void		go_out_city(rpg_t *, int);
 void		go_to_castle(rpg_t *, int);
 void		talk_to_trader(rpg_t *, int);
 void		talk_to_soldier(rpg_t *, int);
+void		display_message(rpg_t *, int, int, quest_t*);
 
 // main_view.c
 void 		play_view(rpg_t *);
@@ -243,5 +244,6 @@ void 		load_hero_datas(config_setting_t *, rpg_t *);
 void 		load_hero_spells_icons(rpg_t *);
 bool 		default_player(rpg_t *);
 void 		default_hero_datas(rpg_t *);
+void 		load_player_quest(rpg_t *);
 
 # endif
