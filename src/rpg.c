@@ -39,6 +39,7 @@ int rpg_main(int ac, char **av)
 	if (rpg == NULL)
 		return (84);
 
+	sfRenderWindow_setFramerateLimit(rpg->win, 60);
 	status = rpg_game(rpg);
 	exit_game(rpg);
 	free(rpg);
