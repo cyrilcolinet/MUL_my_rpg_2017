@@ -17,4 +17,5 @@ void go_to_spawn(rpg_t *rpg, int id)
 	/* rpg->state = gameWait; */
 	/* rpg->last_st = gameUnknown; */
 	/* reset_to_normal_rect(rpg); */
+	cb_goto_main_view(rpg, NULL);
 }
