@@ -33,5 +33,7 @@ bool end_battle(rpg_t *rpg, battle_t *battle)
 	}
 	end_battle_display(rpg, battle);
 	rpg->player->quest->id++;
+	rpg->player->level++;
+	rpg->player->skills += 5;
 	return (true);
 }
