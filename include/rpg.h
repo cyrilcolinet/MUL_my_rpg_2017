@@ -223,10 +223,11 @@ int		parse_arenas_values(map_t **, config_setting_t *);
 int 		parse_map_values(rpg_t *, config_setting_t *, int);
 int		parse_map(rpg_t *);
 bool		save_loader(rpg_t *, int);
-bool		player_parser(rpg_t *, char *name);
+bool		player_parser(rpg_t *, char *);
 void 		load_player_datas(config_setting_t *, rpg_t *);
 void		load_player_inventory(rpg_t *);
+void		load_player_equipment(rpg_t *, inventory_t *);
 void 		load_hero_datas(config_setting_t *, rpg_t *);
-void 		load_hero_spells_icons(rpg_t *rpg);
+void 		load_hero_spells_icons(rpg_t *);
 
 # endif
